@@ -1,6 +1,7 @@
 #!/bin/bash
-# Strong and weak scaling sweep of the distributed CBL benchmark on pelee / rondeau, for both
-# compressible dynamics. After `ocean_setup` and `source breeze_env.sh`:
+# Strong and weak scaling sweep of the distributed CBL benchmark on pelee / rondeau, for the two
+# compressible dynamics, plus the 1-GPU baseline of the anelastic model (which is not distributed
+# yet). After `ocean_setup` and `source breeze_env.sh`:
 #
 #     bash benchmarking/distributed/pelee_rondeau/run_scaling.sh
 #     bash benchmarking/distributed/pelee_rondeau/run_scaling.sh --time_steps=1000 --max_gpus=2
@@ -31,10 +32,11 @@ mkdir -p "$(dirname "$results_file")"
 # gpus, global size, partition
 cases=("1 256x256x128 1x1" "2 256x256x128 2x1" "4 256x256x128 2x2" "2 512x256x128 2x1" "4 512x512x128 2x2")
 
-for dynamics in compressible_explicit compressible_splitexplicit; do
+for dynamics in anelastic compressible_explicit compressible_splitexplicit; do
     for case in "${cases[@]}"; do
         read -r gpus size partition <<<"$case"
         (( gpus > max_gpus )) && continue
+        [[ $dynamics == anelastic && $gpus -gt 1 ]] && continue     # not distributed yet
         echo "== $dynamics, $gpus GPU(s), $size, partition $partition"
         bash "$OCEAN_HPC_ROOT/tools/run_local.sh" -n "$gpus" -p "$BREEZE_DISTRIBUTED_DIR" --wait \
             "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" \

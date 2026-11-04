@@ -12,7 +12,8 @@
 #####       --dynamics=compressible_splitexplicit --size=512x512x128 --partition=2x2
 #####
 ##### Options (all `--name=value`):
-#####   --dynamics         compressible_explicit | compressible_splitexplicit   (default compressible_splitexplicit)
+#####   --dynamics         anelastic (1 GPU only) | compressible_explicit | compressible_splitexplicit
+#####                                                                          (default compressible_splitexplicit)
 #####   --size             global grid, NxNyxNz                                (default 256x256x128)
 #####   --partition        ranks in x and y, RxxRy; must multiply to #ranks    (default <#ranks>x1)
 #####   --time_steps       timed steps                                         (default 100)
@@ -71,13 +72,16 @@ elseif dynamics_name == "compressible_splitexplicit"
     CompressibleDynamics(SplitExplicitTimeDiscretization(FT; substeps))
 elseif dynamics_name == "anelastic"
     # AnelasticDynamics builds a serial FourierTridiagonalPoissonSolver on each rank's local grid,
-    # which does not solve the global pressure problem. Refuse rather than time a wrong solve.
-    error("anelastic dynamics is not distributed in this Breeze version; see README.md (distributed pressure solver, Breeze PR 1157)")
+    # which does not solve the global pressure problem on several ranks. Refuse rather than time a
+    # wrong solve. On one rank the local grid is the global grid, so it is correct.
+    nranks == 1 || error("anelastic dynamics is not distributed in this Breeze version, so it runs on 1 GPU only; see README.md (distributed pressure solver, Breeze PR 1157)")
+    nothing  # `convective_boundary_layer` builds AnelasticDynamics when `dynamics` is `nothing`
 else
     error("Unknown --dynamics=$dynamics_name")
 end
 
-arch = Distributed(GPU(); partition = Partition(Rx, Ry))
+# One rank is the plain serial baseline, with no MPI machinery in the model.
+arch = nranks == 1 ? GPU() : Distributed(GPU(); partition = Partition(Rx, Ry))
 
 model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified)
 
