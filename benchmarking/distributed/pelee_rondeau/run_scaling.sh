@@ -16,6 +16,9 @@
 : "${OCEAN_HPC_ROOT:?run ocean_setup first}"
 : "${BREEZE_DISTRIBUTED_DIR:?source breeze_env.sh first}"
 
+busy=$(nvidia-smi --query-gpu=index,memory.used --format=csv,noheader,nounits | awk -F', ' '$2 > 500 {print "GPU " $1 ": " $2 " MiB"}')
+[[ -n $busy ]] && { echo "GPUs already in use, aborting:"; echo "$busy"; exit 1; }
+
 time_steps=500
 max_gpus=4
 results_file="${OCEAN_RESULTS_ROOT:-$PWD}/Breeze/scaling.csv"
@@ -30,7 +33,7 @@ done
 mkdir -p "$(dirname "$results_file")"
 
 # gpus, global size, partition
-cases=("1 256x256x128 1x1" "2 256x256x128 2x1" "4 256x256x128 2x2" "2 512x256x128 2x1" "4 512x512x128 2x2")
+cases=("1 256x256x128 1x1" "2 256x256x128 2x1" "2 256x256x128 1x2" "4 256x256x128 2x2" "4 256x256x128 4x1" "4 256x256x128 1x4" "2 512x256x128 2x1" "4 512x512x128 2x2")
 
 for dynamics in anelastic compressible_explicit compressible_splitexplicit; do
     for case in "${cases[@]}"; do
