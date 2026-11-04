@@ -81,9 +81,41 @@ source benchmarking/distributed/pelee_rondeau/breeze_env.sh      # puts Julia 1.
 The second line matters: without it you are on the platform's Julia 1.10.10, which cannot load this
 environment. It also sets `$BREEZE_DISTRIBUTED_DIR` (this benchmark's folder), used below.
 
+### Julia: which version, and how it gets installed
+
+- **Which.** This benchmark uses **Julia 1.11.9**. Breeze's `Project.toml` requires 1.11.9 or newer,
+  and the platform's tests and its own Julia stay on 1.10.10. The two live side by side, and
+  `breeze_env.sh` chooses 1.11.9 for you. Do not switch Julia versions on your own: the shared depot keeps
+  compiled files per Julia version, so a switch means a long recompile, and the platform moves to a newer
+  Julia only together with a planned Oceananigans upgrade.
+- **How it is installed.** You do nothing: `setup_breeze.sh` (section 3) downloads the official Linux
+  tarball from julialang.org, checks its SHA-256 against the checksum julialang.org publishes, and
+  unpacks it into `.../software/julia-1.11.9`. All projects share that one install, so it happens once.
+- **Check it.** After `source breeze_env.sh`, `julia --version` should print 1.11.9 and `which julia`
+  should point into `.../software/julia-1.11.9/bin`.
+- **If the download fails** (for example no internet access), do it by hand. On a machine that can
+  reach julialang.org, download `julia-1.11.9-linux-x86_64.tar.gz` from
+  `https://julialang-s3.julialang.org/bin/linux/x64/1.11/` and the checksum file
+  `https://julialang-s3.julialang.org/bin/checksums/julia-1.11.9.sha256`, copy both into the
+  `software` folder, and then:
+
+  ```bash
+  cd /mnt/autofs/bow.math/scratch/$USER/software
+  grep " julia-1.11.9-linux-x86_64.tar.gz$" julia-1.11.9.sha256 | sha256sum --check -    # must say OK
+  mkdir -p julia-1.11.9 && tar -xzf julia-1.11.9-linux-x86_64.tar.gz -C julia-1.11.9 --strip-components=1
+  ```
+
+  Then run `setup_breeze.sh` again; it sees the install and skips the download.
+- **Not the module.** The `julia/1.10.8` module on the servers is too old, and `ocean_setup` already
+  gives you the platform's 1.10.10. Use only the 1.11.9 from `breeze_env.sh` for this benchmark.
+
 ## 5. A first run: 1 GPU
 
+`run_local.sh` writes its logs to `logs/` in the folder you start it from. Start from a scratch folder
+**outside** the repository, so logs do not clutter `git status`:
+
 ```bash
+mkdir -p ../breeze_runs && cd ../breeze_runs      # from inside Breeze.jl; once
 bash $OCEAN_HPC_ROOT/tools/run_local.sh -n 1 -p $BREEZE_DISTRIBUTED_DIR \
     $BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl \
     --dynamics=compressible_explicit --size=256x256x128 --time_steps=300

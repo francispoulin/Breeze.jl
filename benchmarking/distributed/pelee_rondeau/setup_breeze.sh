@@ -32,7 +32,7 @@ fi
 julia --version
 
 echo "== 2. Packages"
-JULIA_PKG_PRECOMPILE_AUTO=0 julia --project="$project" -e 'using Pkg; Pkg.instantiate()'
+JULIA_PKG_PRECOMPILE_AUTO=0 julia --project="$project" -e 'using Pkg; Pkg.resolve(); Pkg.instantiate()'
 
 echo "== 3. System MPI"
 bash "$OCEAN_HPC_ROOT/setup/configure_mpi.sh" "$project"
