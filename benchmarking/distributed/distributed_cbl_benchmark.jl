@@ -108,13 +108,14 @@ local_max_w = maximum(abs, interior(model.velocities.w))
 max_w = MPI.Allreduce(Float64(local_max_w), max, comm)
 
 if rank == 0
+    machine           = gethostname()
     total_points      = Nx * Ny * Nz
     seconds_per_step  = elapsed / time_steps
     points_per_second = total_points / seconds_per_step
 
     # @printf needs a single string literal as its format, so this stays on one line.
-    @printf("RESULT dynamics=%s float=%s size=%dx%dx%d partition=%dx%d gpus=%d steps=%d seconds_per_step=%.4e points_per_second=%.4e points_per_second_per_gpu=%.4e max_abs_w=%.3e\n",
-            dynamics_name, FT, Nx, Ny, Nz, Rx, Ry, nranks, time_steps,
+    @printf("RESULT machine=%s dynamics=%s float=%s size=%dx%dx%d partition=%dx%d gpus=%d steps=%d seconds_per_step=%.4e points_per_second=%.4e points_per_second_per_gpu=%.4e max_abs_w=%.3e\n",
+            machine, dynamics_name, FT, Nx, Ny, Nz, Rx, Ry, nranks, time_steps,
             seconds_per_step, points_per_second, points_per_second / nranks, max_w)
 
     isfinite(max_w) || @warn "max |w| is not finite: the run blew up, so the timing above is not meaningful"
@@ -122,9 +123,9 @@ if rank == 0
     if !isempty(results_file)
         write_header = !isfile(results_file)
         open(results_file, "a") do io
-            write_header && println(io, "dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w")
-            @printf(io, "%s,%s,%d,%d,%d,%d,%d,%d,%d,%.6e,%.6e,%.6e\n",
-                    dynamics_name, FT, Nx, Ny, Nz, Rx, Ry, nranks, time_steps,
+            write_header && println(io, "machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w")
+            @printf(io, "%s,%s,%s,%d,%d,%d,%d,%d,%d,%d,%.6e,%.6e,%.6e\n",
+                    machine, dynamics_name, FT, Nx, Ny, Nz, Rx, Ry, nranks, time_steps,
                     seconds_per_step, points_per_second, max_w)
         end
     end

@@ -81,6 +81,9 @@ source benchmarking/distributed/pelee_rondeau/breeze_env.sh      # puts Julia 1.
 The second line matters: without it you are on the platform's Julia 1.10.10, which cannot load this
 environment. It also sets `$BREEZE_DISTRIBUTED_DIR` (this benchmark's folder), used below.
 
+Source `breeze_env.sh` **last**: it overrides other setups such as `ocean_setup_13`. Do not run `ocean_setup`
+again after it in the same terminal, or you are back on Julia 1.10.10.
+
 ### Julia: which version, and how it gets installed
 
 - **Which.** This benchmark uses **Julia 1.11.9**. Breeze's `Project.toml` requires 1.11.9 or newer,
@@ -137,11 +140,29 @@ The first run spends a few minutes compiling GPU kernels before anything is time
 log ends with one line like:
 
 ```
-RESULT dynamics=compressible_explicit float=Float32 size=256x256x128 partition=1x1 gpus=1 steps=300 seconds_per_step=... points_per_second=... points_per_second_per_gpu=... max_abs_w=...
+RESULT machine=pelee dynamics=compressible_explicit float=Float32 size=256x256x128 partition=1x1 gpus=1 steps=300 seconds_per_step=... points_per_second=... points_per_second_per_gpu=... max_abs_w=...
 ```
 
 - `points_per_second` uses the **global** number of grid points; higher is faster.
 - `max_abs_w` is a blow-up check. If it is `NaN` or huge, the run went unstable and the timing means nothing.
+
+### What you should roughly see
+
+Measured on pelee (A100-40GB), Float32, 256x256x128, `--time_step=0.05`, 100 timed steps:
+
+| Dynamics | GPUs | ms per step | points per second |
+|----------|------|-------------|-------------------|
+| `anelastic` | 1 | 22.8 | 3.67e8 |
+| `compressible_explicit` | 1 | 22.8 | 3.67e8 |
+| `compressible_splitexplicit` | 1 | 82.4 | 1.02e8 |
+| `compressible_splitexplicit` | 2 (2x1) | 69.3 | 1.21e8 (6.05e7 per GPU) |
+
+`max_abs_w` is about 3e-2 in all of them. Things to keep in mind:
+
+- Cost **per step** is not cost per **simulated second**. Split-explicit does extra substeps each step but can
+  take a larger `--time_step`, so compare the models at the largest stable step of each.
+- Two GPUs gave a 1.19x speedup (59% efficiency) on this grid: halo exchange costs a lot on a grid this small.
+- Compare numbers from the same machine only, and repeat runs: a single 100-step run is noisy.
 
 ## 6. Several GPUs
 
@@ -198,7 +219,9 @@ How to read the table (with `t(N)` the `seconds_per_step` on `N` GPUs):
 | A multi-GPU run seems to hang after the timed steps | Rank 0 may have crashed while the others wait. Read the log from the top for the first `ERROR`, then `kill <pid>`. |
 | `max_abs_w=NaN` | The run blew up. Reduce `--time_step`. |
 | MPI errors at the start, or `MPI.has_cuda()` is `false` | MPI is not set up for this folder. Run `bash $OCEAN_HPC_ROOT/tools/check_env.sh $BREEZE_DISTRIBUTED_DIR`, then redo section 3. |
-| `check_env.sh` warns that the Julia version differs | Expected here: this benchmark uses Julia 1.11.9, the platform's tests use 1.10.10. |
+| `check_env.sh` warns that the Julia version differs | Expected here: this benchmark uses Julia 1.11.9, the platform's tests use 1.10.10. Ignore its advice to run `install_julia.sh`. |
+| CUDA warnings that a library is "loaded from a system path" | Harmless so far; the runs are correct. |
+| `Unsatisfiable requirements ... StyledStrings` | A Manifest made by another Julia is in the folder. `setup_breeze.sh` now removes it; rerun section 3. |
 | Out of GPU memory | Smaller `--size`, or more GPUs. |
 | `Resource temporarily unavailable` while compiling | Too many compile tasks. The platform sets 2; do not raise `JULIA_NUM_PRECOMPILE_TASKS`. |
 

@@ -32,10 +32,25 @@ fi
 julia --version
 
 echo "== 2. Packages"
+# A Manifest made by another Julia series (e.g. 1.10) cannot be resolved by 1.11: start afresh.
+manifest="$project/Manifest.toml"
+if [[ -f "$manifest" ]] && ! grep -q "^julia_version = \"${BREEZE_JULIA_VERSION%.*}\." "$manifest"; then
+    echo "   removing a Manifest made by another Julia series"
+    rm "$manifest"
+fi
 JULIA_PKG_PRECOMPILE_AUTO=0 julia --project="$project" -e 'using Pkg; Pkg.resolve(); Pkg.instantiate()'
 
 echo "== 3. System MPI"
-bash "$OCEAN_HPC_ROOT/setup/configure_mpi.sh" "$project"
+# configure_mpi.sh sources ocean_setup.sh, which puts the platform's Julia 1.10.10 first on PATH,
+# and its package step then fails on a Manifest made by Julia 1.11 (StyledStrings is a stdlib only
+# in 1.11). The environment is already loaded here, with the right Julia first, so run the script
+# with that one line removed. Stop if the platform's script no longer has exactly one such line.
+configure_mpi="$OCEAN_HPC_ROOT/setup/configure_mpi.sh"
+if [[ "$(grep -c 'ocean_setup.sh"$' "$configure_mpi")" -ne 1 ]]; then
+    echo "ERROR: expected exactly one ocean_setup.sh line in $configure_mpi; has the platform changed?" >&2
+    exit 1
+fi
+bash <(sed '/ocean_setup.sh"$/d' "$configure_mpi") "$project"
 
 echo "== 4. Precompile and check"
 julia --project="$project" -e '
