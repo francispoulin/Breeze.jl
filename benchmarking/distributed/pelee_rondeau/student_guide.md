@@ -51,7 +51,7 @@ global solve, which is the hard part to distribute. That difference is what this
 
   ```bash
   cd /mnt/autofs/bow.math/scratch/$USER/software
-  git clone git@github.com:<owner>/Breeze.jl.git && cd Breeze.jl
+  git clone git@github.com:francispoulin/Breeze.jl.git && cd Breeze.jl
   git switch fjp/distributed-benchmark
   ```
 
