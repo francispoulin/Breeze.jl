@@ -68,6 +68,7 @@ function convective_boundary_layer(arch = CPU();
                                    topology = (Periodic, Periodic, Bounded),
                                    grid_type = :rectilinear,
                                    simplified = false,
+                                   random_perturbation = true,
                                    )
 
     # Set floating point precision
@@ -202,7 +203,8 @@ function convective_boundary_layer(arch = CPU();
     δθ = 0.25       # K, perturbation amplitude
     z_pert = 400.0  # m, depth of perturbations
 
-    θᵢ(x, y, z) = θ̄(z) + δθ * (2 * rand() - 1) * (z < z_pert)
+    perturbation(x, y, z) = random_perturbation ? 2 * rand() - 1 : sinpi(x / Lx) * sinpi(y / Ly) * sinpi(z / z_pert)
+    θᵢ(x, y, z) = θ̄(z) + δθ * perturbation(x, y, z) * (z < z_pert)
     uᵢ(x, y, z) = Uᵍ
     vᵢ(x, y, z) = Vᵍ
 
