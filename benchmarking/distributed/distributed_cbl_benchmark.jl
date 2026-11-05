@@ -59,6 +59,8 @@ Rx, Ry        = parse_dimensions(option("partition", "$(nranks)x1"))
 time_steps    = parse(Int, option("time_steps", "100"))
 warmup_steps  = parse(Int, option("warmup_steps", "10"))
 Δt            = parse(Float64, option("time_step", "0.05"))
+communicator  = option("communicator", "MPI")       # MPI or NCCL
+communicator  == "NCCL" && @eval using NCCL
 substeps      = parse(Int, option("substeps", "12"))
 FT            = option("float_type", "Float32") == "Float64" ? Float64 : Float32
 simplified    = option("simplified", "false") == "true"
@@ -81,7 +83,9 @@ else
 end
 
 # One rank is the plain serial baseline, with no MPI machinery in the model.
-arch = nranks == 1 ? GPU() : Distributed(GPU(); partition = Partition(Rx, Ry))
+arch = nranks == 1 ? GPU() :
+       communicator == "NCCL" ? Oceananigans.DistributedComputations.NCCLDistributed(GPU(); partition = Partition(Rx, Ry)) :
+       Distributed(GPU(); partition = Partition(Rx, Ry))
 
 model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified)
 
