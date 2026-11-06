@@ -5,8 +5,8 @@
 #
 #     bash benchmarking/distributed/pelee_rondeau/setup_breeze.sh
 #
-# It (1) checks that Manifest.toml was made with the platform's Julia (if not, it is made afresh, to
-# commit), (2) installs the packages and points MPI at the system CUDA-aware OpenMPI with the
+# It (1) brings Manifest.toml up to date: made afresh if another Julia made it, else resolved, which
+# keeps every version that Project.toml (and Breeze's own compat) still allows; (2) installs the packages and points MPI at the system CUDA-aware OpenMPI with the
 # platform's configure_mpi.sh, and (3) checks that CUDA and CUDA-aware MPI work.
 
 : "${OCEAN_HPC_ROOT:?run ocean_setup first}"
@@ -19,10 +19,11 @@ set -eo pipefail          # after the environment is loaded, as module commands 
 echo "== 1. Manifest"
 julia_version="$(julia --startup-file=no -e 'print(VERSION)')"
 manifest="$project/Manifest.toml"
-if [[ ! -f "$manifest" ]] || ! grep -q "^julia_version = \"$julia_version\"" "$manifest"; then
-    [[ -f "$manifest" ]] && echo "   made with another Julia ($(grep -m1 julia_version "$manifest")): making it afresh" && rm "$manifest"
-    JULIA_PKG_PRECOMPILE_AUTO=0 julia --project="$project" -e 'using Pkg; Pkg.resolve()'
+if [[ -f "$manifest" ]] && ! grep -q "^julia_version = \"$julia_version\"" "$manifest"; then
+    echo "   made with another Julia ($(grep -m1 julia_version "$manifest")): making it afresh"
+    rm "$manifest"
 fi
+JULIA_PKG_PRECOMPILE_AUTO=0 julia --project="$project" -e 'using Pkg; Pkg.resolve()'
 grep -m1 julia_version "$manifest"
 
 echo "== 2. Packages and system MPI (oceananigans-hpc's configure_mpi.sh)"
