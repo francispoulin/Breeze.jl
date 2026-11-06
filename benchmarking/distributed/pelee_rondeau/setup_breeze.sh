@@ -6,7 +6,8 @@
 #     bash benchmarking/distributed/pelee_rondeau/setup_breeze.sh
 #
 # It (1) brings Manifest.toml up to date: made afresh if another Julia made it, else resolved, which
-# keeps every version that Project.toml (and Breeze's own compat) still allows; (2) installs the
+# keeps every version that Project.toml (and Breeze's own compat) still allows, or, if a compat bound
+# moved, updates Oceananigans and Breeze only; (2) installs the
 # packages and points MPI at the system CUDA-aware OpenMPI with the platform's configure_mpi.sh;
 # and (3) checks that CUDA and CUDA-aware MPI work.
 
@@ -24,7 +25,13 @@ if [[ -f "$manifest" ]] && ! grep -q "^julia_version = \"$julia_version\"" "$man
     echo "   made with another Julia ($(grep -m1 julia_version "$manifest")): making it afresh"
     rm "$manifest"
 fi
-JULIA_PKG_PRECOMPILE_AUTO=0 julia --project="$project" -e 'using Pkg; Pkg.resolve()'
+# Pkg.resolve() keeps every version in the Manifest; when a compat bound moved past one (a pull that
+# raises Oceananigans' compat, say), it fails. Then let Oceananigans and Breeze move, with the
+# indirect dependencies they need, and keep the direct ones (CUDA, MPI, NCCL) where they are.
+if ! JULIA_PKG_PRECOMPILE_AUTO=0 julia --project="$project" -e 'using Pkg; Pkg.resolve()'; then
+    echo "   a compat bound moved: updating Oceananigans and Breeze, keeping the other direct dependencies"
+    JULIA_PKG_PRECOMPILE_AUTO=0 julia --project="$project" -e 'using Pkg; Pkg.update(["Oceananigans", "Breeze"]; preserve=Pkg.PRESERVE_DIRECT)'
+fi
 grep -m1 julia_version "$manifest"
 
 echo "== 2. Packages and system MPI (oceananigans-hpc's configure_mpi.sh)"
