@@ -6,8 +6,9 @@
 #     bash benchmarking/distributed/pelee_rondeau/setup_breeze.sh
 #
 # It (1) brings Manifest.toml up to date: made afresh if another Julia made it, else resolved, which
-# keeps every version that Project.toml (and Breeze's own compat) still allows; (2) installs the packages and points MPI at the system CUDA-aware OpenMPI with the
-# platform's configure_mpi.sh, and (3) checks that CUDA and CUDA-aware MPI work.
+# keeps every version that Project.toml (and Breeze's own compat) still allows; (2) installs the
+# packages and points MPI at the system CUDA-aware OpenMPI with the platform's configure_mpi.sh;
+# and (3) checks that CUDA and CUDA-aware MPI work.
 
 : "${OCEAN_HPC_ROOT:?run ocean_setup first}"
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
