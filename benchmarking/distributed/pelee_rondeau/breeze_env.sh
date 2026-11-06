@@ -4,16 +4,19 @@
 #     ocean_setup
 #     source benchmarking/distributed/pelee_rondeau/breeze_env.sh
 #
-# ocean_setup gives the platform's Julia (1.10.10); Breeze needs >= 1.11.9, so put that Julia first
-# on PATH. Everything else (modules, depot, system MPI, run_local.sh) comes from ocean_setup.
+# Julia, modules, depot, system MPI and run_local.sh all come from ocean_setup (the oceananigans-hpc
+# platform). This checks that its Julia is new enough for Breeze and sets $BREEZE_DISTRIBUTED_DIR.
 
 : "${OCEAN_HPC_ROOT:?run ocean_setup first}"
 
-# Julia installs live next to the oceananigans-hpc clone, as the platform's own does.
-export BREEZE_SOFTWARE_DIR="${BREEZE_SOFTWARE_DIR:-$(dirname "$OCEAN_HPC_ROOT")}"
-export BREEZE_JULIA_VERSION="${BREEZE_JULIA_VERSION:-1.11.9}"
 export BREEZE_DISTRIBUTED_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-export PATH="$BREEZE_SOFTWARE_DIR/julia-$BREEZE_JULIA_VERSION/bin:$PATH"
-
-echo "Breeze environment: $(julia --version 2>&1), project=$BREEZE_DISTRIBUTED_DIR"
+breeze_julia="$(julia --version 2>/dev/null | awk '{print $3}')"
+if [[ "$(printf '%s\n' 1.11.9 "$breeze_julia" | sort -V | head -1)" != 1.11.9 ]]; then
+    echo "Breeze needs Julia >= 1.11.9; ocean_setup gives '${breeze_julia:-none}'. Update the platform:"
+    echo "    bash \$OCEAN_HPC_ROOT/setup/update.sh"
+    unset breeze_julia
+    return 1 2>/dev/null || exit 1
+fi
+echo "Breeze environment: julia $breeze_julia, project=$BREEZE_DISTRIBUTED_DIR"
+unset breeze_julia
