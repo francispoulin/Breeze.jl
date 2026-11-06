@@ -64,53 +64,26 @@ bash benchmarking/distributed/pelee_rondeau/setup_breeze.sh
 
 This takes a while (it compiles Breeze and its dependencies). What it does, so you know what to look for:
 
-1. Installs **Julia 1.11.9** next to the platform's Julia 1.10.10. Breeze needs 1.11.9 or newer; the platform's Julia is older.
-2. Installs the packages listed in `benchmarking/distributed/Project.toml`. Breeze comes from your checkout, so you test the code you have.
-3. Points MPI at the system CUDA-aware OpenMPI (the platform's `configure_mpi.sh`).
-4. Compiles and prints two lines you should check: `CUDA functional: true` and `MPI.has_cuda() ... true`.
+1. Checks that `Manifest.toml` (the exact package versions, tracked in git) was made with the platform's Julia.
+2. Installs those packages (Breeze comes from your checkout, so you test the code you have) and points MPI at
+   the system CUDA-aware OpenMPI, with the platform's `configure_mpi.sh`.
+3. Prints `CUDA functional: true; MPI.has_cuda() (CUDA-aware MPI): true`, and stops with an error if either is false.
 
-Last, it prints the Manifest's Julia version, which should be 1.11.9.
+Run it again whenever the platform moves to a new Julia or a `git pull` changes `Manifest.toml`.
 
 ## 4. Every new terminal
 
 ```bash
 ocean_setup
-source benchmarking/distributed/pelee_rondeau/breeze_env.sh      # puts Julia 1.11.9 first
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh      # checks Julia, sets $BREEZE_DISTRIBUTED_DIR
 ```
 
-The second line matters: without it you are on the platform's Julia 1.10.10, which cannot load this
-environment. It also sets `$BREEZE_DISTRIBUTED_DIR` (this benchmark's folder), used below.
+`breeze_env.sh` sets `$BREEZE_DISTRIBUTED_DIR` (this benchmark's folder), used below.
 
-Source `breeze_env.sh` **last**: it overrides other setups such as `ocean_setup_13`. Do not run `ocean_setup`
-again after it in the same terminal, or you are back on Julia 1.10.10.
-
-### Julia: which version, and how it gets installed
-
-- **Which.** This benchmark uses **Julia 1.11.9**. Breeze's `Project.toml` requires 1.11.9 or newer,
-  and the platform's tests and its own Julia stay on 1.10.10. The two live side by side, and
-  `breeze_env.sh` chooses 1.11.9 for you. Do not switch Julia versions on your own: the shared depot keeps
-  compiled files per Julia version, so a switch means a long recompile, and the platform moves to a newer
-  Julia only together with a planned Oceananigans upgrade.
-- **How it is installed.** You do nothing: `setup_breeze.sh` (section 3) downloads the official Linux
-  tarball from julialang.org, checks its SHA-256 against the checksum julialang.org publishes, and
-  unpacks it into `.../software/julia-1.11.9`. All projects share that one install, so it happens once.
-- **Check it.** After `source breeze_env.sh`, `julia --version` should print 1.11.9 and `which julia`
-  should point into `.../software/julia-1.11.9/bin`.
-- **If the download fails** (for example no internet access), do it by hand. On a machine that can
-  reach julialang.org, download `julia-1.11.9-linux-x86_64.tar.gz` from
-  `https://julialang-s3.julialang.org/bin/linux/x64/1.11/` and the checksum file
-  `https://julialang-s3.julialang.org/bin/checksums/julia-1.11.9.sha256`, copy both into the
-  `software` folder, and then:
-
-  ```bash
-  cd /mnt/autofs/bow.math/scratch/$USER/software
-  grep " julia-1.11.9-linux-x86_64.tar.gz$" julia-1.11.9.sha256 | sha256sum --check -    # must say OK
-  mkdir -p julia-1.11.9 && tar -xzf julia-1.11.9-linux-x86_64.tar.gz -C julia-1.11.9 --strip-components=1
-  ```
-
-  Then run `setup_breeze.sh` again; it sees the install and skips the download.
-- **Not the module.** The `julia/1.10.8` module on the servers is too old, and `ocean_setup` already
-  gives you the platform's 1.10.10. Use only the 1.11.9 from `breeze_env.sh` for this benchmark.
+**Julia** comes from the platform: `ocean_setup` gives the Julia that oceananigans-hpc uses on every
+machine (1.13.2; check with `julia --version`). Breeze needs 1.11.9 or newer, and `breeze_env.sh` stops with
+a message if the platform's Julia is older. You never install Julia yourself; when the platform moves to a
+new Julia, Francis updates it (`setup/update.sh`) and you rerun `setup_breeze.sh`.
 
 ## 5. A first run: 1 GPU
 
@@ -219,9 +192,8 @@ How to read the table (with `t(N)` the `seconds_per_step` on `N` GPUs):
 | A multi-GPU run seems to hang after the timed steps | Rank 0 may have crashed while the others wait. Read the log from the top for the first `ERROR`, then `kill <pid>`. |
 | `max_abs_w=NaN` | The run blew up. Reduce `--time_step`. |
 | MPI errors at the start, or `MPI.has_cuda()` is `false` | MPI is not set up for this folder. Run `bash $OCEAN_HPC_ROOT/tools/check_env.sh $BREEZE_DISTRIBUTED_DIR`, then redo section 3. |
-| `check_env.sh` warns that the Julia version differs | Expected here: this benchmark uses Julia 1.11.9, the platform's tests use 1.10.10. Ignore its advice to run `install_julia.sh`. |
-| CUDA warnings that a library is "loaded from a system path" | Harmless so far; the runs are correct. |
-| `Unsatisfiable requirements ... StyledStrings` | A Manifest made by another Julia is in the folder. `setup_breeze.sh` now removes it; rerun section 3. |
+| `check_env.sh` warns that the Manifest's Julia differs | The platform moved to a new Julia. Rerun section 3 (it remakes `Manifest.toml`), then commit it. |
+| `CUDA functional: false` | The GPU's driver is too old for CUDA.jl's runtime (rondeau, Nov 2026). `JULIA_DEBUG=CUDA_Driver_jll julia --project=$BREEZE_DISTRIBUTED_DIR -e 'using CUDA; CUDA.versioninfo()'` says why; tell Francis. |
 | Out of GPU memory | Smaller `--size`, or more GPUs. |
 | `Resource temporarily unavailable` while compiling | Too many compile tasks. The platform sets 2; do not raise `JULIA_NUM_PRECOMPILE_TASKS`. |
 
@@ -234,7 +206,7 @@ output of `git log --oneline -1` in `Breeze.jl`.
 |------|-------|
 | This benchmark | `.../software/Breeze.jl/benchmarking/distributed/` (`README.md` is the generic version of this guide) |
 | The platform | `.../software/oceananigans-hpc` (`$OCEAN_HPC_ROOT`) |
-| Julia 1.10.10 and 1.11.9 | `.../software/julia-1.10.10`, `.../software/julia-1.11.9` |
+| Julia (the platform's) | `.../software/julia-<version>` (`which julia` after `ocean_setup`) |
 | Julia packages (the depot) | `/mnt/autofs/bow.math/scratch/$USER/julia_depot` |
 | Logs | `logs/` in the folder you ran `run_local.sh` from |
 | Scaling results | `$OCEAN_RESULTS_ROOT/Breeze/scaling.csv` |

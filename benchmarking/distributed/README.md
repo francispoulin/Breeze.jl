@@ -65,13 +65,14 @@ RESULT machine=... dynamics=... float=... size=... partition=... gpus=... steps=
 
 ## pelee and rondeau (Waterloo fluids group)
 
-`pelee_rondeau/` sets this up on top of the oceananigans-hpc platform, which provides the modules, the Julia
-depot, the system OpenMPI and `tools/run_local.sh` (free-GPU selection, one GPU per rank, logging). It is
-specific to those machines and can be ignored elsewhere.
+`pelee_rondeau/` sets this up on top of the oceananigans-hpc platform, which provides Julia (1.13.2), the
+modules, the Julia depot, the system OpenMPI and `tools/run_local.sh` (free-GPU selection, one GPU per rank, logging). It is
+specific to those machines and can be ignored elsewhere. `Manifest.toml` is tracked in this folder: it is
+the exact package versions the benchmark numbers were measured with (made with the platform's Julia).
 
 ```bash
 ocean_setup
-bash benchmarking/distributed/pelee_rondeau/setup_breeze.sh        # once; installs Julia >= 1.11.9, MPI setup
+bash benchmarking/distributed/pelee_rondeau/setup_breeze.sh        # once; packages, system MPI, checks
 source benchmarking/distributed/pelee_rondeau/breeze_env.sh        # in every new terminal, after ocean_setup
 
 bash $OCEAN_HPC_ROOT/tools/run_local.sh -n 2 -p $BREEZE_DISTRIBUTED_DIR \

@@ -1,2 +1,5 @@
 LocalPreferences.toml
 logs/
+# The Manifest is tracked here (the repository ignores Manifests elsewhere): it records the exact
+# versions behind the benchmark numbers. LocalPreferences.toml is machine-specific.
+!Manifest.toml
