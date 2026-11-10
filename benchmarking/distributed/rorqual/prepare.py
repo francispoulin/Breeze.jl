@@ -15,7 +15,7 @@ if (study / "plan.json").exists():
 plan = build_plan()
 write_json(study / "plan.json", plan)
 files = subprocess.check_output(["git", "ls-files", "src", "ext", "benchmarking/src"], cwd=REPO, text=True).splitlines()
-paths = [REPO / name for name in files] + [REPO / "Project.toml", PROJECT / "distributed_cbl_benchmark.jl"]
+paths = [REPO / name for name in files] + [REPO / "AGENTS.md", REPO / "Project.toml", PROJECT / "distributed_cbl_benchmark.jl"]
 paths += list((PROJECT / "rorqual").glob("*.py")) + list((PROJECT / "rorqual").glob("*.sh"))
 paths += [PROJECT / name for name in ("Project.toml", "Manifest.toml", "LocalPreferences.toml")]
 paths += [Path("/home/anditse/Oceananigans-DRAC/env") / name for name in ("ocean_setup.sh", "drac.sh", "julia.sh")]
@@ -25,6 +25,6 @@ for name in ("Project.toml", "Manifest.toml", "LocalPreferences.toml"):
 for arguments, name in ((["git", "rev-parse", "HEAD"], "source_commit.txt"), (["git", "status", "--short"], "source_status.txt"),
                         (["git", "diff", "--binary"], "source_changes.patch")):
     (study / "provenance" / name).write_text(subprocess.check_output(arguments, cwd=REPO, text=True))
-subprocess.run(["tar", "-czf", str(study / "provenance/source.tar.gz"), "-C", str(REPO),
-                "src", "ext", "Project.toml", "benchmarking/src", "benchmarking/distributed"], check=True)
+subprocess.run(["tar", "--exclude=__pycache__", "-czf", str(study / "provenance/source.tar.gz"), "-C", str(REPO),
+                "src", "ext", "AGENTS.md", "Project.toml", "benchmarking/src", "benchmarking/distributed"], check=True)
 print(f"Prepared {len(plan)} cases in {study}")

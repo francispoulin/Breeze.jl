@@ -49,6 +49,7 @@ def validate(case, directory, returncode):
     if returncode:
         raise RuntimeError(f"srun failed with exit code {returncode}")
     placements = set()
+    final_device_memory = []
     for rank in range(case["gpus"]):
         log = (directory / f"rank_{rank}.log").read_text()
         placement = re.findall(r"PLACEMENT rank=(\d+) host=(\S+) gpu_uuid=(\S+) communicator=(\S+) threads=(\d+) pool=(\S+)", log)
@@ -59,8 +60,10 @@ def validate(case, directory, returncode):
         if (int(found_rank), communicator, threads, pool) != (rank, expected, "1", "none"):
             raise RuntimeError(f"Rank {rank}: unexpected placement/environment {placement}")
         placements.add((host, uuid))
-        if not re.search(fr"VALIDATION rank={rank} fields_finite=true gpu_used_bytes=\d+", log):
+        validation = re.search(fr"VALIDATION rank={rank} fields_finite=true gpu_used_bytes=(\d+)", log)
+        if validation is None:
             raise RuntimeError(f"Rank {rank}: finite-field validation missing")
+        final_device_memory.append(int(validation[1]))
     if len(placements) != case["gpus"]:
         raise RuntimeError("Ranks share a GPU")
     with (directory / "measurement.csv").open() as handle:
@@ -84,6 +87,8 @@ def validate(case, directory, returncode):
                     samples.append(float(columns[2].strip()))
                 except ValueError:
                     pass
+    row["points_per_second_per_gpu"] = float(row["points_per_second"]) / case["gpus"]
+    row["max_final_device_memory_bytes"] = max(final_device_memory)
     row["max_sampled_process_memory_mib"] = max(samples) if samples else ""
     return row
 

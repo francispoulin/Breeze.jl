@@ -44,3 +44,9 @@ Run `python3 -m unittest discover -s benchmarking/distributed/rorqual -p 'test_*
 After execution, rerun `report.py STUDY_DIR` using the plotting virtual environment, inspect all
 case status/log files and Slurm accounting, and commit/push the completed results on
 `benchmark-results`. Do not label queued, running, or failed cases as completed measurements.
+
+To retain results after the interactive session ends, start `watch.py STUDY_DIR JOB_ID` with
+`nohup` on the login node. It records scheduler/accounting state, regenerates reports, commits
+only the study directory on `benchmark-results`, and pushes to `origin` after the allocation ends.
+It records incomplete studies as incomplete; its commit message states the validated case count.
+GitHub authentication must be available on the login node for the final push.
