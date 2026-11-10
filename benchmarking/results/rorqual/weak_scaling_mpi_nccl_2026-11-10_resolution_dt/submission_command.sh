@@ -1,0 +1,1 @@
+sbatch --parsable --output=/home/anditse/Breeze.jl/benchmarking/results/rorqual/weak_scaling_mpi_nccl_2026-11-10_resolution_dt/slurm-%j.out benchmarking/distributed/rorqual/series.sh /home/anditse/Breeze.jl/benchmarking/results/rorqual/weak_scaling_mpi_nccl_2026-11-10_resolution_dt

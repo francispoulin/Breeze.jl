@@ -1,0 +1,16 @@
+{
+  "job_id": "26313924",
+  "submitted": "2026-11-10T18:21:08.987621+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--output=/home/anditse/Breeze.jl/benchmarking/results/rorqual/weak_scaling_mpi_nccl_2026-11-10_resolution_dt/slurm-%j.out",
+    "benchmarking/distributed/rorqual/series.sh",
+    "/home/anditse/Breeze.jl/benchmarking/results/rorqual/weak_scaling_mpi_nccl_2026-11-10_resolution_dt"
+  ],
+  "nodes": 4,
+  "gpus": 16,
+  "walltime": "03:00:00",
+  "cases": 18,
+  "nsight": false
+}

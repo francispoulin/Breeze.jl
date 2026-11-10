@@ -1,0 +1,32 @@
+== 1. Manifest
+ERROR: expected package `MSVCRuntime_jll [ce32ce21]` to be registered
+Stacktrace:
+  [1] pkgerror(msg::String)
+    @ Pkg.Types /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/Types.jl:68
+  [2] check_registered(registries::Vector{Pkg.Registry.RegistryInstance}, pkgs::Vector{PackageSpec})
+    @ Pkg.Operations /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/Operations.jl:2209
+  [3] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}, level::UpgradeLevel; skip_writing_project::Bool, preserve::Nothing)
+    @ Pkg.Operations /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/Operations.jl:2685
+  [4] up
+    @ /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/Operations.jl:2660 [inlined]
+  [5] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}; level::UpgradeLevel, mode::PackageMode, preserve::Nothing, update_registry::Bool, skip_writing_project::Bool, workspace::Bool, kwargs::@Kwargs{})
+    @ Pkg.API /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/API.jl:480
+  [6] up
+    @ /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/API.jl:447 [inlined]
+  [7] up
+    @ /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/API.jl:177 [inlined]
+  [8] #resolve#174
+    @ /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/API.jl:486 [inlined]
+  [9] resolve
+    @ /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/API.jl:485 [inlined]
+ [10] resolve(; io::IOContext{IO}, kwargs::@Kwargs{})
+    @ Pkg.API /scratch/anditse/software/julia-1.13.2/share/julia/stdlib/v1.13/Pkg/src/API.jl:484
+ [11] top-level scope
+    @ none:1
+ [12] eval(m::Module, e::Any)
+    @ Core ./boot.jl:489
+ [13] exec_options(opts::Base.JLOptions)
+    @ Base ./client.jl:310
+ [14] _start()
+    @ Base ./client.jl:577
+   a compat bound moved: updating Oceananigans and Breeze, keeping the other direct dependencies

@@ -1,0 +1,344 @@
+== 1. Manifest
+ Downloading artifact: CUDA_Compiler
+
+  1 dependency had output during precompilation:
+┌ CUDA_Runtime_jll
+│  [Output was shown above]
+└
+   Installed CUPTI ─────────────────────── v6.4.2
+   Installed LLVMExtra_jll ─────────────── v0.0.56+0
+   Installed ChunkCodecLibZstd ─────────── v1.0.0
+   Installed MSVCRuntime_jll ───────────── v14.51.36247+0
+   Installed Glob ──────────────────────── v1.5.0
+   Installed cuSOLVER ──────────────────── v6.4.2
+   Installed MacroTools ────────────────── v0.5.16
+   Installed Quaternions ───────────────── v0.7.7
+   Installed cuRAND ────────────────────── v6.4.2
+   Installed NVTX ──────────────────────── v1.0.3
+   Installed Adapt ─────────────────────── v4.8.0
+   Installed MPI ───────────────────────── v0.20.29
+   Installed PkgVersion ────────────────── v0.3.3
+   Installed ConstructionBase ──────────── v1.6.0
+   Installed JLD2 ──────────────────────── v0.6.7
+   Installed MKL_jll ───────────────────── v2025.2.0+0
+   Installed tree_sitter_gcn_jll ───────── v0.1.0+0
+   Installed LibTracyClient_jll ────────── v0.13.1+0
+   Installed SeawaterPolynomials ───────── v0.3.11
+   Installed MPICH_jll ─────────────────── v5.0.3+0
+   Installed oneTBB_jll ────────────────── v2023.1.0+0
+   Installed CompilerCaching ───────────── v0.5.3
+   Installed Krylov ────────────────────── v0.10.12
+   Installed GPUCompiler ───────────────── v2.21.0
+   Installed CUDACore ──────────────────── v6.4.2
+   Installed CUDA_Compiler_jll ─────────── v0.6.4+0
+   Installed ReactantCore ──────────────── v0.1.26
+   Installed demumble_jll ──────────────── v1.3.0+0
+   Installed ExpressionExplorer ────────── v1.1.6
+   Installed ExprTools ─────────────────── v0.1.11
+   Installed OrderedCollections ────────── v2.0.3
+   Installed Random123 ─────────────────── v1.7.1
+   Installed MicrosoftMPI_jll ──────────── v10.1.5+0
+   Installed IteratorInterfaceExtensions ─ v1.0.0
+   Installed HashArrayMappedTries ──────── v0.2.0
+   Installed NVTX_jll ──────────────────── v3.2.2+0
+   Installed DataAPI ───────────────────── v1.16.0
+   Installed Statistics ────────────────── v1.11.5
+   Installed MPIABI_jll ────────────────── v1.0.1+0
+   Installed Xorg_libpciaccess_jll ─────── v0.19.0+0
+   Installed Atomix ────────────────────── v1.5.0
+   Installed StatsAPI ──────────────────── v1.8.0
+   Installed PrecompileTools ───────────── v1.3.4
+   Installed RandomNumbers ─────────────── v1.6.0
+   Installed GPUArrays ─────────────────── v11.5.16
+   Installed StructArrays ──────────────── v0.7.4
+   Installed CUDA ──────────────────────── v6.4.2
+   Installed tree_sitter_llvm_jll ──────── v1.1.0+0
+   Installed IntelOpenMP_jll ───────────── v2025.2.0+0
+   Installed CEnum ─────────────────────── v0.5.0
+   Installed DataValueInterfaces ───────── v1.0.0
+   Installed NVML ──────────────────────── v6.4.2
+   Installed CubedSphere ───────────────── v0.3.6
+   Installed StaticArrays ──────────────── v1.9.24
+   Installed FileIO ────────────────────── v1.20.0
+   Installed OffsetArrays ──────────────── v1.18.0
+   Installed NVPTX_LLVM_Backend_jll ────── v23.1.2+2
+   Installed StaticArraysCore ──────────── v1.4.4
+   Installed JuliaNVTXCallbacks_jll ────── v0.2.1+0
+   Installed RealDot ───────────────────── v0.1.0
+   Installed CUDA_Runtime_Discovery ────── v2.1.1
+   Installed IrrationalConstants ───────── v0.2.7
+   Installed CUDA_Runtime_jll ──────────── v0.25.0+3
+   Installed Distances ─────────────────── v0.10.12
+   Installed LMDB_jll ──────────────────── v1.0.3+0
+   Installed GPUArraysCore ─────────────── v0.2.1
+   Installed AbstractFFTs ──────────────── v1.5.0
+   Installed Tracy ─────────────────────── v0.1.6
+   Installed OpenSpecFun_jll ───────────── v0.5.6+0
+   Installed StringManipulation ────────── v0.6.1
+   Installed LMDB ──────────────────────── v3.0.1
+   Installed Requires ──────────────────── v1.3.1
+   Installed LLVM ──────────────────────── v10.4.3
+   Installed tree_sitter_ptx_jll ───────── v0.1.0+0
+   Installed LogExpFunctions ───────────── v1.0.3
+   Installed OpenMPI_jll ───────────────── v4.1.11+0
+   Installed ChunkCodecLibZlib ─────────── v1.1.0
+   Installed Hwloc_jll ─────────────────── v2.15.0+0
+   Installed KernelAbstractions ────────── v0.9.45
+   Installed cuBLAS ────────────────────── v6.4.2
+   Installed cuSPARSE ──────────────────── v6.4.2
+   Installed ScopedValues ──────────────── v1.6.2
+   Installed UnsafeAtomics ─────────────── v0.4.0
+   Installed PrettyTables ──────────────── v3.5.1
+   Installed CUDA_Driver_jll ───────────── v13.5.0+0
+   Installed XML2_jll ──────────────────── v2.15.4+0
+   Installed MuladdMacro ───────────────── v0.2.7
+   Installed Tables ────────────────────── v1.14.0
+   Installed Scratch ───────────────────── v1.3.0
+   Installed Oceananigans ──────────────── v0.117.2
+   Installed cuFFT ─────────────────────── v6.4.2
+   Installed Reexport ──────────────────── v1.2.2
+   Installed NCCL_jll ──────────────────── v2.32.3+0
+   Installed GPUToolbox ────────────────── v3.5.1
+   Installed SpecialFunctions ──────────── v2.9.1
+   Installed Preferences ───────────────── v1.6.1
+   Installed MPIPreferences ────────────── v0.1.12
+   Installed TaylorSeries ──────────────── v0.20.10
+   Installed Rotations ─────────────────── v1.7.1
+   Installed CUDATools ─────────────────── v6.4.2
+   Installed FFTW ──────────────────────── v1.10.0
+   Installed Libiconv_jll ──────────────── v1.18.0+0
+   Installed JLLWrappers ───────────────── v1.8.0
+   Installed FFTW_jll ──────────────────── v3.3.12+0
+   Installed TableTraits ───────────────── v1.0.1
+   Installed NCCL ──────────────────────── v0.1.3
+   Installed LaTeXStrings ──────────────── v1.4.1
+   Installed BFloat16s ─────────────────── v0.6.5
+   Installed Crayons ───────────────────── v4.2.0
+   Installed tree_sitter_spirv_jll ─────── v0.1.0+0
+   Installed MPItrampoline_jll ─────────── v5.5.7+0
+   Installed LLVMLoopInfo ──────────────── v1.0.0
+   Installed ChunkCodecCore ────────────── v1.0.2
+   Installed DocStringExtensions ───────── v0.10.2
+  Installing 20 artifacts
+   Installed artifact tree_sitter_gcn    11.5 KiB
+   Installed artifact tree_sitter_ptx    19.7 KiB
+   Installed artifact LMDB               403.4 KiB
+   Installed artifact XML2               1.7 MiB
+   Installed artifact LibTracyClient     362.4 KiB
+   Installed artifact FFTW               1.8 MiB
+   Installed artifact tree_sitter_spirv  5.8 KiB
+   Installed artifact OpenSpecFun        105.4 KiB
+   Installed artifact Hwloc              3.0 MiB
+   Installed artifact demumble           281.4 KiB
+   Installed artifact MPICH              5.8 MiB
+   Installed artifact NVTX               11.8 KiB
+   Installed artifact NVPTX_LLVM_Backend 8.5 MiB
+   Installed artifact JuliaNVTXCallbacks 7.5 KiB
+   Installed artifact Libiconv           1022.9 KiB
+   Installed artifact Xorg_libpciaccess  23.4 KiB
+   Installed artifact tree_sitter_llvm   109.2 KiB
+   Installed artifact LLVMExtra          3.8 MiB
+   Installed artifact CUDA_Driver        108.2 MiB
+   Installed artifact CUDA_Runtime       948.4 MiB
+     Project No packages added to or removed from `~/Breeze.jl/benchmarking/distributed/Project.toml`
+    Manifest No packages added to or removed from `~/Breeze.jl/benchmarking/distributed/Manifest.toml`
+julia_version = "1.13.2"
+== 2. Packages and system MPI (oceananigans-hpc's configure_mpi.sh)
+oceananigans-hpc environment (rorqual): repo=/home/anditse/Oceananigans-DRAC, depot=/home/anditse/breeze_julia_depot:
+  ocean data: /home/anditse/ocean_data
+  results: /scratch/anditse/results
+== 1. Packages in /home/anditse/Breeze.jl/benchmarking/distributed
+      Compat entry set:
+  OpenMPI_jll = "~4.1.10"
+     Resolve checking for compliance with the new compat rules...
+  Installing 1 artifacts
+   Installed artifact NCCL               254.0 MiB
+     Project No packages added to or removed from `~/Breeze.jl/benchmarking/distributed/Project.toml`
+    Manifest No packages added to or removed from `~/Breeze.jl/benchmarking/distributed/Manifest.toml`
+    Updating registry at `~/breeze_julia_depot/registries/General.toml`
+     Project No packages added to or removed from `~/Breeze.jl/benchmarking/distributed/Project.toml`
+    Manifest No packages added to or removed from `~/Breeze.jl/benchmarking/distributed/Manifest.toml`
+        Info OpenMPI_jll can be updated but at the cost of upgrading/downgrading other packages. To force upgrade to the latest version, try `add OpenMPI_jll@5.0.14+0`
+        Info We haven't cleaned this depot up for a bit, running Pkg.gc()...
+      Active manifest files: 1 found
+      Active artifact files: 31 found
+      Active scratchspaces: 0 found
+     Deleted no artifacts, repos, packages or scratchspaces
+== 2. MPI.jl -> system OpenMPI (/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib)
+┌ Info: MPI implementation identified
+│   libmpi = "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi"
+│   version_string = "Open MPI v4.1.5, package: Open MPI ebuser@build-node2.computecanada.ca Distribution, ident: 4.1.5, repo rev: v4.1.5, Feb 23, 2023\0"
+│   impl = "OpenMPI"
+│   version = v"4.1.5"
+└   abi = "OpenMPI"
+┌ Info: MPIPreferences changed
+│   binary = "system"
+│   libmpi = "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi"
+│   abi = "OpenMPI"
+│   mpiexec = "mpiexec"
+│   preloads = Any[]
+└   preloads_env_switch = nothing
+== 3. OpenMPI_jll -> system OpenMPI library
+ Downloading artifact: OpenMPI
+   libmpi_path = /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+== 4. Precompile and check
+Precompiling packages...
+   0.9 s  ✓ CUDA_Runtime_Discovery
+   0.3 s  ✓ Reexport
+   1.4 s  ✓ MacroTools
+   0.4 s  ✓ ConstructionBase
+   0.4 s  ✓ DataValueInterfaces
+   0.3 s  ✓ StatsAPI
+   1.0 s  ✓ IrrationalConstants
+   0.3 s  ✓ CEnum
+   0.4 s  ✓ LaTeXStrings
+   0.4 s  ✓ ChunkCodecCore
+   0.4 s  ✓ Glob
+   0.6 s  ✓ GPUToolbox
+   0.5 s  ✓ SeawaterPolynomials
+   0.5 s  ✓ Statistics
+   0.4 s  ✓ StaticArraysCore
+   0.3 s  ✓ LLVMLoopInfo
+   0.4 s  ✓ Mmap
+   0.4 s  ✓ Adapt
+   0.4 s  ✓ DataAPI
+   0.3 s  ✓ RealDot
+   0.7 s  ✓ RandomNumbers
+   0.5 s  ✓ AbstractFFTs
+   0.3 s  ✓ OpenLibm_jll
+   0.4 s  ✓ ExprTools
+   0.5 s  ✓ BFloat16s
+   0.5 s  ✓ OrderedCollections
+   0.4 s  ✓ HashArrayMappedTries
+   0.5 s  ✓ Serialization
+   0.9 s  ✓ DocStringExtensions
+   0.8 s  ✓ OffsetArrays
+   0.3 s  ✓ IteratorInterfaceExtensions
+   0.6 s  ✓ ExpressionExplorer
+   0.4 s  ✓ SuiteSparse_jll
+   0.9 s  ✓ Crayons
+   0.6 s  ✓ Requires
+   0.5 s  ✓ Scratch
+   1.0 s  ✓ InteractiveUtils
+   0.6 s  ✓ PrecompileTools
+   0.7 s  ✓ LibTracyClient_jll
+   0.8 s  ✓ LLVMExtra_jll
+   0.7 s  ✓ NVPTX_LLVM_Backend_jll
+   0.8 s  ✓ tree_sitter_llvm_jll
+   0.5 s  ✓ MSVCRuntime_jll
+   0.7 s  ✓ NVTX_jll
+   0.8 s  ✓ tree_sitter_ptx_jll
+   0.8 s  ✓ FFTW_jll
+   0.8 s  ✓ tree_sitter_spirv_jll
+   2.0 s  ✓ CUDA_Driver_jll
+   0.8 s  ✓ LMDB_jll
+   0.7 s  ✓ demumble_jll
+   0.7 s  ✓ Xorg_libpciaccess_jll
+   0.7 s  ✓ Libiconv_jll
+   0.7 s  ✓ tree_sitter_gcn_jll
+   0.8 s  ✓ OpenSpecFun_jll
+   0.8 s  ✓ PkgVersion
+   0.7 s  ✓ JuliaNVTXCallbacks_jll
+   1.0 s  ✓ MicrosoftMPI_jll
+   1.1 s  ✓ IntelOpenMP_jll
+   1.1 s  ✓ oneTBB_jll
+   0.9 s  ✓ MPItrampoline_jll
+   0.4 s  ✓ ConstructionBase → ConstructionBaseLinearAlgebraExt
+   0.4 s  ✓ ChunkCodecLibZlib
+   0.5 s  ✓ ChunkCodecLibZstd
+   0.6 s  ✓ Distances
+   0.5 s  ✓ GPUArraysCore
+   0.5 s  ✓ Quaternions
+   0.4 s  ✓ ScopedValues
+   0.9 s  ✓ Random123
+   0.4 s  ✓ LogExpFunctions
+   0.3 s  ✓ OffsetArrays → OffsetArraysAdaptExt
+   1.3 s  ✓ Distributed
+   0.3 s  ✓ TableTraits
+   0.5 s  ✓ ReactantCore
+   2.4 s  ✓ FileIO
+   3.5 s  ✓ SparseArrays
+   2.6 s  ✓ StringManipulation
+   5.2 s  ✓ StaticArrays
+   0.8 s  ✓ MuladdMacro
+   1.2 s  ✓ Tracy
+   2.6 s  ✓ CUDA_Compiler_jll
+   0.9 s  ✓ LMDB
+   0.8 s  ✓ XML2_jll
+   0.8 s  ✓ NVTX
+ Downloading artifact: IntelOpenMP
+ Downloading artifact: oneTBB
+   9.0 s  ✓ MKL_jll
+  25.2 s  ✓ REPL
+   1.9 s  ✓ SpecialFunctions
+   1.0 s  ✓ Tables
+  13.6 s  ✓ LLVM
+   7.2 s  ✓ Krylov
+  19.4 s  ✓ JLD2
+   2.5 s  ✓ TaylorSeries
+   0.5 s  ✓ Statistics → SparseArraysExt
+   0.5 s  ✓ Adapt → AdaptSparseArraysExt
+   0.5 s  ✓ Distances → DistancesSparseArraysExt
+   0.6 s  ✓ StaticArrays → StaticArraysStatisticsExt
+   0.6 s  ✓ ConstructionBase → ConstructionBaseStaticArraysExt
+   0.5 s  ✓ Adapt → AdaptStaticArraysExt
+   1.4 s  ✓ Rotations
+   1.0 s  ✓ CompilerCaching
+   2.7 s  ✓ CUDA_Runtime_jll
+   0.7 s  ✓ Hwloc_jll
+   2.2 s  ✓ Pkg → REPLExt
+   0.6 s  ✓ StructArrays
+   4.7 s  ✓ FFTW
+   1.4 s  ✓ UnsafeAtomics
+   0.5 s  ✓ LLVM → BFloat16sExt
+   1.1 s  ✓ TaylorSeries → TaylorSeriesJLD2Ext
+   0.8 s  ✓ TaylorSeries → TaylorSeriesSAExt
+  16.9 s  ✓ PrettyTables
+   5.9 s  ✓ NCCL_jll
+   0.9 s  ✓ MPIABI_jll
+   0.6 s  ✓ MPICH_jll
+   0.4 s  ✓ StructArrays → LinearAlgebraExt
+   0.6 s  ✓ StructArrays → StaticArraysExt
+   0.4 s  ✓ StructArrays → GPUArraysCoreExt
+   0.6 s  ✓ StructArrays → SparseArraysExt
+   0.9 s  ✓ StructArrays → AdaptExt
+   6.8 s  ✓ Atomix
+  29.5 s  ✓ GPUCompiler
+   1.1 s  ✓ CubedSphere
+   2.4 s  ✓ KernelAbstractions
+   3.2 s  ✓ MPI
+   0.8 s  ✓ UnsafeAtomics → UnsafeAtomicsGPUCompilerExt
+   0.9 s  ✓ KernelAbstractions → SparseArraysExt
+   0.7 s  ✓ KernelAbstractions → LinearAlgebraExt
+   0.8 s  ✓ StructArrays → KernelAbstractionsExt
+   3.2 s  ✓ GPUArrays
+   1.5 s  ✓ GPUArrays → JLD2Ext
+  20.6 s  ✓ Oceananigans
+  13.3 s  ✓ Breeze
+  31.0 s  ✓ CUDACore
+   2.8 s  ✓ CUDACore → SpecialFunctionsExt
+   3.0 s  ✓ Atomix → AtomixCUDACoreExt
+   3.6 s  ✓ cuRAND
+   4.5 s  ✓ NVML
+   5.4 s  ✓ CUPTI
+   5.9 s  ✓ cuSPARSE
+   3.0 s  ✓ cuFFT
+   8.3 s  ✓ cuBLAS
+   8.9 s  ✓ CUDATools
+   7.5 s  ✓ cuSOLVER
+   4.1 s  ✓ CUDA
+   3.9 s  ✓ MPI → CUDAExt
+   4.2 s  ✓ NCCL
+   3.9 s  ✓ Oceananigans → OceananigansNCCLExt
+   4.4 s  ✓ Oceananigans → OceananigansCUDAExt
+  146 dependencies successfully precompiled in 197 seconds. 33 already precompiled.
+
+  1 dependency had output during precompilation:
+┌ MKL_jll
+│  Downloading artifact: IntelOpenMP
+│   Downloading artifact: oneTBB
+└
+   imports OK
+Done. libmpi_path above must be under /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5. Commit Project.toml and Manifest.toml, not LocalPreferences.toml.
+== 3. CUDA and CUDA-aware MPI
+   CUDA functional: false; MPI.has_cuda() (CUDA-aware MPI): true
