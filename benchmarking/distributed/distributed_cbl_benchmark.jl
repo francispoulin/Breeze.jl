@@ -120,6 +120,10 @@ if nranks > 1 && comm_name == "NCCL"
     isnothing(arch.communicator.nccl) && error("NCCL communicator was not initialized")
 end
 communicator_type = nranks == 1 ? "none" : string(nameof(typeof(arch.communicator)))
+@printf("PLACEMENT rank=%d host=%s gpu_uuid=%s communicator=%s threads=%d pool=%s\n",
+        rank, gethostname(), string(CUDA.uuid(CUDA.device())), communicator_type,
+        Threads.nthreads(), get(ENV, "JULIA_CUDA_MEMORY_POOL", "unset"))
+MPI.has_cuda() || error("The benchmark requires CUDA-aware MPI")
 
 model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified, random_perturbation)
 
@@ -151,6 +155,8 @@ max_w = MPI.Allreduce(Float64(local_max_w), max, comm)
 local_fields_finite = all(field -> all(isfinite, interior(field)), values(prognostic_fields(model))) &&
                       all(field -> all(isfinite, interior(field)), values(model.velocities))
 fields_finite = MPI.Allreduce(Int(local_fields_finite), min, comm) == 1
+@printf("VALIDATION rank=%d fields_finite=%s gpu_used_bytes=%d\n",
+        rank, string(local_fields_finite), CUDA.total_memory() - CUDA.free_memory())
 
 if rank == 0
     machine           = gethostname()
@@ -177,3 +183,4 @@ if rank == 0
 end
 
 MPI.Barrier(comm)
+fields_finite || error("Non-finite prognostic or velocity fields on at least one rank")
