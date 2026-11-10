@@ -1,0 +1,49 @@
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+DEVICE rank=0 uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 visible=0
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_splitexplicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (512, 512, 512)
+│   partition = (1, 1)
+│   nranks = 1
+│   Δt = 0.02
+│   time_steps = 10
+│   communication_name = "SERIAL"
+│   communicator_type = "none"
+└   profile = true
+TIMING_START communication=SERIAL steps=10
+PROFILE_START rank=0 steps=10
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/local_scratch/ajtse/breeze_nvtx_2026-11-10/tmp/nsys-report-e381.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [===22%                      ] profile.nsys-rep
+[1/1] [===23%                      ] profile.nsys-rep
+[1/1] [=========46%                ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [==================77%       ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /local_scratch/ajtse/breeze_nvtx_demo_512_cubed_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.nsys-rep
+PROFILE_END rank=0 steps=10
+TIMING_END communication=SERIAL elapsed_seconds=15.256924907
+RESULT machine=rondeau dynamics=compressible_splitexplicit float=Float32 size=512x512x512 partition=1x1 gpus=1 steps=10 seconds_per_step=1.5257e+00 points_per_second=8.7972e+07 points_per_second_per_gpu=8.7972e+07 max_abs_w=3.865e-03 communication=SERIAL fields_finite=true

@@ -1,0 +1,6 @@
+
+NOTICE: Existing SQLite export found: /local_scratch/ajtse/breeze_nvtx_demo_512_cubed_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.sqlite
+        It is assumed file was previously exported from: /local_scratch/ajtse/breeze_nvtx_demo_512_cubed_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/local_scratch/ajtse/breeze_nvtx_demo_512_cubed_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.sqlite] with [/opt/uw/nsight/2024.5.1/host-linux-x64/reports/nvtx_gpu_proj_sum.py] to [/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nvtx_demo_512_cubed_2026-11-10/summary_nvtx_gpu_proj_sum.csv]... PROCESSED

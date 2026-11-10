@@ -1,0 +1,189 @@
+Breeze NVTX demo: 512 x 512 x 512 cells, one A100 GPU
+Split-explicit compressible, Float32, WENO5, deterministic dry CBL
+Simulation dt: 0.02 seconds; 10 warmup steps; 10 captured steps
+Validation: finite fields; 10 outer steps; 220 acoustic substeps; 100% kernel attribution
+Captured execution window: 10.517440 seconds total; 1.051744 seconds/step
+GPU kernels: 10300; summed kernel duration: 10.457522 seconds
+
+READING THE NVTX RANGES
+All times below are milliseconds. GPU projected spans include gaps and child ranges.
+CPU range time includes host submission and waiting. Nested ranges overlap; do not add rows.
+Range counts in this projection report include invocations with GPU operations.
+Driver elapsed time includes profiler report generation; use the capture window above.
+
+TimeSteppers/time_step!
+  Calls: 10 | GPU operations: 10360
+  GPU projected total: 10518.145 ms | mean per call: 1051.815 ms
+  CPU range total: 9489.102 ms
+
+TimeSteppers/acoustic_rk3_substep!
+  Calls: 30 | GPU operations: 8190
+  GPU projected total: 8018.324 ms | mean per call: 267.277 ms
+  CPU range total: 6828.589 ms
+
+CompressibleEquations/acoustic_rk3_substep_loop!
+  Calls: 30 | GPU operations: 7860
+  GPU projected total: 7834.022 ms | mean per call: 261.134 ms
+  CPU range total: 6703.577 ms
+
+CompressibleEquations/acoustic_substep!
+  Calls: 220 | GPU operations: 5940
+  GPU projected total: 6881.762 ms | mean per call: 31.281 ms
+  CPU range total: 5815.251 ms
+
+AtmosphereModels/update_state!
+  Calls: 30 | GPU operations: 1980
+  GPU projected total: 2287.868 ms | mean per call: 76.262 ms
+  CPU range total: 2490.999 ms
+
+AtmosphereModels/compute_tendencies!
+  Calls: 30 | GPU operations: 180
+  GPU projected total: 1760.921 ms | mean per call: 58.697 ms
+  CPU range total: 145.983 ms
+
+call/solve!
+  Calls: 220 | GPU operations: 220
+  GPU projected total: 1492.274 ms | mean per call: 6.783 ms
+  CPU range total: 5.105 ms
+
+AtmosphereModels/compute_momentum_tendencies!
+  Calls: 30 | GPU operations: 90
+  GPU projected total: 988.979 ms | mean per call: 32.966 ms
+  CPU range total: 125.060 ms
+
+CompressibleEquations/apply_divergence_damping!
+  Calls: 220 | GPU operations: 220
+  GPU projected total: 834.279 ms | mean per call: 3.792 ms
+  CPU range total: 1211.399 ms
+
+call/fill_halo_regions!
+  Calls: 2220 | GPU operations: 7770
+  GPU projected total: 630.723 ms | mean per call: 0.284 ms
+  CPU range total: 5953.509 ms
+
+AtmosphereModels/compute_auxiliary_variables!
+  Calls: 30 | GPU operations: 1320
+  GPU projected total: 436.819 ms | mean per call: 14.561 ms
+  CPU range total: 2229.291 ms
+
+PotentialTemperatureFormulations/compute_thermodynamic_tendency!
+  Calls: 30 | GPU operations: 30
+  GPU projected total: 390.939 ms | mean per call: 13.031 ms
+  CPU range total: 8.357 ms
+
+CompressibleEquations/initialize_stage_perturbations!
+  Calls: 30 | GPU operations: 510
+  GPU projected total: 360.602 ms | mean per call: 12.020 ms
+  CPU range total: 624.427 ms
+
+AtmosphereModels/compute_velocities!
+  Calls: 60 | GPU operations: 1260
+  GPU projected total: 283.696 ms | mean per call: 4.728 ms
+  CPU range total: 392.558 ms
+
+CompressibleEquations/refresh_linearization_basic_state!
+  Calls: 40 | GPU operations: 280
+  GPU projected total: 194.170 ms | mean per call: 4.854 ms
+  CPU range total: 126.804 ms
+
+AtmosphereModels/compute_auxiliary_thermodynamic_variables!
+  Calls: 30 | GPU operations: 300
+  GPU projected total: 151.382 ms | mean per call: 5.046 ms
+  CPU range total: 1613.670 ms
+
+CompressibleEquations/finalize_time_averaged_velocity!
+  Calls: 30 | GPU operations: 270
+  GPU projected total: 148.976 ms | mean per call: 4.966 ms
+  CPU range total: 19.729 ms
+
+CompressibleEquations/compute_auxiliary_dynamics_variables!
+  Calls: 30 | GPU operations: 390
+  GPU projected total: 143.499 ms | mean per call: 4.783 ms
+  CPU range total: 350.669 ms
+
+TimeSteppers/store_initial_state!
+  Calls: 10 | GPU operations: 60
+  GPU projected total: 113.738 ms | mean per call: 11.374 ms
+  CPU range total: 4.419 ms
+
+CompressibleEquations/freeze_linearization_state!
+  Calls: 10 | GPU operations: 100
+  GPU projected total: 73.484 ms | mean per call: 7.348 ms
+  CPU range total: 117.344 ms
+
+CompressibleEquations/compute_dynamics_tendency!
+  Calls: 30 | GPU operations: 30
+  GPU projected total: 50.275 ms | mean per call: 1.676 ms
+  CPU range total: 8.279 ms
+
+CompressibleEquations/compute_total_density!
+  Calls: 30 | GPU operations: 120
+  GPU projected total: 45.119 ms | mean per call: 1.504 ms
+  CPU range total: 6.928 ms
+
+TimeSteppers/scalar_rk3_substep!
+  Calls: 30 | GPU operations: 30
+  GPU projected total: 37.961 ms | mean per call: 1.265 ms
+  CPU range total: 0.621 ms
+
+GPU KERNEL EXECUTION TOTALS (exclusive kernel instances)
+Shares refer to summed kernel durations, not hardware utilization.
+
+gpu__post_solve_recovery_
+  Launches: 220 | total: 1557.925 ms | kernel share: 14.90%
+gpu_solve_batched_tridiagonal_system_kernel_
+  Launches: 220 | total: 1492.274 ms | kernel share: 14.27%
+gpu__build_predictors_
+  Launches: 220 | total: 1041.722 ms | kernel share: 9.96%
+gpu__explicit_horizontal_step_
+  Launches: 220 | total: 845.306 ms | kernel share: 8.08%
+gpu__thermal_divergence_damping_
+  Launches: 220 | total: 834.279 ms | kernel share: 7.98%
+gpu__build_vertical_rhs_
+  Launches: 220 | total: 747.948 ms | kernel share: 7.15%
+gpu__fill_periodic_west_and_east_halo_
+  Launches: 2790 | total: 569.364 ms | kernel share: 5.44%
+gpu_compute_potential_temperature_tendency_
+  Launches: 30 | total: 390.939 ms | kernel share: 3.74%
+gpu_compute_y_momentum_tendency_
+  Launches: 30 | total: 331.985 ms | kernel share: 3.17%
+gpu_compute_scalar_tendency_
+  Launches: 30 | total: 330.629 ms | kernel share: 3.16%
+gpu_compute_z_momentum_tendency_
+  Launches: 30 | total: 328.586 ms | kernel share: 3.14%
+gpu_compute_x_momentum_tendency_
+  Launches: 30 | total: 328.342 ms | kernel share: 3.14%
+gpu__recover_full_state_
+  Launches: 30 | total: 214.093 ms | kernel share: 2.05%
+gpu__compute_velocities_
+  Launches: 60 | total: 183.170 ms | kernel share: 1.75%
+gpu__compute_linearization_basic_state_
+  Launches: 40 | total: 175.103 ms | kernel share: 1.67%
+gpu__initialize_stage_perturbations_
+  Launches: 30 | total: 152.585 ms | kernel share: 1.46%
+gpu__zero_stage_workspaces_
+  Launches: 30 | total: 134.455 ms | kernel share: 1.29%
+gpu__compute_auxiliary_thermodynamic_variables_
+  Launches: 30 | total: 129.649 ms | kernel share: 1.24%
+gpu__finalize_time_averaged_velocity_
+  Launches: 30 | total: 127.629 ms | kernel share: 1.22%
+gpu__compute_temperature_and_pressure_
+  Launches: 30 | total: 114.692 ms | kernel share: 1.10%
+gpu_broadcast_kernel_cartesian
+  Launches: 60 | total: 113.686 ms | kernel share: 1.09%
+gpu__fill_periodic_south_and_north_halo_
+  Launches: 2790 | total: 77.188 ms | kernel share: 0.74%
+gpu__assemble_slow_vertical_momentum_tendency_
+  Launches: 30 | total: 50.527 ms | kernel share: 0.48%
+gpu__compute_density_tendency_
+  Launches: 30 | total: 50.275 ms | kernel share: 0.48%
+gpu__compute_total_density_
+  Launches: 30 | total: 38.143 ms | kernel share: 0.36%
+gpu__rk3_substep_
+  Launches: 30 | total: 37.961 ms | kernel share: 0.36%
+gpu__initialize_perturbation_with_rewind_
+  Launches: 30 | total: 37.956 ms | kernel share: 0.36%
+gpu__fill_bottom_and_top_halo_
+  Launches: 2670 | total: 20.516 ms | kernel share: 0.20%
+gpu__compute_z_bcs_
+  Launches: 90 | total: 0.593 ms | kernel share: 0.01%

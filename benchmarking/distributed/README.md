@@ -110,6 +110,9 @@ and velocity fields with and without instrumentation for the three serial dynami
 julia --project=benchmarking/distributed benchmarking/distributed/validate_nvtx.jl
 ```
 
+The [one-GPU 512³ NVTX demo](../results/rondeau/nvtx_demo_512_cubed_2026-11-10/README.md)
+includes a validated capture and readable summaries with times in milliseconds.
+
 ## Reading the output
 
 Rank 0 prints one line:

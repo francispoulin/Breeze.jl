@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "grid": [
+    512,
+    512,
+    512
+  ],
+  "ranks": 1,
+  "warmup_steps": 10,
+  "captured_steps": 10,
+  "acoustic_substeps": 220,
+  "fields_finite": true,
+  "kernels": 10300,
+  "kernel_attribution_fraction": 1.0,
+  "trace_sha256_matches": true,
+  "source_hashes_match": true,
+  "trace_window_seconds": 10.517439893,
+  "trace_seconds_per_step": 1.0517439893
+}

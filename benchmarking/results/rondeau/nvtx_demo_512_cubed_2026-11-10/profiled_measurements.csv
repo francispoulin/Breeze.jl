@@ -1,0 +1,2 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite
+rondeau,compressible_splitexplicit,Float32,512,512,512,1,1,1,10,1.525692e+00,8.797168e+07,3.864660e-03,SERIAL,true

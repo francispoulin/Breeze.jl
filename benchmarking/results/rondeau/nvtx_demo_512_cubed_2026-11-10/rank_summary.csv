@@ -1,0 +1,2 @@
+case,rank,steps,trace_window_seconds,trace_seconds_per_step,summed_kernel_seconds,kernel_launches,timeline_active_fraction,attributed_kernel_fraction,acoustic_kernel_fraction,halo_kernel_fraction
+compressible_splitexplicit_SERIAL_1g,0,10,10.517439893,1.0517439893,10.457521578,10300,0.9990087609621674,1.0,0.657479182588018,0.05975331701103758

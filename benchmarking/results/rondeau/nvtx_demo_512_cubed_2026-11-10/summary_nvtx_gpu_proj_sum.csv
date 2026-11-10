@@ -1,0 +1,24 @@
+Range,Style,Total Proj Time (ns),Total Range Time (ns),Range Instances,Proj Avg (ns),Proj Med (ns),Proj Min (ns),Proj Max (ns),Proj StdDev (ns),Total GPU Ops,Avg GPU Ops,Avg Range Lvl,Avg Num Child
+Breeze:TimeSteppers/time_step!,StartEnd,10518145041,9489101644,10,1051814504.1,1051774760.5,1051252910,1052407875,430515.1,10360,1036.0,0.0,8.0
+Breeze:TimeSteppers/acoustic_rk3_substep!,StartEnd,8018324347,6828589421,30,267277478.2,225641900.5,162825209,413851301,108136159.9,8190,273.0,1.0,3.0
+Breeze:CompressibleEquations/acoustic_rk3_substep_loop!,StartEnd,7834022379,6703576518,30,261134079.3,219488062.5,156667500,407711540,108138887.3,7860,262.0,2.0,13.3
+Breeze:CompressibleEquations/acoustic_substep!,StartEnd,6881762091,5815251351,220,31280736.8,31281231.5,31118398,31503956,64255.4,5940,27.0,3.0,9.0
+Breeze:AtmosphereModels/update_state!,StartEnd,2287867944,2490998644,30,76262264.8,76264140.5,76218676,76337061,29536.0,1980,66.0,1.0,4.0
+Breeze:AtmosphereModels/compute_tendencies!,StartEnd,1760920538,145983276,30,58697351.3,58696559.5,58681520,58715053,8414.8,180,6.0,2.0,3.0
+Breeze:call/solve!,StartEnd,1492273734,5105234,220,6783062.4,6785883.0,6616713,6920042,60100.6,220,1.0,4.0,0.0
+Breeze:AtmosphereModels/compute_momentum_tendencies!,StartEnd,988979282,125060111,30,32965976.1,32964964.0,32957595,32973803,4102.1,90,3.0,3.0,0.0
+Breeze:CompressibleEquations/apply_divergence_damping!,StartEnd,834279053,1211398783,220,3792177.5,3792098.5,3779138,3803938,4890.3,220,1.0,4.0,0.0
+Breeze:call/fill_halo_regions!,StartEnd,630722932,5953509393,2220,284109.4,235166.0,215102,1533395,186859.8,7770,3.5,3.9,0.0
+Breeze:AtmosphereModels/compute_auxiliary_variables!,StartEnd,436818609,2229291333,30,14560620.3,14558350.5,14524170,14654930,28238.6,1320,44.0,2.0,3.0
+Breeze:PotentialTemperatureFormulations/compute_thermodynamic_tendency!,StartEnd,390938844,8356840,30,13031294.8,13030668.0,13025081,13038038,3372.3,30,1.0,3.0,0.0
+Breeze:CompressibleEquations/initialize_stage_perturbations!,StartEnd,360601662,624426700,30,12020055.4,12021055.5,11994375,12040417,11283.2,510,17.0,3.0,2.0
+Breeze:AtmosphereModels/compute_velocities!,StartEnd,283696197,392557808,60,4728270.0,4728361.0,4700829,4764603,13573.5,1260,21.0,3.0,3.0
+Breeze:CompressibleEquations/refresh_linearization_basic_state!,StartEnd,194169892,126803654,40,4854247.3,4857258.0,4831803,4871322,10852.4,280,7.0,2.0,2.0
+Breeze:AtmosphereModels/compute_auxiliary_thermodynamic_variables!,StartEnd,151381529,1613670269,30,5046051.0,5047353.5,5017465,5065755,10396.5,300,10.0,3.0,3.0
+Breeze:CompressibleEquations/finalize_time_averaged_velocity!,StartEnd,148976326,19728511,30,4965877.5,4963417.0,4949272,4998298,11369.5,270,9.0,3.0,0.0
+Breeze:CompressibleEquations/compute_auxiliary_dynamics_variables!,StartEnd,143499349,350668780,30,4783311.6,4781227.5,4756504,4867004,19861.4,390,13.0,3.0,4.0
+Breeze:TimeSteppers/store_initial_state!,StartEnd,113738012,4419310,10,11373801.2,11373542.0,11372738,11375722,990.5,60,6.0,1.0,0.0
+Breeze:CompressibleEquations/freeze_linearization_state!,StartEnd,73483709,117343695,10,7348370.9,7350245.0,7335816,7354532,6499.4,100,10.0,1.0,1.0
+Breeze:CompressibleEquations/compute_dynamics_tendency!,StartEnd,50275065,8278913,30,1675835.5,1676227.0,1666386,1682803,3470.4,30,1.0,3.0,0.0
+Breeze:CompressibleEquations/compute_total_density!,StartEnd,45118621,6927904,30,1503954.0,1503268.0,1489557,1524181,7156.0,120,4.0,2.0,1.0
+Breeze:TimeSteppers/scalar_rk3_substep!,StartEnd,37961206,621440,30,1265373.5,1264806.0,1261718,1270038,2272.1,30,1.0,2.0,0.0
