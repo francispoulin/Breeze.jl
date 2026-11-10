@@ -123,7 +123,6 @@ communicator_type = nranks == 1 ? "none" : string(nameof(typeof(arch.communicato
 @printf("PLACEMENT rank=%d host=%s gpu_uuid=%s communicator=%s threads=%d pool=%s\n",
         rank, gethostname(), string(CUDA.uuid(CUDA.device())), communicator_type,
         Threads.nthreads(), get(ENV, "JULIA_CUDA_MEMORY_POOL", "unset"))
-MPI.has_cuda() || error("The benchmark requires CUDA-aware MPI")
 
 model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified, random_perturbation)
 
