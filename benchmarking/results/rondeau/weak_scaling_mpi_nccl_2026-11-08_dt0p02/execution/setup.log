@@ -1,0 +1,14 @@
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+    Updating registry at `~/.julia/registries/General.toml`
+   Resolving package versions...
+   Installed NCCL_jll ─ v2.32.3+0
+   Installed NCCL ───── v0.1.3
+    Updating `~/Breeze.jl/benchmarking/distributed/Project.toml`
+⌃ [3fe64909] + NCCL v0.1.3
+    Updating `~/Breeze.jl/benchmarking/distributed/Manifest.toml`
+⌃ [3fe64909] + NCCL v0.1.3
+  [4d6d38e4] + NCCL_jll v2.32.3+0
+        Info Packages marked with ⌃ have new versions available and may be upgradable.

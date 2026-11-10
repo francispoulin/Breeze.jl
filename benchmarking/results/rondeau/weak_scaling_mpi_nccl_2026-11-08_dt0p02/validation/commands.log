@@ -1,0 +1,168 @@
+# setup
+set -eo pipefail
+cd /u/ajtse/Breeze.jl
+export OCEAN_SOFTWARE_DIR=/u/ajtse/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+export OCEAN_DATA_DIR=/u/ajtse/software/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/software/tmp/breeze-weak-scaling-mpi-nccl-2026-11-08
+mkdir -p "$TMPDIR"
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+source /u/ajtse/software/oceananigans-hpc/env/ocean_setup.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+unset CUDA_VISIBLE_DEVICES
+export JULIA_CUDA_MEMORY_POOL=none
+export JULIA_PKG_PRECOMPILE_AUTO=0
+julia --project="$BREEZE_DISTRIBUTED_DIR" -e 'using Pkg; Pkg.add(PackageSpec(name="NCCL"); preserve=Pkg.PRESERVE_ALL)'
+
+# negative
+set -eo pipefail
+cd /u/ajtse/Breeze.jl
+export OCEAN_SOFTWARE_DIR=/u/ajtse/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+export OCEAN_DATA_DIR=/u/ajtse/software/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/software/tmp/breeze-weak-scaling-mpi-nccl-2026-11-08
+mkdir -p "$TMPDIR"
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+source /u/ajtse/software/oceananigans-hpc/env/ocean_setup.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+unset CUDA_VISIBLE_DEVICES
+export JULIA_CUDA_MEMORY_POOL=none
+
+export CUDA_VISIBLE_DEVICES=2
+set +e
+julia --project="$BREEZE_DISTRIBUTED_DIR" "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" --comm=INVALID > "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/invalid_comm.log" 2>&1
+status=$?
+test "$status" -ne 0 || exit 1
+rg -q -- '--comm must be MPI or NCCL' "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/invalid_comm.log" || exit 1
+printf 'invalid_comm_exit=%s\n' "$status"
+printf 'machine,dynamics,float\n' > "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/legacy_header.csv"
+julia --project="$BREEZE_DISTRIBUTED_DIR" "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" --comm=MPI --results_file="/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/legacy_header.csv" > "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/legacy_header.log" 2>&1
+status=$?
+test "$status" -ne 0 || exit 1
+rg -q 'Results CSV header differs' "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/legacy_header.log" || exit 1
+printf 'legacy_header_exit=%s\n' "$status"
+
+# halo2
+set -eo pipefail
+cd /u/ajtse/Breeze.jl
+export OCEAN_SOFTWARE_DIR=/u/ajtse/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+export OCEAN_DATA_DIR=/u/ajtse/software/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/software/tmp/breeze-weak-scaling-mpi-nccl-2026-11-08
+mkdir -p "$TMPDIR"
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+source /u/ajtse/software/oceananigans-hpc/env/ocean_setup.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+unset CUDA_VISIBLE_DEVICES
+export JULIA_CUDA_MEMORY_POOL=none
+export NCCL_DEBUG=INFO
+cd "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation"
+mpiexec --bind-to none -n 2 bash -c 'export CUDA_VISIBLE_DEVICES=$OMPI_COMM_WORLD_LOCAL_RANK; exec "$@"' _ julia --project="$BREEZE_DISTRIBUTED_DIR" -e 'using MPI, CUDA, Oceananigans, NCCL
+using Oceananigans.BoundaryConditions: fill_halo_regions!
+using Oceananigans.DistributedComputations: NCCLDistributed, Partition, synchronize_communication!
+MPI.Init()
+world = MPI.COMM_WORLD
+count = MPI.Comm_size(world)
+@assert count in (2, 4)
+source_file = joinpath(pkgdir(Oceananigans), "test", "mpi", "nccl.jl")
+source = read(source_file, String)
+start_index = first(findfirst("function nccl_halo_probe_cells", source))
+stop_index = first(findnext("@testset \"NCCL halo correctness", source, start_index)) - 1
+include_string(Main, source[start_index:stop_index], source_file)
+ranks = count == 2 ? (2, 1, 1) : (2, 2, 1)
+for field_type in (CenterField, XFaceField, YFaceField, ZFaceField)
+    local_ok = test_nccl_halo_neighbor_values((64, 64, 16), ranks, (Periodic, Periodic, Bounded); halo=(5, 5, 5), field_type)
+    @assert MPI.Allreduce(Int(local_ok), min, world) == 1
+end
+CUDA.synchronize()
+MPI.Barrier(world)
+if MPI.Comm_rank(world) == 0
+    println("NCCL_HALO_VALUES_OK ranks=", count, " partition=", ranks, " library_version=", NCCL.version())
+end
+MPI.Finalize()
+'
+
+# pilots
+set -eo pipefail
+cd /u/ajtse/Breeze.jl
+export OCEAN_SOFTWARE_DIR=/u/ajtse/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+export OCEAN_DATA_DIR=/u/ajtse/software/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/software/tmp/breeze-weak-scaling-mpi-nccl-2026-11-08
+mkdir -p "$TMPDIR"
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+source /u/ajtse/software/oceananigans-hpc/env/ocean_setup.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+unset CUDA_VISIBLE_DEVICES
+export JULIA_CUDA_MEMORY_POOL=none
+
+cd "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation"
+bash "$OCEAN_HPC_ROOT/tools/run_local.sh" --wait -n 1 --gpu-ids 1 -p "$BREEZE_DISTRIBUTED_DIR" --job-name pilot_serial_split "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" --comm=MPI --dynamics=compressible_splitexplicit --size=32x32x16 --partition=1x1 --warmup_steps=2 --time_steps=2 --time_step=0.02 --substeps=12 --results_file="/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/pilot.csv"
+export NCCL_DEBUG=INFO
+bash "$OCEAN_HPC_ROOT/tools/run_local.sh" --wait -n 2 --gpu-ids 1,2 -p "$BREEZE_DISTRIBUTED_DIR" --job-name pilot_nccl_split "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" --comm=NCCL --dynamics=compressible_splitexplicit --size=64x32x16 --partition=2x1 --warmup_steps=2 --time_steps=2 --time_step=0.02 --substeps=12 --results_file="/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/pilot.csv"
+bash "$OCEAN_HPC_ROOT/tools/run_local.sh" --wait -n 2 --gpu-ids 1,2 -p "$BREEZE_DISTRIBUTED_DIR" --job-name pilot_nccl_explicit "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" --comm=NCCL --dynamics=compressible_explicit --size=64x32x16 --partition=2x1 --warmup_steps=2 --time_steps=2 --time_step=0.02 --substeps=12 --results_file="/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/pilot.csv"
+
+# Four-GPU halo validation
+set -eo pipefail
+cd /u/ajtse/Breeze.jl
+export OCEAN_SOFTWARE_DIR=/u/ajtse/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+export OCEAN_DATA_DIR=/u/ajtse/software/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/software/tmp/breeze-weak-scaling-mpi-nccl-2026-11-08
+mkdir -p "$TMPDIR"
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+source /u/ajtse/software/oceananigans-hpc/env/ocean_setup.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+unset CUDA_VISIBLE_DEVICES
+export JULIA_CUDA_MEMORY_POOL=none
+export NCCL_DEBUG=INFO
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation
+mpiexec --bind-to none -n 4 bash -c 'export CUDA_VISIBLE_DEVICES=$OMPI_COMM_WORLD_LOCAL_RANK; exec "$@"' _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed -e 'using MPI, CUDA, Oceananigans, NCCL
+using Oceananigans.BoundaryConditions: fill_halo_regions!
+using Oceananigans.DistributedComputations: NCCLDistributed, Partition, synchronize_communication!
+MPI.Init()
+world = MPI.COMM_WORLD
+count = MPI.Comm_size(world)
+@assert count in (2, 4)
+source_file = joinpath(pkgdir(Oceananigans), "test", "mpi", "nccl.jl")
+source = read(source_file, String)
+start_index = first(findfirst("function nccl_halo_probe_cells", source))
+stop_index = first(findnext("@testset \"NCCL halo correctness", source, start_index)) - 1
+include_string(Main, source[start_index:stop_index], source_file)
+ranks = count == 2 ? (2, 1, 1) : (2, 2, 1)
+for field_type in (CenterField, XFaceField, YFaceField, ZFaceField)
+    local_ok = test_nccl_halo_neighbor_values((64, 64, 16), ranks, (Periodic, Periodic, Bounded); halo=(5, 5, 5), field_type)
+    @assert MPI.Allreduce(Int(local_ok), min, world) == 1
+end
+CUDA.synchronize()
+MPI.Barrier(world)
+if MPI.Comm_rank(world) == 0
+    println("NCCL_HALO_VALUES_OK ranks=", count, " partition=", ranks, " library_version=", NCCL.version())
+end
+MPI.Finalize()
+'

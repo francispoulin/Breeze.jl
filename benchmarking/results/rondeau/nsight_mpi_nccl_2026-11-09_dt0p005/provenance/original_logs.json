@@ -1,0 +1,478 @@
+{
+  "cases/compressible_explicit_MPI_4g/launch.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/launch.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_0/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_0/cuda_api_sum.out",
+    "sha256": "5744eebddce414edadc03f36f911dea6ff992d3100e2b8b143a2e044547c9543"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_0/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_0/mpi_event_sum.out",
+    "sha256": "e3d09cdb1326607007402ebcfb64eaf1cb979d1b0dd372aebd91b5f56ee1feca"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_0/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_0/nvtx_sum.out",
+    "sha256": "903af11b452b318c13ac254e3349e0bf081e92f3ffd403b36e380a8b98f0bb80"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_0/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_0/profile.out",
+    "sha256": "4ef8a56f792ff84c9db15b495bff318488a469eaba5ea7dbc4ddeb2a4564ce9d"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_0/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_0/stats.out",
+    "sha256": "0ab775892654afe25d4ba2f126f51ae3bf021701cfe3920e894a1d034f7ab971"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_1/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_1/cuda_api_sum.out",
+    "sha256": "f7b8068747127102b993dc2006879f06a4868701f6b4703e63fccf64bd349054"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_1/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_1/mpi_event_sum.out",
+    "sha256": "c4b546cea21ba010d32f66805be45fb15426576b77460191ccae2a3b7a81ea2b"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_1/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_1/nvtx_sum.out",
+    "sha256": "ee701e799951de598aab0b8ff64db69507be354c39108d5bbc095f2e1a392b88"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_1/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_1/profile.out",
+    "sha256": "0e138a953c59ce56b46172ae8834ba79e145fe6d20980ab4b314db5fccce617d"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_1/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_1/stats.out",
+    "sha256": "75c45094161fb15813cd26504f9a951da32c4e66ce15c48208cf85462c45119a"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_2/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_2/cuda_api_sum.out",
+    "sha256": "92ba2e92d282be213afa2e6dd7315c97ab93a291172db87551e018b1f2b7466b"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_2/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_2/mpi_event_sum.out",
+    "sha256": "131fc20d8a6cbf51103f694b21823d64a86cb2b1ecd23e1014804a0ba1826bff"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_2/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_2/nvtx_sum.out",
+    "sha256": "f36fccf3ab89218bd94f86c4675f261d908a12974ccf33d4c4aa5f162d9656ce"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_2/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_2/profile.out",
+    "sha256": "e5958a57dc33af5e669cd808d2ee0bf0143712034f39925ab159b01afbac5fe1"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_2/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_2/stats.out",
+    "sha256": "4018cc8104dfb2058f01d3c7919c7b1d51478061995a0b7ea59ce80fe448ac15"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_3/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_3/cuda_api_sum.out",
+    "sha256": "4cc7e699c3f1329e1a9014c8bf4662fefabf611082332938d84d89d89d9333c7"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_3/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_3/mpi_event_sum.out",
+    "sha256": "d8213054013b15121effa77a3b53133f06a01cc04c2bc31a28ec671b51fa1590"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_3/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_3/nvtx_sum.out",
+    "sha256": "bb8a77c9eef753ee9fac91be32b534b3c300a1d05cb167f48dd9a51d751ef259"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_3/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_3/profile.out",
+    "sha256": "057896478c41da078020d28824f62d1de69e104315f7789cddc5d2dfbfa2e34a"
+  },
+  "cases/compressible_explicit_MPI_4g/rank_3/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_MPI_4g/rank_3/stats.out",
+    "sha256": "2c39a68d58226070f254d29fafb07dc2e981f7b9f3b63be7dbde1398e70363bb"
+  },
+  "cases/compressible_explicit_NCCL_4g/launch.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/launch.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_0/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_0/cuda_api_sum.out",
+    "sha256": "ff78419ce4a5d1e375fa4eed1990afd892faaa8329aee3376548e0b386f501f2"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_0/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_0/mpi_event_sum.out",
+    "sha256": "730ced1eeab6f22c51daf50508e6a3bdd713d5328add947425e00d3f71522553"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_0/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_0/nvtx_sum.out",
+    "sha256": "4b604137605c9d52b815c7545e4858daa5527f80aef7c5e4457234a33f77796a"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_0/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_0/profile.out",
+    "sha256": "a8f4c8ceba3621700f9dea054b013b2d02c1783c70722a9740243b9b0691368b"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_0/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_0/stats.out",
+    "sha256": "db5d206c5e48a40f8e29bcfad8237656e98a87d3e0c61133e31b804fbe9e2ec2"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_1/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_1/cuda_api_sum.out",
+    "sha256": "296d3f230dc1c0577cfc21a02d607d691ae58459328a1a5ea2b314aee12c1fc5"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_1/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_1/mpi_event_sum.out",
+    "sha256": "a9665d5e4d6f1438bff61644c699591384685a429a908c77cdffeb2eb8fa5987"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_1/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_1/nvtx_sum.out",
+    "sha256": "18bdde5a153cb61c18281ca66f109e5ab371b2c40595d49c9a196849a3ecc678"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_1/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_1/profile.out",
+    "sha256": "7e870217be050e5f7a9a43e846cec46438afbb776d2c0aeeac6cd5557020f759"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_1/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_1/stats.out",
+    "sha256": "deb1a62f539b2940d501e5ed76f72ed4ab5dcfab254412562aea348b9e4365c0"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_2/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_2/cuda_api_sum.out",
+    "sha256": "be32568e6341068e3f1c860f03760c14868e5b290c53138d292d13e39506e6c7"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_2/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_2/mpi_event_sum.out",
+    "sha256": "098010fb1c169c4acbaffa1d18195b88f911e858466ea4400538dbb982d94a6d"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_2/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_2/nvtx_sum.out",
+    "sha256": "1f5488fbc1166358661c67ef0a5f4eb55ad4fdbf5b4239b6f68b8e846c1b3904"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_2/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_2/profile.out",
+    "sha256": "e405f0bc0b3cb049713d347bb3094b3c499d11b1900c28e9d7af6a570070eba3"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_2/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_2/stats.out",
+    "sha256": "2e5bc88439391fd22f4b7c37c360d98844cc113a39cb5923609f7e0303e1bde0"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_3/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_3/cuda_api_sum.out",
+    "sha256": "b5044e79e5070fbe4d3e4606462dfcb5ac7a95621ceff7710d92852a21ed782e"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_3/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_3/mpi_event_sum.out",
+    "sha256": "910a2c3d1d69ac98b1dd2b5c6a23ef5f46a8690c3fa062f849be18040c3ce57b"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_3/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_3/nvtx_sum.out",
+    "sha256": "9934b55af0a298703ecf7896a822360d5aad48fc6c4db58501ffbf7787cb37c7"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_3/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_3/profile.out",
+    "sha256": "3821f4a815c5e58445e91f0469ec9a5ff2dad60efed32defba9f4dcbfa393926"
+  },
+  "cases/compressible_explicit_NCCL_4g/rank_3/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_NCCL_4g/rank_3/stats.out",
+    "sha256": "56d727d51eb9b4a137f4f694ad2dbd36c47721db484ed48b37455f6c9cd4298c"
+  },
+  "cases/compressible_explicit_SERIAL_1g/launch.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_SERIAL_1g/launch.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cases/compressible_explicit_SERIAL_1g/rank_0/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_SERIAL_1g/rank_0/cuda_api_sum.out",
+    "sha256": "27243d6d299ed5041268b7213975b2835b33bd6ab93112b912bfd20fe9ee3406"
+  },
+  "cases/compressible_explicit_SERIAL_1g/rank_0/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_SERIAL_1g/rank_0/mpi_event_sum.out",
+    "sha256": "8913862836409fb5ef30d9bdb5122d020a4c19476f9f108ff87f7c302aa2631b"
+  },
+  "cases/compressible_explicit_SERIAL_1g/rank_0/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_SERIAL_1g/rank_0/nvtx_sum.out",
+    "sha256": "cd13ca70e791dd62db4ac1510759ac141f0a26c6e2ea596a3f85b55916de7099"
+  },
+  "cases/compressible_explicit_SERIAL_1g/rank_0/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_SERIAL_1g/rank_0/profile.out",
+    "sha256": "42b60e041b5e83cc83aa116c5e04d44478f4157c30c18dc8c7c349565aedf3eb"
+  },
+  "cases/compressible_explicit_SERIAL_1g/rank_0/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_explicit_SERIAL_1g/rank_0/stats.out",
+    "sha256": "db570d39f4ebded226e39864fda45fd5021ef3e9f7e59058a9813a716e45803f"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/launch.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/launch.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_0/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_0/cuda_api_sum.out",
+    "sha256": "e8eac7192518bc1afe5c618fff1ae1175cf2de755bf988e4fa65302cce07012b"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_0/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_0/mpi_event_sum.out",
+    "sha256": "868ed8d7684406bd51c63f6ba6822f02e3ca0ffd5e092c81d4642e8714c75b2e"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_0/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_0/nvtx_sum.out",
+    "sha256": "23fa9431c978082c35bc0e051b555cc2548f6de789e6d0b9ebb480fc0aeace24"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_0/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_0/profile.out",
+    "sha256": "3815a876a8e5148c2032b54344fd1e44a446cf5b40804fbb1cf49e5c46ca5354"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_0/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_0/stats.out",
+    "sha256": "66ab749a5ca9ae5181ea3b8b322da34f94f3197c83ca8d2138b8717b95a03c39"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_1/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_1/cuda_api_sum.out",
+    "sha256": "08f0ed54e24753bffbc702a4707dcffbd608031fdefad5131a54d6aa7da6eebb"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_1/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_1/mpi_event_sum.out",
+    "sha256": "cfb4c1e1c101c10871a9636518381fe0bda3ba88973ed9e93ed6fa4d7518369a"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_1/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_1/nvtx_sum.out",
+    "sha256": "b7c1dd89e7ccedcc818657dc13caf3e256bc4adef95071d8d85e6b51eb675ae8"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_1/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_1/profile.out",
+    "sha256": "1f3b53ebe6d1e298923be9220aa0994b6cf1aa53633bc0ef44aee22bceec4a5d"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_1/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_1/stats.out",
+    "sha256": "ab743414cdd6ca347183ec89caa5262fa172c9473100df9fa6f9845c4fc4fd60"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_2/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_2/cuda_api_sum.out",
+    "sha256": "1322079e450d1199ed621530c63b895fc8ff0368c0136f119585fa51cd3d8fba"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_2/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_2/mpi_event_sum.out",
+    "sha256": "352c66711cd28c8aa72fa79092046226fa722c107ff9b7aa85b085db065843ac"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_2/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_2/nvtx_sum.out",
+    "sha256": "ac695cdcf9d317de28451248489ec1408ca55de01258bb397afc31bde3bf8af0"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_2/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_2/profile.out",
+    "sha256": "5606f124b71b9593c1cb090513aeaacc2b6e243c65fd3ab97309cf906775829e"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_2/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_2/stats.out",
+    "sha256": "600f669bff360805ccd9f02da594612371b60c1070336c30e3dc772d339b2539"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_3/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_3/cuda_api_sum.out",
+    "sha256": "880702e3efb404576d31b9f7eb7b788c727bc6278d11a3fa2769729944011e3b"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_3/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_3/mpi_event_sum.out",
+    "sha256": "3c96fde0fc8626c225df4b13fec16c5136eee95ce90231976abd155272893827"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_3/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_3/nvtx_sum.out",
+    "sha256": "dfade0fd2a674bc87fd1e9b1682662874107ecda280cdbea1db610e12704eb55"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_3/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_3/profile.out",
+    "sha256": "d0f6ced2760d94f6832e92a4a7cdb4cad90bc9b2029fe5da3a50a06545d22757"
+  },
+  "cases/compressible_splitexplicit_MPI_4g/rank_3/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_MPI_4g/rank_3/stats.out",
+    "sha256": "eba6dd0edbd0330a6a2ea2a1e3ba4d3b08ccada55f943470e3d92e02db2621c4"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/launch.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/launch.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_0/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_0/cuda_api_sum.out",
+    "sha256": "c647ad12107e1f2a6800d4a5dd18358fc39ada29897a5975c0ffd800ae9cc30a"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_0/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_0/mpi_event_sum.out",
+    "sha256": "de67c2aad41af9aa75ae4d0ee3f0d6f366c8d70bc71595dc444b74ea1dccb8df"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_0/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_0/nvtx_sum.out",
+    "sha256": "d090ebeeb52a5fbe2a71cfc7865b7711e3335dd227d077bcbca00e0ecbaffb80"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_0/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_0/profile.out",
+    "sha256": "3cf980bd035e6dbb1c3f2f295378e0d5039bc74d39a56c914f3ea71db1772ce3"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_0/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_0/stats.out",
+    "sha256": "f14c4bd5d6c01c4a0eced241d16b33fb77e6cab015959f6be638ef10d32c88f8"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_1/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_1/cuda_api_sum.out",
+    "sha256": "44d629dd8298a44a03f02ec82d70899e72fe2b8e55c577a1ce87235fb534af8d"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_1/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_1/mpi_event_sum.out",
+    "sha256": "ed5348cd81dea5241622986b1e4b172fc07ceaa50c58102c0c96020e2675fa3b"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_1/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_1/nvtx_sum.out",
+    "sha256": "a8b2ea1f305baff0ffb3e2e2386ae1f61d5f48648a05da660ee4470849b9654e"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_1/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_1/profile.out",
+    "sha256": "ce879875a484a5a1f15a41b86b4c30ef99838136de745488572c89cab18c0248"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_1/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_1/stats.out",
+    "sha256": "2411809aed20c7436f5a0d470a10c9ec7405b2248d2f2e664dff8f734450aa58"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_2/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_2/cuda_api_sum.out",
+    "sha256": "5b23d3ae2b838610a25196475f9d05edfa7f45cc238f13d7f99d73b90fdd43c2"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_2/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_2/mpi_event_sum.out",
+    "sha256": "20cc359010495085aadd39c18a8b260af0ac8b39f3223e46bcd4bdb539349682"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_2/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_2/nvtx_sum.out",
+    "sha256": "0466a93265b6b1959d835717faa33365004f148fd92ebfc3f260c9bc470f415a"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_2/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_2/profile.out",
+    "sha256": "293070a1d67a8b4a65048d42211ac5556e39e88c01f338e1587e20a695775805"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_2/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_2/stats.out",
+    "sha256": "cee4cb047ba55779d1f10888d55cb82816510f3f06d85686cc2beca32ea334a8"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_3/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_3/cuda_api_sum.out",
+    "sha256": "1abce3a8cdb82aaae709c1211a8d733465aa2ae47f7504dc8e4241fe93b5dfa4"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_3/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_3/mpi_event_sum.out",
+    "sha256": "3849d894004527eb53118814b5f9c4e83c6a61f1d8387c9d9381f3b6fccd4d43"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_3/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_3/nvtx_sum.out",
+    "sha256": "14e8fc404fda51595623b112ea5f3d73433d46867dd0c1a0b150ca5351118bad"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_3/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_3/profile.out",
+    "sha256": "2eb3f2999217c464f42cc92ae25c578d4021517b9b6c15be9d4be1164f7dc917"
+  },
+  "cases/compressible_splitexplicit_NCCL_4g/rank_3/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_NCCL_4g/rank_3/stats.out",
+    "sha256": "789fdb121e85f99da68dfb801849a9faa58cef52b10fa0031400938cf3700bae"
+  },
+  "cases/compressible_splitexplicit_SERIAL_1g/launch.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_SERIAL_1g/launch.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cases/compressible_splitexplicit_SERIAL_1g/rank_0/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_SERIAL_1g/rank_0/cuda_api_sum.out",
+    "sha256": "76b8b5744475a4bb1d46f49ebbe0fa41ee6b05258c811a3eb9b5bccedc15ff60"
+  },
+  "cases/compressible_splitexplicit_SERIAL_1g/rank_0/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_SERIAL_1g/rank_0/mpi_event_sum.out",
+    "sha256": "3f5415cc9979f977cb5d0abfab695a5c068724f6d9f826f105656631524247a2"
+  },
+  "cases/compressible_splitexplicit_SERIAL_1g/rank_0/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_SERIAL_1g/rank_0/nvtx_sum.out",
+    "sha256": "0946da42653cb505fb3926f2719efb64866642c54e72e44cca59cbfc805b0d23"
+  },
+  "cases/compressible_splitexplicit_SERIAL_1g/rank_0/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_SERIAL_1g/rank_0/profile.out",
+    "sha256": "b0cb87cb32f840f12553d52d1ad96c6ac0adacb3543b905f7292ef189b7e82df"
+  },
+  "cases/compressible_splitexplicit_SERIAL_1g/rank_0/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/cases/compressible_splitexplicit_SERIAL_1g/rank_0/stats.out",
+    "sha256": "df0b68590e69594c17ce1980467900cdaae390a24001b968d9a760bebd4bf41a"
+  },
+  "execution/commands.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/execution/commands.log",
+    "sha256": "2d58d3169f733bab47f0425934520a4499855a8ac2fae67179be47cfc6219aa5"
+  },
+  "execution/controller.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/execution/controller.log",
+    "sha256": "e16e5d0ee852fee55ff657ac09c35ed15406f69ebba1b6fe5c7d1099090bb5bd"
+  },
+  "execution/setup.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/execution/setup.log",
+    "sha256": "b6c27238e77647593d81e5889f1d705943d93f265e706084597d554b557411fb"
+  },
+  "pilots/nccl_splitexplicit/launch.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/launch.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "pilots/nccl_splitexplicit/rank_0/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_0/cuda_api_sum.out",
+    "sha256": "bbba3b0233322f48f62af5497963f3a5a37584d694a0c3cf5a14cd9e96ed4a74"
+  },
+  "pilots/nccl_splitexplicit/rank_0/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_0/mpi_event_sum.out",
+    "sha256": "38f94f4bad5ba2852fb0d9b59e7851cadd127da054ca7d012f812e9565ae1f9d"
+  },
+  "pilots/nccl_splitexplicit/rank_0/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_0/nvtx_sum.out",
+    "sha256": "d1661be0fa3c56941fe2c5cc5e8a84954ff7cdb25daf1bc47cc29595e6643b40"
+  },
+  "pilots/nccl_splitexplicit/rank_0/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_0/profile.out",
+    "sha256": "60d46d763f30c68bd9f59078d2a021fe966b907f8b50750f6160ac4b137048e7"
+  },
+  "pilots/nccl_splitexplicit/rank_0/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_0/stats.out",
+    "sha256": "12cefae541e381145a0409c72bf55a32a8df0ffc4d3bd0b7ec03a879d7208ee9"
+  },
+  "pilots/nccl_splitexplicit/rank_1/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_1/cuda_api_sum.out",
+    "sha256": "589f084f390739c0139337cc00accea3c8ae5ed8f4693543a8aab622ec856749"
+  },
+  "pilots/nccl_splitexplicit/rank_1/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_1/mpi_event_sum.out",
+    "sha256": "722634869b844c2c9e3c8af5671a96b032bd747a5411516f9b11d4583ec77f61"
+  },
+  "pilots/nccl_splitexplicit/rank_1/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_1/nvtx_sum.out",
+    "sha256": "21d0935d47136c2d69ac370d453dec54869bb7b57104654717781d1de6aec552"
+  },
+  "pilots/nccl_splitexplicit/rank_1/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_1/profile.out",
+    "sha256": "0c539d6e78e1d6c2b883f77a23d713bae994b3809edd77b5ba6a97f5cc1e8861"
+  },
+  "pilots/nccl_splitexplicit/rank_1/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/nccl_splitexplicit/rank_1/stats.out",
+    "sha256": "b4c57053475671b786e2f5d110bc98562e71c55c0988d72a63ad53c188921844"
+  },
+  "pilots/serial_explicit/launch.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/serial_explicit/launch.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "pilots/serial_explicit/rank_0/cuda_api_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/serial_explicit/rank_0/cuda_api_sum.out",
+    "sha256": "3d92e805035fe16ce501c963760d44b85f9c8b77db8ebb72f926c60d9dcf53f5"
+  },
+  "pilots/serial_explicit/rank_0/mpi_event_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/serial_explicit/rank_0/mpi_event_sum.out",
+    "sha256": "033133fa23b6b38a9aad613e6d576e7bc69572f2e5f3fe3b5d773afdaa6efa37"
+  },
+  "pilots/serial_explicit/rank_0/nvtx_sum.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/serial_explicit/rank_0/nvtx_sum.out",
+    "sha256": "b5bc28bebfc332cedc9160eac92a4d928c76dcded3b22aecd1be2713368c3bce"
+  },
+  "pilots/serial_explicit/rank_0/profile.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/serial_explicit/rank_0/profile.out",
+    "sha256": "156696487b4ebb4e3a58eb0b947b3f0c51400650a8ec6865380c427c7f7330ee"
+  },
+  "pilots/serial_explicit/rank_0/stats.out": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/pilots/serial_explicit/rank_0/stats.out",
+    "sha256": "ebabc03471749b2773ce22828ff164014114efaf662648bbb8ba6a889055362d"
+  },
+  "provenance/environment.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/provenance/environment.log",
+    "sha256": "38bb6c07cb5a7b8f73e58ee5dd3d67f23717fa0b1b7939cf527d96cc5be07152"
+  },
+  "validation/partition_selection_tests.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/validation/partition_selection_tests.log",
+    "sha256": "0f7e4b97443e54aca647179972594d13bb587afcbf151fab8228148587ea844a"
+  },
+  "validation/static_checks.log": {
+    "original_path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs/validation/static_checks.log",
+    "sha256": "2806aea3ccc83dcd9ce019d48814ef05ab4dc7209009599f66b598094d223a6c"
+  }
+}

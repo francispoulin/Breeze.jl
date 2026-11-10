@@ -1,0 +1,342 @@
+{
+  "validated_utc": "2026-11-04T18:09:05.705792+00:00",
+  "execution_status": "COMPLETE",
+  "configured_cases": 17,
+  "completed_cases": 17,
+  "finite_w_cases": 9,
+  "nonfinite_w_cases": 8,
+  "all_case_logs_exit_zero": true,
+  "complete_unique_case_coverage": true,
+  "geometry_valid": true,
+  "timing_and_throughput_consistent": true,
+  "platform_checks_passed": 8,
+  "primary_repository_and_four_distinct_gpus_verified": true,
+  "benchmark_source_matches_imported_fork": true,
+  "section_8_experiments_run": false,
+  "validation_scope": "Benchmark checks max_abs_w finiteness only; full Breeze distributed/serial field agreement was not tested. Platform derivative agreement passed independently.",
+  "outcomes": [
+    {
+      "dynamics": "anelastic",
+      "gpus": 1,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        1,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-114805.out",
+      "seconds_per_step": 0.02261734,
+      "max_abs_w": 0.1132684
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "gpus": 1,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        1,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "NONFINITE_W",
+      "performance_usable": false,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-115044.out",
+      "seconds_per_step": 0.02266316,
+      "max_abs_w": "NaN"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "gpus": 2,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        2,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "NONFINITE_W",
+      "performance_usable": false,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-115319.out",
+      "seconds_per_step": 0.01705387,
+      "max_abs_w": "NaN"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "gpus": 2,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        1,
+        2
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "NONFINITE_W",
+      "performance_usable": false,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-115638.out",
+      "seconds_per_step": 0.01696852,
+      "max_abs_w": "NaN"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "gpus": 4,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        2,
+        2
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "NONFINITE_W",
+      "performance_usable": false,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-115956.out",
+      "seconds_per_step": 0.02186037,
+      "max_abs_w": "NaN"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "gpus": 4,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        4,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "NONFINITE_W",
+      "performance_usable": false,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-120402.out",
+      "seconds_per_step": 0.013585,
+      "max_abs_w": "NaN"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "gpus": 4,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        1,
+        4
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "NONFINITE_W",
+      "performance_usable": false,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-120725.out",
+      "seconds_per_step": 0.01323658,
+      "max_abs_w": "NaN"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "gpus": 2,
+      "global_grid": [
+        512,
+        256,
+        128
+      ],
+      "partition": [
+        2,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "NONFINITE_W",
+      "performance_usable": false,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-121042.out",
+      "seconds_per_step": 0.02740396,
+      "max_abs_w": "NaN"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "gpus": 4,
+      "global_grid": [
+        512,
+        512,
+        128
+      ],
+      "partition": [
+        2,
+        2
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "NONFINITE_W",
+      "performance_usable": false,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-121403.out",
+      "seconds_per_step": 0.03809804,
+      "max_abs_w": "NaN"
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "gpus": 1,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        1,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-121812.out",
+      "seconds_per_step": 0.08204935,
+      "max_abs_w": 0.1196191
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "gpus": 2,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        2,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-122145.out",
+      "seconds_per_step": 0.0690214,
+      "max_abs_w": 0.1158705
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "gpus": 2,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        1,
+        2
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-122612.out",
+      "seconds_per_step": 0.06839236,
+      "max_abs_w": 0.117262
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "gpus": 4,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        2,
+        2
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/distributed_cbl_benchmark_20261104-123038.out",
+      "seconds_per_step": 0.1015035,
+      "max_abs_w": 0.1132225
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "gpus": 4,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        4,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/primary_4gpu_4x1_256x256x128_20261104-124654.out",
+      "seconds_per_step": 0.05782263,
+      "max_abs_w": 0.1175261
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "gpus": 4,
+      "global_grid": [
+        256,
+        256,
+        128
+      ],
+      "partition": [
+        1,
+        4
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/primary_4gpu_1x4_256x256x128_20261104-125119.out",
+      "seconds_per_step": 0.05576113,
+      "max_abs_w": 0.1182264
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "gpus": 2,
+      "global_grid": [
+        512,
+        256,
+        128
+      ],
+      "partition": [
+        2,
+        1
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/primary_2gpu_2x1_512x256x128_20261104-125546.out",
+      "seconds_per_step": 0.1032539,
+      "max_abs_w": 0.119552
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "gpus": 4,
+      "global_grid": [
+        512,
+        512,
+        128
+      ],
+      "partition": [
+        2,
+        2
+      ],
+      "execution_status": "EXIT_0",
+      "solution_status": "FINITE_W",
+      "performance_usable": true,
+      "log": "runs/logs/primary_4gpu_2x2_512x512x128_20261104-130031.out",
+      "seconds_per_step": 0.1587098,
+      "max_abs_w": 0.1422299
+    }
+  ]
+}

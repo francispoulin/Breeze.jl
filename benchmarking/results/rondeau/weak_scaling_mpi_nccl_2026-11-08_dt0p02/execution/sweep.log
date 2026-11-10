@@ -1,0 +1,120 @@
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_explicit --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_SERIAL_1g_20261108-192559.out
+started:  pid 1462997
+# 2026-11-08 19:31:21 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_SERIAL_1g_20261108-192559.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_splitexplicit --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_SERIAL_1g_20261108-193125.out
+started:  pid 1464096
+# 2026-11-08 19:44:41 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_SERIAL_1g_20261108-193125.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1,2
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_explicit --size=1024x512x512 --partition=2x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_MPI_2g_20261108-194448.out
+started:  pid 1467975
+# 2026-11-08 19:51:00 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_MPI_2g_20261108-194448.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1,2
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_explicit --size=1024x512x512 --partition=2x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_NCCL_2g_20261108-195105.out
+started:  pid 1469717
+# 2026-11-08 19:57:27 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_NCCL_2g_20261108-195105.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1,2
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_splitexplicit --size=1024x512x512 --partition=2x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_MPI_2g_20261108-195731.out
+started:  pid 1472154
+# 2026-11-08 20:12:17 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_MPI_2g_20261108-195731.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1,2
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_splitexplicit --size=1024x512x512 --partition=2x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_NCCL_2g_20261108-201226.out
+started:  pid 1477082
+# 2026-11-08 20:27:27 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_NCCL_2g_20261108-201226.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_explicit --size=1024x1024x512 --partition=2x2 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_MPI_4g_20261109-030316.out
+started:  pid 1592489
+# 2026-11-09 03:10:18 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_MPI_4g_20261109-030316.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_explicit --size=1024x1024x512 --partition=2x2 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_NCCL_4g_20261109-031023.out
+started:  pid 1595281
+# 2026-11-09 03:17:38 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_explicit_NCCL_4g_20261109-031023.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_splitexplicit --size=1024x1024x512 --partition=2x2 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_MPI_4g_20261109-031741.out
+started:  pid 1596612
+# 2026-11-09 03:35:23 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_MPI_4g_20261109-031741.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_splitexplicit --size=1024x1024x512 --partition=2x2 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_NCCL_4g_20261109-033530.out
+started:  pid 1601241
+# 2026-11-09 03:52:30 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs/logs/weak_compressible_splitexplicit_NCCL_4g_20261109-033530.out

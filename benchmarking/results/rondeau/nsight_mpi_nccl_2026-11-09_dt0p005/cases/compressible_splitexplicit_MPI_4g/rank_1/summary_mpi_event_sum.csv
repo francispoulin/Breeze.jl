@@ -1,0 +1,5 @@
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Source,Name
+96.8,2885238146,11560,249588.1,259724.0,220,6024420,219358.4,start-wait,MPI_Waitall
+1.5,45973987,5780,7954.0,7544.0,6192,311256,7514.3,p2p,MPI_Isend
+1.5,45092706,5780,7801.5,6843.0,4839,328869,7452.3,p2p,MPI_Irecv
+0.1,3991202,5420,736.4,461.0,120,290647,8636.6,other,MPI_Waitall

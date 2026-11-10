@@ -1,0 +1,18 @@
+2026-11-09T19:53:24.254536+00:00 WAITING_FOR_BENCHMARK /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-09_dt0p005
+2026-11-10T08:52:12.575671+00:00 START serial_explicit GPUs [0]
+2026-11-10T08:55:05.792990+00:00 COMPLETE serial_explicit finite fields; all rank captures verified
+2026-11-10T08:55:06.050274+00:00 START nccl_splitexplicit GPUs [0, 1]
+2026-11-10T08:59:20.974031+00:00 COMPLETE nccl_splitexplicit finite fields; all rank captures verified
+2026-11-10T08:59:21.247952+00:00 START compressible_explicit_SERIAL_1g GPUs [0]
+2026-11-10T09:02:14.516347+00:00 COMPLETE compressible_explicit_SERIAL_1g finite fields; all rank captures verified
+2026-11-10T09:02:14.823264+00:00 START compressible_explicit_MPI_4g GPUs [0, 1, 2, 3]
+2026-11-10T09:07:31.593654+00:00 COMPLETE compressible_explicit_MPI_4g finite fields; all rank captures verified
+2026-11-10T09:07:31.854881+00:00 START compressible_explicit_NCCL_4g GPUs [0, 1, 2, 3]
+2026-11-10T09:11:16.211459+00:00 COMPLETE compressible_explicit_NCCL_4g finite fields; all rank captures verified
+2026-11-10T09:11:16.474303+00:00 START compressible_splitexplicit_SERIAL_1g GPUs [0]
+2026-11-10T09:14:50.509745+00:00 COMPLETE compressible_splitexplicit_SERIAL_1g finite fields; all rank captures verified
+2026-11-10T09:14:50.782318+00:00 START compressible_splitexplicit_MPI_4g GPUs [0, 1, 2, 3]
+2026-11-10T09:23:34.545848+00:00 COMPLETE compressible_splitexplicit_MPI_4g finite fields; all rank captures verified
+2026-11-10T09:23:34.815601+00:00 START compressible_splitexplicit_NCCL_4g GPUs [0, 1, 2, 3]
+2026-11-10T09:28:30.799851+00:00 COMPLETE compressible_splitexplicit_NCCL_4g finite fields; all rank captures verified
+2026-11-10T09:28:30.803706+00:00 COMPLETE six cases / eighteen requested rank reports

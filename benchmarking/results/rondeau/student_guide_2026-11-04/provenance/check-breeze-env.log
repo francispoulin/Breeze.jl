@@ -1,0 +1,22 @@
+== Environment
+  [32mOK[0m    machine rondeau, repository /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/oceananigans-hpc
+  [32mOK[0m    julia: 1.11.9 (/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.11.9/bin/julia)
+  [33mWARN[0m  julia 1.11.9, but the platform uses 1.10.10 (every machine runs the same version)
+        Install it once: bash $OCEAN_HPC_ROOT/setup/install_julia.sh, then source ocean_setup again
+  [32mOK[0m    depot /u/ajtse/.julia
+  [32mOK[0m    JULIA_NUM_PRECOMPILE_TASKS=4
+  [32mOK[0m    system OpenMPI /opt/uw/openmpi/4.1.7-with-cuda
+== GPUs
+        GPU 0  NVIDIA A100-SXM4-40GB  (free)
+        GPU 1  NVIDIA A100-SXM4-40GB  (free)
+        GPU 2  NVIDIA A100-SXM4-40GB  (free)
+        GPU 3  NVIDIA A100-SXM4-40GB  (free)
+== Project /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+  [32mOK[0m    Project.toml: Breeze, CUDA, MPI, MPIPreferences, Oceananigans, OpenMPI_jll, Preferences, Printf
+  [32mOK[0m    Manifest made with this Julia (1.11.9)
+  [32mOK[0m    MPI.jl uses the system MPI
+  [32mOK[0m    OpenMPI_jll -> /opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so
+  [32mOK[0m    global environment @v1.11 is empty
+  [32mOK[0m    viz/ is set up (plot with julia --project=$OCEAN_HPC_ROOT/viz ...)
+
+1 warning(s) above.

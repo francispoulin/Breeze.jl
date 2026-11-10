@@ -1,0 +1,4 @@
+First verified one-GPU process executable: /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.11.9/bin/julia
+CUDA_VISIBLE_DEVICES=1
+JULIA_NUM_PRECOMPILE_TASKS=2
+JULIA_NUM_THREADS=1

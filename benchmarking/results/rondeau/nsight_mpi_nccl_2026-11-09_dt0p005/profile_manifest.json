@@ -1,0 +1,146 @@
+[
+  {
+    "rank": 0,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_SERIAL_1g/rank_0/profile.nsys-rep",
+    "bytes": 537339,
+    "sha256": "7ac9da374b944499ccf8236e3360922d90d240690a6beef84fd0c6ec9b2c02c0",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_SERIAL_1g/rank_0/profile.sqlite",
+    "captured_kernel_events": 2310
+  },
+  {
+    "rank": 0,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_0/profile.nsys-rep",
+    "bytes": 107789353,
+    "sha256": "3c72638660768c05537948084c241beb54effeb73877060e0247c40282e0ee0e",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_0/profile.sqlite",
+    "captured_kernel_events": 9870
+  },
+  {
+    "rank": 1,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_1/profile.nsys-rep",
+    "bytes": 104575694,
+    "sha256": "3d8b681f5700f821c63f0a3e0b86ce7ed6887ce727979392751468684d968807",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_1/profile.sqlite",
+    "captured_kernel_events": 9870
+  },
+  {
+    "rank": 2,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_2/profile.nsys-rep",
+    "bytes": 109381922,
+    "sha256": "b048aa81d6691fc917fb11f1e4ec7f93ec1c2f46c824f605a34198245c85d251",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_2/profile.sqlite",
+    "captured_kernel_events": 9870
+  },
+  {
+    "rank": 3,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_3/profile.nsys-rep",
+    "bytes": 107075614,
+    "sha256": "9c731d8741d21913b622c7a88198f3f062d62a964e1787c462ae3af95454f631",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_3/profile.sqlite",
+    "captured_kernel_events": 9870
+  },
+  {
+    "rank": 0,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_0/profile.nsys-rep",
+    "bytes": 1159738,
+    "sha256": "3204b1c6e838bdcf1491116335023a8acc535cfc379d76af48329c97973cb8a3",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_0/profile.sqlite",
+    "captured_kernel_events": 4650
+  },
+  {
+    "rank": 1,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_1/profile.nsys-rep",
+    "bytes": 1159416,
+    "sha256": "1677ac0465da567b706dc4b62c7d1c2e0a68dc55a89e84d76b72d4bd2181fb52",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_1/profile.sqlite",
+    "captured_kernel_events": 4650
+  },
+  {
+    "rank": 2,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_2/profile.nsys-rep",
+    "bytes": 1156638,
+    "sha256": "70ed9cf56951bd32a5171ef461e6be424671458c7dda2005d9a5785a552ce62c",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_2/profile.sqlite",
+    "captured_kernel_events": 4650
+  },
+  {
+    "rank": 3,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_3/profile.nsys-rep",
+    "bytes": 1157378,
+    "sha256": "fbedaba13494132f8ac07afdc383714fce1a2be138649d8bf22d5385844d066d",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_3/profile.sqlite",
+    "captured_kernel_events": 4650
+  },
+  {
+    "rank": 0,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.nsys-rep",
+    "bytes": 1025217,
+    "sha256": "8327c12a3d24e87e1186c1b9f1678088fe46296c0529d62aad0c263fd813ad4f",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.sqlite",
+    "captured_kernel_events": 10460
+  },
+  {
+    "rank": 0,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_0/profile.nsys-rep",
+    "bytes": 435096591,
+    "sha256": "1aefe49a68ccd39f8d9c450d0ad85fa1b225684051ef117b9eaea0c9ab855f43",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_0/profile.sqlite",
+    "captured_kernel_events": 18950
+  },
+  {
+    "rank": 1,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_1/profile.nsys-rep",
+    "bytes": 438263929,
+    "sha256": "a2b330a3044fb31f66261985574560569be0e52bb7ebe923ce48435828259e58",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_1/profile.sqlite",
+    "captured_kernel_events": 18950
+  },
+  {
+    "rank": 2,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_2/profile.nsys-rep",
+    "bytes": 418086318,
+    "sha256": "c038e50463e4ef0a12991a36736197190204ad0d1d390a383f63a6036aa2f758",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_2/profile.sqlite",
+    "captured_kernel_events": 18950
+  },
+  {
+    "rank": 3,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_3/profile.nsys-rep",
+    "bytes": 442041375,
+    "sha256": "74fd96da2c44cbe6f997104e51e340963178d58910f46b6cca5ba7b440b39913",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_3/profile.sqlite",
+    "captured_kernel_events": 18950
+  },
+  {
+    "rank": 0,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_0/profile.nsys-rep",
+    "bytes": 4004053,
+    "sha256": "260feb15d6141c4687298639f17a3294cc6101ce854a6c94c56535896cd3ad23",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_0/profile.sqlite",
+    "captured_kernel_events": 21840
+  },
+  {
+    "rank": 1,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_1/profile.nsys-rep",
+    "bytes": 4023368,
+    "sha256": "4d2d5c27741ea53d3897c95b728cc775883380eefab6e44fc58774257348fb41",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_1/profile.sqlite",
+    "captured_kernel_events": 21840
+  },
+  {
+    "rank": 2,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_2/profile.nsys-rep",
+    "bytes": 4006654,
+    "sha256": "661d56b92f0936e99198b826bd966db4720454c24ded3055fb18026dfc581996",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_2/profile.sqlite",
+    "captured_kernel_events": 21840
+  },
+  {
+    "rank": 3,
+    "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_3/profile.nsys-rep",
+    "bytes": 4019024,
+    "sha256": "284340c8c0cedadab72400f9bf859048cd01ad1b90269d0c430682e64e635683",
+    "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_3/profile.sqlite",
+    "captured_kernel_events": 21840
+  }
+]

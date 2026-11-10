@@ -1,0 +1,3 @@
+VERSION = v"1.11.9"
+pathof(CUDA) = "/u/ajtse/.julia/packages/CUDA/3Opfa/src/CUDA.jl"
+EXTERNAL_PROFILE_MACRO_OK

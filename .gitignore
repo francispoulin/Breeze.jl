@@ -70,5 +70,11 @@ examples/tropical_cyclone_world.md
 examples/atsc-jas-d-18-0357*
 
 # Benchmarking output
+/.runtime/
 *.json
 benchmark_results.md
+
+# Retained benchmark results and environment snapshots
+!benchmarking/results/**/*.json
+!benchmarking/results/**/Manifest.toml
+!benchmarking/queued_fork_migration/*.json

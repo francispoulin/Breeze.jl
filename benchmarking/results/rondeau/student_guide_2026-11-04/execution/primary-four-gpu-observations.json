@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-04T17:49:01.325523+00:00",
+  "processes": [
+    {
+      "pid": 1678434,
+      "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+      "command": "julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=4x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv",
+      "rank": "0",
+      "visible_gpu": "0",
+      "julia_threads": "1"
+    },
+    {
+      "pid": 1678435,
+      "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+      "command": "julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=4x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv",
+      "rank": "1",
+      "visible_gpu": "1",
+      "julia_threads": "1"
+    },
+    {
+      "pid": 1678438,
+      "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+      "command": "julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=4x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv",
+      "rank": "2",
+      "visible_gpu": "2",
+      "julia_threads": "1"
+    },
+    {
+      "pid": 1678441,
+      "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+      "command": "julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=4x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv",
+      "rank": "3",
+      "visible_gpu": "3",
+      "julia_threads": "1"
+    }
+  ]
+}

@@ -84,6 +84,22 @@ from a reference.
   workaround.
 - Avoid duplicated code beyond trivial one-liners.
 
+## Git Workflow
+
+Make a commit after completing each task
+
+## Agent Behavior
+
+- If you have questions about a task, ask the user and wait for their answers before executing the task.
+- Create plots when applicable, except for Nsight profiling runs.
+- For Nsight runs, record the exact path to each Nsight result file in the run's `README.md`.
+- Prioritize type stability and GPU compatibility
+- Follow established patterns in existing code
+- Add tests for new functionality; update exports when adding public API
+- Reference physics equations in comments when implementing dynamics
+- When unsure: study working examples first (BOMEX, RICO, etc.), look at similar
+  Oceananigans implementations, review tests for usage patterns
+
 ## Conventions that are not visible from the code
 
 - Source code uses explicit imports, checked by `quality_assurance`. Extend functions with

@@ -1,0 +1,38 @@
+{
+  "runs/logs/capacity_anelastic_1024x1024x512_20261107-194026.out": {
+    "bytes": 83519,
+    "sha256": "1c90342523d39f36c392188b7d6cbcd657924202bd815fc69c5662d7ce86f3f3"
+  },
+  "runs/logs/capacity_anelastic_512x512x256_20261107-193757.out": {
+    "bytes": 2173,
+    "sha256": "2e23e1fff5c9a2a9ba1789768cd06fa827d2132a8c47563a1559ffa013b34a76"
+  },
+  "runs/logs/capacity_compressible_explicit_1024x1024x512_20261107-194359.out": {
+    "bytes": 70316,
+    "sha256": "1cdd0add85a1fcfb3749c2cb96f1df9bb181bd3591a8accbd1e8cacd39d9c218"
+  },
+  "runs/logs/capacity_compressible_explicit_512x512x256_20261107-194131.out": {
+    "bytes": 2209,
+    "sha256": "534879aad788dc4679da0cb08cc272889decd1a81328301c627543ae49eb1fe9"
+  },
+  "runs/logs/capacity_compressible_splitexplicit_1024x1024x512_20261107-194806.out": {
+    "bytes": 70637,
+    "sha256": "460747beea8319491c90b540352905f93f0ed5420fe15f97c76c56019a48fca9"
+  },
+  "runs/logs/capacity_compressible_splitexplicit_512x512x256_20261107-194502.out": {
+    "bytes": 2224,
+    "sha256": "bae4f0d24a557f941649fac10bcd63ce9281e63e2a5fa6e77dcb473e167ab2ac"
+  },
+  "execution/sweep.log": {
+    "bytes": 7488,
+    "sha256": "8e90ae15610baf00bb5c671725e40b3db4898eb4edf2b97ba274c886b97c94ee"
+  },
+  "provenance/environment.log": {
+    "bytes": 18522,
+    "sha256": "68066a507bcc635c355a2d7e4a0248aa22dcb3b9d2567195142152b034d706bd"
+  },
+  "execution/commands.log": {
+    "bytes": 4681,
+    "sha256": "60246445d6ff31c91f8c177214cff978cd87c29b28bd4c194c6ab05a15ec6351"
+  }
+}

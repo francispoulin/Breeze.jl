@@ -1,0 +1,33 @@
+# 2026-11-04 11:35:24 on rondeau, user ajtse
+# GPUs 1 (one per rank if several), JULIA_CUDA_MEMORY_POOL=none
+# julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=256x256x128 --time_steps=300 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/first-runs.csv
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_explicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (256, 256, 128)
+│   partition = (1, 1)
+│   nranks = 1
+│   Δt = 0.05
+└   time_steps = 300
+RESULT machine=rondeau dynamics=compressible_explicit float=Float32 size=256x256x128 partition=1x1 gpus=1 steps=300 seconds_per_step=2.2672e-02 points_per_second=3.7000e+08 points_per_second_per_gpu=3.7000e+08 max_abs_w=4.818e+01
+[rondeau:1623290] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+[rondeau:1623290] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 246
+# 2026-11-04 11:37:54 finished, exit status 0

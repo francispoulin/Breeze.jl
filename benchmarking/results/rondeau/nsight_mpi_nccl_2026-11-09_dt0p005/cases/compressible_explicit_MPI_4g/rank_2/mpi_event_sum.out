@@ -1,0 +1,6 @@
+
+NOTICE: Existing SQLite export found: /local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_2/profile.sqlite
+        It is assumed file was previously exported from: /local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_2/profile.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_2/profile.sqlite] with [/opt/uw/nsight/2024.5.1/host-linux-x64/reports/mpi_event_sum.py] to [/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_mpi_nccl_2026-11-09_dt0p005/cases/compressible_explicit_MPI_4g/rank_2/summary_mpi_event_sum.csv]... PROCESSED

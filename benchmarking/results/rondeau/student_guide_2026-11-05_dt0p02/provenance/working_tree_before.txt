@@ -1,0 +1,4 @@
+ M AGENTS.md
+?? .runtime/
+?? benchmarking/results/rondeau/student_guide_2026-11-05_dt0p02/
+?? student_guide.md

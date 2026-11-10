@@ -1,0 +1,106 @@
+{
+  "observed_utc": "2026-11-05T14:01:39.480824+00:00",
+  "workers": [
+    {
+      "pid": 1959861,
+      "exe": "/u/ajtse/software/julia-1.11.9/bin/julia",
+      "command": [
+        "julia",
+        "--project=/u/ajtse/Breeze.jl/benchmarking/distributed",
+        "/u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "--dynamics=compressible_explicit",
+        "--size=256x256x128",
+        "--partition=2x2",
+        "--time_steps=500",
+        "--time_step=0.02",
+        "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-05_dt0p02/scaling.csv"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "JULIA_NUM_THREADS": "1",
+        "JULIA_NUM_PRECOMPILE_TASKS": "2",
+        "JULIA_CUDA_MEMORY_POOL": "none",
+        "OMPI_COMM_WORLD_RANK": "0"
+      },
+      "mpi_library_mappings": [
+        "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+      ]
+    },
+    {
+      "pid": 1959862,
+      "exe": "/u/ajtse/software/julia-1.11.9/bin/julia",
+      "command": [
+        "julia",
+        "--project=/u/ajtse/Breeze.jl/benchmarking/distributed",
+        "/u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "--dynamics=compressible_explicit",
+        "--size=256x256x128",
+        "--partition=2x2",
+        "--time_steps=500",
+        "--time_step=0.02",
+        "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-05_dt0p02/scaling.csv"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "1",
+        "JULIA_NUM_THREADS": "1",
+        "JULIA_NUM_PRECOMPILE_TASKS": "2",
+        "JULIA_CUDA_MEMORY_POOL": "none",
+        "OMPI_COMM_WORLD_RANK": "1"
+      },
+      "mpi_library_mappings": [
+        "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+      ]
+    },
+    {
+      "pid": 1959865,
+      "exe": "/u/ajtse/software/julia-1.11.9/bin/julia",
+      "command": [
+        "julia",
+        "--project=/u/ajtse/Breeze.jl/benchmarking/distributed",
+        "/u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "--dynamics=compressible_explicit",
+        "--size=256x256x128",
+        "--partition=2x2",
+        "--time_steps=500",
+        "--time_step=0.02",
+        "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-05_dt0p02/scaling.csv"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "2",
+        "JULIA_NUM_THREADS": "1",
+        "JULIA_NUM_PRECOMPILE_TASKS": "2",
+        "JULIA_CUDA_MEMORY_POOL": "none",
+        "OMPI_COMM_WORLD_RANK": "2"
+      },
+      "mpi_library_mappings": [
+        "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+      ]
+    },
+    {
+      "pid": 1959868,
+      "exe": "/u/ajtse/software/julia-1.11.9/bin/julia",
+      "command": [
+        "julia",
+        "--project=/u/ajtse/Breeze.jl/benchmarking/distributed",
+        "/u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "--dynamics=compressible_explicit",
+        "--size=256x256x128",
+        "--partition=2x2",
+        "--time_steps=500",
+        "--time_step=0.02",
+        "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-05_dt0p02/scaling.csv"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "3",
+        "JULIA_NUM_THREADS": "1",
+        "JULIA_NUM_PRECOMPILE_TASKS": "2",
+        "JULIA_CUDA_MEMORY_POOL": "none",
+        "OMPI_COMM_WORLD_RANK": "3"
+      },
+      "mpi_library_mappings": [
+        "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+      ]
+    }
+  ],
+  "gpu_processes_csv": "gpu_uuid, pid, used_gpu_memory [MiB]\nGPU-3cc138cf-9b95-c6e6-9b51-330b5d985885, 1959861, 476 MiB\nGPU-27b6f362-d593-fda1-e6fa-43275dcca7da, 1959862, 476 MiB\nGPU-0d23b51f-58fb-31df-e839-8dd85117df68, 1959865, 476 MiB\nGPU-628b07c6-4d27-afb0-6c71-f0b5ec437cab, 1959868, 476 MiB\n"
+}

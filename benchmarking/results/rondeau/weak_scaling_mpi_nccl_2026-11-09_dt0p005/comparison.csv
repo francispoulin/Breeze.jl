@@ -1,0 +1,15 @@
+case,dynamics,communication,gpus,partition,seconds_per_step,fields_finite,weak_efficiency_percent,max_abs_w,log
+compressible_explicit_SERIAL_1g,compressible_explicit,SERIAL,1,1x1,0.3360169,true,99.99999999999999,1.323533e-02,runs/logs/dt0p005_compressible_explicit_SERIAL_1g_20261109-142825.out
+compressible_splitexplicit_SERIAL_1g,compressible_splitexplicit,SERIAL,1,1x1,1.215426,true,100.0,2.490426e-02,runs/logs/dt0p005_compressible_splitexplicit_SERIAL_1g_20261109-143351.out
+compressible_explicit_MPI_2g,compressible_explicit,MPI,2,2x1,0.3436055,true,97.7914788907628,1.347446e-02,runs/logs/dt0p005_compressible_explicit_MPI_2g_20261109-144716.out
+compressible_explicit_NCCL_2g,compressible_explicit,NCCL,2,2x1,0.3476637,true,96.64998100175542,1.347653e-02,runs/logs/dt0p005_compressible_explicit_NCCL_2g_20261109-145333.out
+compressible_splitexplicit_MPI_2g,compressible_splitexplicit,MPI,2,2x1,1.266162,true,95.99292981466826,2.027457e-02,runs/logs/dt0p005_compressible_splitexplicit_MPI_2g_20261109-150001.out
+compressible_splitexplicit_NCCL_2g,compressible_splitexplicit,NCCL,2,2x1,1.285433,true,94.55381960786754,2.036724e-02,runs/logs/dt0p005_compressible_splitexplicit_NCCL_2g_20261109-151458.out
+compressible_explicit_MPI_4g_2x2,compressible_explicit,MPI,4,2x2,0.3672024,true,91.50727228362342,1.546759e-02,runs/logs/dt0p005_compressible_explicit_MPI_4g_2x2_20261110-021818.out
+compressible_explicit_NCCL_4g_2x2,compressible_explicit,NCCL,4,2x2,0.3707773,true,90.62499241458417,1.571396e-02,runs/logs/dt0p005_compressible_explicit_NCCL_4g_2x2_20261110-022526.out
+compressible_splitexplicit_MPI_4g_2x2,compressible_splitexplicit,MPI,4,2x2,1.474333,true,82.43904192607776,2.154677e-02,runs/logs/dt0p005_compressible_splitexplicit_MPI_4g_2x2_20261110-023244.out
+compressible_splitexplicit_NCCL_4g_2x2,compressible_splitexplicit,NCCL,4,2x2,1.392204,true,87.3022919054966,2.115621e-02,runs/logs/dt0p005_compressible_splitexplicit_NCCL_4g_2x2_20261110-025015.out
+compressible_explicit_MPI_4g_4x1,compressible_explicit,MPI,4,4x1,0.3700876,true,90.79388231326853,1.740932e-02,runs/logs/dt0p005_compressible_explicit_MPI_4g_4x1_20261110-030714.out
+compressible_explicit_NCCL_4g_4x1,compressible_explicit,NCCL,4,4x1,0.3527791,true,95.24852804488701,1.634081e-02,runs/logs/dt0p005_compressible_explicit_NCCL_4g_4x1_20261110-031351.out
+compressible_splitexplicit_MPI_4g_4x1,compressible_splitexplicit,MPI,4,4x1,1.399117,true,86.87093359597517,2.262463e-02,runs/logs/dt0p005_compressible_splitexplicit_MPI_4g_4x1_20261110-032019.out
+compressible_splitexplicit_NCCL_4g_4x1,compressible_splitexplicit,NCCL,4,4x1,1.319781,true,92.09300633968816,2.188313e-02,runs/logs/dt0p005_compressible_splitexplicit_NCCL_4g_4x1_20261110-033617.out

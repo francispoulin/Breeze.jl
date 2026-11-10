@@ -161,7 +161,8 @@ bash benchmarking/distributed/pelee_rondeau/run_scaling.sh
 It runs, one after the other, for each model: **strong scaling** (256×256×128 on 1, 2 and 4 GPUs) and
 **weak scaling** (about 8M points per GPU: 256×256×128, 512×256×128, 512×512×128 on 1, 2, 4 GPUs). Anelastic
 is run on 1 GPU only. Results are appended to a CSV, `$OCEAN_RESULTS_ROOT/Breeze/scaling.csv` by default.
-Options: `--time_steps=1000`, `--max_gpus=2`, `--results_file=<file>`.
+Options: `--time_steps=1000`, `--time_step=0.03` (seconds; default 0.05),
+`--max_gpus=2`, `--results_file=<file>`.
 
 How to read the table (with `t(N)` the `seconds_per_step` on `N` GPUs):
 

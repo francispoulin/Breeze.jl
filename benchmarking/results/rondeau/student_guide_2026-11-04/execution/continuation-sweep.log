@@ -1,0 +1,32 @@
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=4x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs/logs/primary_4gpu_4x1_256x256x128_20261104-124654.out
+started:  pid 1678416
+# 2026-11-04 12:51:18 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs/logs/primary_4gpu_4x1_256x256x128_20261104-124654.out
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=1x4 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs/logs/primary_4gpu_1x4_256x256x128_20261104-125119.out
+started:  pid 1679561
+# 2026-11-04 12:55:45 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs/logs/primary_4gpu_1x4_256x256x128_20261104-125119.out
+machine:  rondeau
+GPUs:     0,1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=512x256x128 --partition=2x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs/logs/primary_2gpu_2x1_512x256x128_20261104-125546.out
+started:  pid 1681688
+# 2026-11-04 13:00:31 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs/logs/primary_2gpu_2x1_512x256x128_20261104-125546.out
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=512x512x128 --partition=2x2 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs/logs/primary_4gpu_2x2_512x512x128_20261104-130031.out
+started:  pid 1682510
+# 2026-11-04 13:06:40 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs/logs/primary_4gpu_2x2_512x512x128_20261104-130031.out

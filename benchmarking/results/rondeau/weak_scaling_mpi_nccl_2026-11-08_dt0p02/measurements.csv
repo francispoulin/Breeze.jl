@@ -1,0 +1,11 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite
+rondeau,compressible_explicit,Float32,512,512,512,1,1,1,500,3.391851e-01,3.957064e+08,NaN,SERIAL,false
+rondeau,compressible_splitexplicit,Float32,512,512,512,1,1,1,500,1.217721e+00,1.102204e+08,4.264116e-02,SERIAL,true
+rondeau,compressible_explicit,Float32,1024,512,512,2,1,2,500,3.469104e-01,7.737891e+08,NaN,MPI,false
+rondeau,compressible_explicit,Float32,1024,512,512,2,1,2,500,3.506046e-01,7.656358e+08,NaN,NCCL,false
+rondeau,compressible_splitexplicit,Float32,1024,512,512,2,1,2,500,1.271046e+00,2.111925e+08,3.991939e-02,MPI,true
+rondeau,compressible_splitexplicit,Float32,1024,512,512,2,1,2,500,1.287500e+00,2.084936e+08,4.013349e-02,NCCL,true
+rondeau,compressible_explicit,Float32,1024,1024,512,2,2,4,500,3.700118e-01,1.450956e+09,NaN,MPI,false
+rondeau,compressible_explicit,Float32,1024,1024,512,2,2,4,500,3.730480e-01,1.439147e+09,NaN,NCCL,false
+rondeau,compressible_splitexplicit,Float32,1024,1024,512,2,2,4,500,1.495404e+00,3.590140e+08,5.007625e-02,MPI,true
+rondeau,compressible_splitexplicit,Float32,1024,1024,512,2,2,4,500,1.395613e+00,3.846846e+08,5.115581e-02,NCCL,true

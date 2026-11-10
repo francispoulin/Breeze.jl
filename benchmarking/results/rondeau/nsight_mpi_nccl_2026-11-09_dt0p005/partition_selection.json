@@ -1,0 +1,46 @@
+[
+  {
+    "dynamics": "compressible_explicit",
+    "communication": "MPI",
+    "partition": [
+      2,
+      2
+    ],
+    "benchmark_case": "compressible_explicit_MPI_4g_2x2",
+    "seconds_per_step_2x2": 0.3672024,
+    "seconds_per_step_4x1": 0.3700876
+  },
+  {
+    "dynamics": "compressible_explicit",
+    "communication": "NCCL",
+    "partition": [
+      4,
+      1
+    ],
+    "benchmark_case": "compressible_explicit_NCCL_4g_4x1",
+    "seconds_per_step_2x2": 0.3707773,
+    "seconds_per_step_4x1": 0.3527791
+  },
+  {
+    "dynamics": "compressible_splitexplicit",
+    "communication": "MPI",
+    "partition": [
+      4,
+      1
+    ],
+    "benchmark_case": "compressible_splitexplicit_MPI_4g_4x1",
+    "seconds_per_step_2x2": 1.474333,
+    "seconds_per_step_4x1": 1.399117
+  },
+  {
+    "dynamics": "compressible_splitexplicit",
+    "communication": "NCCL",
+    "partition": [
+      4,
+      1
+    ],
+    "benchmark_case": "compressible_splitexplicit_NCCL_4g_4x1",
+    "seconds_per_step_2x2": 1.392204,
+    "seconds_per_step_4x1": 1.319781
+  }
+]

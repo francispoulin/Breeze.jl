@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-11-09T01:29:14.983066+00:00",
+  "controllers": [
+    {
+      "pid": 1462941,
+      "command": [
+        "python3",
+        "-"
+      ],
+      "process_start_ticks": 20468682
+    }
+  ],
+  "tool_session_id": 98932,
+  "timing_nccl_debug": "WARN",
+  "validation_nccl_debug": "INFO",
+  "status_path": "study.json",
+  "historical_note": "Controller is alive and waits for selected GPUs before launching further cases; do not start a duplicate sweep.",
+  "status": "COMPLETE",
+  "finished_utc": "2026-11-09T08:52:37.707354+00:00",
+  "checked_utc": "2026-11-09T15:36:08.177995+00:00",
+  "note": "The sweep completed all ten cases and the controller exited. PID and session records above are historical; do not restart this completed sweep."
+}

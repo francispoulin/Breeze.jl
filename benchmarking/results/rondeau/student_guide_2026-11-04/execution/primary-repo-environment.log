@@ -1,0 +1,423 @@
+Precompiling CUDA_Driver_jll...
+    530.4 ms  ✓ Preferences
+    379.0 ms  ✓ JLLWrappers
+    869.3 ms  ✓ CUDA_Driver_jll
+  3 dependencies successfully precompiled in 2 seconds. 4 already precompiled.
+Precompiling Pkg...
+    426.7 ms  ✓ UUIDs
+    523.2 ms  ✓ NetworkOptions
+    382.4 ms  ✓ Logging
+    400.9 ms  ✓ MozillaCACerts_jll
+    443.6 ms  ✓ nghttp2_jll
+   1314.3 ms  ✓ ArgTools
+    475.0 ms  ✓ p7zip_jll
+    401.6 ms  ✓ Unicode
+    435.5 ms  ✓ Zlib_jll
+    515.8 ms  ✓ MbedTLS_jll
+    449.6 ms  ✓ Base64
+    632.6 ms  ✓ Tar
+    486.4 ms  ✓ Printf
+    387.2 ms  ✓ LibSSH2_jll
+   2027.5 ms  ✓ Dates
+   2426.3 ms  ✓ Markdown
+    379.1 ms  ✓ LibGit2_jll
+    384.7 ms  ✓ LibCURL_jll
+    476.3 ms  ✓ TOML
+    618.9 ms  ✓ LibCURL
+   2108.7 ms  ✓ LibGit2
+   2594.2 ms  ✓ Downloads
+  39764.3 ms  ✓ Pkg
+  23 dependencies successfully precompiled in 50 seconds
+Precompiling project...
+    394.8 ms  ✓ OpenLibm_jll
+    605.0 ms  ✓ Serialization
+    432.7 ms  ✓ CompilerSupportLibraries_jll
+    428.8 ms  ✓ SuiteSparse_jll
+    435.2 ms  ✓ Requires
+    381.3 ms  ✓ Mmap
+    445.6 ms  ✓ ChunkCodecLibZlib
+    366.3 ms  ✓ ScopedValues
+    528.2 ms  ✓ BFloat16s
+    394.4 ms  ✓ Scratch
+   1243.2 ms  ✓ InteractiveUtils
+    645.2 ms  ✓ Preferences
+    834.5 ms  ✓ LazyArtifacts
+    954.3 ms  ✓ PkgVersion
+   7558.7 ms  ✓ StyledStrings
+   1811.9 ms  ✓ Distributed
+   2996.3 ms  ✓ FileIO
+    463.7 ms  ✓ JLLWrappers
+   3789.3 ms  ✓ SparseArrays
+    405.4 ms  ✓ PrecompileTools
+    707.3 ms  ✓ MPIPreferences
+   1890.1 ms  ✓ CUDA_Driver_jll
+    500.6 ms  ✓ tree_sitter_spirv_jll
+    441.6 ms  ✓ MSVCRuntime_jll
+    504.2 ms  ✓ Xorg_libpciaccess_jll
+    493.5 ms  ✓ NVTX_jll
+    508.5 ms  ✓ LibTracyClient_jll
+    990.7 ms  ✓ IntelOpenMP_jll
+    500.7 ms  ✓ tree_sitter_gcn_jll
+    498.5 ms  ✓ demumble_jll
+   1025.4 ms  ✓ oneTBB_jll
+    592.9 ms  ✓ LLVMExtra_jll
+    529.9 ms  ✓ Zstd_jll
+    569.3 ms  ✓ LMDB_jll
+    499.5 ms  ✓ NVPTX_LLVM_Backend_jll
+    491.8 ms  ✓ JuliaNVTXCallbacks_jll
+    513.2 ms  ✓ Libiconv_jll
+    495.6 ms  ✓ tree_sitter_llvm_jll
+    517.5 ms  ✓ FFTW_jll
+    493.6 ms  ✓ tree_sitter_ptx_jll
+    505.0 ms  ✓ OpenSpecFun_jll
+    629.1 ms  ✓ Distances → DistancesSparseArraysExt
+    511.4 ms  ✓ Statistics → SparseArraysExt
+   6890.7 ms  ✓ Krylov
+    483.7 ms  ✓ Adapt → AdaptSparseArraysExt
+   3067.8 ms  ✓ TaylorSeries
+    526.2 ms  ✓ StructArrays → SparseArraysExt
+    736.0 ms  ✓ MuladdMacro
+   6133.0 ms  ✓ StaticArrays
+  33738.0 ms  ✓ REPL
+    981.9 ms  ✓ MicrosoftMPI_jll
+   3502.7 ms  ✓ StringManipulation
+    997.0 ms  ✓ MPItrampoline_jll
+   1161.1 ms  ✓ OpenMPI_jll
+    885.7 ms  ✓ Tracy
+   1014.5 ms  ✓ MKL_jll
+   3841.5 ms  ✓ CUDA_Compiler_jll
+    551.9 ms  ✓ ChunkCodecLibZstd
+   1038.6 ms  ✓ LMDB
+    856.2 ms  ✓ NVTX
+    577.2 ms  ✓ XML2_jll
+   2434.5 ms  ✓ SpecialFunctions
+    549.3 ms  ✓ StaticArrays → StaticArraysStatisticsExt
+    547.9 ms  ✓ ConstructionBase → ConstructionBaseStaticArraysExt
+    529.8 ms  ✓ Adapt → AdaptStaticArraysExt
+   1688.8 ms  ✓ Rotations
+    611.6 ms  ✓ StructArrays → StaticArraysExt
+    744.6 ms  ✓ TaylorSeries → TaylorSeriesSAExt
+   5661.1 ms  ✓ Pkg → REPLExt
+  17466.0 ms  ✓ LLVM
+   4477.9 ms  ✓ FFTW
+   4195.5 ms  ✓ CUDA_Runtime_jll
+  19760.9 ms  ✓ PrettyTables
+    782.3 ms  ✓ CompilerCaching
+    566.5 ms  ✓ Hwloc_jll
+   1048.7 ms  ✓ CubedSphere
+   2099.2 ms  ✓ UnsafeAtomics
+    573.1 ms  ✓ LLVM → BFloat16sExt
+  23764.5 ms  ✓ JLD2
+    972.4 ms  ✓ MPIABI_jll
+    506.9 ms  ✓ MPICH_jll
+    713.6 ms  ✓ Atomix
+   1417.8 ms  ✓ TaylorSeries → TaylorSeriesJLD2Ext
+   4025.3 ms  ✓ MPI
+   3131.6 ms  ✓ KernelAbstractions
+    993.6 ms  ✓ KernelAbstractions → SparseArraysExt
+    811.2 ms  ✓ KernelAbstractions → LinearAlgebraExt
+    849.9 ms  ✓ StructArrays → KernelAbstractionsExt
+  25720.4 ms  ✓ GPUCompiler
+   4214.9 ms  ✓ GPUArrays
+   1282.5 ms  ✓ UnsafeAtomics → UnsafeAtomicsGPUCompilerExt
+   1914.4 ms  ✓ GPUArrays → JLD2Ext
+  18276.7 ms  ✓ CUDACore
+  26128.3 ms  ✓ Oceananigans
+   5192.7 ms  ✓ CUDACore → SpecialFunctionsExt
+   5153.5 ms  ✓ Atomix → AtomixCUDACoreExt
+  10105.1 ms  ✓ Breeze
+   5978.4 ms  ✓ cuFFT
+   6165.3 ms  ✓ cuRAND
+   8744.2 ms  ✓ CUPTI
+   8233.9 ms  ✓ NVML
+  10387.2 ms  ✓ cuSPARSE
+  13284.7 ms  ✓ cuBLAS
+  12378.0 ms  ✓ CUDATools
+  11740.1 ms  ✓ cuSOLVER
+   6392.1 ms  ✓ CUDA
+   5921.2 ms  ✓ MPI → CUDAExt
+   7507.0 ms  ✓ Oceananigans → OceananigansCUDAExt
+  108 dependencies successfully precompiled in 209 seconds. 66 already precompiled.
+  13 dependencies had output during precompilation:
+┌ cuSOLVER
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ CUPTI
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ MPI → CUDAExt
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ CUDA
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ CUDACore → SpecialFunctionsExt
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuSPARSE
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuRAND
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ CUDATools
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ Atomix → AtomixCUDACoreExt
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ NVML
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuBLAS
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuFFT
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ Oceananigans → OceananigansCUDAExt
+│  ┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+│  ┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+SOURCE=/u/ajtse/Breeze.jl/src/Breeze.jl
+JULIA=1.11.9
+CUDA_FUNCTIONAL=true
+MPI_HAS_CUDA=true

@@ -5,8 +5,10 @@
 #
 #     bash benchmarking/distributed/pelee_rondeau/run_scaling.sh
 #     bash benchmarking/distributed/pelee_rondeau/run_scaling.sh --time_steps=1000 --max_gpus=2
+#     bash benchmarking/distributed/pelee_rondeau/run_scaling.sh --time_step=0.03
 #
-# Options: --time_steps (default 500), --max_gpus (default 4), --results_file (CSV, appended to;
+# Options: --time_steps (default 500), --time_step (seconds, default 0.05),
+# --max_gpus (default 4), --results_file (CSV, appended to;
 # default $OCEAN_RESULTS_ROOT/Breeze/scaling.csv). Each run is attached (run_local.sh --wait), one
 # after the other; its log is in logs/ of the folder you start from.
 #
@@ -20,11 +22,13 @@ busy=$(nvidia-smi --query-gpu=index,memory.used --format=csv,noheader,nounits | 
 [[ -n $busy ]] && { echo "GPUs already in use, aborting:"; echo "$busy"; exit 1; }
 
 time_steps=500
+time_step=0.05
 max_gpus=4
 results_file="${OCEAN_RESULTS_ROOT:-$PWD}/Breeze/scaling.csv"
 for argument in "$@"; do
     case "$argument" in
         --time_steps=*)   time_steps="${argument#--time_steps=}" ;;
+        --time_step=*)    time_step="${argument#--time_step=}" ;;
         --max_gpus=*)     max_gpus="${argument#--max_gpus=}" ;;
         --results_file=*) results_file="${argument#--results_file=}" ;;
         *) echo "unknown option: $argument"; exit 1 ;;
@@ -39,11 +43,11 @@ for dynamics in anelastic compressible_explicit compressible_splitexplicit; do
     for case in "${cases[@]}"; do
         read -r gpus size partition <<<"$case"
         (( gpus > max_gpus )) && continue
-        echo "== $dynamics, $gpus GPU(s), $size, partition $partition"
+        echo "== $dynamics, $gpus GPU(s), $size, partition $partition, time step $time_step s"
         bash "$OCEAN_HPC_ROOT/tools/run_local.sh" -n "$gpus" -p "$BREEZE_DISTRIBUTED_DIR" --wait \
             "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" \
             --dynamics="$dynamics" --size="$size" --partition="$partition" \
-            --time_steps="$time_steps" --results_file="$results_file" \
+            --time_steps="$time_steps" --time_step="$time_step" --results_file="$results_file" \
             || echo "   FAILED: $dynamics, $gpus GPU(s), $size"
     done
 done

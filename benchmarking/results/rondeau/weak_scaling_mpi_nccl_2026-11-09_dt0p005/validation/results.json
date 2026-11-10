@@ -1,0 +1,16 @@
+{
+  "validated_utc": "2026-11-10T08:51:50.771796+00:00",
+  "configured_cases": 14,
+  "completed_cases": 14,
+  "valid_performance_cases": 14,
+  "source_and_environment_hashes_unchanged": true,
+  "case_geometry_csv_log_timestep_and_timing_verified": true,
+  "sampled_gpu_placement_memory_and_no_foreign_compute_verified": true,
+  "one_julia_thread_per_rank_and_system_cuda_aware_mpi_verified": true,
+  "loaded_nccl_library_and_communicator_verified": true,
+  "numerical_scope": "Final prognostic and velocity field finiteness on every rank; no serial model agreement test",
+  "complete_case_coverage": true,
+  "original_log_archive_hashes_verified": true,
+  "png_svg_integrity_verified": true,
+  "finalized_utc": "2026-11-10T08:51:54.829699+00:00"
+}

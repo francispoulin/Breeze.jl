@@ -1,0 +1,10 @@
+{
+  "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/source/benchmarking/distributed/distributed_cbl_benchmark.jl": "79ec96b471f1f689c4da94a0bee95d7fa23ba5cabf5390ef9a6144741de86d6f",
+  "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_mpi_nccl_2026-11-09_dt0p005/execution/test_partition_selection.py": "831f2bf971d07889595e8f2714155f893825611db0ac44f2861f662dcdcaf999",
+  "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_mpi_nccl_2026-11-09_dt0p005/execution/finalize_profiles.py": "b52fb3ac4c65c859660c6a03032d35a5e0303114d50c63bf3e5dac344e2d11a1",
+  "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_mpi_nccl_2026-11-09_dt0p005/execution/run_profiles.py": "a446c3883dcb8ffeb004db25f58983e483aa6fd65af3f03892daa73ceb049f41",
+  "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_mpi_nccl_2026-11-09_dt0p005/execution/environment.sh": "9e96873e00730e932325d67fbabc3ad48d2bc28f7d05e7964f110dafb806f71e",
+  "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_mpi_nccl_2026-11-09_dt0p005/execution/profile_rank.sh": "aeb6fb7c1a36c6fca292810deee704fa55e24163aa976298bef4567fd38b9081",
+  "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-09_dt0p005/execution/run_series.py": "c5f90166ab203fa9f505d5539e528e6925d31d71cde251dca62504566782ce6b",
+  "/opt/uw/nsight/2024.5.1/bin/nsys": "c94c0dcdbd97523b01dff620ad49aa7879f769ce0e8074a237249c4211a5db69"
+}

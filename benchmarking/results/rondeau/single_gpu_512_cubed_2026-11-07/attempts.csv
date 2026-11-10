@@ -1,0 +1,5 @@
+dynamics,Nx,Ny,Nz,cells,gpu_index,exit_code,status,failure_phase,finite_max_w,max_abs_w,observed_peak_mib,baseline_mib,elapsed_seconds,log,oom_excerpt,time_step_seconds,measurements_file,memory_samples_file
+anelastic,512,512,512,134217728,1,0,FIT,,True,0.00238,16083,5,154.08,runs/logs/capacity_anelastic_512x512x512_20261107-200655.out,,0.02,measurements.csv,memory_samples.csv
+compressible_explicit,512,512,512,134217728,1,0,FIT,,False,nan,16801,5,152.949,runs/logs/capacity_compressible_explicit_512x512x512_20261107-200929.out,,0.02,measurements.csv,memory_samples.csv
+compressible_splitexplicit,512,512,512,134217728,1,0,FIT,,True,0.004751,26561,5,196.503,runs/logs/capacity_compressible_splitexplicit_512x512x512_20261107-201202.out,,0.02,measurements.csv,memory_samples.csv
+compressible_explicit,512,512,512,134217728,1,0,FIT,,True,0.004821,16801,5,151.891,runs/logs/capacity_compressible_explicit_512x512x512_dt0p005_20261107-201617.out,,0.005,measurements_dt0p005.csv,memory_samples_dt0p005.csv

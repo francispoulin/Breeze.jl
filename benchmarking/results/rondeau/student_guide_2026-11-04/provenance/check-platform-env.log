@@ -1,0 +1,20 @@
+== Environment
+  [32mOK[0m    machine rondeau, repository /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/oceananigans-hpc
+  [32mOK[0m    julia: 1.10.10 (/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.10.10/bin/julia)
+  [32mOK[0m    depot /u/ajtse/.julia
+  [32mOK[0m    JULIA_NUM_PRECOMPILE_TASKS=4
+  [32mOK[0m    system OpenMPI /opt/uw/openmpi/4.1.7-with-cuda
+== GPUs
+        GPU 0  NVIDIA A100-SXM4-40GB  (free)
+        GPU 1  NVIDIA A100-SXM4-40GB  (free)
+        GPU 2  NVIDIA A100-SXM4-40GB  (free)
+        GPU 3  NVIDIA A100-SXM4-40GB  (free)
+== Project /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/oceananigans-hpc
+  [32mOK[0m    Project.toml: CUDA, JLD2, MPI, MPIPreferences, NCDatasets, Oceananigans, OpenMPI_jll, Preferences
+  [32mOK[0m    Manifest made with this Julia (1.10.10)
+  [32mOK[0m    MPI.jl uses the system MPI
+  [32mOK[0m    OpenMPI_jll -> /opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so
+  [32mOK[0m    global environment @v1.10 is empty
+  [32mOK[0m    viz/ is set up (plot with julia --project=$OCEAN_HPC_ROOT/viz ...)
+
+All checks OK.

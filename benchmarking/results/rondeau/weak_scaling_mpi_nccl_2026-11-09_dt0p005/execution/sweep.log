@@ -1,0 +1,30 @@
+2026-11-09T19:28:25.473688+00:00 START compressible_explicit_SERIAL_1g GPUs=[1]
+2026-11-09T19:33:51.447802+00:00 COMPLETE compressible_explicit_SERIAL_1g seconds_per_step=0.3360169 finite=True
+2026-11-09T19:33:51.613126+00:00 START compressible_splitexplicit_SERIAL_1g GPUs=[1]
+2026-11-09T19:47:16.490646+00:00 COMPLETE compressible_splitexplicit_SERIAL_1g seconds_per_step=1.215426 finite=True
+2026-11-09T19:47:16.681375+00:00 START compressible_explicit_MPI_2g GPUs=[1, 2]
+2026-11-09T19:53:33.681805+00:00 COMPLETE compressible_explicit_MPI_2g seconds_per_step=0.3436055 finite=True
+2026-11-09T19:53:33.834589+00:00 START compressible_explicit_NCCL_2g GPUs=[1, 2]
+2026-11-09T20:00:00.867328+00:00 COMPLETE compressible_explicit_NCCL_2g seconds_per_step=0.3476637 finite=True
+2026-11-09T20:00:01.036170+00:00 START compressible_splitexplicit_MPI_2g GPUs=[1, 2]
+2026-11-09T20:14:58.096528+00:00 COMPLETE compressible_splitexplicit_MPI_2g seconds_per_step=1.266162 finite=True
+2026-11-09T20:14:58.272386+00:00 START compressible_splitexplicit_NCCL_2g GPUs=[1, 2]
+2026-11-09T20:30:04.865087+00:00 COMPLETE compressible_splitexplicit_NCCL_2g seconds_per_step=1.285433 finite=True
+2026-11-09T20:30:05.076726+00:00 WAITING compressible_explicit_MPI_4g_2x2; free GPUs: [1, 2, 3]
+2026-11-10T07:18:18.609924+00:00 START compressible_explicit_MPI_4g_2x2 GPUs=[0, 1, 2, 3]
+2026-11-10T07:25:26.621328+00:00 COMPLETE compressible_explicit_MPI_4g_2x2 seconds_per_step=0.3672024 finite=True
+2026-11-10T07:25:26.780368+00:00 START compressible_explicit_NCCL_4g_2x2 GPUs=[0, 1, 2, 3]
+2026-11-10T07:32:44.752996+00:00 COMPLETE compressible_explicit_NCCL_4g_2x2 seconds_per_step=0.3707773 finite=True
+2026-11-10T07:32:44.922705+00:00 START compressible_splitexplicit_MPI_4g_2x2 GPUs=[0, 1, 2, 3]
+2026-11-10T07:50:14.850867+00:00 COMPLETE compressible_splitexplicit_MPI_4g_2x2 seconds_per_step=1.474333 finite=True
+2026-11-10T07:50:15.030867+00:00 START compressible_splitexplicit_NCCL_4g_2x2 GPUs=[0, 1, 2, 3]
+2026-11-10T08:07:14.001176+00:00 COMPLETE compressible_splitexplicit_NCCL_4g_2x2 seconds_per_step=1.392204 finite=True
+2026-11-10T08:07:14.229236+00:00 START compressible_explicit_MPI_4g_4x1 GPUs=[0, 1, 2, 3]
+2026-11-10T08:13:51.546159+00:00 COMPLETE compressible_explicit_MPI_4g_4x1 seconds_per_step=0.3700876 finite=True
+2026-11-10T08:13:51.724536+00:00 START compressible_explicit_NCCL_4g_4x1 GPUs=[0, 1, 2, 3]
+2026-11-10T08:20:19.026798+00:00 COMPLETE compressible_explicit_NCCL_4g_4x1 seconds_per_step=0.3527791 finite=True
+2026-11-10T08:20:19.197329+00:00 START compressible_splitexplicit_MPI_4g_4x1 GPUs=[0, 1, 2, 3]
+2026-11-10T08:36:16.858609+00:00 COMPLETE compressible_splitexplicit_MPI_4g_4x1 seconds_per_step=1.399117 finite=True
+2026-11-10T08:36:17.033846+00:00 START compressible_splitexplicit_NCCL_4g_4x1 GPUs=[0, 1, 2, 3]
+2026-11-10T08:51:44.223091+00:00 COMPLETE compressible_splitexplicit_NCCL_4g_4x1 seconds_per_step=1.319781 finite=True
+2026-11-10T08:51:44.224941+00:00 COMPLETE all 14 cases

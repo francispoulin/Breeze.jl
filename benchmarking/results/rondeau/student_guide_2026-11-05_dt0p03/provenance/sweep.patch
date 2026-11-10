@@ -1,0 +1,20 @@
+diff --git a/benchmarking/distributed/pelee_rondeau/run_scaling.sh b/benchmarking/distributed/pelee_rondeau/run_scaling.sh
+index 764d6407..bdae5584 100755
+--- a/benchmarking/distributed/pelee_rondeau/run_scaling.sh
++++ b/benchmarking/distributed/pelee_rondeau/run_scaling.sh
+@@ -7,0 +8 @@
++#     bash benchmarking/distributed/pelee_rondeau/run_scaling.sh --time_step=0.03
+@@ -9 +10,2 @@
+-# Options: --time_steps (default 500), --max_gpus (default 4), --results_file (CSV, appended to;
++# Options: --time_steps (default 500), --time_step (seconds, default 0.05),
++# --max_gpus (default 4), --results_file (CSV, appended to;
+@@ -22,0 +25 @@ time_steps=500
++time_step=0.05
+@@ -27,0 +31 @@ for argument in "$@"; do
++        --time_step=*)    time_step="${argument#--time_step=}" ;;
+@@ -43 +47 @@ for dynamics in anelastic compressible_explicit compressible_splitexplicit; do
+-        echo "== $dynamics, $gpus GPU(s), $size, partition $partition"
++        echo "== $dynamics, $gpus GPU(s), $size, partition $partition, time step $time_step s"
+@@ -47 +51 @@ for dynamics in anelastic compressible_explicit compressible_splitexplicit; do
+-            --time_steps="$time_steps" --results_file="$results_file" \
++            --time_steps="$time_steps" --time_step="$time_step" --results_file="$results_file" \

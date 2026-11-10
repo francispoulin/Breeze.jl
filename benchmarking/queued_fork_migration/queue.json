@@ -1,0 +1,19 @@
+{
+  "workspace": "/u/ajtse/Breeze.jl",
+  "runtime": "/u/ajtse/.codex/queues/breeze-fjp-migration-2026-11-09",
+  "personal_fork": "https://github.com/AndiJingzhiTse/Breeze.jl.git",
+  "target_fork": "https://github.com/francispoulin/Breeze.jl.git",
+  "target_base_branch": "fjp/distributed-benchmark",
+  "new_branch": "benchmark-results",
+  "source_branch": "distributed-benchmark",
+  "profiling_branch": "codex/nsight-mpi-nccl-2026-11-09",
+  "profiling_commit": "d3084a40f670d0ef57c06b6b29b817b349180f09",
+  "imported_tree": "72c9e851105cf0017a16fb3c122a4170f82c5694",
+  "reviewed_target_driver_sha256": "fafa6da4a9b597c2341f876e4a5448cb7747f3c234f31d1c1afc59fb10118980",
+  "profiling_driver_sha256": "79ec96b471f1f689c4da94a0bee95d7fa23ba5cabf5390ef9a6144741de86d6f",
+  "staging_clone": "/u/ajtse/Breeze.jl.fjp-staging-2026-11-09",
+  "archived_checkout": "/u/ajtse/Breeze.jl.before-fjp-2026-11-09",
+  "profiling_worktree": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/source",
+  "github_cli": "/u/ajtse/.local/share/codex-tools/github-cli/bin/gh",
+  "poll_seconds": 20
+}

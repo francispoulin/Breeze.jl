@@ -1,0 +1,169 @@
+# 2026-11-04 11:43:26 on rondeau, user ajtse
+# GPUs 0,1,2,3 (one per rank if several), JULIA_CUDA_MEMORY_POOL=none
+# mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/oceananigans-hpc checks/single_mpi.jl
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/yn2cv/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/yn2cv/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/yn2cv/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/yn2cv/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/yn2cv/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/yn2cv/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/yn2cv/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/yn2cv/src/initialization.jl:203
+--------------------------------------------------------------------------
+WARNING: Open MPI will create a shared memory backing file in a
+directory that appears to be mounted on a network filesystem.
+Creating the shared memory backup file on a network file system, such
+as NFS or Lustre is not recommended -- it may cause excessive network
+traffic to your file servers and/or cause shared memory traffic in
+Open MPI to be much slower than expected.
+
+You may want to check what the typical temporary directory is on your
+node.  Possible sources of the location of this temporary directory
+include the $TEMPDIR, $TEMP, and $TMP environment variables.
+
+Note, too, that system administrators can set a list of filesystems
+where Open MPI is disallowed from creating temporary files by setting
+the MCA parameter "orte_no_session_dir".
+
+  Local host: rondeau
+  Filename:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/tmp/ompi.rondeau.8193/pid.1628330/1/shared_mem_cuda_pool.rondeau
+
+You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
+disable this message.
+--------------------------------------------------------------------------
+OPAL_PREFIX = /opt/uw/openmpi/4.1.7-with-cuda
+MPI libraries and plugins loaded on rank 0:
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/libopen-rte.so.40
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/libopen-pal.so.40
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi_mpifh.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi_usempi_ignore_tkr.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi_usempif08.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_shmem_mmap.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_reachable_netlink.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_schizo_orte.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_schizo_ompi.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_schizo_jsm.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_schizo_singularity.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_schizo_slurm.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_schizo_flux.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_ess_pmi.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_pmix_pmix3x.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_psquash_native.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_psquash_flex128.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_bfrops_v21.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_bfrops_v3.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_bfrops_v12.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_bfrops_v20.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_pcompress_zlib.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_ptl_usock.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_ptl_tcp.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_psec_native.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_gds_ds12.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_gds_hash.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_gds_ds21.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_pshmem_mmap.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_preg_native.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_preg_compress.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_plog_syslog.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_plog_default.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/pmix/mca_plog_stdfd.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_state_app.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_errmgr_default_app.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_op_avx.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_allocator_bucket.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_allocator_basic.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_rcache_grdma.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_rcache_gpusm.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_rcache_rgpusm.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_mpool_hugepage.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_bml_r2.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_btl_sm.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_btl_tcp.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_btl_self.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_btl_smcuda.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_btl_vader.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_pml_ob1.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_sm.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_tuned.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_basic.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_sync.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_libnbc.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_adapt.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_cuda.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_inter.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_self.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_coll_han.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_osc_rdma.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_osc_pt2pt.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_osc_sm.so
+  /opt/uw/openmpi/4.1.7-with-cuda/lib/openmpi/mca_patcher_overwrite.so
+PASS: one MPI, the system OpenMPI
+[rondeau:1628330] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+[rondeau:1628330] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:1628330] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+# 2026-11-04 11:43:34 finished, exit status 0

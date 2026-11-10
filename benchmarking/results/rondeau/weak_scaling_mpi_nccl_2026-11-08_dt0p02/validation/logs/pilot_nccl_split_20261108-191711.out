@@ -1,0 +1,195 @@
+# 2026-11-08 19:17:11 on rondeau, user ajtse
+# GPUs 1,2 (one per rank if several), JULIA_CUDA_MEMORY_POOL=none
+# mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_splitexplicit --size=64x32x16 --partition=2x1 --warmup_steps=2 --time_steps=2 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/pilot.csv
+--------------------------------------------------------------------------
+WARNING: Open MPI will create a shared memory backing file in a
+directory that appears to be mounted on a network filesystem.
+Creating the shared memory backup file on a network file system, such
+as NFS or Lustre is not recommended -- it may cause excessive network
+traffic to your file servers and/or cause shared memory traffic in
+Open MPI to be much slower than expected.
+
+You may want to check what the typical temporary directory is on your
+node.  Possible sources of the location of this temporary directory
+include the $TEMPDIR, $TEMP, and $TMP environment variables.
+
+Note, too, that system administrators can set a list of filesystems
+where Open MPI is disallowed from creating temporary files by setting
+the MCA parameter "orte_no_session_dir".
+
+  Local host: rondeau
+  Filename:   /u/ajtse/software/tmp/breeze-weak-scaling-mpi-nccl-2026-11-08/ompi.rondeau.8193/pid.1459433/1/shared_mem_cuda_pool.rondeau
+
+You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
+disable this message.
+--------------------------------------------------------------------------
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+[rondeau:1459433] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:1459433] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+rondeau:1459437:1459437 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+rondeau:1459437:1459437 [0] NCCL INFO Bootstrap: Using bond0:172.27.7.237<0>
+rondeau:1459437:1459500 [0] NCCL INFO Socket handshake magic 0x564ab9f2fc4b9d6c (built-in default)
+rondeau:1459437:1459437 [0] NCCL INFO cudaDriverVersion 13030
+rondeau:1459437:1459437 [0] NCCL INFO NCCL version 2.32.3+cuda13.4
+rondeau:1459437:1459437 [0] NCCL INFO NCCL git version HEAD 12df1a11-dirty
+rondeau:1459438:1459438 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+rondeau:1459438:1459438 [0] NCCL INFO cudaDriverVersion 13030
+rondeau:1459438:1459438 [0] NCCL INFO Bootstrap: Using bond0:172.27.7.237<0>
+rondeau:1459438:1459438 [0] NCCL INFO NCCL version 2.32.3+cuda13.4
+rondeau:1459438:1459438 [0] NCCL INFO NCCL git version HEAD 12df1a11-dirty
+rondeau:1459437:1459437 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+rondeau:1459437:1459437 [0] NCCL INFO NET/IB : No device found.
+rondeau:1459437:1459437 [0] NCCL INFO NET/IB : Using [RO]; OOB bond0:172.27.7.237<0>
+
+[2026-11-08 19:17:20] rondeau:1459437:1459437 [0] plugin/net.cc:229 (ncclNetPluginInit) NCCL ATTN Failed to initialize NET plugin IB
+rondeau:1459437:1459437 [0] NCCL INFO NET/Socket : Using [0]bond0:172.27.7.237<0>
+rondeau:1459437:1459437 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1459437:1459437 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1459437:1459437 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+rondeau:1459437:1459437 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+
+[2026-11-08 19:17:20] rondeau:1459437:1459437 [0] transport/rma_socket.cc:32 (ncclRmaSocketProxyInit) NCCL WARN RMA/Socket : rma_socket requires GDRCopy; and GDR Copy is not available
+rondeau:1459437:1459437 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+rondeau:1459437:1459437 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1459437:1459437 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+rondeau:1459437:1459437 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1459437:1459437 [0] NCCL INFO Using network Socket
+rondeau:1459437:1459437 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+rondeau:1459438:1459438 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+rondeau:1459438:1459438 [0] NCCL INFO NET/IB : No device found.
+rondeau:1459438:1459438 [0] NCCL INFO NET/IB : Using [RO]; OOB bond0:172.27.7.237<0>
+
+[2026-11-08 19:17:20] rondeau:1459438:1459438 [0] plugin/net.cc:229 (ncclNetPluginInit) NCCL ATTN Failed to initialize NET plugin IB
+rondeau:1459438:1459438 [0] NCCL INFO NET/Socket : Using [0]bond0:172.27.7.237<0>
+rondeau:1459438:1459438 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1459438:1459438 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1459438:1459438 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+rondeau:1459438:1459438 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+
+[2026-11-08 19:17:20] rondeau:1459438:1459438 [0] transport/rma_socket.cc:32 (ncclRmaSocketProxyInit) NCCL WARN RMA/Socket : rma_socket requires GDRCopy; and GDR Copy is not available
+rondeau:1459438:1459438 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+rondeau:1459438:1459438 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1459438:1459438 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+rondeau:1459438:1459438 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1459438:1459438 [0] NCCL INFO Using network Socket
+rondeau:1459438:1459438 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+rondeau:1459437:1459437 [0] NCCL INFO [Rank 0] ncclCommInitRank comm 0x3aa5d630 rank 0 nranks 2 cudaDev 0 nvmlDev 1 busId 41000 commId 0x22577dae651c2665 - Init START
+rondeau:1459438:1459438 [0] NCCL INFO [Rank 1] ncclCommInitRank comm 0x2e13aa40 rank 1 nranks 2 cudaDev 0 nvmlDev 2 busId 81000 commId 0x22577dae651c2665 - Init START
+rondeau:1459438:1459438 [0] NCCL INFO Socket handshake magic 0x564ab9f2fc4b9d6c (built-in default)
+rondeau:1459437:1459437 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+rondeau:1459438:1459438 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+rondeau:1459437:1459437 [0] NCCL INFO Bootstrap timings total 0.011164 (create 0.000055, send 0.000174, recv 0.010351, ring 0.000045, delay 0.000001)
+rondeau:1459438:1459438 [0] NCCL INFO Bootstrap timings total 0.001039 (create 0.000060, send 0.000211, recv 0.000281, ring 0.000043, delay 0.000001)
+rondeau:1459437:1459437 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 1 is 16-31,144-159. (GPU affinity = 16-31,144-159 ; CPU affinity = 0-254).
+rondeau:1459437:1459437 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1459438:1459438 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 2 is 112-127,240-254. (GPU affinity = 112-127,240-254 ; CPU affinity = 0-254).
+rondeau:1459438:1459438 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1459438:1459438 [0] NCCL INFO Rank 1: 1 Net devices
+rondeau:1459438:1459438 [0] NCCL INFO Rank 1: 0 CollNet devices
+rondeau:1459437:1459437 [0] NCCL INFO Rank 0: 1 Net devices
+rondeau:1459437:1459437 [0] NCCL INFO Rank 0: 0 CollNet devices
+rondeau:1459438:1459438 [0] NCCL INFO comm 0x2e13aa40 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
+rondeau:1459438:1459438 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0 [2] 0/-1/-1->1->-1 [3] 0/-1/-1->1->-1 [4] -1/-1/-1->1->0 [5] -1/-1/-1->1->0 [6] 0/-1/-1->1->-1 [7] 0/-1/-1->1->-1
+rondeau:1459438:1459438 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1459437:1459437 [0] NCCL INFO Local Net device counts across ranks: min 1 max 1
+rondeau:1459437:1459437 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+rondeau:1459437:1459437 [0] NCCL INFO comm 0x3aa5d630 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
+rondeau:1459437:1459437 [0] NCCL INFO Channel 00/08 : 0 1
+rondeau:1459437:1459437 [0] NCCL INFO Channel 01/08 : 0 1
+rondeau:1459437:1459437 [0] NCCL INFO Channel 02/08 : 0 1
+rondeau:1459437:1459437 [0] NCCL INFO Channel 03/08 : 0 1
+rondeau:1459437:1459437 [0] NCCL INFO Channel 04/08 : 0 1
+rondeau:1459437:1459437 [0] NCCL INFO Channel 05/08 : 0 1
+rondeau:1459437:1459437 [0] NCCL INFO Channel 06/08 : 0 1
+rondeau:1459437:1459437 [0] NCCL INFO Channel 07/08 : 0 1
+rondeau:1459437:1459437 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] -1/-1/-1->0->1 [3] -1/-1/-1->0->1 [4] 1/-1/-1->0->-1 [5] 1/-1/-1->0->-1 [6] -1/-1/-1->0->1 [7] -1/-1/-1->0->1
+rondeau:1459437:1459437 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1459438:1459438 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+rondeau:1459438:1459438 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1459438:1459523 [0] NCCL INFO [Proxy Service] Device 0 CPU core 242
+rondeau:1459438:1459524 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 115
+rondeau:1459438:1459523 [0] NCCL INFO proxy listening socket at 172.27.7.237<50655>
+rondeau:1459437:1459437 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+rondeau:1459437:1459437 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1459437:1459525 [0] NCCL INFO [Proxy Service] Device 0 CPU core 153
+rondeau:1459437:1459526 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 19
+rondeau:1459437:1459525 [0] NCCL INFO proxy listening socket at 172.27.7.237<45649>
+rondeau:1459438:1459438 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+rondeau:1459438:1459438 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+rondeau:1459438:1459438 [0] NCCL INFO 8 coll channels, 8 collnet channels, 0 nvls channels, 8 p2p channels, 8 p2p channels per peer
+rondeau:1459438:1459438 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 2, crossNicSupport 1
+rondeau:1459437:1459437 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+rondeau:1459437:1459437 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+rondeau:1459437:1459437 [0] NCCL INFO 8 coll channels, 8 collnet channels, 0 nvls channels, 8 p2p channels, 8 p2p channels per peer
+rondeau:1459437:1459437 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 2, crossNicSupport 1
+rondeau:1459437:1459437 [0] NCCL INFO CC Off, workFifoBytes 1048576
+rondeau:1459438:1459438 [0] NCCL INFO ncclCommInitRank comm 0x2e13aa40 rank 1 nranks 2 cudaDev 0 nvmlDev 2 busId 81000 commId 0x22577dae651c2665 - Init COMPLETE
+rondeau:1459438:1459438 [0] NCCL INFO Init timings - ncclCommInitRank: rank 1 nranks 2 total 0.35 (kernels 0.25, alloc 0.07, bootstrap 0.00, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.01, rest 0.00)
+rondeau:1459437:1459437 [0] NCCL INFO ncclCommInitRank comm 0x3aa5d630 rank 0 nranks 2 cudaDev 0 nvmlDev 1 busId 41000 commId 0x22577dae651c2665 - Init COMPLETE
+rondeau:1459437:1459437 [0] NCCL INFO Init timings - ncclCommInitRank: rank 0 nranks 2 total 0.36 (kernels 0.25, alloc 0.07, bootstrap 0.01, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.01, rest 0.00)
+rondeau:1459438:1459438 [0] NCCL INFO Channel 00/1 : 1[2] -> 0[1] via P2P/CUMEM/read
+rondeau:1459438:1459438 [0] NCCL INFO Channel 01/1 : 1[2] -> 0[1] via P2P/CUMEM/read
+rondeau:1459438:1459438 [0] NCCL INFO Channel 02/1 : 1[2] -> 0[1] via P2P/CUMEM/read
+rondeau:1459438:1459438 [0] NCCL INFO Channel 03/1 : 1[2] -> 0[1] via P2P/CUMEM/read
+rondeau:1459438:1459438 [0] NCCL INFO Channel 04/1 : 1[2] -> 0[1] via P2P/CUMEM/read
+rondeau:1459438:1459438 [0] NCCL INFO Channel 05/1 : 1[2] -> 0[1] via P2P/CUMEM/read
+rondeau:1459438:1459438 [0] NCCL INFO Channel 06/1 : 1[2] -> 0[1] via P2P/CUMEM/read
+rondeau:1459438:1459438 [0] NCCL INFO Channel 07/1 : 1[2] -> 0[1] via P2P/CUMEM/read
+rondeau:1459437:1459437 [0] NCCL INFO Channel 00/1 : 0[1] -> 1[2] via P2P/CUMEM/read
+rondeau:1459437:1459437 [0] NCCL INFO Channel 01/1 : 0[1] -> 1[2] via P2P/CUMEM/read
+rondeau:1459437:1459437 [0] NCCL INFO Channel 02/1 : 0[1] -> 1[2] via P2P/CUMEM/read
+rondeau:1459437:1459437 [0] NCCL INFO Channel 03/1 : 0[1] -> 1[2] via P2P/CUMEM/read
+rondeau:1459437:1459437 [0] NCCL INFO Channel 04/1 : 0[1] -> 1[2] via P2P/CUMEM/read
+rondeau:1459437:1459437 [0] NCCL INFO Channel 05/1 : 0[1] -> 1[2] via P2P/CUMEM/read
+rondeau:1459437:1459437 [0] NCCL INFO Channel 06/1 : 0[1] -> 1[2] via P2P/CUMEM/read
+rondeau:1459437:1459437 [0] NCCL INFO Channel 07/1 : 0[1] -> 1[2] via P2P/CUMEM/read
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_splitexplicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (64, 32, 16)
+│   partition = (2, 1)
+│   nranks = 2
+│   Δt = 0.02
+│   time_steps = 2
+│   communication_name = "NCCL"
+└   communicator_type = "NCCLCommunicator"
+TIMING_START communication=NCCL steps=2
+TIMING_END communication=NCCL elapsed_seconds=0.059135931
+RESULT machine=rondeau dynamics=compressible_splitexplicit float=Float32 size=64x32x16 partition=2x1 gpus=2 steps=2 seconds_per_step=2.9568e-02 points_per_second=1.1082e+06 points_per_second_per_gpu=5.5411e+05 max_abs_w=6.419e-04 communication=NCCL fields_finite=true
+[rondeau:1459433] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+# 2026-11-08 19:21:11 finished, exit status 0

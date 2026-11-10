@@ -1,0 +1,74 @@
+# 2026-11-05 09:46:14 on rondeau, user ajtse
+# GPUs 0,1 (one per rank if several), JULIA_CUDA_MEMORY_POOL=none
+# mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=512x256x128 --partition=2x1 --time_steps=500 --time_step=0.02 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-05_dt0p02/scaling.csv
+--------------------------------------------------------------------------
+WARNING: Open MPI will create a shared memory backing file in a
+directory that appears to be mounted on a network filesystem.
+Creating the shared memory backup file on a network file system, such
+as NFS or Lustre is not recommended -- it may cause excessive network
+traffic to your file servers and/or cause shared memory traffic in
+Open MPI to be much slower than expected.
+
+You may want to check what the typical temporary directory is on your
+node.  Possible sources of the location of this temporary directory
+include the $TEMPDIR, $TEMP, and $TMP environment variables.
+
+Note, too, that system administrators can set a list of filesystems
+where Open MPI is disallowed from creating temporary files by setting
+the MCA parameter "orte_no_session_dir".
+
+  Local host: rondeau
+  Filename:   /u/ajtse/software/tmp/breeze-student-guide-2026-11-05-dt0p02/ompi.rondeau.8193/pid.1973276/1/shared_mem_cuda_pool.rondeau
+
+You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
+disable this message.
+--------------------------------------------------------------------------
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+[rondeau:1973276] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:1973276] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_splitexplicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (512, 256, 128)
+│   partition = (2, 1)
+│   nranks = 2
+│   Δt = 0.02
+└   time_steps = 500
+RESULT machine=rondeau dynamics=compressible_splitexplicit float=Float32 size=512x256x128 partition=2x1 gpus=2 steps=500 seconds_per_step=1.0318e-01 points_per_second=1.6261e+08 points_per_second_per_gpu=8.1303e+07 max_abs_w=5.804e-02
+[rondeau:1973276] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+# 2026-11-05 09:51:01 finished, exit status 0

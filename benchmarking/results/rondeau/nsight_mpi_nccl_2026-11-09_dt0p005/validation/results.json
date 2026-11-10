@@ -1,0 +1,14 @@
+{
+  "configured_cases": 6,
+  "completed_cases": 6,
+  "verified_rank_captures": 18,
+  "all_fields_finite": true,
+  "all_rank_cuda_kernel_tables_nonempty": true,
+  "isolated_scientific_source_and_environment_match_benchmark": true,
+  "selected_partitions_from_complete_finite_unprofiled_comparison": true,
+  "profile_window": "10 main steps after 10 warmup steps at dt=0.005 s",
+  "finished_utc": "2026-11-10T09:28:30.803142+00:00",
+  "all_capture_sizes_hashes_kernel_counts_and_readme_paths_verified": true,
+  "original_logs": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/original_logs",
+  "finalized_utc": "2026-11-10T09:28:36.065641+00:00"
+}

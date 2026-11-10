@@ -1,0 +1,24 @@
+[
+  {
+    "pid": 1844199,
+    "exe": "/u/ajtse/software/julia-1.11.9/bin/julia",
+    "command": [
+      "julia",
+      "--project=/u/ajtse/Breeze.jl/benchmarking/distributed",
+      "/u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "--dynamics=anelastic",
+      "--size=256x256x128",
+      "--partition=1x1",
+      "--time_steps=500",
+      "--time_step=0.03",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-05_dt0p03/scaling.csv"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "0",
+      "JULIA_NUM_THREADS": "1",
+      "JULIA_NUM_PRECOMPILE_TASKS": "2",
+      "JULIA_CUDA_MEMORY_POOL": "none",
+      "OMPI_COMM_WORLD_RANK": ""
+    }
+  }
+]

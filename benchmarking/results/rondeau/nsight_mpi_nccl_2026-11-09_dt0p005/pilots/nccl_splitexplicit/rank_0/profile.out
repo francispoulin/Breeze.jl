@@ -1,0 +1,67 @@
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_splitexplicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (64, 32, 16)
+│   partition = (2, 1)
+│   nranks = 2
+│   Δt = 0.005
+│   time_steps = 2
+│   communication_name = "NCCL"
+│   communicator_type = "NCCLCommunicator"
+└   profile = true
+TIMING_START communication=NCCL steps=2
+PROFILE_START rank=0 steps=2
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/tmp/nsys-report-ee93.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [=====30%                    ] profile.nsys-rep
+[1/1] [==============64%           ] profile.nsys-rep
+[1/1] [==================77%       ] profile.nsys-rep
+[1/1] [====================84%     ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+PROFILE_END rank=0 steps=2
+TIMING_END communication=NCCL elapsed_seconds=5.188257021
+RESULT machine=rondeau dynamics=compressible_splitexplicit float=Float32 size=64x32x16 partition=2x1 gpus=2 steps=2 seconds_per_step=2.5941e+00 points_per_second=1.2632e+04 points_per_second_per_gpu=6.3158e+03 max_abs_w=1.575e-04 communication=NCCL fields_finite=true
+NCCL version 2.32.3+cuda13.4
+
+[2026-11-10 03:55:17] rondeau:3953234:3953234 [0] transport/rma_socket.cc:32 (ncclRmaSocketProxyInit) NCCL WARN RMA/Socket : rma_socket requires GDRCopy; and GDR Copy is not available
+Generated:
+    /local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/pilots/nccl_splitexplicit/rank_0/profile.nsys-rep

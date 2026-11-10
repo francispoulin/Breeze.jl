@@ -1,0 +1,12 @@
+[MPIPreferences]
+__clear__ = ["preloads_env_switch"]
+_format = "1.0"
+abi = "OpenMPI"
+binary = "system"
+cclibs = []
+libmpi = "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi"
+mpiexec = "mpiexec"
+preloads = []
+
+[OpenMPI_jll]
+libmpi_path = "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so"

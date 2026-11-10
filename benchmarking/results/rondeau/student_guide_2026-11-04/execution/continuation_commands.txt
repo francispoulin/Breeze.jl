@@ -1,0 +1,22 @@
+# Continuation from distributed-benchmark in the primary repository.
+# These are the four remaining cases from the imported run_scaling.sh.
+cd /u/ajtse/Breeze.jl
+export OCEAN_SOFTWARE_DIR=/u/ajtse/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04
+export OCEAN_DATA_DIR=/u/ajtse/software/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/software/tmp/breeze-student-guide-2026-11-04/current
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+source /u/ajtse/software/oceananigans-hpc/env/ocean_setup.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+set -e
+cd "$OCEAN_RESULTS_ROOT/runs"
+for remaining_case in '4 256x256x128 4x1' '4 256x256x128 1x4' '2 512x256x128 2x1' '4 512x512x128 2x2'; do
+    read -r gpu_count grid_size partition <<< "$remaining_case"
+    bash "$OCEAN_HPC_ROOT/tools/run_local.sh" --wait -n "$gpu_count" -p "$BREEZE_DISTRIBUTED_DIR" --job-name "primary_${gpu_count}gpu_${partition}_${grid_size}" "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" --dynamics=compressible_splitexplicit --size="$grid_size" --partition="$partition" --time_steps=500 --results_file="$OCEAN_RESULTS_ROOT/scaling.csv"
+done > "$OCEAN_RESULTS_ROOT/execution/continuation-sweep.log" 2>&1

@@ -1,0 +1,6 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite
+rondeau,compressible_explicit,Float32,512,512,512,1,1,1,500,3.360169e-01,3.994374e+08,1.323533e-02,SERIAL,true
+rondeau,compressible_explicit,Float32,1024,512,512,2,1,2,500,3.436055e-01,7.812315e+08,1.347446e-02,MPI,true
+rondeau,compressible_explicit,Float32,1024,512,512,2,1,2,500,3.476637e-01,7.721125e+08,1.347653e-02,NCCL,true
+rondeau,compressible_explicit,Float32,1024,1024,512,4,1,4,500,3.700876e-01,1.450659e+09,1.740932e-02,MPI,true
+rondeau,compressible_explicit,Float32,1024,1024,512,4,1,4,500,3.527791e-01,1.521833e+09,1.634081e-02,NCCL,true

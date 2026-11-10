@@ -1,0 +1,11 @@
+{
+  "source_commit": "31c63a00148f9adeb340cbc2c47401005cd72a80",
+  "target_base": "4aaa00e36bb71c6470902a880e18fb5767981221",
+  "branch": "benchmark-results",
+  "origin": "https://github.com/francispoulin/Breeze.jl.git",
+  "personal_backup": "https://github.com/AndiJingzhiTse/Breeze.jl.git",
+  "archived_checkout": "/u/ajtse/Breeze.jl.before-fjp-2026-11-09",
+  "raw_nsight_profiles_unchanged": true,
+  "historical_results": "Measurements describe their recorded pre-migration source/environment, not the new fork version",
+  "driver_interface": "Both --comm and --communicator accepted; inconsistent values rejected"
+}

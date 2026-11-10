@@ -1,0 +1,21 @@
+[deps]
+Breeze = "660aa2fb-d4c8-4359-a52c-9c057bc511da"
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+MPIPreferences = "3da0fdf6-3ccc-4f1b-acd9-58baa6c99267"
+NCCL = "3fe64909-d7a1-4096-9b7d-7a0f12cf0f6b"
+Oceananigans = "9e8cae18-63c1-5223-a75c-80ca9d6e9a09"
+OpenMPI_jll = "fe0851c0-eecd-5654-98d4-656369965a5c"
+Preferences = "21216c6a-2e73-6563-6e65-726566657250"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[compat]
+CUDA = "5, 6.0"
+MPI = "0.20"
+Oceananigans = "0.116"
+OpenMPI_jll = "~4.1.10"
+Printf = "1"
+julia = "1.11.9"
+
+[sources.Breeze]
+path = "../.."

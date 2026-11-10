@@ -1,0 +1,281 @@
+{
+  "archive": "raw_logs.zip",
+  "normalization": "Retained text copies remove trailing whitespace and normalize line endings; this archive preserves the original log bytes.",
+  "files": [
+    {
+      "member": "execution/breeze-rank-julia-versions.log",
+      "bytes": 496,
+      "sha256": "cbf92c5c634a607462af30146f8a2fa5e968592a0ef16f209c9a8d3f7434d6fa"
+    },
+    {
+      "member": "execution/check-breeze-env.log",
+      "bytes": 1349,
+      "sha256": "4ac4398baa0da96b4f8de0bd6d0b1f64b174da9516e4bce5a8e4b615ad8a93f2"
+    },
+    {
+      "member": "execution/check-platform-env.log",
+      "bytes": 1132,
+      "sha256": "6900ea37c916dfdd3575f1d6b5064ec58bab8bb566dee2920fbbaf68cc50e396"
+    },
+    {
+      "member": "execution/continuation-sweep.log",
+      "bytes": 3680,
+      "sha256": "a6808e92f81caf0c6621efaa7b878bd2ea8658ca63338c66d51d721ae2df4adf"
+    },
+    {
+      "member": "execution/detached-rank-julia-versions.log",
+      "bytes": 572,
+      "sha256": "4af524d9dae9f73455ec9aa16d3bfb2e0a48fff808c373d50cbab7b78eea04fc"
+    },
+    {
+      "member": "execution/install-platform-julia.log",
+      "bytes": 970,
+      "sha256": "dec807d359e7f25f413946e6877621be3ad3b1c1d21d0a0bed58adbded7f816c"
+    },
+    {
+      "member": "execution/platform-rank-julia-versions.log",
+      "bytes": 583,
+      "sha256": "47df76f91a145a3be557062822c068545bb31dc8787fe4e89233cd444c0aeffc"
+    },
+    {
+      "member": "execution/platform_logs/check_2_cuda_aware_mpi_20261104-112320.out",
+      "bytes": 4289,
+      "sha256": "35f1162c66057e3afdf48665896524b0399fd68d1487c179c7b0b91303513913"
+    },
+    {
+      "member": "execution/platform_logs/check_2_distributed_vs_serial_20261104-112343.out",
+      "bytes": 4036,
+      "sha256": "b3be21e627bd450e40a7931f39f9318204dcee5e990b0de63b41ee1f356cb0d5"
+    },
+    {
+      "member": "execution/platform_logs/check_2_output_20261104-112425.out",
+      "bytes": 4009,
+      "sha256": "d19b71cb26f2cb044517aea36c43f0c9b65d565679a7838e30121b6634f7bb22"
+    },
+    {
+      "member": "execution/platform_logs/check_2_single_mpi_20261104-112312.out",
+      "bytes": 8133,
+      "sha256": "12d47509a795bcf7ac604ccbbdbd27ad911aa45abcb7c3bc71a00587bb585a93"
+    },
+    {
+      "member": "execution/platform_logs/check_4_cuda_aware_mpi_20261104-112446.out",
+      "bytes": 6677,
+      "sha256": "c5322c153a4bb72552297e0f8ae4ec008cb47454de6afe25a3cdc82625abd3cd"
+    },
+    {
+      "member": "execution/platform_logs/check_4_distributed_vs_serial_20261104-112511.out",
+      "bytes": 6116,
+      "sha256": "f70aa4e43392305cda528643beb0ab5f54aa3ad2dbd669e31a7db5fa3d5696a5"
+    },
+    {
+      "member": "execution/platform_logs/check_4_output_20261104-112555.out",
+      "bytes": 6151,
+      "sha256": "4d91d34691a6fd8462e352e4bfa4c5a96fd5ccc19c057e27ed2826462df58094"
+    },
+    {
+      "member": "execution/platform_logs/check_4_single_mpi_20261104-112438.out",
+      "bytes": 10213,
+      "sha256": "9ef323f852b687e81fdb00d3386f21334f3625a703c0ad1f0df154e7e5227b21"
+    },
+    {
+      "member": "execution/platform_logs/checked_julia_2_cuda_aware_mpi_20261104-113226.out",
+      "bytes": 4289,
+      "sha256": "25927e330490f2d37bdb83625db34d34c1b48dd5b9e64ca087fdd965695e1a4a"
+    },
+    {
+      "member": "execution/platform_logs/checked_julia_2_distributed_vs_serial_20261104-113248.out",
+      "bytes": 4036,
+      "sha256": "ef2b09765d6be4965236e8932c9a34d3a70857c420a68c50c615de83bfb84e3f"
+    },
+    {
+      "member": "execution/platform_logs/checked_julia_2_output_20261104-113331.out",
+      "bytes": 4009,
+      "sha256": "260dc40bb50ef4cf2a2e98627bf71ab66b67b27a5373ac31e216369528756811"
+    },
+    {
+      "member": "execution/platform_logs/checked_julia_2_single_mpi_20261104-113218.out",
+      "bytes": 8133,
+      "sha256": "1ea670dcb208c5471a1c4338c6262464d5d5c35bdb6935e47421e59647fbb2a6"
+    },
+    {
+      "member": "execution/platform_logs/verified_env_2_cuda_aware_mpi_20261104-114209.out",
+      "bytes": 4289,
+      "sha256": "efaa28875c04d2ec6c78d271641d102a7f544f674827ab77d19df155a3f8b866"
+    },
+    {
+      "member": "execution/platform_logs/verified_env_2_distributed_vs_serial_20261104-114232.out",
+      "bytes": 4036,
+      "sha256": "81b73d0fda65e053171fff686967293138a082c6d34a06e7680e6f3e21df3444"
+    },
+    {
+      "member": "execution/platform_logs/verified_env_2_output_20261104-114314.out",
+      "bytes": 4009,
+      "sha256": "20f00156f5acddf11325ba6e662fc86537c5bab244d25caee261064dfdef77f1"
+    },
+    {
+      "member": "execution/platform_logs/verified_env_2_single_mpi_20261104-114202.out",
+      "bytes": 8133,
+      "sha256": "26245610cc261825409c0bc60bed4fc8e210512482dbcc73c61442ce4230cc28"
+    },
+    {
+      "member": "execution/platform_logs/verified_env_4_cuda_aware_mpi_20261104-114334.out",
+      "bytes": 6677,
+      "sha256": "00bc4a8f39150fc47e0ed743844c7adc9f11f4c58f57c75a36ae4ea9f4e1b4a4"
+    },
+    {
+      "member": "execution/platform_logs/verified_env_4_distributed_vs_serial_20261104-114358.out",
+      "bytes": 6116,
+      "sha256": "e5353a7931b0a6aa52fafe0437778756ac2b1c69042d91e97e0ba364cc5f4149"
+    },
+    {
+      "member": "execution/platform_logs/verified_env_4_output_20261104-114442.out",
+      "bytes": 6151,
+      "sha256": "6b86efb1adae314253299e4537f799c055d7bc81d4c905b9c76001d487a65d3d"
+    },
+    {
+      "member": "execution/platform_logs/verified_env_4_single_mpi_20261104-114326.out",
+      "bytes": 10213,
+      "sha256": "58f336022cff5b0cb6a56c66d4a8d3d1bfe907baeba94a2ea3b526b0b43f1837"
+    },
+    {
+      "member": "execution/primary-repo-environment.log",
+      "bytes": 20894,
+      "sha256": "476b2a14d865ae9967018556468e113f6ac42b3814e5629a99b36d726213f4af"
+    },
+    {
+      "member": "execution/scaling-sweep.log",
+      "bytes": 13850,
+      "sha256": "08666d4800e1a9d8843f2ce631a574baa537f40d570ba9b0eb7aaf02c92fa5be"
+    },
+    {
+      "member": "execution/setup-breeze-final.log",
+      "bytes": 3550,
+      "sha256": "790b7fa8f4af844c038a79938852d53c4b9b307f37ed2fe47d55c144aa16d46e"
+    },
+    {
+      "member": "execution/setup-breeze-verified-julia.log",
+      "bytes": 3550,
+      "sha256": "790b7fa8f4af844c038a79938852d53c4b9b307f37ed2fe47d55c144aa16d46e"
+    },
+    {
+      "member": "execution/setup-breeze.log",
+      "bytes": 33606,
+      "sha256": "31ee50e0143ae0e0d335a5f8dfe7217195f758fc5a72d882c13f15ca573d3fa1"
+    },
+    {
+      "member": "execution/setup-platform.log",
+      "bytes": 26332,
+      "sha256": "9caf036ad4cd62d87fa0159608186f11c591c078e887e1e1d6fc24495c29d8e3"
+    },
+    {
+      "member": "runs/logs/checked_julia_first_1gpu_20261104-113524.out",
+      "bytes": 2209,
+      "sha256": "3f81f89fc8d06ea91185a96052f8dc7b100d8af0b761872846a6c57d7a22dbc9"
+    },
+    {
+      "member": "runs/logs/checked_julia_first_2gpu_20261104-113754.out",
+      "bytes": 8690,
+      "sha256": "563f3f20521a1143bf4bd2c7582b9359cb77266622423a18336d920798c75a0b"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-114805.out",
+      "bytes": 2186,
+      "sha256": "92aacb945f4a702ead44bed16d55cedf71d982e12dc0ef82ae92a265be93065b"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-115044.out",
+      "bytes": 2441,
+      "sha256": "a52f853af74616053ddbc31daa27d6f45dafc0ee9a3cb5d2f265b2ee158d1c1d"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-115319.out",
+      "bytes": 4894,
+      "sha256": "09de107f770a9f7d5f99117debb1d2702ad5fc753f34bc078aa3f477635189f3"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-115638.out",
+      "bytes": 4894,
+      "sha256": "3e93b0f375a7383216d3e18742fb73f4b9bc501f26630dac477f983713929b21"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-115956.out",
+      "bytes": 6974,
+      "sha256": "63192140734bd689f58107eb23c421b455d282a4ca13e1b35e94a5f1bd2c775c"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-120402.out",
+      "bytes": 6974,
+      "sha256": "ebc698a3bc28bd083caa1fa87c201f9c11978d2ee9d72ea32da780997ec98197"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-120725.out",
+      "bytes": 6974,
+      "sha256": "6050f152b9205920ecc8c0ca77c42657d69bda033bb261a2e02001bb5544ace6"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-121042.out",
+      "bytes": 4894,
+      "sha256": "25a79b025c07830c0c6f9580b061eec9b2e352a1a4184af35331036e96c0c397"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-121403.out",
+      "bytes": 6974,
+      "sha256": "eb0d83875e647c723d55ecc5effb0f6bcd4736c7a4f00c47f9dd7e6eec266a8a"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-121812.out",
+      "bytes": 2237,
+      "sha256": "4526848063d201196a5465832890ba4fe65f39c582d8b52f069aefeb592a399b"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-122145.out",
+      "bytes": 4690,
+      "sha256": "a4661678ca870504ef687f48c1bb17b213bfd15e59fa5e393ff9077cb400f0a6"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-122612.out",
+      "bytes": 4690,
+      "sha256": "f4427561103b47e211c0c26650ff2c4c8180d5fc5c2dc7ca4eb72d7ca0249d55"
+    },
+    {
+      "member": "runs/logs/distributed_cbl_benchmark_20261104-123038.out",
+      "bytes": 6770,
+      "sha256": "e58649001d299fc9a9e9da3e88f0a5cb3e1a46c7e9741a173ca9d34db6d0450f"
+    },
+    {
+      "member": "runs/logs/guide_first_1gpu_20261104-112705.out",
+      "bytes": 2209,
+      "sha256": "005fb14bc5055fbe71b1771bd8286d4fb640aa5ec3baadfc7d111380b969f0a8"
+    },
+    {
+      "member": "runs/logs/guide_first_2gpu_20261104-112936.out",
+      "bytes": 16741,
+      "sha256": "1ddef4659db773f8144ef33cb7c4bbe368258ff08be41a00c4636343eaff1a6b"
+    },
+    {
+      "member": "runs/logs/primary_2gpu_2x1_512x256x128_20261104-125546.out",
+      "bytes": 4594,
+      "sha256": "7de2b6a0764e51f6253e523b655e3b84321af006db269b1854edb2eb5d89667f"
+    },
+    {
+      "member": "runs/logs/primary_4gpu_1x4_256x256x128_20261104-125119.out",
+      "bytes": 6674,
+      "sha256": "c73caeac163142fa65b027d1d41ad4ade6a722afe0acaf7fe1eebb07d6344342"
+    },
+    {
+      "member": "runs/logs/primary_4gpu_2x2_512x512x128_20261104-130031.out",
+      "bytes": 6674,
+      "sha256": "8eacc182515bb6053b4948b1b0deaa654922a06dae5bcc7309be84e31380caae"
+    },
+    {
+      "member": "runs/logs/primary_4gpu_4x1_256x256x128_20261104-124654.out",
+      "bytes": 6674,
+      "sha256": "2e599600ab57a1afa3c9aabc656f7bd8b7eb1d66f5808b098b4570f96cd00a2d"
+    },
+    {
+      "member": "runs/logs/verified_env_first_2gpu_20261104-114456.out",
+      "bytes": 4661,
+      "sha256": "ed80e78b747a30dd2008ff44361a386ee312f788ce0ff5b0e150c81bfddead59"
+    }
+  ]
+}

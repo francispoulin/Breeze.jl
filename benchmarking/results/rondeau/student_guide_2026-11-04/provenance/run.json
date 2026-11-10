@@ -1,0 +1,80 @@
+{
+  "started_utc": "2026-11-04T16:19:07.349470+00:00",
+  "machine": "rondeau",
+  "guide": "/u/ajtse/Breeze.jl/student_guide.md",
+  "main_branch": "codex/benchmarking",
+  "main_commit": "3c85cc353897fd9a867085544250c4c5813b9e83",
+  "breeze_remote": "https://github.com/francispoulin/Breeze.jl.git",
+  "breeze_branch": "fjp/distributed-benchmark",
+  "breeze_commit": "72c9e851105cf0017a16fb3c122a4170f82c5694",
+  "platform_commit": "f94769a51e86058d643fdd22b9daf16ab520132e",
+  "storage_adjustment": "Guide shared scratch user folder does not exist and scratch root is not writable; isolated software and logs use repository .runtime, as required by AGENTS.md.",
+  "depot": "/u/ajtse/.julia",
+  "planned_sweep": {
+    "timed_steps": 500,
+    "warmup_steps": 10,
+    "dt_seconds": 0.05,
+    "cases": 17,
+    "max_gpus": 4
+  },
+  "excluded_scope": "Section 8 experiments, at the user explicit request.",
+  "environment_correction": "Unset BASH_ENV, SSH_CLIENT, SSH_CONNECTION, SSH_TTY, SSH2_CLIENT after ocean_setup; inherited SSH metadata made detached bash reload ~/.bashrc and prepend Julia 1.12.7 even without BASH_ENV. Detached four-rank version probe verifies Julia 1.11.9 and two precompile tasks. Use JULIA_NUM_THREADS=1. Earlier platform checks and interrupted two-GPU attempts are excluded; the one-GPU run beginning 11:35 was verified directly from /proc and is retained.",
+  "resource_wait": {
+    "observed_utc": "2026-11-04T16:34:41.507615+00:00",
+    "reason": "Another user occupies GPU 0; the platform refuses four-GPU launches. Continue guide first runs on available GPUs."
+  },
+  "accepted_platform_check_prefix": "verified_env_",
+  "resolved_versions": {
+    "Breeze": "0.14.0",
+    "CUDA": "6.4.2",
+    "MPI": "0.20.29",
+    "Oceananigans": "0.116.1",
+    "OpenMPI_jll": "4.1.11+0"
+  },
+  "guide_sha256": "60c6726932ce47c2fa60f914bd0f2e99f80f13637cd748812bd836cc0c806344",
+  "source_diff": {
+    "Breeze.jl": "",
+    "oceananigans-hpc": ""
+  },
+  "continuation": {
+    "utc": "2026-11-04T17:43:36.678226+00:00",
+    "branch": "distributed-benchmark",
+    "head": "96a570a185896845f133fa607038524d06cb33db",
+    "source_directory": "/u/ajtse/Breeze.jl",
+    "benchmark_project": "/u/ajtse/Breeze.jl/benchmarking/distributed",
+    "software_directory": "/u/ajtse/software",
+    "result_directory": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04",
+    "completed_before_migration": 13,
+    "remaining_cases": [
+      [
+        4,
+        "256x256x128",
+        "4x1"
+      ],
+      [
+        4,
+        "256x256x128",
+        "1x4"
+      ],
+      [
+        2,
+        "512x256x128",
+        "2x1"
+      ],
+      [
+        4,
+        "512x512x128",
+        "2x2"
+      ]
+    ],
+    "source_tree_matches_original_fork": true,
+    "original_tip": "72c9e851105cf0017a16fb3c122a4170f82c5694"
+  },
+  "finished_utc": "2026-11-04T18:09:05.705792+00:00",
+  "completed_cases": 17,
+  "finite_w_cases": 9,
+  "nonfinite_w_cases": 8,
+  "current_source_directory": "/u/ajtse/Breeze.jl",
+  "current_branch": "distributed-benchmark",
+  "final_scientific_source_diff": ""
+}

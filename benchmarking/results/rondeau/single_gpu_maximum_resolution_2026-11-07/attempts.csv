@@ -1,0 +1,7 @@
+dynamics,Nx,Ny,Nz,cells,gpu_index,exit_code,status,failure_phase,finite_max_w,max_abs_w,observed_peak_mib,baseline_mib,elapsed_seconds,log,oom_excerpt
+anelastic,512,512,256,67108864,1,0,FIT,,True,0.002775,8429,5,148.893,runs/logs/capacity_anelastic_512x512x256_20261107-193757.out,
+anelastic,1024,1024,512,536870912,1,1,GPU_OOM,CONSTRUCTION,,,38849,5,64.48,runs/logs/capacity_anelastic_1024x1024x512_20261107-194026.out,ERROR: LoadError: Out of GPU memory trying to allocate 2.079 GiB
+compressible_explicit,512,512,256,67108864,1,0,FIT,,True,0.005249,8821,5,147.92,runs/logs/capacity_compressible_explicit_512x512x256_20261107-194131.out,
+compressible_explicit,1024,1024,512,536870912,1,1,GPU_OOM,CONSTRUCTION,,,38843,5,63.553,runs/logs/capacity_compressible_explicit_1024x1024x512_20261107-194359.out,ERROR: LoadError: Out of GPU memory trying to allocate 2.079 GiB
+compressible_splitexplicit,512,512,256,67108864,1,0,FIT,,True,0.005058,13803,5,183.781,runs/logs/capacity_compressible_splitexplicit_512x512x256_20261107-194502.out,
+compressible_splitexplicit,1024,1024,512,536870912,1,1,GPU_OOM,CONSTRUCTION,,,38843,5,65.557,runs/logs/capacity_compressible_splitexplicit_1024x1024x512_20261107-194806.out,ERROR: LoadError: Out of GPU memory trying to allocate 2.079 GiB

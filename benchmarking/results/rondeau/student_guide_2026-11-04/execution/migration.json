@@ -1,0 +1,135 @@
+{
+  "utc": "2026-11-04T17:40:07.698057+00:00",
+  "reason": "User requested benchmark source and work in the primary repository on distributed-benchmark, without a hidden second Breeze checkout.",
+  "branch": "distributed-benchmark",
+  "imported_head": "96a570a185896845f133fa607038524d06cb33db",
+  "imported_tree_matches_francis": true,
+  "old_scheduler_stopped_after_case": 13,
+  "remaining_cases": 4,
+  "transfers": [
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/oceananigans-hpc",
+      "to": "/u/ajtse/software/oceananigans-hpc"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.10.10",
+      "to": "/u/ajtse/software/julia-1.10.10"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.11.9",
+      "to": "/u/ajtse/software/julia-1.11.9"
+    },
+    {
+      "from": "/u/ajtse/software/oceananigans-hpc/logs",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/platform_logs"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/runs"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/scaling.csv"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/first-runs.csv",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/first-runs.csv"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/first-runs-unverified-julia.csv",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/first-runs-unverified-julia.csv"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/setup-platform.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/setup-platform.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/platform-rank-julia-versions.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/platform-rank-julia-versions.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/status.json",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/status.json"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/split-four-gpu-processes.csv",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/split-four-gpu-processes.csv"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/setup-breeze-verified-julia.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/setup-breeze-verified-julia.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/scaling-sweep.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/scaling-sweep.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/install-platform-julia.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/install-platform-julia.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/provenance.json",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/provenance.json"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/gpu-topology.txt",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/gpu-topology.txt"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/split-four-gpu-observations.json",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/split-four-gpu-observations.json"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/four-gpu-processes.csv",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/four-gpu-processes.csv"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze-rank-julia-versions.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/breeze-rank-julia-versions.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze-process-runtime.txt",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/breeze-process-runtime.txt"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/check-platform-env.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/check-platform-env.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/commands.txt",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/commands.txt"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/observed-ranks.jsonl",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/observed-ranks.jsonl"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/detached-rank-julia-versions.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/detached-rank-julia-versions.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/CONTINUE.md",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/CONTINUE.md"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/gpu-before.csv",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/gpu-before.csv"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/setup-breeze.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/setup-breeze.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/check-breeze-env.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/check-breeze-env.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/setup-breeze-final.log",
+      "to": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/student_guide_2026-11-04/execution/setup-breeze-final.log"
+    },
+    {
+      "from": "/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/tmp",
+      "to": "/u/ajtse/software/tmp/breeze-student-guide-2026-11-04"
+    }
+  ]
+}

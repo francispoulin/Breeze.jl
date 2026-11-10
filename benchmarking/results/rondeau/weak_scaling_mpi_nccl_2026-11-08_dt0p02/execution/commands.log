@@ -1,0 +1,49 @@
+# Confirmed environment and benchmark commands
+set -eo pipefail
+cd /u/ajtse/Breeze.jl
+export OCEAN_SOFTWARE_DIR=/u/ajtse/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+export OCEAN_DATA_DIR=/u/ajtse/software/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/software/tmp/breeze-weak-scaling-mpi-nccl-2026-11-08
+mkdir -p "$TMPDIR"
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+source /u/ajtse/software/oceananigans-hpc/env/ocean_setup.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+unset CUDA_VISIBLE_DEVICES
+export JULIA_CUDA_MEMORY_POOL=none
+export NCCL_DEBUG=WARN
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 1 --gpu-ids 1 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_explicit_SERIAL_1g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_explicit --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 1 --gpu-ids 1 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_splitexplicit_SERIAL_1g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_splitexplicit --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 2 --gpu-ids 1,2 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_explicit_MPI_2g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_explicit --size=1024x512x512 --partition=2x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 2 --gpu-ids 1,2 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_explicit_NCCL_2g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_explicit --size=1024x512x512 --partition=2x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 2 --gpu-ids 1,2 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_splitexplicit_MPI_2g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_splitexplicit --size=1024x512x512 --partition=2x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 2 --gpu-ids 1,2 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_splitexplicit_NCCL_2g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_splitexplicit --size=1024x512x512 --partition=2x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 4 --gpu-ids 0,1,2,3 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_explicit_MPI_4g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_explicit --size=1024x1024x512 --partition=2x2 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 4 --gpu-ids 0,1,2,3 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_explicit_NCCL_4g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_explicit --size=1024x1024x512 --partition=2x2 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 4 --gpu-ids 0,1,2,3 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_splitexplicit_MPI_4g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_splitexplicit --size=1024x1024x512 --partition=2x2 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 4 --gpu-ids 0,1,2,3 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name weak_compressible_splitexplicit_NCCL_4g /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=NCCL --dynamics=compressible_splitexplicit --size=1024x1024x512 --partition=2x2 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/measurements.csv

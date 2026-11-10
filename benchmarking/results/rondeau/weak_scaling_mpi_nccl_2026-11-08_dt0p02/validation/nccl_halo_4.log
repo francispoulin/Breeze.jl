@@ -1,0 +1,1050 @@
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+--------------------------------------------------------------------------
+WARNING: Open MPI will create a shared memory backing file in a
+directory that appears to be mounted on a network filesystem.
+Creating the shared memory backup file on a network file system, such
+as NFS or Lustre is not recommended -- it may cause excessive network
+traffic to your file servers and/or cause shared memory traffic in
+Open MPI to be much slower than expected.
+
+You may want to check what the typical temporary directory is on your
+node.  Possible sources of the location of this temporary directory
+include the $TEMPDIR, $TEMP, and $TMP environment variables.
+
+Note, too, that system administrators can set a list of filesystems
+where Open MPI is disallowed from creating temporary files by setting
+the MCA parameter "orte_no_session_dir".
+
+  Local host: rondeau
+  Filename:   /u/ajtse/software/tmp/breeze-weak-scaling-mpi-nccl-2026-11-08/ompi.rondeau.8193/pid.1592177/1/shared_mem_cuda_pool.rondeau
+
+You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
+disable this message.
+--------------------------------------------------------------------------
+rondeau:1592233:1592233 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+rondeau:1592233:1592233 [0] NCCL INFO Bootstrap: Using bond0:172.27.7.237<0>
+rondeau:1592233:1592315 [0] NCCL INFO Socket handshake magic 0x564ab9f2fc4b9d6c (built-in default)
+rondeau:1592233:1592233 [0] NCCL INFO cudaDriverVersion 13030
+rondeau:1592233:1592233 [0] NCCL INFO NCCL version 2.32.3+cuda13.4
+rondeau:1592233:1592233 [0] NCCL INFO NCCL git version HEAD 12df1a11-dirty
+rondeau:1592235:1592235 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+rondeau:1592235:1592235 [0] NCCL INFO cudaDriverVersion 13030
+rondeau:1592235:1592235 [0] NCCL INFO Bootstrap: Using bond0:172.27.7.237<0>
+rondeau:1592235:1592235 [0] NCCL INFO NCCL version 2.32.3+cuda13.4
+rondeau:1592235:1592235 [0] NCCL INFO NCCL git version HEAD 12df1a11-dirty
+rondeau:1592238:1592238 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+rondeau:1592238:1592238 [0] NCCL INFO cudaDriverVersion 13030
+rondeau:1592234:1592234 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+rondeau:1592234:1592234 [0] NCCL INFO cudaDriverVersion 13030
+rondeau:1592238:1592238 [0] NCCL INFO Bootstrap: Using bond0:172.27.7.237<0>
+rondeau:1592238:1592238 [0] NCCL INFO NCCL version 2.32.3+cuda13.4
+rondeau:1592238:1592238 [0] NCCL INFO NCCL git version HEAD 12df1a11-dirty
+rondeau:1592234:1592234 [0] NCCL INFO Bootstrap: Using bond0:172.27.7.237<0>
+rondeau:1592234:1592234 [0] NCCL INFO NCCL version 2.32.3+cuda13.4
+rondeau:1592234:1592234 [0] NCCL INFO NCCL git version HEAD 12df1a11-dirty
+rondeau:1592235:1592235 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+rondeau:1592233:1592233 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+rondeau:1592235:1592235 [0] NCCL INFO NET/IB : No device found.
+rondeau:1592235:1592235 [0] NCCL INFO NET/IB : Using [RO]; OOB bond0:172.27.7.237<0>
+
+[2026-11-09 03:02:38] rondeau:1592235:1592235 [0] plugin/net.cc:229 (ncclNetPluginInit) NCCL ATTN Failed to initialize NET plugin IB
+rondeau:1592233:1592233 [0] NCCL INFO NET/IB : No device found.
+rondeau:1592233:1592233 [0] NCCL INFO NET/IB : Using [RO]; OOB bond0:172.27.7.237<0>
+
+[2026-11-09 03:02:38] rondeau:1592233:1592233 [0] plugin/net.cc:229 (ncclNetPluginInit) NCCL ATTN Failed to initialize NET plugin IB
+rondeau:1592235:1592235 [0] NCCL INFO NET/Socket : Using [0]bond0:172.27.7.237<0>
+rondeau:1592235:1592235 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592235:1592235 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592235:1592235 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+rondeau:1592235:1592235 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+
+[2026-11-09 03:02:38] rondeau:1592235:1592235 [0] transport/rma_socket.cc:32 (ncclRmaSocketProxyInit) NCCL WARN RMA/Socket : rma_socket requires GDRCopy; and GDR Copy is not available
+rondeau:1592235:1592235 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+rondeau:1592235:1592235 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592235:1592235 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+rondeau:1592235:1592235 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592235:1592235 [0] NCCL INFO Using network Socket
+rondeau:1592235:1592235 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+rondeau:1592233:1592233 [0] NCCL INFO NET/Socket : Using [0]bond0:172.27.7.237<0>
+rondeau:1592233:1592233 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592233:1592233 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592233:1592233 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+rondeau:1592233:1592233 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+
+[2026-11-09 03:02:38] rondeau:1592233:1592233 [0] transport/rma_socket.cc:32 (ncclRmaSocketProxyInit) NCCL WARN RMA/Socket : rma_socket requires GDRCopy; and GDR Copy is not available
+rondeau:1592233:1592233 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+rondeau:1592233:1592233 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592233:1592233 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+rondeau:1592233:1592233 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592233:1592233 [0] NCCL INFO Using network Socket
+rondeau:1592233:1592233 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+rondeau:1592234:1592234 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+rondeau:1592234:1592234 [0] NCCL INFO NET/IB : No device found.
+rondeau:1592234:1592234 [0] NCCL INFO NET/IB : Using [RO]; OOB bond0:172.27.7.237<0>
+
+[2026-11-09 03:02:38] rondeau:1592234:1592234 [0] plugin/net.cc:229 (ncclNetPluginInit) NCCL ATTN Failed to initialize NET plugin IB
+rondeau:1592238:1592238 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+rondeau:1592234:1592234 [0] NCCL INFO NET/Socket : Using [0]bond0:172.27.7.237<0>
+rondeau:1592234:1592234 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592234:1592234 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592234:1592234 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+rondeau:1592234:1592234 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+
+[2026-11-09 03:02:38] rondeau:1592234:1592234 [0] transport/rma_socket.cc:32 (ncclRmaSocketProxyInit) NCCL WARN RMA/Socket : rma_socket requires GDRCopy; and GDR Copy is not available
+rondeau:1592234:1592234 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+rondeau:1592234:1592234 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592234:1592234 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+rondeau:1592234:1592234 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592234:1592234 [0] NCCL INFO Using network Socket
+rondeau:1592234:1592234 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+rondeau:1592238:1592238 [0] NCCL INFO NET/IB : No device found.
+rondeau:1592238:1592238 [0] NCCL INFO NET/IB : Using [RO]; OOB bond0:172.27.7.237<0>
+
+[2026-11-09 03:02:38] rondeau:1592238:1592238 [0] plugin/net.cc:229 (ncclNetPluginInit) NCCL ATTN Failed to initialize NET plugin IB
+rondeau:1592238:1592238 [0] NCCL INFO NET/Socket : Using [0]bond0:172.27.7.237<0>
+rondeau:1592238:1592238 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592238:1592238 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592238:1592238 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+rondeau:1592238:1592238 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+
+[2026-11-09 03:02:38] rondeau:1592238:1592238 [0] transport/rma_socket.cc:32 (ncclRmaSocketProxyInit) NCCL WARN RMA/Socket : rma_socket requires GDRCopy; and GDR Copy is not available
+rondeau:1592238:1592238 [0] NCCL INFO RMA/Plugin: Failed to initialize plugin
+rondeau:1592238:1592238 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592238:1592238 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+rondeau:1592238:1592238 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592238:1592238 [0] NCCL INFO Using network Socket
+rondeau:1592238:1592238 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+rondeau:1592235:1592235 [0] NCCL INFO [Rank 2] ncclCommInitRank comm 0x35986e40 rank 2 nranks 4 cudaDev 0 nvmlDev 2 busId 81000 commId 0x10c654e258406bd7 - Init START
+rondeau:1592235:1592235 [0] NCCL INFO Socket handshake magic 0x564ab9f2fc4b9d6c (built-in default)
+rondeau:1592238:1592238 [0] NCCL INFO [Rank 3] ncclCommInitRank comm 0x265dd4d0 rank 3 nranks 4 cudaDev 0 nvmlDev 3 busId c1000 commId 0x10c654e258406bd7 - Init START
+rondeau:1592233:1592233 [0] NCCL INFO [Rank 0] ncclCommInitRank comm 0x36a2c5b0 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 1000 commId 0x10c654e258406bd7 - Init START
+rondeau:1592238:1592238 [0] NCCL INFO Socket handshake magic 0x564ab9f2fc4b9d6c (built-in default)
+rondeau:1592238:1592238 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+rondeau:1592234:1592234 [0] NCCL INFO [Rank 1] ncclCommInitRank comm 0x2ab52ee0 rank 1 nranks 4 cudaDev 0 nvmlDev 1 busId 41000 commId 0x10c654e258406bd7 - Init START
+rondeau:1592234:1592234 [0] NCCL INFO Socket handshake magic 0x564ab9f2fc4b9d6c (built-in default)
+rondeau:1592233:1592233 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+rondeau:1592235:1592235 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+rondeau:1592234:1592234 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+rondeau:1592238:1592238 [0] NCCL INFO Bootstrap timings total 0.016142 (create 0.000071, send 0.000179, recv 0.000394, ring 0.015028, delay 0.000002)
+rondeau:1592233:1592233 [0] NCCL INFO Bootstrap timings total 0.016128 (create 0.000052, send 0.000203, recv 0.015142, ring 0.000142, delay 0.000001)
+rondeau:1592235:1592235 [0] NCCL INFO Bootstrap timings total 0.021253 (create 0.000067, send 0.000212, recv 0.005343, ring 0.000136, delay 0.000001)
+rondeau:1592234:1592234 [0] NCCL INFO Bootstrap timings total 0.001182 (create 0.000057, send 0.000155, recv 0.000300, ring 0.000175, delay 0.000001)
+rondeau:1592235:1592235 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 2 is 112-127,240-254. (GPU affinity = 112-127,240-254 ; CPU affinity = 0-254).
+rondeau:1592235:1592235 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592234:1592234 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 1 is 16-31,144-159. (GPU affinity = 16-31,144-159 ; CPU affinity = 0-254).
+rondeau:1592234:1592234 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592238:1592238 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 3 is 80-95,208-223. (GPU affinity = 80-95,208-223 ; CPU affinity = 0-254).
+rondeau:1592238:1592238 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592233:1592233 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is 48-63,176-191. (GPU affinity = 48-63,176-191 ; CPU affinity = 0-254).
+rondeau:1592233:1592233 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592234:1592234 [0] NCCL INFO Rank 1: 1 Net devices
+rondeau:1592234:1592234 [0] NCCL INFO Rank 1: 0 CollNet devices
+rondeau:1592235:1592235 [0] NCCL INFO Rank 2: 1 Net devices
+rondeau:1592235:1592235 [0] NCCL INFO Rank 2: 0 CollNet devices
+rondeau:1592238:1592238 [0] NCCL INFO Rank 3: 1 Net devices
+rondeau:1592238:1592238 [0] NCCL INFO Rank 3: 0 CollNet devices
+rondeau:1592233:1592233 [0] NCCL INFO Rank 0: 1 Net devices
+rondeau:1592233:1592233 [0] NCCL INFO Rank 0: 0 CollNet devices
+rondeau:1592238:1592238 [0] NCCL INFO comm 0x265dd4d0 rank 3 nRanks 4 nNodes 1 localRanks 4 localRank 3 MNNVL 0
+rondeau:1592235:1592235 [0] NCCL INFO comm 0x35986e40 rank 2 nRanks 4 nNodes 1 localRanks 4 localRank 2 MNNVL 0
+rondeau:1592233:1592233 [0] NCCL INFO Local Net device counts across ranks: min 1 max 1
+rondeau:1592233:1592233 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+rondeau:1592233:1592233 [0] NCCL INFO comm 0x36a2c5b0 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+rondeau:1592234:1592234 [0] NCCL INFO comm 0x2ab52ee0 rank 1 nRanks 4 nNodes 1 localRanks 4 localRank 1 MNNVL 0
+rondeau:1592235:1592235 [0] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1 [2] 3/-1/-1->2->1 [3] 3/-1/-1->2->1 [4] 1/-1/-1->2->0 [5] 1/-1/-1->2->0 [6] 1/-1/-1->2->0 [7] 1/-1/-1->2->0 [8] -1/-1/-1->2->3 [9] -1/-1/-1->2->3 [10] -1/-1/-1->2->3 [11] -1/-1/-1->2->3 [12] 3/-1/-1->2->1 [13] 3/-1/-1->2->1 [14] 3/-1/-1->2->1 [15] 3/-1/-1->2->1 [16] 1/-1/-1->2->0 [17] 1/-1/-1->2->0 [18] 1/-1/-1->2->0 [19] 1/-1/-1->2->0 [20] -1/-1/-1->2->3 [21] -1/-1/-1->2->3 [22] -1/-1/-1->2->3 [23] -1/-1/-1->2->3
+rondeau:1592235:1592235 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592238:1592238 [0] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2 [2] -1/-1/-1->3->2 [3] -1/-1/-1->3->2 [4] -1/-1/-1->3->1 [5] -1/-1/-1->3->1 [6] -1/-1/-1->3->1 [7] -1/-1/-1->3->1 [8] 2/-1/-1->3->0 [9] 2/-1/-1->3->0 [10] 2/-1/-1->3->0 [11] 2/-1/-1->3->0 [12] -1/-1/-1->3->2 [13] -1/-1/-1->3->2 [14] -1/-1/-1->3->2 [15] -1/-1/-1->3->2 [16] -1/-1/-1->3->1 [17] -1/-1/-1->3->1 [18] -1/-1/-1->3->1 [19] -1/-1/-1->3->1 [20] 2/-1/-1->3->0 [21] 2/-1/-1->3->0 [22] 2/-1/-1->3->0 [23] 2/-1/-1->3->0
+rondeau:1592238:1592238 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592234:1592234 [0] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0 [2] 2/-1/-1->1->0 [3] 2/-1/-1->1->0 [4] 3/-1/-1->1->2 [5] 3/-1/-1->1->2 [6] 3/-1/-1->1->2 [7] 3/-1/-1->1->2 [8] 0/-1/-1->1->-1 [9] 0/-1/-1->1->-1 [10] 0/-1/-1->1->-1 [11] 0/-1/-1->1->-1 [12] 2/-1/-1->1->0 [13] 2/-1/-1->1->0 [14] 2/-1/-1->1->0 [15] 2/-1/-1->1->0 [16] 3/-1/-1->1->2 [17] 3/-1/-1->1->2 [18] 3/-1/-1->1->2 [19] 3/-1/-1->1->2 [20] 0/-1/-1->1->-1 [21] 0/-1/-1->1->-1 [22] 0/-1/-1->1->-1 [23] 0/-1/-1->1->-1
+rondeau:1592234:1592234 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592233:1592233 [0] NCCL INFO Channel 00/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 01/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 02/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 03/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 04/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 05/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 06/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 07/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 08/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 09/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 10/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 11/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 12/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 13/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 14/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 15/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 16/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 17/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 18/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 19/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 20/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 21/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 22/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 23/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 2/-1/-1->0->-1 [5] 2/-1/-1->0->-1 [6] 2/-1/-1->0->-1 [7] 2/-1/-1->0->-1 [8] 3/-1/-1->0->1 [9] 3/-1/-1->0->1 [10] 3/-1/-1->0->1 [11] 3/-1/-1->0->1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 2/-1/-1->0->-1 [17] 2/-1/-1->0->-1 [18] 2/-1/-1->0->-1 [19] 2/-1/-1->0->-1 [20] 3/-1/-1->0->1 [21] 3/-1/-1->0->1 [22] 3/-1/-1->0->1 [23] 3/-1/-1->0->1
+rondeau:1592233:1592233 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592235:1592235 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+rondeau:1592235:1592235 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592235:1592320 [0] NCCL INFO [Proxy Service] Device 0 CPU core 115
+rondeau:1592235:1592321 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 254
+rondeau:1592235:1592320 [0] NCCL INFO proxy listening socket at 172.27.7.237<44363>
+rondeau:1592233:1592233 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+rondeau:1592233:1592233 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592234:1592234 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+rondeau:1592234:1592234 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592233:1592323 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 49
+rondeau:1592233:1592322 [0] NCCL INFO [Proxy Service] Device 0 CPU core 187
+rondeau:1592233:1592322 [0] NCCL INFO proxy listening socket at 172.27.7.237<44159>
+rondeau:1592238:1592238 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+rondeau:1592238:1592238 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592234:1592324 [0] NCCL INFO [Proxy Service] Device 0 CPU core 24
+rondeau:1592234:1592325 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 148
+rondeau:1592234:1592324 [0] NCCL INFO proxy listening socket at 172.27.7.237<60797>
+rondeau:1592238:1592326 [0] NCCL INFO [Proxy Service] Device 0 CPU core 216
+rondeau:1592238:1592327 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 209
+rondeau:1592238:1592326 [0] NCCL INFO proxy listening socket at 172.27.7.237<57599>
+rondeau:1592238:1592238 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+rondeau:1592238:1592238 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592238:1592238 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592238:1592238 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592234:1592234 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+rondeau:1592234:1592234 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592234:1592234 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592234:1592234 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592235:1592235 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+rondeau:1592235:1592235 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592235:1592235 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592235:1592235 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+rondeau:1592233:1592233 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592233:1592233 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592233:1592233 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO CC Off, workFifoBytes 1048576
+rondeau:1592238:1592238 [0] NCCL INFO ncclCommInitRank comm 0x265dd4d0 rank 3 nranks 4 cudaDev 0 nvmlDev 3 busId c1000 commId 0x10c654e258406bd7 - Init COMPLETE
+rondeau:1592238:1592238 [0] NCCL INFO Init timings - ncclCommInitRank: rank 3 nranks 4 total 0.43 (kernels 0.26, alloc 0.06, bootstrap 0.02, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.03, rest 0.01)
+rondeau:1592234:1592234 [0] NCCL INFO ncclCommInitRank comm 0x2ab52ee0 rank 1 nranks 4 cudaDev 0 nvmlDev 1 busId 41000 commId 0x10c654e258406bd7 - Init COMPLETE
+rondeau:1592234:1592234 [0] NCCL INFO Init timings - ncclCommInitRank: rank 1 nranks 4 total 0.43 (kernels 0.26, alloc 0.08, bootstrap 0.00, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.03, rest 0.01)
+rondeau:1592235:1592235 [0] NCCL INFO ncclCommInitRank comm 0x35986e40 rank 2 nranks 4 cudaDev 0 nvmlDev 2 busId 81000 commId 0x10c654e258406bd7 - Init COMPLETE
+rondeau:1592235:1592235 [0] NCCL INFO Init timings - ncclCommInitRank: rank 2 nranks 4 total 0.44 (kernels 0.25, alloc 0.08, bootstrap 0.02, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.03, rest 0.01)
+rondeau:1592233:1592233 [0] NCCL INFO ncclCommInitRank comm 0x36a2c5b0 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 1000 commId 0x10c654e258406bd7 - Init COMPLETE
+rondeau:1592233:1592233 [0] NCCL INFO Init timings - ncclCommInitRank: rank 0 nranks 4 total 0.45 (kernels 0.26, alloc 0.08, bootstrap 0.02, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.03, rest 0.01)
+[rondeau:1592177] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:1592177] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+rondeau:1592235:1592235 [0] NCCL INFO Channel 16/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 17/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 18/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 19/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 20/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 21/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 22/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 23/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 16/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 17/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 18/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 19/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 20/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 21/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 22/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 23/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 24/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 25/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 26/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 27/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 28/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 29/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 30/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 31/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 08/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 09/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 10/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 11/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 08/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 12/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 09/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 13/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 10/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 14/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 11/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 15/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 12/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 13/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 14/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 15/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 24/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 25/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 26/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 27/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 28/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 29/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 30/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 31/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 08/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 09/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 10/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 11/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 12/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 13/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 14/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 15/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 08/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 09/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 10/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 11/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 12/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 13/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 14/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 15/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 16/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 17/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 18/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 19/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 20/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 21/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 22/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 23/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 16/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 24/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 17/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 25/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 18/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 26/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 19/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 20/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 27/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 21/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 28/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 22/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 29/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 23/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 30/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 24/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 31/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 25/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 26/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 27/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 28/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 29/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 30/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 31/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592235:1592235 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592233:1592233 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592233:1592233 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592233:1592233 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592233:1592233 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592233:1592233 [0] NCCL INFO Using network Socket
+rondeau:1592234:1592234 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592234:1592234 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592234:1592234 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592234:1592234 [0] NCCL INFO Using network Socket
+rondeau:1592235:1592235 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592235:1592235 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592235:1592235 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592234:1592234 [0] NCCL INFO [Rank 1] ncclCommInitRank comm 0x36237bf0 rank 1 nranks 4 cudaDev 0 nvmlDev 1 busId 41000 commId 0x39b34ef55840766c - Init START
+rondeau:1592233:1592233 [0] NCCL INFO [Rank 0] ncclCommInitRank comm 0x410da3d0 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 1000 commId 0x39b34ef55840766c - Init START
+rondeau:1592235:1592235 [0] NCCL INFO Using network Socket
+rondeau:1592235:1592235 [0] NCCL INFO [Rank 2] ncclCommInitRank comm 0x4009a090 rank 2 nranks 4 cudaDev 0 nvmlDev 2 busId 81000 commId 0x39b34ef55840766c - Init START
+rondeau:1592238:1592238 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592238:1592238 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592238:1592238 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592238:1592238 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592238:1592238 [0] NCCL INFO Using network Socket
+rondeau:1592238:1592238 [0] NCCL INFO [Rank 3] ncclCommInitRank comm 0x3191d990 rank 3 nranks 4 cudaDev 0 nvmlDev 3 busId c1000 commId 0x39b34ef55840766c - Init START
+rondeau:1592233:1592233 [0] NCCL INFO Bootstrap timings total 0.106539 (create 0.073537, send 0.000252, recv 0.000356, ring 0.027020, delay 0.000000)
+rondeau:1592235:1592235 [0] NCCL INFO Bootstrap timings total 0.106540 (create 0.000078, send 0.000208, recv 0.005192, ring 0.031777, delay 0.000000)
+rondeau:1592234:1592234 [0] NCCL INFO Bootstrap timings total 0.106607 (create 0.000061, send 0.000195, recv 0.000305, ring 0.000919, delay 0.000000)
+rondeau:1592238:1592238 [0] NCCL INFO Bootstrap timings total 0.101596 (create 0.000073, send 0.000209, recv 0.074063, ring 0.000881, delay 0.000000)
+rondeau:1592238:1592238 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 3 is 80-95,208-223. (GPU affinity = 80-95,208-223 ; CPU affinity = 0-254).
+rondeau:1592238:1592238 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592233:1592233 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is 48-63,176-191. (GPU affinity = 48-63,176-191 ; CPU affinity = 0-254).
+rondeau:1592233:1592233 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592235:1592235 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 2 is 112-127,240-254. (GPU affinity = 112-127,240-254 ; CPU affinity = 0-254).
+rondeau:1592235:1592235 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592234:1592234 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 1 is 16-31,144-159. (GPU affinity = 16-31,144-159 ; CPU affinity = 0-254).
+rondeau:1592234:1592234 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592238:1592238 [0] NCCL INFO Rank 3: 1 Net devices
+rondeau:1592238:1592238 [0] NCCL INFO Rank 3: 0 CollNet devices
+rondeau:1592233:1592233 [0] NCCL INFO Rank 0: 1 Net devices
+rondeau:1592233:1592233 [0] NCCL INFO Rank 0: 0 CollNet devices
+rondeau:1592235:1592235 [0] NCCL INFO Rank 2: 1 Net devices
+rondeau:1592235:1592235 [0] NCCL INFO Rank 2: 0 CollNet devices
+rondeau:1592234:1592234 [0] NCCL INFO Rank 1: 1 Net devices
+rondeau:1592234:1592234 [0] NCCL INFO Rank 1: 0 CollNet devices
+rondeau:1592238:1592238 [0] NCCL INFO comm 0x3191d990 rank 3 nRanks 4 nNodes 1 localRanks 4 localRank 3 MNNVL 0
+rondeau:1592238:1592238 [0] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2 [2] -1/-1/-1->3->2 [3] -1/-1/-1->3->2 [4] -1/-1/-1->3->1 [5] -1/-1/-1->3->1 [6] -1/-1/-1->3->1 [7] -1/-1/-1->3->1 [8] 2/-1/-1->3->0 [9] 2/-1/-1->3->0 [10] 2/-1/-1->3->0 [11] 2/-1/-1->3->0 [12] -1/-1/-1->3->2 [13] -1/-1/-1->3->2 [14] -1/-1/-1->3->2 [15] -1/-1/-1->3->2 [16] -1/-1/-1->3->1 [17] -1/-1/-1->3->1 [18] -1/-1/-1->3->1 [19] -1/-1/-1->3->1 [20] 2/-1/-1->3->0 [21] 2/-1/-1->3->0 [22] 2/-1/-1->3->0 [23] 2/-1/-1->3->0
+rondeau:1592238:1592238 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592234:1592234 [0] NCCL INFO comm 0x36237bf0 rank 1 nRanks 4 nNodes 1 localRanks 4 localRank 1 MNNVL 0
+rondeau:1592233:1592233 [0] NCCL INFO Local Net device counts across ranks: min 1 max 1
+rondeau:1592233:1592233 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+rondeau:1592233:1592233 [0] NCCL INFO comm 0x410da3d0 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+rondeau:1592235:1592235 [0] NCCL INFO comm 0x4009a090 rank 2 nRanks 4 nNodes 1 localRanks 4 localRank 2 MNNVL 0
+rondeau:1592235:1592235 [0] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1 [2] 3/-1/-1->2->1 [3] 3/-1/-1->2->1 [4] 1/-1/-1->2->0 [5] 1/-1/-1->2->0 [6] 1/-1/-1->2->0 [7] 1/-1/-1->2->0 [8] -1/-1/-1->2->3 [9] -1/-1/-1->2->3 [10] -1/-1/-1->2->3 [11] -1/-1/-1->2->3 [12] 3/-1/-1->2->1 [13] 3/-1/-1->2->1 [14] 3/-1/-1->2->1 [15] 3/-1/-1->2->1 [16] 1/-1/-1->2->0 [17] 1/-1/-1->2->0 [18] 1/-1/-1->2->0 [19] 1/-1/-1->2->0 [20] -1/-1/-1->2->3 [21] -1/-1/-1->2->3 [22] -1/-1/-1->2->3 [23] -1/-1/-1->2->3
+rondeau:1592235:1592235 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592234:1592234 [0] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0 [2] 2/-1/-1->1->0 [3] 2/-1/-1->1->0 [4] 3/-1/-1->1->2 [5] 3/-1/-1->1->2 [6] 3/-1/-1->1->2 [7] 3/-1/-1->1->2 [8] 0/-1/-1->1->-1 [9] 0/-1/-1->1->-1 [10] 0/-1/-1->1->-1 [11] 0/-1/-1->1->-1 [12] 2/-1/-1->1->0 [13] 2/-1/-1->1->0 [14] 2/-1/-1->1->0 [15] 2/-1/-1->1->0 [16] 3/-1/-1->1->2 [17] 3/-1/-1->1->2 [18] 3/-1/-1->1->2 [19] 3/-1/-1->1->2 [20] 0/-1/-1->1->-1 [21] 0/-1/-1->1->-1 [22] 0/-1/-1->1->-1 [23] 0/-1/-1->1->-1
+rondeau:1592234:1592234 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592233:1592233 [0] NCCL INFO Channel 00/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 01/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 02/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 03/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 04/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 05/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 06/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 07/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 08/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 09/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 10/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 11/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 12/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 13/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 14/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 15/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 16/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 17/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 18/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 19/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 20/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 21/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 22/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 23/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 2/-1/-1->0->-1 [5] 2/-1/-1->0->-1 [6] 2/-1/-1->0->-1 [7] 2/-1/-1->0->-1 [8] 3/-1/-1->0->1 [9] 3/-1/-1->0->1 [10] 3/-1/-1->0->1 [11] 3/-1/-1->0->1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 2/-1/-1->0->-1 [17] 2/-1/-1->0->-1 [18] 2/-1/-1->0->-1 [19] 2/-1/-1->0->-1 [20] 3/-1/-1->0->1 [21] 3/-1/-1->0->1 [22] 3/-1/-1->0->1 [23] 3/-1/-1->0->1
+rondeau:1592233:1592233 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592233:1592233 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592233:1592393 [0] NCCL INFO [Proxy Service] Device 0 CPU core 187
+rondeau:1592233:1592394 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 49
+rondeau:1592233:1592393 [0] NCCL INFO proxy listening socket at 172.27.7.237<44615>
+rondeau:1592234:1592234 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592234:1592395 [0] NCCL INFO [Proxy Service] Device 0 CPU core 24
+rondeau:1592234:1592396 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 20
+rondeau:1592234:1592395 [0] NCCL INFO proxy listening socket at 172.27.7.237<53777>
+rondeau:1592238:1592238 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592238:1592398 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 211
+rondeau:1592238:1592397 [0] NCCL INFO [Proxy Service] Device 0 CPU core 217
+rondeau:1592238:1592397 [0] NCCL INFO proxy listening socket at 172.27.7.237<50943>
+rondeau:1592235:1592235 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592235:1592399 [0] NCCL INFO [Proxy Service] Device 0 CPU core 119
+rondeau:1592235:1592400 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 120
+rondeau:1592235:1592399 [0] NCCL INFO proxy listening socket at 172.27.7.237<50097>
+rondeau:1592235:1592235 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592235:1592235 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592235:1592235 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592234:1592234 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592234:1592234 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592234:1592234 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592233:1592233 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592233:1592233 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO CC Off, workFifoBytes 1048576
+rondeau:1592238:1592238 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592238:1592238 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592238:1592238 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO ncclCommInitRank comm 0x410da3d0 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 1000 commId 0x39b34ef55840766c - Init COMPLETE
+rondeau:1592233:1592233 [0] NCCL INFO Init timings - ncclCommInitRank: rank 0 nranks 4 total 0.20 (kernels 0.00, alloc 0.00, bootstrap 0.11, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.04, rest 0.01)
+rondeau:1592234:1592234 [0] NCCL INFO ncclCommInitRank comm 0x36237bf0 rank 1 nranks 4 cudaDev 0 nvmlDev 1 busId 41000 commId 0x39b34ef55840766c - Init COMPLETE
+rondeau:1592234:1592234 [0] NCCL INFO Init timings - ncclCommInitRank: rank 1 nranks 4 total 0.20 (kernels 0.00, alloc 0.00, bootstrap 0.11, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.04, rest 0.01)
+rondeau:1592235:1592235 [0] NCCL INFO ncclCommInitRank comm 0x4009a090 rank 2 nranks 4 cudaDev 0 nvmlDev 2 busId 81000 commId 0x39b34ef55840766c - Init COMPLETE
+rondeau:1592235:1592235 [0] NCCL INFO Init timings - ncclCommInitRank: rank 2 nranks 4 total 0.20 (kernels 0.00, alloc 0.00, bootstrap 0.11, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.03, rest 0.02)
+rondeau:1592238:1592238 [0] NCCL INFO ncclCommInitRank comm 0x3191d990 rank 3 nranks 4 cudaDev 0 nvmlDev 3 busId c1000 commId 0x39b34ef55840766c - Init COMPLETE
+rondeau:1592238:1592238 [0] NCCL INFO Init timings - ncclCommInitRank: rank 3 nranks 4 total 0.20 (kernels 0.01, alloc 0.00, bootstrap 0.10, allgathers 0.01, topo 0.03, graphs 0.01, connections 0.04, rest 0.01)
+rondeau:1592235:1592235 [0] NCCL INFO Channel 16/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 17/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 18/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 19/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 20/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 21/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 22/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 23/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 24/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 25/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 26/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 27/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 28/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 29/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 30/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 31/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 08/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 08/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 09/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 09/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 10/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 10/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 11/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 11/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 12/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 12/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 13/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 13/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 14/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 14/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 15/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 15/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 16/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 17/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 18/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 19/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 20/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 21/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 22/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 23/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 24/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 25/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 26/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 27/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 28/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 29/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 30/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 31/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 08/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 08/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 09/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 09/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 10/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 10/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 11/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 11/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 12/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 12/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 13/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 13/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 14/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 14/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 15/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 15/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 16/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 16/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 17/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 17/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 18/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 18/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 19/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 19/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 20/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 20/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 21/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 21/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 22/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 22/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 23/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 23/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 24/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 24/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 25/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 25/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 26/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 26/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 27/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 27/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 28/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 28/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 29/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 29/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 30/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 30/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 31/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 31/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592238:1592238 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592238:1592238 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592238:1592238 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592238:1592238 [0] NCCL INFO Using network Socket
+rondeau:1592238:1592238 [0] NCCL INFO [Rank 3] ncclCommInitRank comm 0x30dd86d0 rank 3 nranks 4 cudaDev 0 nvmlDev 3 busId c1000 commId 0x3ea89ca6e353e27f - Init START
+rondeau:1592234:1592234 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592234:1592234 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592234:1592234 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592234:1592234 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592234:1592234 [0] NCCL INFO Using network Socket
+rondeau:1592234:1592234 [0] NCCL INFO [Rank 1] ncclCommInitRank comm 0x3635bdf0 rank 1 nranks 4 cudaDev 0 nvmlDev 1 busId 41000 commId 0x3ea89ca6e353e27f - Init START
+rondeau:1592235:1592235 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592235:1592235 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592235:1592235 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592235:1592235 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592235:1592235 [0] NCCL INFO Using network Socket
+rondeau:1592233:1592233 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592233:1592233 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592233:1592233 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592233:1592233 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592233:1592233 [0] NCCL INFO Using network Socket
+rondeau:1592235:1592235 [0] NCCL INFO [Rank 2] ncclCommInitRank comm 0x3ff40700 rank 2 nranks 4 cudaDev 0 nvmlDev 2 busId 81000 commId 0x3ea89ca6e353e27f - Init START
+rondeau:1592233:1592233 [0] NCCL INFO [Rank 0] ncclCommInitRank comm 0x41340170 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 1000 commId 0x3ea89ca6e353e27f - Init START
+rondeau:1592235:1592235 [0] NCCL INFO Bootstrap timings total 0.001447 (create 0.000090, send 0.000208, recv 0.000510, ring 0.000462, delay 0.000000)
+rondeau:1592238:1592238 [0] NCCL INFO Bootstrap timings total 0.002739 (create 0.000072, send 0.000204, recv 0.002007, ring 0.000278, delay 0.000000)
+rondeau:1592234:1592234 [0] NCCL INFO Bootstrap timings total 0.002522 (create 0.000051, send 0.000197, recv 0.001365, ring 0.000138, delay 0.000000)
+rondeau:1592233:1592233 [0] NCCL INFO Bootstrap timings total 0.001314 (create 0.000047, send 0.000180, recv 0.000799, ring 0.000109, delay 0.000000)
+rondeau:1592235:1592235 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 2 is 112-127,240-254. (GPU affinity = 112-127,240-254 ; CPU affinity = 0-254).
+rondeau:1592235:1592235 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592234:1592234 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 1 is 16-31,144-159. (GPU affinity = 16-31,144-159 ; CPU affinity = 0-254).
+rondeau:1592234:1592234 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592233:1592233 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is 48-63,176-191. (GPU affinity = 48-63,176-191 ; CPU affinity = 0-254).
+rondeau:1592233:1592233 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592238:1592238 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 3 is 80-95,208-223. (GPU affinity = 80-95,208-223 ; CPU affinity = 0-254).
+rondeau:1592238:1592238 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592235:1592235 [0] NCCL INFO Rank 2: 1 Net devices
+rondeau:1592235:1592235 [0] NCCL INFO Rank 2: 0 CollNet devices
+rondeau:1592234:1592234 [0] NCCL INFO Rank 1: 1 Net devices
+rondeau:1592234:1592234 [0] NCCL INFO Rank 1: 0 CollNet devices
+rondeau:1592233:1592233 [0] NCCL INFO Rank 0: 1 Net devices
+rondeau:1592233:1592233 [0] NCCL INFO Rank 0: 0 CollNet devices
+rondeau:1592238:1592238 [0] NCCL INFO Rank 3: 1 Net devices
+rondeau:1592238:1592238 [0] NCCL INFO Rank 3: 0 CollNet devices
+rondeau:1592235:1592235 [0] NCCL INFO comm 0x3ff40700 rank 2 nRanks 4 nNodes 1 localRanks 4 localRank 2 MNNVL 0
+rondeau:1592234:1592234 [0] NCCL INFO comm 0x3635bdf0 rank 1 nRanks 4 nNodes 1 localRanks 4 localRank 1 MNNVL 0
+rondeau:1592238:1592238 [0] NCCL INFO comm 0x30dd86d0 rank 3 nRanks 4 nNodes 1 localRanks 4 localRank 3 MNNVL 0
+rondeau:1592233:1592233 [0] NCCL INFO Local Net device counts across ranks: min 1 max 1
+rondeau:1592233:1592233 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+rondeau:1592233:1592233 [0] NCCL INFO comm 0x41340170 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+rondeau:1592233:1592233 [0] NCCL INFO Channel 00/24 : 0 1 2 3
+rondeau:1592238:1592238 [0] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2 [2] -1/-1/-1->3->2 [3] -1/-1/-1->3->2 [4] -1/-1/-1->3->1 [5] -1/-1/-1->3->1 [6] -1/-1/-1->3->1 [7] -1/-1/-1->3->1 [8] 2/-1/-1->3->0 [9] 2/-1/-1->3->0 [10] 2/-1/-1->3->0 [11] 2/-1/-1->3->0 [12] -1/-1/-1->3->2 [13] -1/-1/-1->3->2 [14] -1/-1/-1->3->2 [15] -1/-1/-1->3->2 [16] -1/-1/-1->3->1 [17] -1/-1/-1->3->1 [18] -1/-1/-1->3->1 [19] -1/-1/-1->3->1 [20] 2/-1/-1->3->0 [21] 2/-1/-1->3->0 [22] 2/-1/-1->3->0 [23] 2/-1/-1->3->0
+rondeau:1592238:1592238 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592234:1592234 [0] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0 [2] 2/-1/-1->1->0 [3] 2/-1/-1->1->0 [4] 3/-1/-1->1->2 [5] 3/-1/-1->1->2 [6] 3/-1/-1->1->2 [7] 3/-1/-1->1->2 [8] 0/-1/-1->1->-1 [9] 0/-1/-1->1->-1 [10] 0/-1/-1->1->-1 [11] 0/-1/-1->1->-1 [12] 2/-1/-1->1->0 [13] 2/-1/-1->1->0 [14] 2/-1/-1->1->0 [15] 2/-1/-1->1->0 [16] 3/-1/-1->1->2 [17] 3/-1/-1->1->2 [18] 3/-1/-1->1->2 [19] 3/-1/-1->1->2 [20] 0/-1/-1->1->-1 [21] 0/-1/-1->1->-1 [22] 0/-1/-1->1->-1 [23] 0/-1/-1->1->-1
+rondeau:1592234:1592234 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592235:1592235 [0] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1 [2] 3/-1/-1->2->1 [3] 3/-1/-1->2->1 [4] 1/-1/-1->2->0 [5] 1/-1/-1->2->0 [6] 1/-1/-1->2->0 [7] 1/-1/-1->2->0 [8] -1/-1/-1->2->3 [9] -1/-1/-1->2->3 [10] -1/-1/-1->2->3 [11] -1/-1/-1->2->3 [12] 3/-1/-1->2->1 [13] 3/-1/-1->2->1 [14] 3/-1/-1->2->1 [15] 3/-1/-1->2->1 [16] 1/-1/-1->2->0 [17] 1/-1/-1->2->0 [18] 1/-1/-1->2->0 [19] 1/-1/-1->2->0 [20] -1/-1/-1->2->3 [21] -1/-1/-1->2->3 [22] -1/-1/-1->2->3 [23] -1/-1/-1->2->3
+rondeau:1592235:1592235 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592233:1592233 [0] NCCL INFO Channel 01/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 02/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 03/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 04/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 05/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 06/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 07/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 08/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 09/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 10/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 11/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 12/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 13/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 14/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 15/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 16/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 17/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 18/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 19/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 20/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 21/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 22/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 23/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 2/-1/-1->0->-1 [5] 2/-1/-1->0->-1 [6] 2/-1/-1->0->-1 [7] 2/-1/-1->0->-1 [8] 3/-1/-1->0->1 [9] 3/-1/-1->0->1 [10] 3/-1/-1->0->1 [11] 3/-1/-1->0->1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 2/-1/-1->0->-1 [17] 2/-1/-1->0->-1 [18] 2/-1/-1->0->-1 [19] 2/-1/-1->0->-1 [20] 3/-1/-1->0->1 [21] 3/-1/-1->0->1 [22] 3/-1/-1->0->1 [23] 3/-1/-1->0->1
+rondeau:1592233:1592233 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592238:1592238 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592238:1592406 [0] NCCL INFO [Proxy Service] Device 0 CPU core 208
+rondeau:1592238:1592407 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 220
+rondeau:1592238:1592406 [0] NCCL INFO proxy listening socket at 172.27.7.237<35047>
+rondeau:1592234:1592234 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592234:1592409 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 154
+rondeau:1592234:1592408 [0] NCCL INFO [Proxy Service] Device 0 CPU core 19
+rondeau:1592234:1592408 [0] NCCL INFO proxy listening socket at 172.27.7.237<43541>
+rondeau:1592235:1592235 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592233:1592233 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592235:1592410 [0] NCCL INFO [Proxy Service] Device 0 CPU core 119
+rondeau:1592235:1592410 [0] NCCL INFO proxy listening socket at 172.27.7.237<41569>
+rondeau:1592233:1592411 [0] NCCL INFO [Proxy Service] Device 0 CPU core 48
+rondeau:1592233:1592413 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 61
+rondeau:1592233:1592411 [0] NCCL INFO proxy listening socket at 172.27.7.237<58603>
+rondeau:1592235:1592412 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 249
+rondeau:1592233:1592233 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592238:1592238 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592238:1592238 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592238:1592238 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592233:1592233 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO CC Off, workFifoBytes 1048576
+rondeau:1592234:1592234 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592234:1592234 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592234:1592234 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592235:1592235 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592235:1592235 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592235:1592235 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592234:1592234 [0] NCCL INFO ncclCommInitRank comm 0x3635bdf0 rank 1 nranks 4 cudaDev 0 nvmlDev 1 busId 41000 commId 0x3ea89ca6e353e27f - Init COMPLETE
+rondeau:1592234:1592234 [0] NCCL INFO Init timings - ncclCommInitRank: rank 1 nranks 4 total 0.09 (kernels 0.00, alloc 0.00, bootstrap 0.00, allgathers 0.00, topo 0.02, graphs 0.01, connections 0.04, rest 0.01)
+rondeau:1592238:1592238 [0] NCCL INFO ncclCommInitRank comm 0x30dd86d0 rank 3 nranks 4 cudaDev 0 nvmlDev 3 busId c1000 commId 0x3ea89ca6e353e27f - Init COMPLETE
+rondeau:1592238:1592238 [0] NCCL INFO Init timings - ncclCommInitRank: rank 3 nranks 4 total 0.09 (kernels 0.00, alloc 0.00, bootstrap 0.00, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.04, rest 0.01)
+rondeau:1592233:1592233 [0] NCCL INFO ncclCommInitRank comm 0x41340170 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 1000 commId 0x3ea89ca6e353e27f - Init COMPLETE
+rondeau:1592233:1592233 [0] NCCL INFO Init timings - ncclCommInitRank: rank 0 nranks 4 total 0.09 (kernels 0.00, alloc 0.00, bootstrap 0.00, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.03, rest 0.01)
+rondeau:1592235:1592235 [0] NCCL INFO ncclCommInitRank comm 0x3ff40700 rank 2 nranks 4 cudaDev 0 nvmlDev 2 busId 81000 commId 0x3ea89ca6e353e27f - Init COMPLETE
+rondeau:1592235:1592235 [0] NCCL INFO Init timings - ncclCommInitRank: rank 2 nranks 4 total 0.09 (kernels 0.00, alloc 0.00, bootstrap 0.00, allgathers 0.00, topo 0.02, graphs 0.01, connections 0.04, rest 0.01)
+rondeau:1592235:1592235 [0] NCCL INFO Channel 16/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 17/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 18/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 19/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 20/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 21/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 22/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 23/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 24/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 25/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 26/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 27/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 28/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 29/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 30/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 31/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 08/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 08/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 09/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 09/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 10/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 10/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 11/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 11/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 12/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 12/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 13/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 13/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 14/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 14/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 15/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 15/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 16/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 17/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 18/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 19/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 20/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 21/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 22/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 23/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 24/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 25/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 26/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 27/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 28/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 29/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 30/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 31/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 08/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 09/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 10/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 08/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 11/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 09/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 12/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 10/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 13/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 14/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 11/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 15/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 12/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 13/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 14/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 15/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 16/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 16/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 17/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 17/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 18/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 18/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 19/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 19/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 20/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 20/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 21/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 21/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 22/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 22/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 23/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 23/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 24/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 24/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 25/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 25/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 26/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 26/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 27/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 27/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 28/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 28/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 29/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 29/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 30/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 30/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 31/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 31/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592235:1592235 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592235:1592235 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592235:1592235 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592235:1592235 [0] NCCL INFO Using network Socket
+rondeau:1592235:1592235 [0] NCCL INFO [Rank 2] ncclCommInitRank comm 0x3dc93280 rank 2 nranks 4 cudaDev 0 nvmlDev 2 busId 81000 commId 0xc400797693606737 - Init START
+rondeau:1592238:1592238 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592238:1592238 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592238:1592238 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592238:1592238 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592238:1592238 [0] NCCL INFO Using network Socket
+rondeau:1592233:1592233 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592233:1592233 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592233:1592233 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592233:1592233 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592233:1592233 [0] NCCL INFO Using network Socket
+rondeau:1592238:1592238 [0] NCCL INFO [Rank 3] ncclCommInitRank comm 0x30efc900 rank 3 nranks 4 cudaDev 0 nvmlDev 3 busId c1000 commId 0xc400797693606737 - Init START
+rondeau:1592233:1592233 [0] NCCL INFO [Rank 0] ncclCommInitRank comm 0x3ef52600 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 1000 commId 0xc400797693606737 - Init START
+rondeau:1592234:1592234 [0] NCCL INFO Initialized NET plugin Socket
+rondeau:1592234:1592234 [0] NCCL INFO Assigned NET plugin Socket to comm
+rondeau:1592234:1592234 [0] NCCL INFO RMA/Plugin: Failed to initialize any plugin
+rondeau:1592234:1592234 [0] NCCL INFO GIN/Plugin: Failed to initialize any GIN plugin
+rondeau:1592234:1592234 [0] NCCL INFO Using network Socket
+rondeau:1592234:1592234 [0] NCCL INFO [Rank 1] ncclCommInitRank comm 0x36580070 rank 1 nranks 4 cudaDev 0 nvmlDev 1 busId 41000 commId 0xc400797693606737 - Init START
+rondeau:1592235:1592235 [0] NCCL INFO Bootstrap timings total 0.007446 (create 0.000065, send 0.000185, recv 0.002200, ring 0.000143, delay 0.000000)
+rondeau:1592233:1592233 [0] NCCL INFO Bootstrap timings total 0.005456 (create 0.000041, send 0.000231, recv 0.004756, ring 0.000228, delay 0.000000)
+rondeau:1592238:1592238 [0] NCCL INFO Bootstrap timings total 0.005502 (create 0.000070, send 0.000233, recv 0.000358, ring 0.004676, delay 0.000000)
+rondeau:1592234:1592234 [0] NCCL INFO Bootstrap timings total 0.000879 (create 0.000060, send 0.000162, recv 0.000345, ring 0.000111, delay 0.000000)
+rondeau:1592233:1592233 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is 48-63,176-191. (GPU affinity = 48-63,176-191 ; CPU affinity = 0-254).
+rondeau:1592233:1592233 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592238:1592238 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 3 is 80-95,208-223. (GPU affinity = 80-95,208-223 ; CPU affinity = 0-254).
+rondeau:1592238:1592238 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592235:1592235 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 2 is 112-127,240-254. (GPU affinity = 112-127,240-254 ; CPU affinity = 0-254).
+rondeau:1592235:1592235 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592234:1592234 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 1 is 16-31,144-159. (GPU affinity = 16-31,144-159 ; CPU affinity = 0-254).
+rondeau:1592234:1592234 [0] NCCL INFO NVLS multicast support is not available on dev 0, transport disabled, symmetric multimem disabled
+rondeau:1592238:1592238 [0] NCCL INFO Rank 3: 1 Net devices
+rondeau:1592238:1592238 [0] NCCL INFO Rank 3: 0 CollNet devices
+rondeau:1592235:1592235 [0] NCCL INFO Rank 2: 1 Net devices
+rondeau:1592235:1592235 [0] NCCL INFO Rank 2: 0 CollNet devices
+rondeau:1592234:1592234 [0] NCCL INFO Rank 1: 1 Net devices
+rondeau:1592234:1592234 [0] NCCL INFO Rank 1: 0 CollNet devices
+rondeau:1592233:1592233 [0] NCCL INFO Rank 0: 1 Net devices
+rondeau:1592233:1592233 [0] NCCL INFO Rank 0: 0 CollNet devices
+rondeau:1592235:1592235 [0] NCCL INFO comm 0x3dc93280 rank 2 nRanks 4 nNodes 1 localRanks 4 localRank 2 MNNVL 0
+rondeau:1592238:1592238 [0] NCCL INFO comm 0x30efc900 rank 3 nRanks 4 nNodes 1 localRanks 4 localRank 3 MNNVL 0
+rondeau:1592234:1592234 [0] NCCL INFO comm 0x36580070 rank 1 nRanks 4 nNodes 1 localRanks 4 localRank 1 MNNVL 0
+rondeau:1592233:1592233 [0] NCCL INFO Local Net device counts across ranks: min 1 max 1
+rondeau:1592233:1592233 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+rondeau:1592235:1592235 [0] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1 [2] 3/-1/-1->2->1 [3] 3/-1/-1->2->1 [4] 1/-1/-1->2->0 [5] 1/-1/-1->2->0 [6] 1/-1/-1->2->0 [7] 1/-1/-1->2->0 [8] -1/-1/-1->2->3 [9] -1/-1/-1->2->3 [10] -1/-1/-1->2->3 [11] -1/-1/-1->2->3 [12] 3/-1/-1->2->1 [13] 3/-1/-1->2->1 [14] 3/-1/-1->2->1 [15] 3/-1/-1->2->1 [16] 1/-1/-1->2->0 [17] 1/-1/-1->2->0 [18] 1/-1/-1->2->0 [19] 1/-1/-1->2->0 [20] -1/-1/-1->2->3 [21] -1/-1/-1->2->3 [22] -1/-1/-1->2->3 [23] -1/-1/-1->2->3
+rondeau:1592235:1592235 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592238:1592238 [0] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2 [2] -1/-1/-1->3->2 [3] -1/-1/-1->3->2 [4] -1/-1/-1->3->1 [5] -1/-1/-1->3->1 [6] -1/-1/-1->3->1 [7] -1/-1/-1->3->1 [8] 2/-1/-1->3->0 [9] 2/-1/-1->3->0 [10] 2/-1/-1->3->0 [11] 2/-1/-1->3->0 [12] -1/-1/-1->3->2 [13] -1/-1/-1->3->2 [14] -1/-1/-1->3->2 [15] -1/-1/-1->3->2 [16] -1/-1/-1->3->1 [17] -1/-1/-1->3->1 [18] -1/-1/-1->3->1 [19] -1/-1/-1->3->1 [20] 2/-1/-1->3->0 [21] 2/-1/-1->3->0 [22] 2/-1/-1->3->0 [23] 2/-1/-1->3->0
+rondeau:1592238:1592238 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592234:1592234 [0] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0 [2] 2/-1/-1->1->0 [3] 2/-1/-1->1->0 [4] 3/-1/-1->1->2 [5] 3/-1/-1->1->2 [6] 3/-1/-1->1->2 [7] 3/-1/-1->1->2 [8] 0/-1/-1->1->-1 [9] 0/-1/-1->1->-1 [10] 0/-1/-1->1->-1 [11] 0/-1/-1->1->-1 [12] 2/-1/-1->1->0 [13] 2/-1/-1->1->0 [14] 2/-1/-1->1->0 [15] 2/-1/-1->1->0 [16] 3/-1/-1->1->2 [17] 3/-1/-1->1->2 [18] 3/-1/-1->1->2 [19] 3/-1/-1->1->2 [20] 0/-1/-1->1->-1 [21] 0/-1/-1->1->-1 [22] 0/-1/-1->1->-1 [23] 0/-1/-1->1->-1
+rondeau:1592234:1592234 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592233:1592233 [0] NCCL INFO comm 0x3ef52600 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+rondeau:1592233:1592233 [0] NCCL INFO Channel 00/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 01/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 02/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 03/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 04/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 05/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 06/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 07/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 08/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 09/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 10/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 11/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 12/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 13/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 14/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 15/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 16/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 17/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 18/24 : 0 1 2 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 19/24 : 0 1 3 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 20/24 : 0 2 3 1
+rondeau:1592233:1592233 [0] NCCL INFO Channel 21/24 : 0 2 1 3
+rondeau:1592233:1592233 [0] NCCL INFO Channel 22/24 : 0 3 1 2
+rondeau:1592233:1592233 [0] NCCL INFO Channel 23/24 : 0 3 2 1
+rondeau:1592233:1592233 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 2/-1/-1->0->-1 [5] 2/-1/-1->0->-1 [6] 2/-1/-1->0->-1 [7] 2/-1/-1->0->-1 [8] 3/-1/-1->0->1 [9] 3/-1/-1->0->1 [10] 3/-1/-1->0->1 [11] 3/-1/-1->0->1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 2/-1/-1->0->-1 [17] 2/-1/-1->0->-1 [18] 2/-1/-1->0->-1 [19] 2/-1/-1->0->-1 [20] 3/-1/-1->0->1 [21] 3/-1/-1->0->1 [22] 3/-1/-1->0->1 [23] 3/-1/-1->0->1
+rondeau:1592233:1592233 [0] NCCL INFO P2P Chunksize set to 524288
+rondeau:1592238:1592238 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592238:1592425 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 84
+rondeau:1592238:1592424 [0] NCCL INFO [Proxy Service] Device 0 CPU core 222
+rondeau:1592238:1592424 [0] NCCL INFO proxy listening socket at 172.27.7.237<55507>
+rondeau:1592234:1592234 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592234:1592426 [0] NCCL INFO [Proxy Service] Device 0 CPU core 24
+rondeau:1592234:1592427 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 145
+rondeau:1592234:1592426 [0] NCCL INFO proxy listening socket at 172.27.7.237<54393>
+rondeau:1592235:1592235 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592235:1592428 [0] NCCL INFO [Proxy Service] Device 0 CPU core 119
+rondeau:1592235:1592429 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 120
+rondeau:1592235:1592428 [0] NCCL INFO proxy listening socket at 172.27.7.237<41729>
+rondeau:1592233:1592233 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+rondeau:1592233:1592430 [0] NCCL INFO [Proxy Service] Device 0 CPU core 187
+rondeau:1592233:1592431 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 51
+rondeau:1592233:1592430 [0] NCCL INFO proxy listening socket at 172.27.7.237<40043>
+rondeau:1592238:1592238 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592238:1592238 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592238:1592238 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592235:1592235 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592235:1592235 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592235:1592235 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592234:1592234 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592234:1592234 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592234:1592234 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+rondeau:1592233:1592233 [0] NCCL INFO 24 coll channels, 24 collnet channels, 0 nvls channels, 32 p2p channels, 8 p2p channels per peer
+rondeau:1592233:1592233 [0] NCCL INFO symmetricSupport 1, cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 1, contiguousRanksPerHost 4, crossNicSupport 1
+rondeau:1592233:1592233 [0] NCCL INFO CC Off, workFifoBytes 1048576
+rondeau:1592238:1592238 [0] NCCL INFO ncclCommInitRank comm 0x30efc900 rank 3 nranks 4 cudaDev 0 nvmlDev 3 busId c1000 commId 0xc400797693606737 - Init COMPLETE
+rondeau:1592238:1592238 [0] NCCL INFO Init timings - ncclCommInitRank: rank 3 nranks 4 total 0.10 (kernels 0.00, alloc 0.00, bootstrap 0.01, allgathers 0.01, topo 0.04, graphs 0.01, connections 0.03, rest 0.02)
+rondeau:1592234:1592234 [0] NCCL INFO ncclCommInitRank comm 0x36580070 rank 1 nranks 4 cudaDev 0 nvmlDev 1 busId 41000 commId 0xc400797693606737 - Init COMPLETE
+rondeau:1592234:1592234 [0] NCCL INFO Init timings - ncclCommInitRank: rank 1 nranks 4 total 0.10 (kernels 0.01, alloc 0.00, bootstrap 0.00, allgathers 0.00, topo 0.04, graphs 0.01, connections 0.03, rest 0.02)
+rondeau:1592235:1592235 [0] NCCL INFO ncclCommInitRank comm 0x3dc93280 rank 2 nranks 4 cudaDev 0 nvmlDev 2 busId 81000 commId 0xc400797693606737 - Init COMPLETE
+rondeau:1592235:1592235 [0] NCCL INFO Init timings - ncclCommInitRank: rank 2 nranks 4 total 0.10 (kernels 0.00, alloc 0.00, bootstrap 0.01, allgathers 0.00, topo 0.04, graphs 0.01, connections 0.03, rest 0.02)
+rondeau:1592233:1592233 [0] NCCL INFO ncclCommInitRank comm 0x3ef52600 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 1000 commId 0xc400797693606737 - Init COMPLETE
+rondeau:1592233:1592233 [0] NCCL INFO Init timings - ncclCommInitRank: rank 0 nranks 4 total 0.10 (kernels 0.00, alloc 0.00, bootstrap 0.01, allgathers 0.00, topo 0.03, graphs 0.01, connections 0.03, rest 0.02)
+rondeau:1592235:1592235 [0] NCCL INFO Channel 16/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 17/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 18/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 19/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 20/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 21/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 22/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 23/1 : 2[2] -> 3[3] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 24/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 25/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 26/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 27/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 28/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 29/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 30/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 31/1 : 3[3] -> 2[2] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 08/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 08/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 09/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 09/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 10/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 10/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 11/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 11/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 12/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 12/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 13/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 13/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 14/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 14/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 15/1 : 3[3] -> 1[1] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 15/1 : 2[2] -> 0[0] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 16/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 17/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 18/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 19/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 20/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 21/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 22/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 23/1 : 0[0] -> 1[1] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 24/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 25/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 26/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 27/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 28/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 29/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 30/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 31/1 : 1[1] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 08/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 08/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 09/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 09/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 10/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 10/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 11/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 11/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 12/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 12/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 13/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 13/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 14/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 14/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 15/1 : 1[1] -> 3[3] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 15/1 : 0[0] -> 2[2] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 16/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 16/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 17/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 17/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 18/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 18/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 19/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 19/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 20/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 20/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 21/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 21/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 22/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 22/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592238:1592238 [0] NCCL INFO Channel 23/1 : 3[3] -> 0[0] via P2P/CUMEM/read
+rondeau:1592234:1592234 [0] NCCL INFO Channel 23/1 : 1[1] -> 2[2] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 24/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 24/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 25/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 25/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 26/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 26/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 27/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 27/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 28/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 28/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 29/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 29/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 30/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 30/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+rondeau:1592235:1592235 [0] NCCL INFO Channel 31/1 : 2[2] -> 1[1] via P2P/CUMEM/read
+rondeau:1592233:1592233 [0] NCCL INFO Channel 31/1 : 0[0] -> 3[3] via P2P/CUMEM/read
+NCCL_HALO_VALUES_OK ranks=4 partition=(2, 2, 1) library_version=2.32.3
+[rondeau:1592177] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237

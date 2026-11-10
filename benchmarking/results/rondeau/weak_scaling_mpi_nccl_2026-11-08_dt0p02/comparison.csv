@@ -1,0 +1,11 @@
+dynamics,communication,gpus,Nx,Ny,Nz,fields_finite,performance_valid,ms_per_step,weak_efficiency_percent,nccl_speedup_over_mpi,log
+compressible_explicit,SERIAL,1,512,512,512,False,False,,,,runs/logs/weak_compressible_explicit_SERIAL_1g_20261108-192559.out
+compressible_splitexplicit,SERIAL,1,512,512,512,True,True,1217.721,100.0,,runs/logs/weak_compressible_splitexplicit_SERIAL_1g_20261108-193125.out
+compressible_explicit,MPI,2,1024,512,512,False,False,,,,runs/logs/weak_compressible_explicit_MPI_2g_20261108-194448.out
+compressible_explicit,NCCL,2,1024,512,512,False,False,,,,runs/logs/weak_compressible_explicit_NCCL_2g_20261108-195105.out
+compressible_splitexplicit,MPI,2,1024,512,512,True,True,1271.0459999999998,95.80463649624011,,runs/logs/weak_compressible_splitexplicit_MPI_2g_20261108-195731.out
+compressible_splitexplicit,NCCL,2,1024,512,512,True,True,1287.5,94.58027184466019,0.9872201941747571,runs/logs/weak_compressible_splitexplicit_NCCL_2g_20261108-201226.out
+compressible_explicit,MPI,4,1024,1024,512,False,False,,,,runs/logs/weak_compressible_explicit_MPI_4g_20261109-030316.out
+compressible_explicit,NCCL,4,1024,1024,512,False,False,,,,runs/logs/weak_compressible_explicit_NCCL_4g_20261109-031023.out
+compressible_splitexplicit,MPI,4,1024,1024,512,True,True,1495.404,81.43090429074685,,runs/logs/weak_compressible_splitexplicit_MPI_4g_20261109-031741.out
+compressible_splitexplicit,NCCL,4,1024,1024,512,True,True,1395.613,87.2534864607882,1.0715033465581074,runs/logs/weak_compressible_splitexplicit_NCCL_4g_20261109-033530.out

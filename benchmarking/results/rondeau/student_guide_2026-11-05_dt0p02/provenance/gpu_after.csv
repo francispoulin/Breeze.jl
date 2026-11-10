@@ -1,0 +1,5 @@
+index, name, memory.used [MiB], utilization.gpu [%]
+0, NVIDIA A100-SXM4-40GB, 1 MiB, 0 %
+1, NVIDIA A100-SXM4-40GB, 1 MiB, 0 %
+2, NVIDIA A100-SXM4-40GB, 1 MiB, 0 %
+3, NVIDIA A100-SXM4-40GB, 1 MiB, 0 %

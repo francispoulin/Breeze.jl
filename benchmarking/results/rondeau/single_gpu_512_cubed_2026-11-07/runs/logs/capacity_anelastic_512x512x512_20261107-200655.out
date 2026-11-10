@@ -1,0 +1,33 @@
+# 2026-11-07 20:06:55 on rondeau, user ajtse
+# GPUs 1 (one per rank if several), JULIA_CUDA_MEMORY_POOL=none
+# julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=anelastic --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/measurements.csv
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "anelastic"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (512, 512, 512)
+│   partition = (1, 1)
+│   nranks = 1
+│   Δt = 0.02
+└   time_steps = 10
+RESULT machine=rondeau dynamics=anelastic float=Float32 size=512x512x512 partition=1x1 gpus=1 steps=10 seconds_per_step=3.3159e-01 points_per_second=4.0477e+08 points_per_second_per_gpu=4.0477e+08 max_abs_w=2.380e-03
+[rondeau:517049] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+[rondeau:517049] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 246
+# 2026-11-07 20:09:29 finished, exit status 0

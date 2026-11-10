@@ -1,0 +1,4 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w
+rondeau,anelastic,Float32,512,512,512,1,1,1,10,3.315895e-01,4.047707e+08,2.379832e-03
+rondeau,compressible_explicit,Float32,512,512,512,1,1,1,10,3.374929e-01,3.976905e+08,NaN
+rondeau,compressible_splitexplicit,Float32,512,512,512,1,1,1,10,1.214857e+00,1.104803e+08,4.750789e-03

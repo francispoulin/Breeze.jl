@@ -1,0 +1,117 @@
+== anelastic, 1 GPU(s), 256x256x128, partition 1x1
+machine:  rondeau
+GPUs:     0
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=anelastic --size=256x256x128 --partition=1x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-114805.out
+started:  pid 1629815
+# 2026-11-04 11:50:43 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-114805.out
+== compressible_explicit, 1 GPU(s), 256x256x128, partition 1x1
+machine:  rondeau
+GPUs:     0
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=256x256x128 --partition=1x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-115044.out
+started:  pid 1630509
+# 2026-11-04 11:53:19 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-115044.out
+== compressible_explicit, 2 GPU(s), 256x256x128, partition 2x1
+machine:  rondeau
+GPUs:     0,1
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=256x256x128 --partition=2x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-115319.out
+started:  pid 1631485
+# 2026-11-04 11:56:38 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-115319.out
+== compressible_explicit, 2 GPU(s), 256x256x128, partition 1x2
+machine:  rondeau
+GPUs:     0,1
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=256x256x128 --partition=1x2 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-115638.out
+started:  pid 1634618
+# 2026-11-04 11:59:56 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-115638.out
+== compressible_explicit, 4 GPU(s), 256x256x128, partition 2x2
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=256x256x128 --partition=2x2 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-115956.out
+started:  pid 1635211
+# 2026-11-04 12:04:02 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-115956.out
+== compressible_explicit, 4 GPU(s), 256x256x128, partition 4x1
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=256x256x128 --partition=4x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-120402.out
+started:  pid 1636846
+# 2026-11-04 12:07:25 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-120402.out
+== compressible_explicit, 4 GPU(s), 256x256x128, partition 1x4
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=256x256x128 --partition=1x4 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-120725.out
+started:  pid 1638168
+# 2026-11-04 12:10:42 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-120725.out
+== compressible_explicit, 2 GPU(s), 512x256x128, partition 2x1
+machine:  rondeau
+GPUs:     0,1
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=512x256x128 --partition=2x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-121042.out
+started:  pid 1640629
+# 2026-11-04 12:14:03 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-121042.out
+== compressible_explicit, 4 GPU(s), 512x512x128, partition 2x2
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=512x512x128 --partition=2x2 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-121403.out
+started:  pid 1641586
+# 2026-11-04 12:18:12 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-121403.out
+== compressible_splitexplicit, 1 GPU(s), 256x256x128, partition 1x1
+machine:  rondeau
+GPUs:     0
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=1x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-121812.out
+started:  pid 1643893
+# 2026-11-04 12:21:45 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-121812.out
+== compressible_splitexplicit, 2 GPU(s), 256x256x128, partition 2x1
+machine:  rondeau
+GPUs:     0,1
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=2x1 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-122145.out
+started:  pid 1644849
+# 2026-11-04 12:26:12 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-122145.out
+== compressible_splitexplicit, 2 GPU(s), 256x256x128, partition 1x2
+machine:  rondeau
+GPUs:     0,1
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 2 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=1x2 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-122612.out
+started:  pid 1646946
+# 2026-11-04 12:30:38 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-122612.out
+== compressible_splitexplicit, 4 GPU(s), 256x256x128, partition 2x2
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=256x256x128 --partition=2x2 --time_steps=500 --results_file=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results/Breeze/scaling.csv
+log:      /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-123038.out
+started:  pid 1647843
+# 2026-11-04 12:36:21 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs/logs/distributed_cbl_benchmark_20261104-123038.out

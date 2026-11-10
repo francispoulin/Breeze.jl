@@ -1,0 +1,72 @@
+{
+  "branch": "distributed-benchmark",
+  "base_main_commit": "cd886a0a2e218fb4a4e1cfe67d0a80ae9463266d",
+  "source_repository": "https://github.com/francispoulin/Breeze.jl",
+  "source_branch": "fjp/distributed-benchmark",
+  "source_tip": "72c9e851105cf0017a16fb3c122a4170f82c5694",
+  "imported_tip": "96a570a185896845f133fa607038524d06cb33db",
+  "source_tree": "a208bcc8d9a3c129a32e3ec6cea5c2f83e9aa355",
+  "imported_tree": "a208bcc8d9a3c129a32e3ec6cea5c2f83e9aa355",
+  "commits": [
+    {
+      "original_commit": "c95fab29a392247ba0a32b706209129833a91f12",
+      "copied_commit": "7af5dd4c50ec3903da76b445b641e4b7cfa810f9",
+      "subject": "Upgrade to NumericalRadiation 0.2 and restore the general-purpose work trimmed from the TKE closure PR (#1146)",
+      "role": "main prerequisite"
+    },
+    {
+      "original_commit": "7f832ad456fc2d9782c03739cea86cf11cd7a95b",
+      "copied_commit": "13abcb1352472250545addfcfd407ebfd19287ca",
+      "subject": "Floor secant_solve's tolerance at the residual's rounding noise (#1108)",
+      "role": "main prerequisite"
+    },
+    {
+      "original_commit": "b01b71fbd9dbd59947065efafcb01504cab2890c",
+      "copied_commit": "27fbdb470ad95eb24fb1b4212d1eb81ff3b219cd",
+      "subject": "Try to remove 'greedy_while_loop_batch_fission' from excluded passes (#1189)",
+      "role": "main prerequisite"
+    },
+    {
+      "original_commit": "73af700a375ce28da772a1b56c8a6be04f9d565f",
+      "copied_commit": "2427c5d8049a4e904161769f2a03493c11ebee66",
+      "subject": "Add a multi-GPU (MPI) time-stepping benchmark for the CBL case",
+      "role": "distributed benchmark feature"
+    },
+    {
+      "original_commit": "fb6d87779b7d07744eeb82978508d3738a5c98bc",
+      "copied_commit": "2189a4bc14c398da351147738ae370c07beb4b85",
+      "subject": "Run anelastic on one GPU in the distributed benchmark; add a student guide",
+      "role": "distributed benchmark feature"
+    },
+    {
+      "original_commit": "96b6dc139f3ad3ec985118f3e25a3d93ddc9945a",
+      "copied_commit": "e3449e0df36365d0a2ce0d324deadcabcc005dc6",
+      "subject": "Fix the distributed benchmark environment; add a Julia section to the student guide",
+      "role": "distributed benchmark feature"
+    },
+    {
+      "original_commit": "c432b64a219739d2808d78f69788b9363003948c",
+      "copied_commit": "22758903db25e41d12064f002d1e82e8f1f54145",
+      "subject": "Benchmark: robust setup script, hostname in results, verified status",
+      "role": "distributed benchmark feature"
+    },
+    {
+      "original_commit": "4907e5557c87786f10576b967bfd7d1caa59087b",
+      "copied_commit": "860f924c6de5a891ddc198202ddc72628e3c6518",
+      "subject": "Student guide: clone from the francispoulin fork",
+      "role": "distributed benchmark feature"
+    },
+    {
+      "original_commit": "7b15e7b8639f6db24d64ae5b057dff0ea084d703",
+      "copied_commit": "6649933409b64ea55df9059bf55417503d23f6cc",
+      "subject": "add examples",
+      "role": "distributed benchmark feature"
+    },
+    {
+      "original_commit": "72c9e851105cf0017a16fb3c122a4170f82c5694",
+      "copied_commit": "96a570a185896845f133fa607038524d06cb33db",
+      "subject": "change IC",
+      "role": "distributed benchmark feature"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w
+rondeau,compressible_explicit,Float32,256,256,128,1,1,1,300,2.267180e-02,3.700018e+08,4.818321e+01
+rondeau,compressible_explicit,Float32,256,256,128,2,1,2,100,1.703277e-02,4.924982e+08,3.423034e-02

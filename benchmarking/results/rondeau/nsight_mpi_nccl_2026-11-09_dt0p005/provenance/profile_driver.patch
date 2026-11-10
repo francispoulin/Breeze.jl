@@ -1,0 +1,69 @@
+diff --git a/benchmarking/distributed/README.md b/benchmarking/distributed/README.md
+index 58e5ece9..89a49146 100644
+--- a/benchmarking/distributed/README.md
++++ b/benchmarking/distributed/README.md
+@@ -53,0 +54 @@ have checked out.
++| `--profile` | `false` | Start/stop an external CUDA profiler around the timed steps, after warmup |
+@@ -68,0 +70,22 @@ run has no inter-rank communication and can serve as the reference for both dist
++## Nsight Systems
++
++Pass `--profile=true` and launch each rank under `nsys profile` with
++`--capture-range=cudaProfilerApi --capture-range-end=stop`. The driver captures exactly
++`--time_steps` steps after `--warmup_steps`, including the final CUDA synchronization.
++Model construction, warmup/JIT, and the final field checks are outside the capture.
++
++```bash
++CUDA_VISIBLE_DEVICES=1 nsys profile --trace=cuda,nvtx,mpi --mpi-impl=openmpi \
++    --sample=none --cpuctxsw=none --capture-range=cudaProfilerApi --capture-range-end=stop \
++    --output=/local_scratch/ajtse/cbl_explicit_1gpu \
++    julia --project=benchmarking/distributed benchmarking/distributed/distributed_cbl_benchmark.jl \
++    --dynamics=compressible_explicit --size=512x512x512 --partition=1x1 \
++    --time_step=0.005 --warmup_steps=10 --time_steps=10 --profile=true
++```
++
++For several ranks, place `nsys profile` inside the MPI launch and give each rank a unique
++output prefix. The recorded timing includes profiling overhead and belongs in a separate
++results file from unprofiled timings. One GPU remains the shared plain-GPU serial baseline.
++For each study, list the exact `.nsys-rep` paths in its `README.md`; do not generate plots
++for Nsight runs.
++
+diff --git a/benchmarking/distributed/distributed_cbl_benchmark.jl b/benchmarking/distributed/distributed_cbl_benchmark.jl
+index 83634d57..04e326a1 100644
+--- a/benchmarking/distributed/distributed_cbl_benchmark.jl
++++ b/benchmarking/distributed/distributed_cbl_benchmark.jl
+@@ -25,0 +26 @@
++#####   --profile          true | false: capture the timed steps with Nsight  (default false)
+@@ -57,0 +59,8 @@ parse_dimensions(text) = Tuple(parse.(Int, split(text, ['x', '×', '*'])))
++function advance_time_steps!(model, Δt, time_steps)
++    for _ in 1:time_steps
++        time_step!(model, Δt)
++    end
++    CUDA.synchronize()
++    return nothing
++end
++
+@@ -67,0 +77 @@ simplified    = option("simplified", "false") == "true"
++profile       = parse(Bool, option("profile", "false"))
+@@ -113 +123 @@ model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, s
+-rank == 0 && @info "Distributed CBL benchmark" dynamics_name FT (Nx, Ny, Nz) partition=(Rx, Ry) nranks Δt time_steps communication_name communicator_type
++rank == 0 && @info "Distributed CBL benchmark" dynamics_name FT (Nx, Ny, Nz) partition=(Rx, Ry) nranks Δt time_steps communication_name communicator_type profile
+@@ -115,3 +125 @@ rank == 0 && @info "Distributed CBL benchmark" dynamics_name FT (Nx, Ny, Nz) par
+-for _ in 1:warmup_steps
+-    time_step!(model, FT(Δt))
+-end
++advance_time_steps!(model, FT(Δt), warmup_steps)
+@@ -119 +126,0 @@ end
+-CUDA.synchronize()
+@@ -124,2 +131,8 @@ start_time = time_ns()
+-for _ in 1:time_steps
+-    time_step!(model, FT(Δt))
++if profile
++    @printf("PROFILE_START rank=%d steps=%d\n", rank, time_steps)
++    # Warmup compiles this same stepping function. Only the requested timed steps and their
++    # final device synchronization are captured; model setup and field checks stay outside.
++    CUDA.@profile external=true advance_time_steps!(model, FT(Δt), time_steps)
++    @printf("PROFILE_END rank=%d steps=%d\n", rank, time_steps)
++else
++    advance_time_steps!(model, FT(Δt), time_steps)
+@@ -128 +140,0 @@ end
+-CUDA.synchronize()

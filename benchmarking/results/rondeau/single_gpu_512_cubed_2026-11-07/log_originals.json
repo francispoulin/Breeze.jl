@@ -1,0 +1,26 @@
+{
+  "runs/logs/capacity_anelastic_512x512x512_20261107-200655.out": {
+    "bytes": 2164,
+    "sha256": "a78045f1b037ca33f37f3abe49316028e71b9b8f14b2c89828fdff89710f0cd9"
+  },
+  "runs/logs/capacity_compressible_explicit_512x512x512_20261107-200929.out": {
+    "bytes": 2366,
+    "sha256": "103e1ddf123d4d8e9beb31728b90a2a04a2c35836ec733a065731b63d63d664b"
+  },
+  "runs/logs/capacity_compressible_explicit_512x512x512_dt0p005_20261107-201617.out": {
+    "bytes": 2210,
+    "sha256": "7b8c1b14485ea9f42aef1f149a01927e0bc5493715bd92cd57732a09bb521cc1"
+  },
+  "runs/logs/capacity_compressible_splitexplicit_512x512x512_20261107-201202.out": {
+    "bytes": 2215,
+    "sha256": "ce8e249d2240196531b72f063b4d209f29a4a9d12d64b55d8ae9ffe280827d1a"
+  },
+  "execution/sweep.log": {
+    "bytes": 4868,
+    "sha256": "c335049a82ff985c49d64de362581c04ace171c5d801559535bd55e5684879cd"
+  },
+  "execution/commands.log": {
+    "bytes": 3420,
+    "sha256": "bdb04c63d1bc071f1ed44e4a199f33b626861f7a3d6e91da3254673bcd3f304c"
+  }
+}

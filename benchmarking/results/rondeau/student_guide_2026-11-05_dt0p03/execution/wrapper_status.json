@@ -1,0 +1,29 @@
+{
+  "wrapper_exit_status": 2,
+  "benchmark_case_exit_statuses": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "wrapper_error_after_all_benchmark_cases": true,
+  "error": "unexpected EOF while looking for matching double quote",
+  "cause_assessment": "The run.sh file was edited while Bash was waiting for the sweep: --unified=0 was inserted into an earlier git diff command. The edited file passes bash -n; changing a running script shifts the remaining input position. The failure occurred when Bash resumed reading after all 17 case commands completed.",
+  "benchmark_effect": "All cases completed and wrote results before the bookkeeping failure; logs and CSV are validated independently.",
+  "completion_utc": "2026-11-05T06:46:00+00:00",
+  "completion_time_source": "runs/logs/distributed_cbl_benchmark_20261105-013952.out final exit-status footer",
+  "retained_run_script_syntax_checked": true
+}

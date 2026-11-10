@@ -1,0 +1,795 @@
+{
+  "status": "COMPLETE",
+  "created_utc": "2026-11-09T19:53:24.250820+00:00",
+  "time_step_seconds": 0.005,
+  "warmup_steps": 10,
+  "captured_steps": 10,
+  "configured_cases": 6,
+  "cases": [
+    {
+      "id": "compressible_explicit_SERIAL_1g",
+      "dynamics": "compressible_explicit",
+      "communication": "SERIAL",
+      "gpus": 1,
+      "size": [
+        512,
+        512,
+        512
+      ],
+      "partition": [
+        1,
+        1
+      ],
+      "state": "COMPLETE",
+      "gpu_ids": [
+        0
+      ],
+      "started_utc": "2026-11-10T08:59:21.245290+00:00",
+      "workers": [
+        {
+          "pid": 3958757,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": null
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        }
+      ],
+      "peak_mib": {
+        "0": 16829
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T09:02:14.409417+00:00",
+      "fields_finite": true,
+      "seconds_per_step": 0.8077868,
+      "max_abs_w": 0.004801962,
+      "profiles": [
+        {
+          "rank": 0,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_SERIAL_1g/rank_0/profile.nsys-rep",
+          "bytes": 537339,
+          "sha256": "7ac9da374b944499ccf8236e3360922d90d240690a6beef84fd0c6ec9b2c02c0",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_SERIAL_1g/rank_0/profile.sqlite",
+          "captured_kernel_events": 2310
+        }
+      ]
+    },
+    {
+      "id": "compressible_explicit_MPI_4g",
+      "dynamics": "compressible_explicit",
+      "communication": "MPI",
+      "gpus": 4,
+      "size": [
+        1024,
+        1024,
+        512
+      ],
+      "partition": [
+        2,
+        2
+      ],
+      "state": "COMPLETE",
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "started_utc": "2026-11-10T09:02:14.820578+00:00",
+      "workers": [
+        {
+          "pid": 3961739,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "0"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        },
+        {
+          "pid": 3961744,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "1",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "1"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        },
+        {
+          "pid": 3961747,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "2",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "2"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        },
+        {
+          "pid": 3961736,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "3",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "3"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        }
+      ],
+      "peak_mib": {
+        "0": 17687,
+        "1": 17687,
+        "2": 17687,
+        "3": 17687
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T09:07:30.496259+00:00",
+      "fields_finite": true,
+      "seconds_per_step": 4.237923,
+      "max_abs_w": 0.005355733,
+      "profiles": [
+        {
+          "rank": 0,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_0/profile.nsys-rep",
+          "bytes": 107789353,
+          "sha256": "3c72638660768c05537948084c241beb54effeb73877060e0247c40282e0ee0e",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_0/profile.sqlite",
+          "captured_kernel_events": 9870
+        },
+        {
+          "rank": 1,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_1/profile.nsys-rep",
+          "bytes": 104575694,
+          "sha256": "3d8b681f5700f821c63f0a3e0b86ce7ed6887ce727979392751468684d968807",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_1/profile.sqlite",
+          "captured_kernel_events": 9870
+        },
+        {
+          "rank": 2,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_2/profile.nsys-rep",
+          "bytes": 109381922,
+          "sha256": "b048aa81d6691fc917fb11f1e4ec7f93ec1c2f46c824f605a34198245c85d251",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_2/profile.sqlite",
+          "captured_kernel_events": 9870
+        },
+        {
+          "rank": 3,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_3/profile.nsys-rep",
+          "bytes": 107075614,
+          "sha256": "9c731d8741d21913b622c7a88198f3f062d62a964e1787c462ae3af95454f631",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_MPI_4g/rank_3/profile.sqlite",
+          "captured_kernel_events": 9870
+        }
+      ]
+    },
+    {
+      "id": "compressible_explicit_NCCL_4g",
+      "dynamics": "compressible_explicit",
+      "communication": "NCCL",
+      "gpus": 4,
+      "size": [
+        1024,
+        1024,
+        512
+      ],
+      "partition": [
+        4,
+        1
+      ],
+      "state": "COMPLETE",
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "started_utc": "2026-11-10T09:07:31.852001+00:00",
+      "workers": [
+        {
+          "pid": 3985712,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "0"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        },
+        {
+          "pid": 3985715,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "1",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "1"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        },
+        {
+          "pid": 3985697,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "2",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "2"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        },
+        {
+          "pid": 3985700,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "3",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "3"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        }
+      ],
+      "peak_mib": {
+        "0": 18375,
+        "1": 18375,
+        "2": 18375,
+        "3": 18375
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T09:11:16.091639+00:00",
+      "fields_finite": true,
+      "seconds_per_step": 0.9119764,
+      "max_abs_w": 0.005627792,
+      "profiles": [
+        {
+          "rank": 0,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_0/profile.nsys-rep",
+          "bytes": 1159738,
+          "sha256": "3204b1c6e838bdcf1491116335023a8acc535cfc379d76af48329c97973cb8a3",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_0/profile.sqlite",
+          "captured_kernel_events": 4650
+        },
+        {
+          "rank": 1,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_1/profile.nsys-rep",
+          "bytes": 1159416,
+          "sha256": "1677ac0465da567b706dc4b62c7d1c2e0a68dc55a89e84d76b72d4bd2181fb52",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_1/profile.sqlite",
+          "captured_kernel_events": 4650
+        },
+        {
+          "rank": 2,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_2/profile.nsys-rep",
+          "bytes": 1156638,
+          "sha256": "70ed9cf56951bd32a5171ef461e6be424671458c7dda2005d9a5785a552ce62c",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_2/profile.sqlite",
+          "captured_kernel_events": 4650
+        },
+        {
+          "rank": 3,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_3/profile.nsys-rep",
+          "bytes": 1157378,
+          "sha256": "fbedaba13494132f8ac07afdc383714fce1a2be138649d8bf22d5385844d066d",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_NCCL_4g/rank_3/profile.sqlite",
+          "captured_kernel_events": 4650
+        }
+      ]
+    },
+    {
+      "id": "compressible_splitexplicit_SERIAL_1g",
+      "dynamics": "compressible_splitexplicit",
+      "communication": "SERIAL",
+      "gpus": 1,
+      "size": [
+        512,
+        512,
+        512
+      ],
+      "partition": [
+        1,
+        1
+      ],
+      "state": "COMPLETE",
+      "gpu_ids": [
+        0
+      ],
+      "started_utc": "2026-11-10T09:11:16.471357+00:00",
+      "workers": [
+        {
+          "pid": 3991106,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": null
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        }
+      ],
+      "peak_mib": {
+        "0": 26045
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T09:14:50.400355+00:00",
+      "fields_finite": true,
+      "seconds_per_step": 1.719885,
+      "max_abs_w": 0.002881266,
+      "profiles": [
+        {
+          "rank": 0,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.nsys-rep",
+          "bytes": 1025217,
+          "sha256": "8327c12a3d24e87e1186c1b9f1678088fe46296c0529d62aad0c263fd813ad4f",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.sqlite",
+          "captured_kernel_events": 10460
+        }
+      ]
+    },
+    {
+      "id": "compressible_splitexplicit_MPI_4g",
+      "dynamics": "compressible_splitexplicit",
+      "communication": "MPI",
+      "gpus": 4,
+      "size": [
+        1024,
+        1024,
+        512
+      ],
+      "partition": [
+        4,
+        1
+      ],
+      "state": "COMPLETE",
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "started_utc": "2026-11-10T09:14:50.779257+00:00",
+      "workers": [
+        {
+          "pid": 3995599,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "0"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        },
+        {
+          "pid": 3995585,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "1",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "1"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        },
+        {
+          "pid": 3995602,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "2",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "2"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        },
+        {
+          "pid": 3995605,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "3",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "3"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        }
+      ],
+      "peak_mib": {
+        "0": 28455,
+        "1": 28455,
+        "2": 28455,
+        "3": 28455
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T09:23:30.732509+00:00",
+      "fields_finite": true,
+      "seconds_per_step": 18.24537,
+      "max_abs_w": 0.003591788,
+      "profiles": [
+        {
+          "rank": 0,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_0/profile.nsys-rep",
+          "bytes": 435096591,
+          "sha256": "1aefe49a68ccd39f8d9c450d0ad85fa1b225684051ef117b9eaea0c9ab855f43",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_0/profile.sqlite",
+          "captured_kernel_events": 18950
+        },
+        {
+          "rank": 1,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_1/profile.nsys-rep",
+          "bytes": 438263929,
+          "sha256": "a2b330a3044fb31f66261985574560569be0e52bb7ebe923ce48435828259e58",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_1/profile.sqlite",
+          "captured_kernel_events": 18950
+        },
+        {
+          "rank": 2,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_2/profile.nsys-rep",
+          "bytes": 418086318,
+          "sha256": "c038e50463e4ef0a12991a36736197190204ad0d1d390a383f63a6036aa2f758",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_2/profile.sqlite",
+          "captured_kernel_events": 18950
+        },
+        {
+          "rank": 3,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_3/profile.nsys-rep",
+          "bytes": 442041375,
+          "sha256": "74fd96da2c44cbe6f997104e51e340963178d58910f46b6cca5ba7b440b39913",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_MPI_4g/rank_3/profile.sqlite",
+          "captured_kernel_events": 18950
+        }
+      ]
+    },
+    {
+      "id": "compressible_splitexplicit_NCCL_4g",
+      "dynamics": "compressible_splitexplicit",
+      "communication": "NCCL",
+      "gpus": 4,
+      "size": [
+        1024,
+        1024,
+        512
+      ],
+      "partition": [
+        4,
+        1
+      ],
+      "state": "COMPLETE",
+      "gpu_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "started_utc": "2026-11-10T09:23:34.812613+00:00",
+      "workers": [
+        {
+          "pid": 4087938,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "0"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        },
+        {
+          "pid": 4087935,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "1",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "1"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        },
+        {
+          "pid": 4087929,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "2",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "2"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        },
+        {
+          "pid": 4087932,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "3",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "3"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        }
+      ],
+      "peak_mib": {
+        "0": 29031,
+        "1": 29031,
+        "2": 29031,
+        "3": 29031
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T09:28:30.651408+00:00",
+      "fields_finite": true,
+      "seconds_per_step": 1.968253,
+      "max_abs_w": 0.003524319,
+      "profiles": [
+        {
+          "rank": 0,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_0/profile.nsys-rep",
+          "bytes": 4004053,
+          "sha256": "260feb15d6141c4687298639f17a3294cc6101ce854a6c94c56535896cd3ad23",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_0/profile.sqlite",
+          "captured_kernel_events": 21840
+        },
+        {
+          "rank": 1,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_1/profile.nsys-rep",
+          "bytes": 4023368,
+          "sha256": "4d2d5c27741ea53d3897c95b728cc775883380eefab6e44fc58774257348fb41",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_1/profile.sqlite",
+          "captured_kernel_events": 21840
+        },
+        {
+          "rank": 2,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_2/profile.nsys-rep",
+          "bytes": 4006654,
+          "sha256": "661d56b92f0936e99198b826bd966db4720454c24ded3055fb18026dfc581996",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_2/profile.sqlite",
+          "captured_kernel_events": 21840
+        },
+        {
+          "rank": 3,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_3/profile.nsys-rep",
+          "bytes": 4019024,
+          "sha256": "284340c8c0cedadab72400f9bf859048cd01ad1b90269d0c430682e64e635683",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_splitexplicit_NCCL_4g/rank_3/profile.sqlite",
+          "captured_kernel_events": 21840
+        }
+      ]
+    }
+  ],
+  "pilots": [
+    {
+      "id": "serial_explicit",
+      "dynamics": "compressible_explicit",
+      "communication": "SERIAL",
+      "gpus": 1,
+      "size": [
+        32,
+        32,
+        16
+      ],
+      "partition": [
+        1,
+        1
+      ],
+      "state": "COMPLETE",
+      "gpu_ids": [
+        0
+      ],
+      "started_utc": "2026-11-10T08:52:12.573087+00:00",
+      "workers": [
+        {
+          "pid": 3949775,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": null
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7"
+          ]
+        }
+      ],
+      "peak_mib": {
+        "0": 511
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T08:55:05.685982+00:00",
+      "fields_finite": true,
+      "seconds_per_step": 2.557014,
+      "max_abs_w": 0.0001556626,
+      "profiles": [
+        {
+          "rank": 0,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/pilots/serial_explicit/rank_0/profile.nsys-rep",
+          "bytes": 218289,
+          "sha256": "d76fec7ac552eec2932036a438439ea45bbb1b68e4b4edb4af6fa18c0cff8e62",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/pilots/serial_explicit/rank_0/profile.sqlite",
+          "captured_kernel_events": 462
+        }
+      ]
+    },
+    {
+      "id": "nccl_splitexplicit",
+      "dynamics": "compressible_splitexplicit",
+      "communication": "NCCL",
+      "gpus": 2,
+      "size": [
+        64,
+        32,
+        16
+      ],
+      "partition": [
+        2,
+        1
+      ],
+      "state": "COMPLETE",
+      "gpu_ids": [
+        0,
+        1
+      ],
+      "started_utc": "2026-11-10T08:55:06.047771+00:00",
+      "workers": [
+        {
+          "pid": 3953234,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "0"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        },
+        {
+          "pid": 3953237,
+          "executable": "/u/ajtse/software/julia-1.11.9/bin/julia",
+          "environment": {
+            "CUDA_VISIBLE_DEVICES": "1",
+            "JULIA_NUM_THREADS": "1",
+            "JULIA_CUDA_MEMORY_POOL": "none",
+            "OMPI_COMM_WORLD_RANK": "1"
+          },
+          "library_mappings": [
+            "/opt/uw/openmpi/4.1.7-with-cuda/lib/libmpi.so.40.30.7",
+            "/u/ajtse/.julia/artifacts/4cab8c1f17d10dbadebac1031ed2b5cb9ad4be4f/lib/libnccl.so.2.32.3"
+          ]
+        }
+      ],
+      "peak_mib": {
+        "0": 855,
+        "1": 855
+      },
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T08:59:20.861838+00:00",
+      "fields_finite": true,
+      "seconds_per_step": 2.594129,
+      "max_abs_w": 0.0001574782,
+      "profiles": [
+        {
+          "rank": 0,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/pilots/nccl_splitexplicit/rank_0/profile.nsys-rep",
+          "bytes": 818797,
+          "sha256": "be3c390e81f9dabe4c83b1ef2a2c185237ca502cabbf5b996f44bbf1337b12cf",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/pilots/nccl_splitexplicit/rank_0/profile.sqlite",
+          "captured_kernel_events": 4368
+        },
+        {
+          "rank": 1,
+          "path": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/pilots/nccl_splitexplicit/rank_1/profile.nsys-rep",
+          "bytes": 818993,
+          "sha256": "95dbbc76b46d48998eea5b32ea2ef9433fc338387b0d38d95ce19f0791985992",
+          "sqlite": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/pilots/nccl_splitexplicit/rank_1/profile.sqlite",
+          "captured_kernel_events": 4368
+        }
+      ]
+    }
+  ],
+  "source": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/source",
+  "raw_profiles_root": "/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles",
+  "partition_reference": "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-09_dt0p005",
+  "partition_selection": [
+    {
+      "dynamics": "compressible_explicit",
+      "communication": "MPI",
+      "partition": [
+        2,
+        2
+      ],
+      "benchmark_case": "compressible_explicit_MPI_4g_2x2",
+      "seconds_per_step_2x2": 0.3672024,
+      "seconds_per_step_4x1": 0.3700876
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "communication": "NCCL",
+      "partition": [
+        4,
+        1
+      ],
+      "benchmark_case": "compressible_explicit_NCCL_4g_4x1",
+      "seconds_per_step_2x2": 0.3707773,
+      "seconds_per_step_4x1": 0.3527791
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "communication": "MPI",
+      "partition": [
+        4,
+        1
+      ],
+      "benchmark_case": "compressible_splitexplicit_MPI_4g_4x1",
+      "seconds_per_step_2x2": 1.474333,
+      "seconds_per_step_4x1": 1.399117
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "communication": "NCCL",
+      "partition": [
+        4,
+        1
+      ],
+      "benchmark_case": "compressible_splitexplicit_NCCL_4g_4x1",
+      "seconds_per_step_2x2": 1.392204,
+      "seconds_per_step_4x1": 1.319781
+    }
+  ],
+  "finished_utc": "2026-11-10T09:28:30.800126+00:00"
+}

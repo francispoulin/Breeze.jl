@@ -1,0 +1,7 @@
+julia version 1.11.9
+/opt/uw/nsight/2024.5.1/bin/nsys
+NVIDIA Nsight Systems version 2024.5.1.113-245134619542v0
+mpiexec (OpenRTE) 4.1.7
+
+Report bugs to http://www.open-mpi.org/community/help/
+Breeze source: /local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/source/src/Breeze.jl

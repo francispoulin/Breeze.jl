@@ -1,0 +1,72 @@
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=anelastic --size=512x512x256 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_anelastic_512x512x256_20261107-193757.out
+started:  pid 507194
+# 2026-11-07 19:40:25 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_anelastic_512x512x256_20261107-193757.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=anelastic --size=1024x1024x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_anelastic_1024x1024x512_20261107-194026.out
+started:  pid 508349
+# 2026-11-07 19:41:30 finished, exit status 1
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_anelastic_1024x1024x512_20261107-194026.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=512x512x256 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_compressible_explicit_512x512x256_20261107-194131.out
+started:  pid 508791
+# 2026-11-07 19:43:58 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_compressible_explicit_512x512x256_20261107-194131.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=1024x1024x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_compressible_explicit_1024x1024x512_20261107-194359.out
+started:  pid 509768
+# 2026-11-07 19:45:02 finished, exit status 1
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_compressible_explicit_1024x1024x512_20261107-194359.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=512x512x256 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_compressible_splitexplicit_512x512x256_20261107-194502.out
+started:  pid 510285
+# 2026-11-07 19:48:05 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_compressible_splitexplicit_512x512x256_20261107-194502.out
+oceananigans-hpc environment (rondeau): repo=/u/ajtse/software/oceananigans-hpc, depot=/u/ajtse/.julia
+  ocean data: /u/ajtse/software/ocean_data
+  results: /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07
+Breeze environment: julia version 1.11.9, project=/u/ajtse/Breeze.jl/benchmarking/distributed
+machine:  rondeau
+GPUs:     1
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=1024x1024x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_compressible_splitexplicit_1024x1024x512_20261107-194806.out
+started:  pid 511586
+# 2026-11-07 19:49:11 finished, exit status 1
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_maximum_resolution_2026-11-07/runs/logs/capacity_compressible_splitexplicit_1024x1024x512_20261107-194806.out

@@ -1,0 +1,6 @@
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Style,Range
+78.3,54396415,2890,18822.3,18315.0,16521,178966,3498.5,PushPop,NCCL:ncclGroupEnd
+12.7,8825607,5780,1526.9,2049.0,350,263636,3632.0,PushPop,NCCL:ncclSend
+3.2,2230830,5780,386.0,370.0,310,3737,155.0,PushPop,NCCL:ncclRecv
+3.2,2218405,11560,191.9,151.0,100,7334,164.3,PushPop,NCCL:ncclCommCuDevice
+2.6,1778363,2890,615.4,281.0,170,270269,5112.5,PushPop,NCCL:ncclGroupStart

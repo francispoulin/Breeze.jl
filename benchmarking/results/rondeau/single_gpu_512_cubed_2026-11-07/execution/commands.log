@@ -1,0 +1,31 @@
+# Environment for every command
+set -eo pipefail
+cd /u/ajtse/Breeze.jl
+export OCEAN_SOFTWARE_DIR=/u/ajtse/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07
+export OCEAN_DATA_DIR=/u/ajtse/software/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/software/tmp/breeze-512-cubed-2026-11-07
+mkdir -p "$TMPDIR"
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+source /u/ajtse/software/oceananigans-hpc/env/ocean_setup.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+export CUDA_VISIBLE_DEVICES=1 JULIA_CUDA_MEMORY_POOL=none
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 1 --gpu-ids 1 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name capacity_anelastic_512x512x512 /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=anelastic --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 1 --gpu-ids 1 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name capacity_compressible_explicit_512x512x512 /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/measurements.csv
+
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 1 --gpu-ids 1 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name capacity_compressible_splitexplicit_512x512x512 /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_splitexplicit --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/measurements.csv
+
+
+# Smaller-timestep retry after non-finite vertical velocity at 0.02 s
+cd /u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/runs
+bash /u/ajtse/software/oceananigans-hpc/tools/run_local.sh --wait -n 1 --gpu-ids 1 -p /u/ajtse/Breeze.jl/benchmarking/distributed --job-name capacity_compressible_explicit_512x512x512_dt0p005 /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --dynamics=compressible_explicit --size=512x512x512 --partition=1x1 --float_type=Float32 --warmup_steps=10 --time_steps=10 --time_step=0.005 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/single_gpu_512_cubed_2026-11-07/measurements_dt0p005.csv

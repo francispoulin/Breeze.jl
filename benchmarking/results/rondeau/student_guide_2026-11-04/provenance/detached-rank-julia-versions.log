@@ -1,0 +1,4 @@
+rank=1 executable=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.11.9/bin/julia precompile_tasks=2 rank=0 executable=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.11.9/bin/julia precompile_tasks=2 rank=2 executable=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.11.9/bin/julia precompile_tasks=2 rank=3 executable=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software/julia-1.11.9/bin/julia precompile_tasks=2 julia version 1.11.9
+julia version 1.11.9
+julia version 1.11.9
+julia version 1.11.9

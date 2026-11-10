@@ -1,0 +1,37 @@
+# 2026-11-08 19:14:17 on rondeau, user ajtse
+# GPUs 1 (one per rank if several), JULIA_CUDA_MEMORY_POOL=none
+# julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_splitexplicit --size=32x32x16 --partition=1x1 --warmup_steps=2 --time_steps=2 --time_step=0.02 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-08_dt0p02/validation/pilot.csv
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_splitexplicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (32, 32, 16)
+│   partition = (1, 1)
+│   nranks = 1
+│   Δt = 0.02
+│   time_steps = 2
+│   communication_name = "SERIAL"
+└   communicator_type = "none"
+TIMING_START communication=SERIAL steps=2
+TIMING_END communication=SERIAL elapsed_seconds=0.031791121
+RESULT machine=rondeau dynamics=compressible_splitexplicit float=Float32 size=32x32x16 partition=1x1 gpus=1 steps=2 seconds_per_step=1.5896e-02 points_per_second=1.0307e+06 points_per_second_per_gpu=1.0307e+06 max_abs_w=6.380e-04 communication=SERIAL fields_finite=true
+[rondeau:1458809] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+[rondeau:1458809] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 246
+# 2026-11-08 19:17:11 finished, exit status 0

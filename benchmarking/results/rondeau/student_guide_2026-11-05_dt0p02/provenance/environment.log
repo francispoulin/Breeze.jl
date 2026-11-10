@@ -1,0 +1,28 @@
+┌ Warning: CUDA runtime library `libcublasLt.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcublasLt.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+Julia: 1.11.9
+Breeze source: /u/ajtse/Breeze.jl/src/Breeze.jl
+Project: /u/ajtse/Breeze.jl/benchmarking/distributed/Project.toml
+MPI CUDA-aware: true
+Open MPI v4.1.7, package: Open MPI dsteinmo@mf003507-apc.math.uwaterloo.ca Distribution, ident: 4.1.7, repo rev: v4.1.7, Oct 31, 2024
+CUDA devices: CuDevice[CuDevice(0), CuDevice(1), CuDevice(2), CuDevice(3)]
+Threads: 1
+Memory pool in workers: run_local.sh sets none
+[rondeau:1955712] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+[rondeau:1955712] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 246

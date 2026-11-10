@@ -1,0 +1,8 @@
+machine:  rondeau
+GPUs:     0,1,2,3
+project:  /u/ajtse/Breeze.jl/benchmarking/distributed
+command:  mpiexec -n 4 --bind-to none bash -c export CUDA_VISIBLE_DEVICES=$(cut -d, -f$((OMPI_COMM_WORLD_LOCAL_RANK + 1)) <<<"$RUN_LOCAL_GPUS"); exec "$@" _ julia --project=/u/ajtse/Breeze.jl/benchmarking/distributed /u/ajtse/Breeze.jl/benchmarking/distributed/distributed_cbl_benchmark.jl --comm=MPI --dynamics=compressible_splitexplicit --size=1024x1024x512 --partition=4x1 --float_type=Float32 --warmup_steps=10 --time_steps=500 --time_step=0.005 --substeps=12 --results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-09_dt0p005/measurements.csv
+log:      /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-09_dt0p005/runs/logs/dt0p005_compressible_splitexplicit_MPI_4g_4x1_20261110-032019.out
+started:  pid 3932916
+# 2026-11-10 03:36:14 finished, exit status 0
+  log:   /u/ajtse/Breeze.jl/benchmarking/results/rondeau/weak_scaling_mpi_nccl_2026-11-09_dt0p005/runs/logs/dt0p005_compressible_splitexplicit_MPI_4g_4x1_20261110-032019.out

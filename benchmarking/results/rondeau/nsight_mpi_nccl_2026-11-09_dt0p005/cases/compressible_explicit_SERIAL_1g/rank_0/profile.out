@@ -1,0 +1,63 @@
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libnvJitLink.so.12` was loaded from a system path, `/opt/uw/cuda/12.3.2/lib64/libnvJitLink.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_explicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (512, 512, 512)
+│   partition = (1, 1)
+│   nranks = 1
+│   Δt = 0.005
+│   time_steps = 10
+│   communication_name = "SERIAL"
+│   communicator_type = "none"
+└   profile = true
+TIMING_START communication=SERIAL steps=10
+PROFILE_START rank=0 steps=10
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/tmp/nsys-report-29e9.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [====25%                     ] profile.nsys-rep
+[1/1] [=========43%                ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [==============63%           ] profile.nsys-rep
+[1/1] [=====================89%    ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+PROFILE_END rank=0 steps=10
+TIMING_END communication=SERIAL elapsed_seconds=8.077868261
+RESULT machine=rondeau dynamics=compressible_explicit float=Float32 size=512x512x512 partition=1x1 gpus=1 steps=10 seconds_per_step=8.0779e-01 points_per_second=1.6615e+08 points_per_second_per_gpu=1.6615e+08 max_abs_w=4.802e-03 communication=SERIAL fields_finite=true
+The target application terminated. One or more process it created re-parented.
+Waiting for termination of re-parented processes.
+Use the `--wait` option to modify this behavior.
+Generated:
+    /local_scratch/ajtse/breeze_nsight_mpi_nccl_2026-11-09/profiles/compressible_explicit_SERIAL_1g/rank_0/profile.nsys-rep

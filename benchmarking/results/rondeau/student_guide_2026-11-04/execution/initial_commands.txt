@@ -1,0 +1,62 @@
+# Environment for every command below (absolute paths because run_local.sh logs in cwd)
+export OCEAN_SOFTWARE_DIR=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/software
+export OCEAN_RESULTS_ROOT=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/results
+export OCEAN_DATA_DIR=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/ocean_data
+export JULIA_DEPOT_PATH=/u/ajtse/.julia JULIA_LOAD_PATH=@:@stdlib
+export TMPDIR=/u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/tmp
+export TMP="$TMPDIR" TEMP="$TMPDIR" OMPI_MCA_orte_tmpdir_base="$TMPDIR"
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+
+# Reproduction sequence for accepted runs; original per-run commands are retained in logs.
+# Exact guide sources, pinned in provenance.json
+# Breeze: francispoulin/Breeze.jl, branch fjp/distributed-benchmark
+# Platform: francispoulin/oceananigans-hpc, branch main
+
+# One-time checkouts (the run used these exact source revisions)
+mkdir -p "$OCEAN_SOFTWARE_DIR"
+git clone --depth 1 --branch fjp/distributed-benchmark https://github.com/francispoulin/Breeze.jl.git "$OCEAN_SOFTWARE_DIR/Breeze.jl"
+git -C "$OCEAN_SOFTWARE_DIR/Breeze.jl" fetch --depth 1 origin 72c9e851105cf0017a16fb3c122a4170f82c5694
+git -C "$OCEAN_SOFTWARE_DIR/Breeze.jl" checkout --detach 72c9e851105cf0017a16fb3c122a4170f82c5694
+git clone --depth 1 https://github.com/francispoulin/oceananigans-hpc.git "$OCEAN_SOFTWARE_DIR/oceananigans-hpc"
+git -C "$OCEAN_SOFTWARE_DIR/oceananigans-hpc" fetch --depth 1 origin f94769a51e86058d643fdd22b9daf16ab520132e
+git -C "$OCEAN_SOFTWARE_DIR/oceananigans-hpc" checkout --detach f94769a51e86058d643fdd22b9daf16ab520132e
+
+# Platform prerequisites
+cd "$OCEAN_SOFTWARE_DIR/oceananigans-hpc"
+bash setup/install_julia.sh
+source env/ocean_setup.sh
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+bash setup/setup.sh
+bash tools/check_env.sh
+
+# Breeze setup and environment (Julia 1.11.9)
+cd "$OCEAN_SOFTWARE_DIR/Breeze.jl"
+bash benchmarking/distributed/pelee_rondeau/setup_breeze.sh
+source benchmarking/distributed/pelee_rondeau/breeze_env.sh
+bash "$OCEAN_HPC_ROOT/tools/check_env.sh" "$BREEZE_DISTRIBUTED_DIR"
+
+# Platform preflight uses platform Julia 1.10.10, before benchmark runs
+source "$OCEAN_HPC_ROOT/env/ocean_setup.sh"
+unset BASH_ENV SSH_CLIENT SSH_CONNECTION SSH_TTY SSH2_CLIENT
+export JULIA_NUM_THREADS=1 JULIA_NUM_PRECOMPILE_TASKS=2
+cd "$OCEAN_HPC_ROOT"
+for gpu_count in 2 4; do
+    for check_name in single_mpi cuda_aware_mpi distributed_vs_serial output; do
+        bash tools/run_local.sh --wait --gpus "$gpu_count" --job-name "verified_env_${gpu_count}_${check_name}" "checks/${check_name}.jl" || exit 1
+    done
+done
+
+# Guide sections 5 and 6 first runs; CSV added for retained results
+source "$OCEAN_SOFTWARE_DIR/Breeze.jl/benchmarking/distributed/pelee_rondeau/breeze_env.sh"
+mkdir -p "$OCEAN_RESULTS_ROOT/Breeze"
+cd /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs
+bash "$OCEAN_HPC_ROOT/tools/run_local.sh" --wait -n 1 -p "$BREEZE_DISTRIBUTED_DIR" --job-name checked_julia_first_1gpu "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" --dynamics=compressible_explicit --size=256x256x128 --time_steps=300 --results_file="$OCEAN_RESULTS_ROOT/Breeze/first-runs.csv"
+bash "$OCEAN_HPC_ROOT/tools/run_local.sh" --wait -n 2 -p "$BREEZE_DISTRIBUTED_DIR" --job-name verified_env_first_2gpu "$BREEZE_DISTRIBUTED_DIR/distributed_cbl_benchmark.jl" --dynamics=compressible_explicit --size=256x256x128 --partition=2x1 --results_file="$OCEAN_RESULTS_ROOT/Breeze/first-runs.csv"
+
+# Guide scaling sweep, unchanged tracked entry point
+# Runs serially, launcher selects free GPUs and isolates one GPU per rank.
+cd /u/ajtse/Breeze.jl/.runtime/student-guide-2026-11-04/breeze_runs
+bash "$BREEZE_DISTRIBUTED_DIR/pelee_rondeau/run_scaling.sh" --time_steps=500 --max_gpus=4 --results_file="$OCEAN_RESULTS_ROOT/Breeze/scaling.csv"
