@@ -53,6 +53,8 @@ have checked out.
 | `--simplified` | `false` | Drop the geostrophic forcing and the field-dependent drag boundary conditions |
 | `--random_perturbation` | `true` | `false`: smooth (sine) initial perturbation instead of `rand()`, which differs between ranks. Use it to compare runs on different partitions |
 | `--profile` | `false` | Start/stop an external CUDA profiler around the timed steps, after warmup |
+| `--nvtx` | `false` | Add NVTX ranges to selected Breeze host methods and halo/solver calls |
+| `--random_perturbation` | `true` | Use random initial noise; `false` selects a deterministic perturbation |
 | `--results_file` | none | Append one CSV line of results to this file |
 
 For NCCL communication on two GPUs:
@@ -89,6 +91,24 @@ output prefix. The recorded timing includes profiling overhead and belongs in a 
 results file from unprofiled timings. One GPU remains the shared plain-GPU serial baseline.
 For each study, list the exact `.nsys-rep` paths in its `README.md`; do not generate plots
 for Nsight runs.
+
+Add `--nvtx=true` to attribute launches to Breeze methods using
+[NVTX.jl](https://github.com/JuliaGPU/NVTX.jl). The benchmark re-evaluates an explicit
+list of host methods from the current checkout with `NVTX.@range` around their bodies
+and halo/solver calls, before model construction and warmup. This replaces methods
+only in the profiling process; it changes no source files, kernel bodies, or device
+synchronization. It is intended for eager CUDA benchmarks, not Reactant tracing.
+The instrumentation fails if a listed method disappears after a source change.
+
+NVTX durations describe CPU submission and blocking. Attribute GPU execution using
+CUDA launch correlation IDs rather than treating the host range duration as GPU time.
+Nested inclusive ranges must not be added together. Enable `JULIA_NVTX_CALLBACKS=gc`
+to record Julia GC events too. `validate_nvtx.jl` checks exact equality of all prognostic
+and velocity fields with and without instrumentation for the three serial dynamics:
+
+```bash
+julia --project=benchmarking/distributed benchmarking/distributed/validate_nvtx.jl
+```
 
 ## Reading the output
 

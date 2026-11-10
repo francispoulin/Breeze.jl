@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "cases": 7,
+  "rank_traces": 19,
+  "kernels": 533000,
+  "attributed_kernel_fraction": 1.0,
+  "annotation_and_repeat_assertions": 81,
+  "scientific_source_files": 136,
+  "scientific_source_hashes_match": true,
+  "distinct_gpu_per_rank": true,
+  "one_process_and_device_per_rank_trace": true,
+  "trace_hashes_match": true,
+  "finite_fields_all_cases": true,
+  "total_primary_report_bytes": 1811280661
+}

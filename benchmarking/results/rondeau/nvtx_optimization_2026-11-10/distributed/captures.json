@@ -1,0 +1,250 @@
+[
+  {
+    "case": "compressible_explicit_MPI_4g",
+    "dynamics": "compressible_explicit",
+    "backend": "MPI",
+    "ranks": 4,
+    "state": "COMPLETE",
+    "steps": 10,
+    "warmup": 10,
+    "size": [
+      1024,
+      1024,
+      512
+    ],
+    "partition": [
+      2,
+      2
+    ],
+    "time_step": 0.005,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_MPI_4g/rank_0/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_MPI_4g/rank_0/profile.sqlite",
+        "bytes": 87431146,
+        "sha256": "0eb6fe73ed186d539bcb9bce6fc3152c75d6a2ae2b2e6db45cb9833816030f14",
+        "kernels": 9870,
+        "ranges": 740,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 1,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_MPI_4g/rank_1/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_MPI_4g/rank_1/profile.sqlite",
+        "bytes": 84707927,
+        "sha256": "666a67fd0d7bbece612dad421dc73ebd2f81a09bc0e08118f7b1a3c499caf215",
+        "kernels": 9870,
+        "ranges": 740,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      },
+      {
+        "rank": 2,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_MPI_4g/rank_2/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_MPI_4g/rank_2/profile.sqlite",
+        "bytes": 88376414,
+        "sha256": "5ff18457d3402dd3bd64bd36b307d8c65497d3c5e3a137f62c249bc03cacfd16",
+        "kernels": 9870,
+        "ranges": 741,
+        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+      },
+      {
+        "rank": 3,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_MPI_4g/rank_3/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_MPI_4g/rank_3/profile.sqlite",
+        "bytes": 85249282,
+        "sha256": "0df007c9c99259672e20e42b879a7eb35eb7d23c22230db4110bee82f7e51f7f",
+        "kernels": 9870,
+        "ranges": 741,
+        "gpu_uuid": "628b07c6-4d27-afb0-6c71-f0b5ec437cab"
+      }
+    ],
+    "elapsed_seconds": 292.45422077178955
+  },
+  {
+    "case": "compressible_explicit_NCCL_4g",
+    "dynamics": "compressible_explicit",
+    "backend": "NCCL",
+    "ranks": 4,
+    "state": "COMPLETE",
+    "steps": 10,
+    "warmup": 10,
+    "size": [
+      1024,
+      1024,
+      512
+    ],
+    "partition": [
+      2,
+      2
+    ],
+    "time_step": 0.005,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_0/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_0/profile.sqlite",
+        "bytes": 2471849,
+        "sha256": "1364d8fdc551db22ae60ca997bc18a0481292c10559014f10f02c171f5f0bddc",
+        "kernels": 12480,
+        "ranges": 29720,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 1,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_1/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_1/profile.sqlite",
+        "bytes": 2468428,
+        "sha256": "d969632222ad10fa3d333eee0a6b9215d2826e9bcf8d056b01f8530689290787",
+        "kernels": 12480,
+        "ranges": 29720,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      },
+      {
+        "rank": 2,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_2/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_2/profile.sqlite",
+        "bytes": 2470395,
+        "sha256": "9e82dd065e8df3c3c158b900144f5d99aa1bc1fda09ea8e7d52085c80eaf0535",
+        "kernels": 12480,
+        "ranges": 29720,
+        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+      },
+      {
+        "rank": 3,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_3/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_3/profile.sqlite",
+        "bytes": 2466491,
+        "sha256": "9b5c00fb0732b5c18ec3dfc2c34edacab5269341b19620f3653fb380ad55d68e",
+        "kernels": 12480,
+        "ranges": 29720,
+        "gpu_uuid": "628b07c6-4d27-afb0-6c71-f0b5ec437cab"
+      }
+    ],
+    "elapsed_seconds": 289.17740774154663
+  },
+  {
+    "case": "compressible_splitexplicit_MPI_4g",
+    "dynamics": "compressible_splitexplicit",
+    "backend": "MPI",
+    "ranks": 4,
+    "state": "COMPLETE",
+    "steps": 10,
+    "warmup": 10,
+    "size": [
+      1024,
+      1024,
+      512
+    ],
+    "partition": [
+      2,
+      2
+    ],
+    "time_step": 0.02,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_MPI_4g/rank_0/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_MPI_4g/rank_0/profile.sqlite",
+        "bytes": 351646830,
+        "sha256": "a2c9807926fb3ba446d65b3f06a95f4c6943735353ee60b5b3d7fec42380efa5",
+        "kernels": 48940,
+        "ranges": 3759,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 1,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_MPI_4g/rank_1/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_MPI_4g/rank_1/profile.sqlite",
+        "bytes": 351533576,
+        "sha256": "8d1f96e31537ad506720db0e34b6eacdf09656f81d83beef399f103e9cd6c53d",
+        "kernels": 48940,
+        "ranges": 3884,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      },
+      {
+        "rank": 2,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_MPI_4g/rank_2/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_MPI_4g/rank_2/profile.sqlite",
+        "bytes": 360499358,
+        "sha256": "0b9333dcba52cbb45d380aed040b1a1684f86d5345ab9e45f5b3e30402b83cde",
+        "kernels": 48940,
+        "ranges": 4124,
+        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+      },
+      {
+        "rank": 3,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_MPI_4g/rank_3/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_MPI_4g/rank_3/profile.sqlite",
+        "bytes": 348609624,
+        "sha256": "7ddce5b760d9bb6e13d95e6f35b0096c6adfc15fcdef034182781787a1378cef",
+        "kernels": 48940,
+        "ranges": 4116,
+        "gpu_uuid": "628b07c6-4d27-afb0-6c71-f0b5ec437cab"
+      }
+    ],
+    "elapsed_seconds": 529.6452715396881
+  },
+  {
+    "case": "compressible_splitexplicit_NCCL_4g",
+    "dynamics": "compressible_splitexplicit",
+    "backend": "NCCL",
+    "ranks": 4,
+    "state": "COMPLETE",
+    "steps": 10,
+    "warmup": 10,
+    "size": [
+      1024,
+      1024,
+      512
+    ],
+    "partition": [
+      2,
+      2
+    ],
+    "time_step": 0.02,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_NCCL_4g/rank_0/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_NCCL_4g/rank_0/profile.sqlite",
+        "bytes": 10317119,
+        "sha256": "57406b82478b1be25328b544638d47d87c9df36878021ab6aa137f2b610c37f9",
+        "kernels": 58210,
+        "ranges": 134561,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 1,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_NCCL_4g/rank_1/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_NCCL_4g/rank_1/profile.sqlite",
+        "bytes": 10286422,
+        "sha256": "0c021a41a2877aff770b1ea18f0a68208959693aaa9f75fe7b3df1c9d6829ee1",
+        "kernels": 58210,
+        "ranges": 134561,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      },
+      {
+        "rank": 2,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_NCCL_4g/rank_2/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_NCCL_4g/rank_2/profile.sqlite",
+        "bytes": 10297031,
+        "sha256": "e331488e583d543a8238f58a9a07ffeb3203f715936b6f325afac14f681215b1",
+        "kernels": 58210,
+        "ranges": 134561,
+        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+      },
+      {
+        "rank": 3,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_NCCL_4g/rank_3/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_splitexplicit_NCCL_4g/rank_3/profile.sqlite",
+        "bytes": 10286912,
+        "sha256": "73306357f16c61de678d039767640274626b6ed8ca2dd682d2409f649c10ddc4",
+        "kernels": 58210,
+        "ranges": 134561,
+        "gpu_uuid": "628b07c6-4d27-afb0-6c71-f0b5ec437cab"
+      }
+    ],
+    "elapsed_seconds": 320.8896141052246
+  }
+]

@@ -1,0 +1,284 @@
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+Precompiling packages...
+Precompiling packages...
+PrecompilingPrecompiling packages...
+ packages...
+    NCCL_jll Being precompiled by another process (pid: 76413, pidfile: /u/ajtse/.julia/compiled/v1.12/NCCL_jll/AmRki_uItbb.ji.pidfile)
+    NCCL_jll Being precompiled by another process (pid: 76413, pidfile: /u/ajtse/.julia/compiled/v1.12/NCCL_jll/AmRki_uItbb.ji.pidfile)
+    NCCL_jll Being precompiled by another process (pid: 76413, pidfile: /u/ajtse/.julia/compiled/v1.12/NCCL_jll/AmRki_uItbb.ji.pidfile)
+   4770.9 ms  ✓ NCCL_jll
+Info Given NCCL was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+  11144.9 ms  ✓ NCCL_jll
+    NCCL Being precompiled by another process (pid: 76413, pidfile: /u/ajtse/.julia/compiled/v1.12/NCCL/rtLgi_uItbb.ji.pidfile)
+  11127.6 ms  ✓ NCCL_jll
+    NCCL Being precompiled by another process (pid: 76413, pidfile: /u/ajtse/.julia/compiled/v1.12/NCCL/rtLgi_uItbb.ji.pidfile)
+   7276.2 ms  ✓ NCCL
+  2 dependencies successfully precompiled in 12 seconds. 110 already precompiled.
+  101 dependencies precompiled but different versions are currently loaded (AbstractFFTs, Adapt, Adapt → AdaptSparseArraysExt, Adapt → AdaptStaticArraysExt, ArgTools, Atomix, Atomix → AtomixCUDACoreExt, BFloat16s, Base64, CEnum, CUDA, CUDACore, CUDATools, CUDA_Compiler_jll, CUDA_Driver_jll, CUDA_Runtime_jll, CUPTI, CompilerCaching, CompilerSupportLibraries_jll, Crayons, DataAPI, DataValueInterfaces, Dates, Downloads, ExprTools, GPUArrays, GPUArraysCore, GPUCompiler, GPUToolbox, InteractiveUtils, IteratorInterfaceExtensions, JLLWrappers, JuliaNVTXCallbacks_jll, JuliaSyntaxHighlighting, KernelAbstractions, KernelAbstractions → LinearAlgebraExt, KernelAbstractions → SparseArraysExt, LLVM, LLVM → BFloat16sExt, LLVMExtra_jll, LLVMLoopInfo, LMDB, LMDB_jll, LaTeXStrings, LazyArtifacts, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, MacroTools, Markdown, MozillaCACerts_jll, NVML, NVPTX_LLVM_Backend_jll, NVTX, NVTX_jll, NetworkOptions, OpenSSL_jll, OrderedCollections, Pkg, Pkg → REPLExt, PrecompileTools, Preferences, PrettyTables, Printf, REPL, Random123, RandomNumbers, Reexport, Requires, ScopedValues, Scratch, Serialization, SparseArrays, StaticArrays, StaticArrays → StaticArraysStatisticsExt, StaticArraysCore, Statistics, Statistics → SparseArraysExt, StringManipulation, StyledStrings, SuiteSparse_jll, TOML, TableTraits, Tables, Tar, UUIDs, Unicode, UnsafeAtomics, UnsafeAtomics → UnsafeAtomicsGPUCompilerExt, Zlib_jll, cuBLAS, cuFFT, cuRAND, cuSOLVER, cuSPARSE, demumble_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 9 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+  1 dependency had output during precompilation:
+┌ NCCL
+│  [Output was shown above]
+└
+Precompiling packages...
+Info Given OceananigansNCCLExt was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+  21159.7 ms  ✓ NCCL_jll
+  10043.4 ms  ✓ NCCL
+  2 dependencies successfully precompiled in 22 seconds. 110 already precompiled.
+  101 dependencies precompiled but different versions are currently loaded (AbstractFFTs, Adapt, Adapt → AdaptSparseArraysExt, Adapt → AdaptStaticArraysExt, ArgTools, Atomix, Atomix → AtomixCUDACoreExt, BFloat16s, Base64, CEnum, CUDA, CUDACore, CUDATools, CUDA_Compiler_jll, CUDA_Driver_jll, CUDA_Runtime_jll, CUPTI, CompilerCaching, CompilerSupportLibraries_jll, Crayons, DataAPI, DataValueInterfaces, Dates, Downloads, ExprTools, GPUArrays, GPUArraysCore, GPUCompiler, GPUToolbox, InteractiveUtils, IteratorInterfaceExtensions, JLLWrappers, JuliaNVTXCallbacks_jll, JuliaSyntaxHighlighting, KernelAbstractions, KernelAbstractions → LinearAlgebraExt, KernelAbstractions → SparseArraysExt, LLVM, LLVM → BFloat16sExt, LLVMExtra_jll, LLVMLoopInfo, LMDB, LMDB_jll, LaTeXStrings, LazyArtifacts, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, MacroTools, Markdown, MozillaCACerts_jll, NVML, NVPTX_LLVM_Backend_jll, NVTX, NVTX_jll, NetworkOptions, OpenSSL_jll, OrderedCollections, Pkg, Pkg → REPLExt, PrecompileTools, Preferences, PrettyTables, Printf, REPL, Random123, RandomNumbers, Reexport, Requires, ScopedValues, Scratch, Serialization, SparseArrays, StaticArrays, StaticArrays → StaticArraysStatisticsExt, StaticArraysCore, Statistics, Statistics → SparseArraysExt, StringManipulation, StyledStrings, SuiteSparse_jll, TOML, TableTraits, Tables, Tar, UUIDs, Unicode, UnsafeAtomics, UnsafeAtomics → UnsafeAtomicsGPUCompilerExt, Zlib_jll, cuBLAS, cuFFT, cuRAND, cuSOLVER, cuSPARSE, demumble_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 9 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+    NCCL Being precompiled by another process (pid: 76410, pidfile: /u/ajtse/.julia/compiled/v1.12/NCCL/rtLgi_uItbb.ji.pidfile)
+  10035.9 ms  ✓ NCCL
+  2 dependencies successfully precompiled in 22 seconds. 110 already precompiled.
+  101 dependencies precompiled but different versions are currently loaded (AbstractFFTs, Adapt, Adapt → AdaptSparseArraysExt, Adapt → AdaptStaticArraysExt, ArgTools, Atomix, Atomix → AtomixCUDACoreExt, BFloat16s, Base64, CEnum, CUDA, CUDACore, CUDATools, CUDA_Compiler_jll, CUDA_Driver_jll, CUDA_Runtime_jll, CUPTI, CompilerCaching, CompilerSupportLibraries_jll, Crayons, DataAPI, DataValueInterfaces, Dates, Downloads, ExprTools, GPUArrays, GPUArraysCore, GPUCompiler, GPUToolbox, InteractiveUtils, IteratorInterfaceExtensions, JLLWrappers, JuliaNVTXCallbacks_jll, JuliaSyntaxHighlighting, KernelAbstractions, KernelAbstractions → LinearAlgebraExt, KernelAbstractions → SparseArraysExt, LLVM, LLVM → BFloat16sExt, LLVMExtra_jll, LLVMLoopInfo, LMDB, LMDB_jll, LaTeXStrings, LazyArtifacts, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, MacroTools, Markdown, MozillaCACerts_jll, NVML, NVPTX_LLVM_Backend_jll, NVTX, NVTX_jll, NetworkOptions, OpenSSL_jll, OrderedCollections, Pkg, Pkg → REPLExt, PrecompileTools, Preferences, PrettyTables, Printf, REPL, Random123, RandomNumbers, Reexport, Requires, ScopedValues, Scratch, Serialization, SparseArrays, StaticArrays, StaticArrays → StaticArraysStatisticsExt, StaticArraysCore, Statistics, Statistics → SparseArraysExt, StringManipulation, StyledStrings, SuiteSparse_jll, TOML, TableTraits, Tables, Tar, UUIDs, Unicode, UnsafeAtomics, UnsafeAtomics → UnsafeAtomicsGPUCompilerExt, Zlib_jll, cuBLAS, cuFFT, cuRAND, cuSOLVER, cuSPARSE, demumble_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 9 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+   8873.2 ms  ✓ Oceananigans → OceananigansNCCLExt
+  1 dependency successfully precompiled in 10 seconds. 170 already precompiled.
+  148 dependencies precompiled but different versions are currently loaded (AbstractFFTs, Adapt, Adapt → AdaptSparseArraysExt, Adapt → AdaptStaticArraysExt, ArgTools, Atomix, Atomix → AtomixCUDACoreExt, BFloat16s, Base64, CEnum, CUDA, CUDACore, CUDATools, CUDA_Compiler_jll, CUDA_Driver_jll, CUDA_Runtime_jll, CUPTI, ChunkCodecCore, ChunkCodecLibZlib, ChunkCodecLibZstd, CompilerCaching, CompilerSupportLibraries_jll, ConstructionBase, ConstructionBase → ConstructionBaseLinearAlgebraExt, ConstructionBase → ConstructionBaseStaticArraysExt, Crayons, CubedSphere, DataAPI, DataValueInterfaces, Dates, Distances, Distances → DistancesSparseArraysExt, DocStringExtensions, Downloads, ExprTools, ExpressionExplorer, FFTW, FFTW_jll, FileIO, GPUArrays, GPUArrays → JLD2Ext, GPUArraysCore, GPUCompiler, GPUToolbox, Glob, InteractiveUtils, IteratorInterfaceExtensions, JLD2, JLLWrappers, JuliaNVTXCallbacks_jll, JuliaSyntaxHighlighting, KernelAbstractions, KernelAbstractions → LinearAlgebraExt, KernelAbstractions → SparseArraysExt, Krylov, LLVM, LLVM → BFloat16sExt, LLVMExtra_jll, LLVMLoopInfo, LMDB, LMDB_jll, LaTeXStrings, LazyArtifacts, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, MPI, MPI → CUDAExt, MPIPreferences, MacroTools, Markdown, Mmap, MozillaCACerts_jll, MuladdMacro, NCCL, NCCL_jll, NVML, NVPTX_LLVM_Backend_jll, NVTX, NVTX_jll, NetworkOptions, Oceananigans, Oceananigans → OceananigansCUDAExt, OffsetArrays, OffsetArrays → OffsetArraysAdaptExt, OpenSSL_jll, OrderedCollections, Pkg, Pkg → REPLExt, PkgVersion, PrecompileTools, Preferences, PrettyTables, Printf, Quaternions, REPL, Random123, RandomNumbers, ReactantCore, RealDot, Reexport, Requires, Rotations, ScopedValues, Scratch, SeawaterPolynomials, Serialization, SparseArrays, StaticArrays, StaticArrays → StaticArraysStatisticsExt, StaticArraysCore, Statistics, Statistics → SparseArraysExt, StatsAPI, StringManipulation, StructArrays, StructArrays → AdaptExt, StructArrays → GPUArraysCoreExt, StructArrays → KernelAbstractionsExt, StructArrays → LinearAlgebraExt, StructArrays → SparseArraysExt, StructArrays → StaticArraysExt, StyledStrings, SuiteSparse_jll, TOML, TableTraits, Tables, Tar, TaylorSeries, TaylorSeries → TaylorSeriesJLD2Ext, TaylorSeries → TaylorSeriesSAExt, UUIDs, Unicode, UnsafeAtomics, UnsafeAtomics → UnsafeAtomicsGPUCompilerExt, Zlib_jll, Zstd_jll, cuBLAS, cuFFT, cuRAND, cuSOLVER, cuSPARSE, demumble_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 21 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+  1 dependency had output during precompilation:
+┌ Oceananigans → OceananigansNCCLExt
+│  [Output was shown above]
+└
+Precompiling packages...
+Precompiling packages...
+    Oceananigans → OceananigansNCCLExt Being precompiled by another process (pid: 76410, pidfile: /u/ajtse/.julia/compiled/v1.12/OceananigansNCCLExt/n3Pb8_uItbb.ji.pidfile)
+Info Given OceananigansNCCLExt was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+  10043.9 ms  ✓ NCCL
+  2 dependencies successfully precompiled in 32 seconds. 110 already precompiled.
+  101 dependencies precompiled but different versions are currently loaded (AbstractFFTs, Adapt, Adapt → AdaptSparseArraysExt, Adapt → AdaptStaticArraysExt, ArgTools, Atomix, Atomix → AtomixCUDACoreExt, BFloat16s, Base64, CEnum, CUDA, CUDACore, CUDATools, CUDA_Compiler_jll, CUDA_Driver_jll, CUDA_Runtime_jll, CUPTI, CompilerCaching, CompilerSupportLibraries_jll, Crayons, DataAPI, DataValueInterfaces, Dates, Downloads, ExprTools, GPUArrays, GPUArraysCore, GPUCompiler, GPUToolbox, InteractiveUtils, IteratorInterfaceExtensions, JLLWrappers, JuliaNVTXCallbacks_jll, JuliaSyntaxHighlighting, KernelAbstractions, KernelAbstractions → LinearAlgebraExt, KernelAbstractions → SparseArraysExt, LLVM, LLVM → BFloat16sExt, LLVMExtra_jll, LLVMLoopInfo, LMDB, LMDB_jll, LaTeXStrings, LazyArtifacts, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, MacroTools, Markdown, MozillaCACerts_jll, NVML, NVPTX_LLVM_Backend_jll, NVTX, NVTX_jll, NetworkOptions, OpenSSL_jll, OrderedCollections, Pkg, Pkg → REPLExt, PrecompileTools, Preferences, PrettyTables, Printf, REPL, Random123, RandomNumbers, Reexport, Requires, ScopedValues, Scratch, Serialization, SparseArrays, StaticArrays, StaticArrays → StaticArraysStatisticsExt, StaticArraysCore, Statistics, Statistics → SparseArraysExt, StringManipulation, StyledStrings, SuiteSparse_jll, TOML, TableTraits, Tables, Tar, UUIDs, Unicode, UnsafeAtomics, UnsafeAtomics → UnsafeAtomicsGPUCompilerExt, Zlib_jll, cuBLAS, cuFFT, cuRAND, cuSOLVER, cuSPARSE, demumble_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 9 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+   9867.1 ms  ✓ Oceananigans → OceananigansNCCLExt
+  1 dependency successfully precompiled in 11 seconds. 170 already precompiled.
+  148 dependencies precompiled but different versions are currently loaded (AbstractFFTs, Adapt, Adapt → AdaptSparseArraysExt, Adapt → AdaptStaticArraysExt, ArgTools, Atomix, Atomix → AtomixCUDACoreExt, BFloat16s, Base64, CEnum, CUDA, CUDACore, CUDATools, CUDA_Compiler_jll, CUDA_Driver_jll, CUDA_Runtime_jll, CUPTI, ChunkCodecCore, ChunkCodecLibZlib, ChunkCodecLibZstd, CompilerCaching, CompilerSupportLibraries_jll, ConstructionBase, ConstructionBase → ConstructionBaseLinearAlgebraExt, ConstructionBase → ConstructionBaseStaticArraysExt, Crayons, CubedSphere, DataAPI, DataValueInterfaces, Dates, Distances, Distances → DistancesSparseArraysExt, DocStringExtensions, Downloads, ExprTools, ExpressionExplorer, FFTW, FFTW_jll, FileIO, GPUArrays, GPUArrays → JLD2Ext, GPUArraysCore, GPUCompiler, GPUToolbox, Glob, InteractiveUtils, IteratorInterfaceExtensions, JLD2, JLLWrappers, JuliaNVTXCallbacks_jll, JuliaSyntaxHighlighting, KernelAbstractions, KernelAbstractions → LinearAlgebraExt, KernelAbstractions → SparseArraysExt, Krylov, LLVM, LLVM → BFloat16sExt, LLVMExtra_jll, LLVMLoopInfo, LMDB, LMDB_jll, LaTeXStrings, LazyArtifacts, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, MPI, MPI → CUDAExt, MPIPreferences, MacroTools, Markdown, Mmap, MozillaCACerts_jll, MuladdMacro, NCCL, NCCL_jll, NVML, NVPTX_LLVM_Backend_jll, NVTX, NVTX_jll, NetworkOptions, Oceananigans, Oceananigans → OceananigansCUDAExt, OffsetArrays, OffsetArrays → OffsetArraysAdaptExt, OpenSSL_jll, OrderedCollections, Pkg, Pkg → REPLExt, PkgVersion, PrecompileTools, Preferences, PrettyTables, Printf, Quaternions, REPL, Random123, RandomNumbers, ReactantCore, RealDot, Reexport, Requires, Rotations, ScopedValues, Scratch, SeawaterPolynomials, Serialization, SparseArrays, StaticArrays, StaticArrays → StaticArraysStatisticsExt, StaticArraysCore, Statistics, Statistics → SparseArraysExt, StatsAPI, StringManipulation, StructArrays, StructArrays → AdaptExt, StructArrays → GPUArraysCoreExt, StructArrays → KernelAbstractionsExt, StructArrays → LinearAlgebraExt, StructArrays → SparseArraysExt, StructArrays → StaticArraysExt, StyledStrings, SuiteSparse_jll, TOML, TableTraits, Tables, Tar, TaylorSeries, TaylorSeries → TaylorSeriesJLD2Ext, TaylorSeries → TaylorSeriesSAExt, UUIDs, Unicode, UnsafeAtomics, UnsafeAtomics → UnsafeAtomicsGPUCompilerExt, Zlib_jll, Zstd_jll, cuBLAS, cuFFT, cuRAND, cuSOLVER, cuSPARSE, demumble_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 21 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+  1 dependency had output during precompilation:
+┌ Oceananigans → OceananigansNCCLExt
+│  [Output was shown above]
+└
+  14954.0 ms  ✓ Oceananigans → OceananigansNCCLExt
+  1 dependency successfully precompiled in 16 seconds. 170 already precompiled.
+  148 dependencies precompiled but different versions are currently loaded (AbstractFFTs, Adapt, Adapt → AdaptSparseArraysExt, Adapt → AdaptStaticArraysExt, ArgTools, Atomix, Atomix → AtomixCUDACoreExt, BFloat16s, Base64, CEnum, CUDA, CUDACore, CUDATools, CUDA_Compiler_jll, CUDA_Driver_jll, CUDA_Runtime_jll, CUPTI, ChunkCodecCore, ChunkCodecLibZlib, ChunkCodecLibZstd, CompilerCaching, CompilerSupportLibraries_jll, ConstructionBase, ConstructionBase → ConstructionBaseLinearAlgebraExt, ConstructionBase → ConstructionBaseStaticArraysExt, Crayons, CubedSphere, DataAPI, DataValueInterfaces, Dates, Distances, Distances → DistancesSparseArraysExt, DocStringExtensions, Downloads, ExprTools, ExpressionExplorer, FFTW, FFTW_jll, FileIO, GPUArrays, GPUArrays → JLD2Ext, GPUArraysCore, GPUCompiler, GPUToolbox, Glob, InteractiveUtils, IteratorInterfaceExtensions, JLD2, JLLWrappers, JuliaNVTXCallbacks_jll, JuliaSyntaxHighlighting, KernelAbstractions, KernelAbstractions → LinearAlgebraExt, KernelAbstractions → SparseArraysExt, Krylov, LLVM, LLVM → BFloat16sExt, LLVMExtra_jll, LLVMLoopInfo, LMDB, LMDB_jll, LaTeXStrings, LazyArtifacts, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, MPI, MPI → CUDAExt, MPIPreferences, MacroTools, Markdown, Mmap, MozillaCACerts_jll, MuladdMacro, NCCL, NCCL_jll, NVML, NVPTX_LLVM_Backend_jll, NVTX, NVTX_jll, NetworkOptions, Oceananigans, Oceananigans → OceananigansCUDAExt, OffsetArrays, OffsetArrays → OffsetArraysAdaptExt, OpenSSL_jll, OrderedCollections, Pkg, Pkg → REPLExt, PkgVersion, PrecompileTools, Preferences, PrettyTables, Printf, Quaternions, REPL, Random123, RandomNumbers, ReactantCore, RealDot, Reexport, Requires, Rotations, ScopedValues, Scratch, SeawaterPolynomials, Serialization, SparseArrays, StaticArrays, StaticArrays → StaticArraysStatisticsExt, StaticArraysCore, Statistics, Statistics → SparseArraysExt, StatsAPI, StringManipulation, StructArrays, StructArrays → AdaptExt, StructArrays → GPUArraysCoreExt, StructArrays → KernelAbstractionsExt, StructArrays → LinearAlgebraExt, StructArrays → SparseArraysExt, StructArrays → StaticArraysExt, StyledStrings, SuiteSparse_jll, TOML, TableTraits, Tables, Tar, TaylorSeries, TaylorSeries → TaylorSeriesJLD2Ext, TaylorSeries → TaylorSeriesSAExt, UUIDs, Unicode, UnsafeAtomics, UnsafeAtomics → UnsafeAtomicsGPUCompilerExt, Zlib_jll, Zstd_jll, cuBLAS, cuFFT, cuRAND, cuSOLVER, cuSPARSE, demumble_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 21 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+DEVICE rank=2 uuid=0d23b51f-58fb-31df-e839-8dd85117df68 visible=0,1,2,3
+DEVICE rank=3 uuid=628b07c6-4d27-afb0-6c71-f0b5ec437cab visible=0,1,2,3
+DEVICE rank=1 uuid=27b6f362-d593-fda1-e6fa-43275dcca7da visible=0,1,2,3
+DEVICE rank=0 uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 visible=0,1,2,3
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_explicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (1024, 1024, 512)
+│   partition = (2, 2)
+│   nranks = 4
+│   Δt = 0.005
+│   time_steps = 10
+│   communication_name = "NCCL"
+│   communicator_type = "NCCLCommunicator"
+└   profile = true
+TIMING_START communication=NCCL steps=10
+PROFILE_START rank=0 steps=10
+PROFILE_START rank=1 steps=10
+PROFILE_START rank=2 steps=10
+PROFILE_START rank=3 steps=10
+Capture range started in the application.
+Capture range started in the application.
+Capture range started in the application.
+Capture range started in the application.
+Capture range ended in the application.
+Capture range ended in the application.
+Capture range ended in the application.
+Capture range ended in the application.
+Generating '/local_scratch/ajtse/breeze_nvtx_2026-11-10/tmp/nsys-report-e2da.qdstrm'
+Generating '/local_scratch/ajtse/breeze_nvtx_2026-11-10/tmp/nsys-report-70d7.qdstrm'
+Generating '/local_scratch/ajtse/breeze_nvtx_2026-11-10/tmp/nsys-report-48f9.qdstrm'
+Generating '/local_scratch/ajtse/breeze_nvtx_2026-11-10/tmp/nsys-report-38f3.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [===24%                      ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [========42%                 ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [===========52%              ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [===24%                      ] profile.nsys-rep
+[1/1] [===24%                      ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [====================83%     ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [========42%                 ] profile.nsys-rep
+[1/1] [========42%                 ] profile.nsys-rep
+[1/1] [===24%                      ] profile.nsys-rep
+[1/1] [===========52%              ] profile.nsys-rep
+[1/1] [===========52%              ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [========42%                 ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [===========52%              ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [===================82%      ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [===================82%      ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [===================82%      ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_1/profile.nsys-rep
+PROFILE_END rank=1 steps=10
+
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_0/profile.nsys-rep
+PROFILE_END rank=0 steps=10
+
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_2/profile.nsys-rep
+PROFILE_END rank=2 steps=10
+
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles_distributed/compressible_explicit_NCCL_4g/rank_3/profile.nsys-rep
+PROFILE_END rank=3 steps=10
+TIMING_END communication=NCCL elapsed_seconds=8.672256513
+RESULT machine=rondeau dynamics=compressible_explicit float=Float32 size=1024x1024x512 partition=2x2 gpus=4 steps=10 seconds_per_step=8.6723e-01 points_per_second=6.1907e+08 points_per_second_per_gpu=1.5477e+08 max_abs_w=1.600e-03 communication=NCCL fields_finite=true

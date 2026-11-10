@@ -26,6 +26,8 @@
 #####   --random_perturbation  true | false: random or smooth (sine) initial perturbation (default true);
 #####                      false to compare runs on different partitions, as rand() differs between ranks
 #####   --profile          true | false: capture the timed steps with Nsight  (default false)
+#####   --nvtx             true | false: annotate Breeze host methods         (default false)
+#####   --random_perturbation true | false: random or deterministic initial noise (default true)
 #####   --results_file     append one CSV line of results to this file         (default: none)
 #####
 
@@ -78,7 +80,14 @@ FT            = option("float_type", "Float32") == "Float64" ? Float64 : Float32
 simplified    = option("simplified", "false") == "true"
 random_perturbation = option("random_perturbation", "true") == "true"
 profile       = parse(Bool, option("profile", "false"))
+nvtx          = parse(Bool, option("nvtx", "false"))
+random_perturbation = parse(Bool, option("random_perturbation", "true"))
 results_file  = option("results_file", "")
+
+if nvtx
+    include(joinpath(@__DIR__, "nvtx_instrumentation.jl"))
+    BreezeNVTX.enable!()
+end
 
 Rx * Ry == nranks || error("--partition=$(Rx)x$(Ry) needs $(Rx * Ry) ranks but mpiexec started $nranks")
 comm_name in ("MPI", "NCCL") || error("--comm must be MPI or NCCL")
@@ -123,6 +132,8 @@ communicator_type = nranks == 1 ? "none" : string(nameof(typeof(arch.communicato
 @printf("PLACEMENT rank=%d host=%s gpu_uuid=%s communicator=%s threads=%d pool=%s\n",
         rank, gethostname(), string(CUDA.uuid(CUDA.device())), communicator_type,
         Threads.nthreads(), get(ENV, "JULIA_CUDA_MEMORY_POOL", "unset"))
+@printf("DEVICE rank=%d uuid=%s visible=%s\n", rank, string(CUDA.uuid(CUDA.device())),
+        get(ENV, "CUDA_VISIBLE_DEVICES", "all"))
 
 model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified, random_perturbation)
 

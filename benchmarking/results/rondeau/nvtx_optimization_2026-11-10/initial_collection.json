@@ -1,0 +1,160 @@
+[
+  {
+    "case": "anelastic_SERIAL_1g",
+    "dynamics": "anelastic",
+    "backend": "SERIAL",
+    "ranks": 1,
+    "state": "COMPLETE",
+    "steps": 10,
+    "warmup": 10,
+    "size": [
+      512,
+      512,
+      512
+    ],
+    "partition": [
+      1,
+      1
+    ],
+    "time_step": 0.02,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/anelastic_SERIAL_1g/rank_0/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/anelastic_SERIAL_1g/rank_0/profile.sqlite",
+        "bytes": 554372,
+        "sha256": "45df4660c42f835f708a241bd33ce483f944c06dbb95ca0f36d19536b5b14369",
+        "kernels": 2390,
+        "ranges": 740,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      }
+    ],
+    "elapsed_seconds": 132.47558546066284
+  },
+  {
+    "case": "compressible_explicit_SERIAL_1g",
+    "dynamics": "compressible_explicit",
+    "backend": "SERIAL",
+    "ranks": 1,
+    "state": "COMPLETE",
+    "steps": 10,
+    "warmup": 10,
+    "size": [
+      512,
+      512,
+      512
+    ],
+    "partition": [
+      1,
+      1
+    ],
+    "time_step": 0.005,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_SERIAL_1g/rank_0/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_SERIAL_1g/rank_0/profile.sqlite",
+        "bytes": 537163,
+        "sha256": "d0e10934a9665186a7a514a6a95b7f7990cf1cdf5ead0cca6e112bcf49915c94",
+        "kernels": 2310,
+        "ranges": 740,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      }
+    ],
+    "elapsed_seconds": 120.54591536521912
+  },
+  {
+    "case": "compressible_splitexplicit_SERIAL_1g",
+    "dynamics": "compressible_splitexplicit",
+    "backend": "SERIAL",
+    "ranks": 1,
+    "state": "COMPLETE",
+    "steps": 10,
+    "warmup": 10,
+    "size": [
+      512,
+      512,
+      512
+    ],
+    "partition": [
+      1,
+      1
+    ],
+    "time_step": 0.02,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.sqlite",
+        "bytes": 1070322,
+        "sha256": "9451ba539d8846a2dcef746682abcf1dabe5c24ea17dc83b931e45f050a8f831",
+        "kernels": 10300,
+        "ranges": 3461,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      }
+    ],
+    "elapsed_seconds": 150.3990695476532
+  },
+  {
+    "case": "compressible_explicit_MPI_4g",
+    "dynamics": "compressible_explicit",
+    "backend": "MPI",
+    "ranks": 4,
+    "state": "FAILED",
+    "steps": 10,
+    "warmup": 10,
+    "size": [
+      1024,
+      1024,
+      512
+    ],
+    "partition": [
+      2,
+      2
+    ],
+    "time_step": 0.005,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_MPI_4g/rank_0/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_MPI_4g/rank_0/profile.sqlite",
+        "bytes": 90604946,
+        "sha256": "fba26b97714c6b22aef53026472b1d977d34fd91ff1e9bfc9effa088a222c571",
+        "kernels": 9870,
+        "ranges": 740,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 1,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_MPI_4g/rank_1/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_MPI_4g/rank_1/profile.sqlite",
+        "bytes": 90880182,
+        "sha256": "623680781ddffd3f8185ee94f73ebbabec9d13ac0c2279794ae529da8ae3fc02",
+        "kernels": 9870,
+        "ranges": 740,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 2,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_MPI_4g/rank_2/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_MPI_4g/rank_2/profile.sqlite",
+        "bytes": 86931449,
+        "sha256": "5957c01dbbe3e64e7d4184b042f4d98fbc8bc5c3b933766e8c3fd025585516eb",
+        "kernels": 9870,
+        "ranges": 740,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 3,
+        "report": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_MPI_4g/rank_3/profile.nsys-rep",
+        "sqlite": "/local_scratch/ajtse/breeze_nvtx_2026-11-10/profiles/compressible_explicit_MPI_4g/rank_3/profile.sqlite",
+        "bytes": 86868117,
+        "sha256": "746596aebfeb8126dcd93288f14a44b3261bd4b7ddb4764b19e8716b0ab41fe1",
+        "kernels": 9870,
+        "ranges": 740,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      }
+    ],
+    "error": ""
+  }
+]
