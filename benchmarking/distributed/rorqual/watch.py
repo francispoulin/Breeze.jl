@@ -32,6 +32,17 @@ write_json(study / "final_status.json", {"job_id": job, "finished": timestamp(),
 branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=REPO, text=True).strip()
 if branch != "benchmark-results":
     raise RuntimeError("Refusing to commit results on a different branch")
+# Captured terminal output can contain trailing spaces/carriage returns. Keep retained
+# text files compatible with the repository whitespace checks before committing.
+for path in study.rglob("*"):
+    if path.is_file() and path.suffix not in (".gz", ".png"):
+        try:
+            original = path.read_text()
+        except UnicodeDecodeError:
+            continue
+        cleaned = "\n".join(line.rstrip() for line in original.splitlines()).rstrip() + "\n" if original else ""
+        if cleaned != original:
+            path.write_text(cleaned)
 relative = str(study.relative_to(REPO))
 subprocess.run(["git", "add", "--force", "--", relative], cwd=REPO, check=True)
 subprocess.run(["git", "diff", "--cached", "--check", "--", relative], cwd=REPO, check=True)
