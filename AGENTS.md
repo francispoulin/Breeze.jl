@@ -86,6 +86,11 @@ from a reference.
 
 ## Git Workflow
 
+Always pull the current branch from its remote before making any edit. Preserve unrelated local changes.
+
+Follow [ColPrac](https://github.com/SciML/ColPrac). Feature branches, descriptive commits,
+update tests and docs with code changes, check CI before merging.
+
 Make a commit after completing each task
 
 ## Agent Behavior
