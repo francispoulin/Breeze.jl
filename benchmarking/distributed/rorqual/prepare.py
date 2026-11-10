@@ -5,21 +5,14 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
-from run_case import REPO, PROJECT, write_json
+from run_case import REPO, PROJECT, write_json, build_plan
 
 study = Path(sys.argv[1]).resolve()
 if (study / "plan.json").exists():
     raise RuntimeError("Study already prepared; use a fresh directory")
 (study / "provenance").mkdir(parents=True, exist_ok=True)
 (study / "cases").mkdir(exist_ok=True)
-plan = []
-for dynamics in ("compressible_explicit", "compressible_splitexplicit"):
-    for gpus, size, partition in ((1, "512x512x512", "1x1"), (2, "1024x512x512", "2x1"),
-                                   (4, "1024x1024x512", "4x1"), (8, "4096x512x512", "8x1"),
-                                   (16, "8192x512x512", "16x1")):
-        for backend in (("MPI",) if gpus == 1 else ("MPI", "NCCL")):
-            plan.append(dict(id=f"{dynamics}_{'SERIAL' if gpus == 1 else backend}_{gpus}g_{partition}",
-                             dynamics=dynamics, gpus=gpus, size=size, partition=partition, backend=backend))
+plan = build_plan()
 write_json(study / "plan.json", plan)
 files = subprocess.check_output(["git", "ls-files", "src", "ext", "benchmarking/src"], cwd=REPO, text=True).splitlines()
 paths = [REPO / name for name in files] + [REPO / "Project.toml", PROJECT / "distributed_cbl_benchmark.jl"]

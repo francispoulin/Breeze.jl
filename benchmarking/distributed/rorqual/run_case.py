@@ -15,6 +15,19 @@ REPO = Path(__file__).resolve().parents[3]
 PROJECT = REPO / "benchmarking/distributed"
 
 
+def build_plan():
+    plan = []
+    for dynamics in ("compressible_explicit", "compressible_splitexplicit"):
+        for gpus, size, partition in ((1, "512x512x512", "1x1"), (2, "1024x512x512", "2x1"),
+                                       (4, "1024x1024x512", "4x1"), (8, "4096x512x512", "8x1"),
+                                       (16, "8192x512x512", "16x1")):
+            for backend in (("MPI",) if gpus == 1 else ("MPI", "NCCL")):
+                plan.append(dict(id=f"{dynamics}_{'SERIAL' if gpus == 1 else backend}_{gpus}g_{partition}",
+                                 dynamics=dynamics, gpus=gpus, size=size, partition=partition, backend=backend,
+                                 time_step=0.01 * 512 / max(map(int, size.split("x")))))
+    return plan
+
+
 def timestamp():
     return datetime.now(timezone.utc).isoformat()
 
@@ -95,7 +108,7 @@ def main():
                    str(PROJECT / "distributed_cbl_benchmark.jl"),
                    "--dynamics=" + case["dynamics"], "--comm=" + case["backend"],
                    "--size=" + case["size"], "--partition=" + case["partition"],
-                   "--float_type=Float32", "--simplified=false", "--time_step=0.005",
+                   "--float_type=Float32", "--simplified=false", "--time_step=" + str(case["time_step"]),
                    "--warmup_steps=10", "--time_steps=500", "--substeps=12", "--profile=false",
                    "--results_file=" + str(directory / "measurement.csv")]
         (directory / "command.sh").write_text(shlex.join(command) + "\n")

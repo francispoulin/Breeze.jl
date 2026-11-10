@@ -93,6 +93,11 @@ Make a commit after completing each task
 - If you have questions about a task, ask the user and wait for their answers before executing the task.
 - Create plots when applicable, except for Nsight profiling runs.
 - For Nsight runs, record the exact path to each Nsight result file in the run's `README.md`.
+- For compressible weak-scaling benchmarks on the fixed 12 km × 12 km × 3 km domain, use
+  Δt = 0.01 s at 512×512×512 and halve Δt for every doubling of spatial resolution.
+  Apply the same Δt to explicit and split-explicit dynamics on the same grid. The current
+  scaling matrix uses 0.005 s at 1024×512×512 and 1024×1024×512, 0.00125 s at
+  4096×512×512, and 0.000625 s (1/1600 s) at 8192×512×512.
 - Prioritize type stability and GPU compatibility
 - Follow established patterns in existing code
 - Add tests for new functionality; update exports when adding public API

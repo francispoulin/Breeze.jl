@@ -7,7 +7,10 @@ and 8×1; sixteen use 8192×512×512 and 16×1. Every rank has 512³ cells, with
 There are no Nsight cases or alternative four-GPU partitions.
 
 The tracked driver fixes the physical domain and defaults to WENO5. The runner explicitly sets
-Float32, full CBL, Δt = 0.005 s, 10 warmup steps, 500 timed steps, and 12 acoustic substeps.
+Float32, full CBL, 10 warmup steps, 500 timed steps, and 12 acoustic substeps. Δt is 0.01 s
+at 512³ and halves whenever spatial resolution doubles: 0.005 s on the 2-/4-GPU grids,
+0.00125 s on the 8-GPU grid, and 0.000625 s (1/1600 s) on the 16-GPU grid. Both dynamics
+use the same Δt on the same grid, as required by AGENTS.md.
 The allocation requests three hours, rather than 18 × 30 minutes, based on the previous
 measurements (roughly two hours of stepping). Each individual step has a 30-minute limit.
 
