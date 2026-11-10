@@ -1,0 +1,203 @@
+# Breeze.jl — Agent Rules
+
+## Project Overview
+
+Breeze.jl is Julia software for simulating atmospheric flows.
+It relies on [Oceananigans.jl](https://github.com/CliMA/Oceananigans.jl) for grids, fields, solvers, and advection schemes,
+with extensions to CloudMicrophysics for microphysical schemes, RRTMGP for radiative transfer solvers,
+and interfaces with ClimaOcean for coupled atmosphere-ocean simulations.
+
+## Language & Environment
+
+- **Julia 1.10+** | CPU and GPU (CUDA)
+- **Key packages**: Oceananigans.jl, CloudMicrophysics.jl, RRTMGP.jl, NumericalEarth.jl,
+                    KernelAbstractions.jl, CUDA.jl, Enzyme.jl, Reactant.jl
+- **Style**: ExplicitImports.jl for source code; `using Oceananigans` and `using Breeze` for examples
+- **Testing**: ParallelTestRunner.jl for distributed testing
+
+## Critical Rules
+
+### Kernel Functions (GPU compatibility)
+
+- Use `@kernel` / `@index` (KernelAbstractions.jl)
+- Kernels must be **type-stable** and **allocation-free**
+- Use `ifelse` — never short-circuiting `if`/`else` or ternary `?`/`:` in kernels
+- No error messages, no Models inside kernels
+- Mark functions called inside kernels with `@inline`
+- **Never loop over grid points outside kernels** — use `launch!`
+- **Use literal zeros**: `max(0, a)` not `max(zero(FT), a)`. Julia handles type promotion.
+
+### Type Stability & Memory
+
+- All structs must be concretely typed. **Never use `Any` as a type parameter or field type.**
+- Use the **materialization pattern**: user-facing constructor creates a "skeleton" struct with
+  placeholder types (like `Nothing`), then `materialize_*` creates the fully-typed version.
+- For mutable state within an immutable struct, use a `mutable struct` as the field type.
+- Type annotations are for **dispatch**, not documentation
+- Minimize allocation; favor inline computation
+
+### Imports
+
+- Source code: explicit imports (checked by tests). Never use `import` to extend functions;
+  always use `Module.function_name(...) = ...` or `function Module.function_name() ... end`
+- Exports at the top of module files, before other code
+- Import Oceananigans/Breeze names first, then external packages
+- Internal Breeze imports use absolute paths, not relative
+- Examples/docs: rely on `using Oceananigans` and `using Breeze`
+
+### Docstrings
+
+- Use `$(TYPEDSIGNATURES)` from DocStringExtensions.jl (never write explicit signatures)
+- **ALWAYS `jldoctest` blocks, NEVER plain `julia` blocks** — doctests are tested; plain blocks rot
+- Include expected output after `# output`; prefer `show` methods over boolean comparisons
+- **Citations**: Use inline `[Author (year)](@cite Key)` syntax woven into prose
+- Use unicode for math (`θ`, `ρ`, `Π`), not LaTeX
+
+### Software Design
+
+- Minimize code duplication (allow only for trivial one-liners)
+- When something would be better in Oceananigans, add a detailed TODO note
+- Almost always extend functions in source code, not in examples
+- Coding style: consult `docs/src/appendix/notation.md` for variable names
+- Use math or English consistently in expressions; don't mix
+- Keyword arguments: no-space for inline `f(x=1)`, single-space for multiline `f(a = 1, b = 2)`
+
+## Naming Conventions
+
+- **Files**: snake_case — `atmosphere_model.jl`
+- **Types/Constructors**: PascalCase — `AtmosphereModel`
+- **Functions**: snake_case — `compute_pressure!`
+- **Kernels**: may prefix with underscore — `_kernel_function`. The underscore
+  prefix is **reserved** for kernel functions; do not use it to mark plain
+  helpers as "internal" (we do not follow the Python convention).
+- **Variables**: English long name or unicode from `notation.md`. Add new variables to that table.
+- **Avoid abbreviations**: `latitude` not `lat`, `temperature` not `temp`
+
+## Module Structure
+
+```
+src/
+├── Breeze.jl                         # Main module, exports
+├── Thermodynamics/                   # Thermodynamic constants, states, reference states
+├── AtmosphereModels/                 # Core atmosphere model logic and diagnostics
+├── StaticEnergyFormulations/         # Static energy thermodynamic formulation (prognostic ρs)
+├── PotentialTemperatureFormulations/ # Liquid-ice potential temperature formulation (prognostic ρθ)
+├── AnelasticEquations/               # Anelastic dynamics
+├── CompressibleEquations/            # Fully compressible dynamics, acoustic substepping
+├── KinematicDriver/                  # Prescribed (kinematic) dynamics
+├── TerrainFollowingDiscretization/   # Terrain-following vertical coordinates
+├── TimeSteppers/                     # Time stepping schemes for AtmosphereModel
+├── Microphysics/                     # Cloud microphysics
+├── TurbulenceClosures/               # Including those ported from Oceananigans
+├── BoundaryConditions/               # Bulk surface fluxes, drag, energy-flux BCs
+├── Forcings/                         # Forcing types (subsidence, geostrophic, ...)
+├── CelestialMechanics/               # Solar zenith angle and solar geometry
+├── ParcelModels/                     # Parcel model dynamics
+├── Advection.jl                      # Advection operators for anelastic models
+├── Solvers.jl                        # Scalar nonlinear solvers (temperature inversion, saturation adjustment)
+├── VerticalGrids.jl                  # Stretched vertical discretizations
+├── single_column_mode.jl             # Single-column and column-forest mode
+├── Utils.jl                          # Small shared helpers
+└── MoistAirBuoyancies.jl             # Legacy buoyancy for Oceananigans.NonhydrostaticModel
+```
+
+## Breeze Formulations
+
+Breeze separates the dynamics from the thermodynamic formulation. All prognostics are densities
+(conservation form). Dynamics (`dynamics` keyword of `AtmosphereModel`):
+  - `AnelasticDynamics` — anelastic equations
+  - `CompressibleDynamics` — fully compressible equations with acoustic substepping
+  - `PrescribedDynamics` — kinematic driver with prescribed density
+
+Thermodynamic formulations (`formulation` keyword):
+  - `LiquidIcePotentialTemperatureFormulation` (`:LiquidIcePotentialTemperature`, default) — prognostic `ρθ`
+  - `StaticEnergyFormulation` (`:StaticEnergy`) — prognostic `ρs`
+
+Planned: an entropy formulation (prognostic `ρη`).
+
+Energy and water inputs are keyed agnostically, so a setup does not name a variable whose
+spelling depends on the formulation or the microphysics:
+  - `ρE` (total energy density; specific alias `E` for forcings) is routed onto whichever
+    thermodynamic variable the formulation evolves, converted as that variable requires.
+  - `ρqᵗ` (total moisture density; specific alias `qᵗ`) is routed onto whichever moisture
+    density the microphysics evolves — a pure re-key, since water needs no conversion.
+
+The specific names (`ρs`, `ρqᵛ`, `ρqᵉ`) remain keys only where they are actually prognostic,
+supplying both an interface key and its target is an error, and unrecognized keys raise an
+`ArgumentError` rather than being silently dropped.
+
+## Common Pitfalls
+
+1. **Type instability** in kernels — ruins GPU performance
+2. **Overconstraining types**: use annotations for dispatch, not documentation
+3. **Missing imports**: tests will catch this — add explicit imports
+4. **Plain `julia` blocks in docstrings**: always use `jldoctest`
+5. **Subtle bugs from missing method imports**, especially in extensions
+6. **Never extend `getproperty`** to fix undefined property bugs — fix the caller instead
+7. **"Type is not callable"**: variable name shadows a function — rename or qualify
+8. **Quick fixes that break correctness**: if a test fails after a change, revisit the original edit
+9. **Scope creep in PRs**: keep changes focused on a single concern
+10. **Modifying Project.toml dependencies**: never add, remove, or change `[deps]` or `[weakdeps]`
+    in the root `Project.toml` unless the task absolutely requires it. Dependency changes have
+    wide-reaching consequences — they affect CI, load time, and downstream compatibility.
+    Only touch `[compat]` bounds when explicitly asked.
+11. **Underscore-prefixed helpers**: an underscore prefix on a function name
+    signals "kernel" in this codebase. Plain helper functions stay snake_case
+    with no leading underscore.
+
+## Git Workflow & Whitespace
+
+Always pull the current branch from its remote before making any edit. Preserve unrelated local changes.
+
+Follow [ColPrac](https://github.com/SciML/ColPrac). Feature branches, descriptive commits,
+update tests and docs with code changes, check CI before merging.
+
+**PRs fail CI with trailing whitespace or trailing blank lines.** Before committing:
+remove trailing whitespace, remove trailing blank lines, ensure file ends with exactly one newline.
+
+Make a commit after completing each task
+
+## Agent Behavior
+
+- If you have questions about a task, ask the user and wait for their answers before executing the task.
+- Create plots when applicable, except for Nsight profiling runs.
+- For Nsight runs, record the exact path to each Nsight result file in the run's `README.md`.
+- For compressible weak-scaling benchmarks on the fixed 12 km × 12 km × 3 km domain, use
+  Δt = 0.01 s at 512×512×512 and halve Δt for every doubling of spatial resolution.
+  Apply the same Δt to explicit and split-explicit dynamics on the same grid. The current
+  scaling matrix uses 0.005 s at 1024×512×512 and 1024×1024×512, 0.00125 s at
+  4096×512×512, and 0.000625 s (1/1600 s) at 8192×512×512.
+- Prioritize type stability and GPU compatibility
+- Follow established patterns in existing code
+- Add tests for new functionality; update exports when adding public API
+- Reference physics equations in comments when implementing dynamics
+- When unsure: study working examples first (BOMEX, RICO, etc.), look at similar
+  Oceananigans implementations, review tests for usage patterns
+
+## Further Reading
+
+Detailed reference docs are in `.agents/` — read on demand:
+
+| Document | Content |
+|----------|---------|
+| `.agents/testing.md` | Running tests, writing tests, debugging, QA |
+| `.agents/documentation.md` | Building docs, fast builds, Literate.jl examples, doctest details |
+| `.agents/validation.md` | Reproducing paper results, common issues, TC genesis |
+| `.agents/physics-debugging.md` | Thermodynamic variables, diagnose-before-fix, model architecture |
+
+### Auto-loading Rules
+
+Rules in `.claude/rules/` load automatically when you touch matching files:
+- `kernel-rules.md` — GPU kernel requirements (src/)
+- `docstring-rules.md` — docstring and jldoctest conventions (src/)
+- `testing-rules.md` — test writing and running (test/)
+- `docs-rules.md` — documentation building and style (docs/)
+- `examples-rules.md` — Literate.jl example conventions (examples/)
+
+### Skills (slash commands)
+
+- `/run-tests` — run targeted tests, prioritized by what's likely to break
+- `/build-docs` — build documentation locally
+- `/add-feature` — checklist for adding new physics/features
+- `/new-simulation` — set up, run, and visualize a new simulation
+- `/babysit-ci` — monitor CI, auto-fix small issues, retrigger flaky runs
