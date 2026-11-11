@@ -204,7 +204,9 @@ def write_figure(data, prefix, title):
                 "CPU can submit later steps while the GPU runs an earlier step.",
                 color="#c5cedb", fontsize=10, linespacing=1.7)
     figure.savefig(str(prefix) + ".png", dpi=150, facecolor=background)
-    figure.savefig(str(prefix) + ".svg", facecolor=background)
+    svg = Path(str(prefix) + ".svg")
+    figure.savefig(svg, facecolor=background)
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()).rstrip() + "\n")
     plt.close(figure)
 
 
