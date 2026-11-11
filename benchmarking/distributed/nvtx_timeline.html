@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__TITLE__</title>
+<style>
+  :root { color-scheme: dark; font: 14px system-ui,sans-serif; background:#181c24; color:#edf2f7; }
+  body { margin:24px; } h1 { font-size:26px; margin-bottom:8px; }
+  p { color:#c5cedb; line-height:1.6; max-width:1150px; }
+  button { background:#303a49; color:#edf2f7; border:1px solid #64748b; border-radius:5px;
+           padding:8px 14px; cursor:pointer; margin:0 8px 8px 0; }
+  button:focus-visible { outline:2px solid #4dabf7; }
+  canvas { display:block; width:100%; border:1px solid #475569; touch-action:none; }
+  #legend { display:flex; flex-wrap:wrap; gap:10px 22px; margin:18px 0; }
+  .swatch { display:inline-block; width:12px; height:12px; margin-right:6px; border-radius:2px; }
+  #tooltip { display:none; position:fixed; pointer-events:none; background:#0d1117;
+             border:1px solid #94a3b8; border-radius:5px; padding:10px; white-space:pre-line;
+             max-width:550px; overflow-wrap:anywhere; font:13px/1.6 monospace; z-index:2; }
+  #window { font-variant-numeric:tabular-nums; margin-left:10px; }
+</style>
+<h1>__TITLE__</h1>
+<p id="summary"></p>
+<button id="full">Full capture</button><button id="step">First GPU step</button>
+<button id="in">Zoom in</button><button id="out">Zoom out</button>
+<span id="window" aria-live="polite"></span>
+<div id="legend"></div>
+<canvas id="timeline" aria-label="NVTX host ranges, GPU projections and measured CUDA execution timeline"></canvas>
+<p>Scroll to zoom around the pointer; drag to pan; hover over a bar for its name and duration.
+Host NVTX bars measure CPU submission and waiting. GPU projections span the first to last GPU
+operation launched within a host range, including gaps. GPU kernel and copy rows show measured
+execution. Nested ranges overlap. The CPU can submit later steps while the GPU runs an earlier step.</p>
+<p>This view renders recorded Nsight data. Open the original .nsys-rep in NVIDIA Nsight Systems
+for CUDA API correlation, detailed event inspection and the full profiler interface.</p>
+<div id="tooltip"></div>
+<script id="trace-data" type="application/json">__DATA__</script>
+<script>
+"use strict";
+const trace = JSON.parse(document.getElementById("trace-data").textContent);
+const canvas = document.getElementById("timeline"), ctx = canvas.getContext("2d");
+const tip = document.getElementById("tooltip");
+const left = 220, right = 20, top = 48, row = 34;
+let bounds = trace.first_step.slice(), width, height, drag = null;
+document.getElementById("summary").textContent =
+  `${trace.steps} captured steps · ${trace.kernels.toLocaleString()} CUDA kernels · ` +
+  `${(trace.extent[1]/1000).toFixed(3)} s capture window · all times after warmup`;
+trace.categories.forEach((name,i) => {
+  const item = document.createElement("span"), swatch = document.createElement("span");
+  swatch.className = "swatch"; swatch.style.background = trace.colors[i];
+  item.append(swatch, document.createTextNode(name)); document.getElementById("legend").append(item);
+});
+function x(time) { return left + (time-bounds[0])/(bounds[1]-bounds[0])*(width-left-right); }
+function setWindow(start,end) {
+  const span = Math.min(trace.extent[1], Math.max(0.01,end-start));
+  start = Math.max(0,Math.min(trace.extent[1]-span,start));
+  bounds = [start,start+span]; draw();
+}
+function draw() {
+  ctx.fillStyle = "#181c24"; ctx.fillRect(0,0,width,height);
+  ctx.font = "12px system-ui"; ctx.textBaseline = "middle";
+  trace.lanes.forEach((name,lane) => {
+    const y=top+lane*row;
+    ctx.fillStyle="#242b36"; ctx.fillRect(left,y,width-left-right,row-3);
+    ctx.fillStyle="#edf2f7"; ctx.fillText(name,12,y+row/2);
+  });
+  ctx.save(); ctx.beginPath(); ctx.rect(left,top,width-left-right,height-top); ctx.clip();
+  for (const [start,end,lane,label,color] of trace.events) {
+    if (end<bounds[0] || start>bounds[1]) continue;
+    const a=Math.max(left,x(start)), b=Math.min(width-right,x(end));
+    ctx.fillStyle=trace.colors[color]; ctx.fillRect(a,top+lane*row+4,Math.max(0.5,b-a),row-11);
+    const text=trace.labels[label].split("/").pop();
+    if (ctx.measureText(text).width+12<b-a) {
+      ctx.fillStyle="#11151c"; ctx.fillText(text,a+6,top+lane*row+row/2);
+    }
+  }
+  ctx.restore();
+  ctx.textBaseline="middle";
+  for (let i=0;i<=8;i++) {
+    const time=bounds[0]+i*(bounds[1]-bounds[0])/8, a=x(time);
+    ctx.strokeStyle="#64748b55"; ctx.beginPath(); ctx.moveTo(a,top-8); ctx.lineTo(a,height-5); ctx.stroke();
+    ctx.fillStyle="#c5cedb"; ctx.textAlign=i===8?"right":"left";
+    ctx.fillText(time.toFixed(bounds[1]-bounds[0]<10?3:1)+" ms",a,22);
+  }
+  ctx.textAlign="left";
+  document.getElementById("window").textContent = `${bounds[0].toFixed(3)}–${bounds[1].toFixed(3)} ms`;
+}
+function resize() {
+  width=canvas.clientWidth; height=top+trace.lanes.length*row+5;
+  const scale=window.devicePixelRatio||1; canvas.width=width*scale; canvas.height=height*scale;
+  canvas.style.height=height+"px"; ctx.setTransform(scale,0,0,scale,0,0); draw();
+}
+function zoom(factor,position=0.5) {
+  const span=bounds[1]-bounds[0], anchor=bounds[0]+position*span;
+  setWindow(anchor-position*span*factor,anchor+(1-position)*span*factor);
+}
+document.getElementById("full").onclick=()=>setWindow(...trace.extent);
+document.getElementById("step").onclick=()=>setWindow(...trace.first_step);
+document.getElementById("in").onclick=()=>zoom(0.5);
+document.getElementById("out").onclick=()=>zoom(2);
+canvas.addEventListener("wheel",event=>{
+  event.preventDefault(); tip.style.display="none";
+  const position=Math.max(0,Math.min(1,(event.offsetX-left)/(width-left-right)));
+  zoom(event.deltaY>0?1.25:0.8,position);
+},{passive:false});
+canvas.onpointerdown=event=>{
+  if(event.offsetX<left) return;
+  drag={x:event.offsetX,bounds:bounds.slice()}; canvas.setPointerCapture(event.pointerId);
+};
+canvas.onpointerup=canvas.onpointercancel=()=>{drag=null;};
+canvas.onpointerleave=()=>{tip.style.display="none";};
+canvas.onpointermove=event=>{
+  if(drag) {
+    const delta=(event.offsetX-drag.x)/(width-left-right)*(drag.bounds[1]-drag.bounds[0]);
+    setWindow(drag.bounds[0]-delta,drag.bounds[1]-delta); tip.style.display="none"; return;
+  }
+  const lane=Math.floor((event.offsetY-top)/row);
+  const time=bounds[0]+(event.offsetX-left)/(width-left-right)*(bounds[1]-bounds[0]);
+  const found=event.offsetX>=left && trace.events.find(e=>e[2]===lane && e[0]<=time && e[1]>=time);
+  if(!found) {tip.style.display="none";return;}
+  const [start,end,,label]=found;
+  tip.textContent=trace.labels[label]+"\n"+trace.lanes[lane]+"\n"+
+    `${start.toFixed(6)}–${end.toFixed(6)} ms\nDuration: ${(end-start).toFixed(6)} ms`;
+  tip.style.display="block";
+  tip.style.left=Math.max(0,Math.min(event.clientX+14,window.innerWidth-tip.offsetWidth-10))+"px";
+  tip.style.top=Math.max(0,Math.min(event.clientY+14,window.innerHeight-tip.offsetHeight-10))+"px";
+};
+window.addEventListener("resize",resize); resize();
+</script>
+</html>

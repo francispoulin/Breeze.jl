@@ -89,8 +89,8 @@ CUDA_VISIBLE_DEVICES=1 nsys profile --trace=cuda,nvtx,mpi --mpi-impl=openmpi \
 For several ranks, place `nsys profile` inside the MPI launch and give each rank a unique
 output prefix. The recorded timing includes profiling overhead and belongs in a separate
 results file from unprofiled timings. One GPU remains the shared plain-GPU serial baseline.
-For each study, list the exact `.nsys-rep` paths in its `README.md`; do not generate plots
-for Nsight runs.
+For each study, list the exact `.nsys-rep` paths in its `README.md`. Keep the
+original report for inspection in the Nsight Systems GUI.
 
 Add `--nvtx=true` to attribute launches to Breeze methods using
 [NVTX.jl](https://github.com/JuliaGPU/NVTX.jl). The benchmark re-evaluates an explicit
@@ -112,6 +112,10 @@ julia --project=benchmarking/distributed benchmarking/distributed/validate_nvtx.
 
 The [one-GPU 512³ NVTX demo](../results/rondeau/nvtx_demo_512_cubed_2026-11-10/README.md)
 includes a validated capture and readable summaries with times in milliseconds.
+It also includes an interactive offline timeline and PNG/SVG exports, requested
+to illustrate the ranges in the NVTX.jl demo. `render_nvtx_timeline.py` reads an
+existing per-rank SQLite export and requires Python 3 with Matplotlib; it does
+not launch a simulation. See that demo's README for regeneration and GUI commands.
 
 ## Reading the output
 

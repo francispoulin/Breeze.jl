@@ -33,7 +33,64 @@ must be read from the capture. NVTX host ranges measure CPU submission/waiting;
 GPU projections include the interval between their first and last associated GPU
 operation. Parent and child ranges overlap and must not be added together.
 
-No plots are generated for this Nsight run.
+The timeline below was added on 2026-11-11 at the user's request, using this
+existing capture. The simulation and profiler were not rerun.
+
+## Timeline like the NVTX.jl demo
+
+The image in the [NVTX.jl README](https://github.com/JuliaGPU/NVTX.jl) shows the
+NVIDIA Nsight Systems GUI. Our original `.nsys-rep` already contains the NVTX
+ranges and CUDA events needed for that view.
+
+- [Interactive timeline, standalone HTML](timeline.html): open in a browser;
+  scroll to zoom, drag to pan, hover for names and durations.
+- [PNG overview and first-step detail](timeline.png), [vector SVG](timeline.svg).
+- [Projection counts, timing totals and input hash](timeline.json).
+
+These exports distinguish host NVTX ranges, GPU-projected NVTX ranges and actual
+CUDA kernel/copy execution. A level is the range's nesting depth on its host
+thread. The projection spans its first to last associated GPU operation,
+including gaps; correlation follows the CUDA launch API. Outer-step numbers
+identify the same invocation on the host and GPU projection rows. The CPU may
+submit step 2 while the GPU still runs step 1. Parent and child bars overlap.
+The one-GPU capture has no inter-rank communication or MPI API trace rows.
+
+Every Breeze range's projected total duration, instance count and associated GPU
+operation count was checked against the saved official
+`summary_nvtx_gpu_proj_sum.csv`; all match exactly. The export includes all
+10300 kernels, 60 copies and 3461 completed host ranges. Regression tests cover
+asynchronous launches, nesting, copies, thread isolation and omitted empty ranges.
+
+To use the original Nsight GUI from a desktop session on Rondeau:
+
+```bash
+nsys-ui /local_scratch/ajtse/breeze_nvtx_demo_512_cubed_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.nsys-rep
+```
+
+For a laptop or workstation, run this **on that machine**, then open the downloaded
+report in Nsight Systems using **File > Open**:
+
+```bash
+scp ajtse@rondeau:/local_scratch/ajtse/breeze_nvtx_demo_512_cubed_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.nsys-rep ~/Downloads/breeze_512_cubed.nsys-rep
+```
+
+Use Nsight Systems **2024.5.1 or newer** to match the capture's CLI version.
+Expand the Julia process/thread's **NVTX** rows, the **Breeze** domain and the
+GPU's **CUDA** stream rows. Zoom into one `time_step!`, then into its acoustic
+substeps or `solve!` calls. See the
+[NVIDIA GUI instructions](https://docs.nvidia.com/nsight-systems/UserGuide/index.html#reading-your-report-in-gui).
+
+Regenerate the offline exports from the repository root with Python 3 and
+Matplotlib installed:
+
+```bash
+python3 -B benchmarking/distributed/render_nvtx_timeline.py \
+  /local_scratch/ajtse/breeze_nvtx_demo_512_cubed_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.sqlite \
+  --output-prefix benchmarking/results/rondeau/nvtx_demo_512_cubed_2026-11-10/timeline \
+  --title 'Breeze 512³ · split-explicit CBL · one A100'
+
+python3 -B benchmarking/distributed/test_nvtx_timeline.py
+```
 
 ## Read the results
 

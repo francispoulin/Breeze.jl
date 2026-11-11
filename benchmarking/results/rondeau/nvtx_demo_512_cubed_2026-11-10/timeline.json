@@ -1,0 +1,133 @@
+{
+  "database": "/local_scratch/ajtse/breeze_nvtx_demo_512_cubed_2026-11-10/profiles/compressible_splitexplicit_SERIAL_1g/rank_0/profile.sqlite",
+  "database_sha256": "b762ba0f2b0ecfcd6698509477afead135b3f07b98d764d230f3caea5b82a688",
+  "steps": 10,
+  "kernels": 10300,
+  "copies": 60,
+  "host_ranges": 3461,
+  "extent_ms": [
+    0,
+    10518.26347
+  ],
+  "first_step_ms": [
+    0.108444,
+    1051.361354
+  ],
+  "projections": {
+    "TimeSteppers/time_step!": {
+      "instances": 10,
+      "total_ns": 10518145041,
+      "gpu_operations": 10360
+    },
+    "TimeSteppers/store_initial_state!": {
+      "instances": 10,
+      "total_ns": 113738012,
+      "gpu_operations": 60
+    },
+    "CompressibleEquations/freeze_linearization_state!": {
+      "instances": 10,
+      "total_ns": 73483709,
+      "gpu_operations": 100
+    },
+    "CompressibleEquations/refresh_linearization_basic_state!": {
+      "instances": 40,
+      "total_ns": 194169892,
+      "gpu_operations": 280
+    },
+    "call/fill_halo_regions!": {
+      "instances": 2220,
+      "total_ns": 630722932,
+      "gpu_operations": 7770
+    },
+    "TimeSteppers/acoustic_rk3_substep!": {
+      "instances": 30,
+      "total_ns": 8018324347,
+      "gpu_operations": 8190
+    },
+    "CompressibleEquations/acoustic_rk3_substep_loop!": {
+      "instances": 30,
+      "total_ns": 7834022379,
+      "gpu_operations": 7860
+    },
+    "CompressibleEquations/initialize_stage_perturbations!": {
+      "instances": 30,
+      "total_ns": 360601662,
+      "gpu_operations": 510
+    },
+    "CompressibleEquations/acoustic_substep!": {
+      "instances": 220,
+      "total_ns": 6881762091,
+      "gpu_operations": 5940
+    },
+    "call/solve!": {
+      "instances": 220,
+      "total_ns": 1492273734,
+      "gpu_operations": 220
+    },
+    "CompressibleEquations/apply_divergence_damping!": {
+      "instances": 220,
+      "total_ns": 834279053,
+      "gpu_operations": 220
+    },
+    "CompressibleEquations/finalize_time_averaged_velocity!": {
+      "instances": 30,
+      "total_ns": 148976326,
+      "gpu_operations": 270
+    },
+    "AtmosphereModels/compute_velocities!": {
+      "instances": 60,
+      "total_ns": 283696197,
+      "gpu_operations": 1260
+    },
+    "TimeSteppers/scalar_rk3_substep!": {
+      "instances": 30,
+      "total_ns": 37961206,
+      "gpu_operations": 30
+    },
+    "AtmosphereModels/update_state!": {
+      "instances": 30,
+      "total_ns": 2287867944,
+      "gpu_operations": 1980
+    },
+    "CompressibleEquations/compute_total_density!": {
+      "instances": 30,
+      "total_ns": 45118621,
+      "gpu_operations": 120
+    },
+    "AtmosphereModels/compute_auxiliary_variables!": {
+      "instances": 30,
+      "total_ns": 436818609,
+      "gpu_operations": 1320
+    },
+    "AtmosphereModels/compute_auxiliary_thermodynamic_variables!": {
+      "instances": 30,
+      "total_ns": 151381529,
+      "gpu_operations": 300
+    },
+    "CompressibleEquations/compute_auxiliary_dynamics_variables!": {
+      "instances": 30,
+      "total_ns": 143499349,
+      "gpu_operations": 390
+    },
+    "AtmosphereModels/compute_tendencies!": {
+      "instances": 30,
+      "total_ns": 1760920538,
+      "gpu_operations": 180
+    },
+    "AtmosphereModels/compute_momentum_tendencies!": {
+      "instances": 30,
+      "total_ns": 988979282,
+      "gpu_operations": 90
+    },
+    "PotentialTemperatureFormulations/compute_thermodynamic_tendency!": {
+      "instances": 30,
+      "total_ns": 390938844,
+      "gpu_operations": 30
+    },
+    "CompressibleEquations/compute_dynamics_tendency!": {
+      "instances": 30,
+      "total_ns": 50275065,
+      "gpu_operations": 30
+    }
+  }
+}
