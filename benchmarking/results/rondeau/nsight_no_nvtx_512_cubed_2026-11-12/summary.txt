@@ -1,0 +1,44 @@
+Breeze 512 cubed: Nsight Systems CUDA-only capture, NVTX disabled
+Split-explicit dry CBL; Float32; WENO5; dt=0.02; 10 warmup + 10 captured steps
+GPU: physical 2, A100-SXM4-40GB, UUID 0d23b51f-58fb-31df-e839-8dd85117df68
+Validation: fields finite; 140 source hashes and all kernel counts match the NVTX demo
+NVTX events: 0; kernels: 10300; copies: 60
+Nsight capture duration: 10.572117 s
+GPU operation span: 10.531505 s total; 1.053150 s/step averaged over 10 steps
+Summed kernel duration: 10.469129 s
+GPU operation span covers first to last captured GPU operation, including gaps.
+Driver seconds/step includes report generation; do not interpret it as execution time.
+Kernel shares are fractions of summed kernel durations, not hardware utilization.
+No NVTX ranges are available to attribute kernels to host methods.
+Post-run launcher message (capture and export completed): [rondeau:1419757] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+
+CUDA kernels:
+gpu__post_solve_recovery_: 220 launches, 1559.364 ms, 14.89% of kernel time
+gpu_solve_batched_tridiagonal_system_kernel_: 220 launches, 1495.311 ms, 14.28% of kernel time
+gpu__build_predictors_: 220 launches, 1041.860 ms, 9.95% of kernel time
+gpu__explicit_horizontal_step_: 220 launches, 845.884 ms, 8.08% of kernel time
+gpu__thermal_divergence_damping_: 220 launches, 837.067 ms, 8.00% of kernel time
+gpu__build_vertical_rhs_: 220 launches, 747.722 ms, 7.14% of kernel time
+gpu__fill_periodic_west_and_east_halo_: 2790 launches, 570.948 ms, 5.45% of kernel time
+gpu_compute_potential_temperature_tendency_: 30 launches, 391.573 ms, 3.74% of kernel time
+gpu_compute_y_momentum_tendency_: 30 launches, 332.284 ms, 3.17% of kernel time
+gpu_compute_scalar_tendency_: 30 launches, 330.818 ms, 3.16% of kernel time
+gpu_compute_z_momentum_tendency_: 30 launches, 328.843 ms, 3.14% of kernel time
+gpu_compute_x_momentum_tendency_: 30 launches, 328.602 ms, 3.14% of kernel time
+gpu__recover_full_state_: 30 launches, 213.686 ms, 2.04% of kernel time
+gpu__compute_velocities_: 60 launches, 183.224 ms, 1.75% of kernel time
+gpu__compute_linearization_basic_state_: 40 launches, 175.114 ms, 1.67% of kernel time
+gpu__initialize_stage_perturbations_: 30 launches, 152.652 ms, 1.46% of kernel time
+gpu__zero_stage_workspaces_: 30 launches, 134.542 ms, 1.29% of kernel time
+gpu__compute_auxiliary_thermodynamic_variables_: 30 launches, 129.963 ms, 1.24% of kernel time
+gpu__finalize_time_averaged_velocity_: 30 launches, 127.805 ms, 1.22% of kernel time
+gpu__compute_temperature_and_pressure_: 30 launches, 114.809 ms, 1.10% of kernel time
+gpu_broadcast_kernel_cartesian: 60 launches, 113.742 ms, 1.09% of kernel time
+gpu__fill_periodic_south_and_north_halo_: 2790 launches, 77.250 ms, 0.74% of kernel time
+gpu__assemble_slow_vertical_momentum_tendency_: 30 launches, 50.535 ms, 0.48% of kernel time
+gpu__compute_density_tendency_: 30 launches, 50.296 ms, 0.48% of kernel time
+gpu__compute_total_density_: 30 launches, 38.129 ms, 0.36% of kernel time
+gpu__rk3_substep_: 30 launches, 37.977 ms, 0.36% of kernel time
+gpu__initialize_perturbation_with_rewind_: 30 launches, 37.938 ms, 0.36% of kernel time
+gpu__fill_bottom_and_top_halo_: 2670 launches, 20.587 ms, 0.20% of kernel time
+gpu__compute_z_bcs_: 90 launches, 0.601 ms, 0.01% of kernel time

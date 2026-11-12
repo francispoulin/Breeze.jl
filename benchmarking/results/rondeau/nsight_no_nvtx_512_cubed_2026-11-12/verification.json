@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "report": "/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/raw/profile.nsys-rep",
+  "report_bytes": 1104468,
+  "report_sha256": "453ffc8928a89234daf6987680e68411c3508dc9cd21b1bc34f3b876bdb07b08",
+  "sqlite": "/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/raw/profile.sqlite",
+  "trace": "cuda",
+  "nvtx_instrumentation": false,
+  "nvtx_event_count": 0,
+  "capture_event_types": [
+    "Cuda"
+  ],
+  "size": [
+    512,
+    512,
+    512
+  ],
+  "steps": 10,
+  "warmup_steps": 10,
+  "time_step": 0.02,
+  "nominal_acoustic_substeps": 12,
+  "float_type": "Float32",
+  "gpu_physical_index": 2,
+  "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68",
+  "fields_finite": true,
+  "max_abs_w": 0.00386466,
+  "post_run_launcher_messages": [
+    "[rondeau:1419757] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+  ],
+  "original_max_abs_w": 0.00386466,
+  "kernel_count": 10300,
+  "memcpy_count": 60,
+  "kernel_counts_match_nvtx_demo": true,
+  "source_hashes_match_nvtx_demo": 140,
+  "capture_seconds": 10.572116724,
+  "gpu_operation_window_seconds": 10.531504633,
+  "gpu_operation_window_seconds_per_step": 1.0531504633,
+  "summed_kernel_seconds": 10.469128833,
+  "timeline_active_fraction": 0.9987740339628639
+}

@@ -1,0 +1,10 @@
+
+NOTICE: Existing SQLite export found: /u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/raw/profile.sqlite
+        It is assumed file was previously exported from: /u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/raw/profile.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/raw/profile.sqlite] with [/opt/uw/nsight/2024.5.1/host-linux-x64/reports/cuda_gpu_kern_sum.py] to [/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_no_nvtx_512_cubed_2026-11-12/summary_cuda_gpu_kern_sum.csv]... PROCESSED
+
+Processing [/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/raw/profile.sqlite] with [/opt/uw/nsight/2024.5.1/host-linux-x64/reports/cuda_api_sum.py] to [/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_no_nvtx_512_cubed_2026-11-12/summary_cuda_api_sum.csv]... PROCESSED
+
+Processing [/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/raw/profile.sqlite] with [/opt/uw/nsight/2024.5.1/host-linux-x64/reports/cuda_gpu_mem_time_sum.py] to [/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nsight_no_nvtx_512_cubed_2026-11-12/summary_cuda_gpu_mem_time_sum.csv]... PROCESSED

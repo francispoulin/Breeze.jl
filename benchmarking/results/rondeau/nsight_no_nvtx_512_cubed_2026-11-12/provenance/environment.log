@@ -1,0 +1,56 @@
+julia version 1.12.7
+NVIDIA Nsight Systems version 2024.5.1.113-245134619542v0
+mpiexec (OpenRTE) 4.1.7
+
+Report bugs to http://www.open-mpi.org/community/help/
+Thu Nov 12 13:40:50 2026
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:01:00.0 Off |                    0 |
+| N/A   27C    P0             55W /  400W |   13233MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA A100-SXM4-40GB          On  |   00000000:41:00.0 Off |                    0 |
+| N/A   24C    P0             55W /  400W |    3069MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA A100-SXM4-40GB          On  |   00000000:81:00.0 Off |                    0 |
+| N/A   25C    P0             49W /  400W |       4MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA A100-SXM4-40GB          On  |   00000000:C1:00.0 Off |                    0 |
+| N/A   24C    P0             53W /  400W |    1149MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         1112325      C   julia                                 13222MiB |
+|    1   N/A  N/A         1042749      C   ...3.2+0.x64.linux.gnu/bin/julia       3058MiB |
+|    3   N/A  N/A         1042750      C   ...3.2+0.x64.linux.gnu/bin/julia       1138MiB |
++-----------------------------------------------------------------------------------------+
+CUDA_CACHE_PATH=/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/cuda_cache
+CUDA_PATH=/opt/uw/cuda/12.3.2
+CUDA_VISIBLE_DEVICES=2
+JULIA_CUDA_MEMORY_POOL=none
+JULIA_DEPOT_PATH=/u/ajtse/.julia
+JULIA_LOAD_PATH=@:@stdlib
+JULIA_NUM_GC_THREADS=1
+JULIA_NUM_PRECOMPILE_TASKS=4
+JULIA_NUM_THREADS=1
+JULIA_PKG_PRECOMPILE_AUTO=0
+OMPI_MCA_orte_tmpdir_base=/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/mpi
+OMP_NUM_THREADS=1
+OPENBLAS_NUM_THREADS=1
+TEMP=/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/tmp
+TMP=/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/tmp
+TMPDIR=/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/tmp
+XDG_CACHE_HOME=/u/ajtse/Breeze.jl/.runtime/nsight_no_nvtx_512_cubed_2026-11-12/cache
