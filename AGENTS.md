@@ -152,5 +152,6 @@ agents should read the one that matches the task:
 | Examples | `.claude/rules/examples-rules.md` |
 | Forcing, microphysics, or anything converting between thermodynamic variables | `.agents/physics-debugging.md` |
 | Tropical cyclone genesis cases | `.agents/validation.md` |
+| Distributed GPU optimization and profiling | [`.agents/nvidia_optimization_advice.md`](.agents/nvidia_optimization_advice.md) |
 
 Skills (`.claude/skills/`): `/run-tests`, `/build-docs`, `/new-simulation`, `/babysit-ci`.
