@@ -103,6 +103,9 @@ update tests and docs with code changes, check CI before merging.
 
 Make a commit after completing each task
 
+Push every commit immediately after creating it, using the current branch's configured upstream
+remote and branch. For a new branch, set its upstream on the first push.
+
 ## Agent Behavior
 
 - If you have questions about a task, ask the user and wait for their answers before executing the task.
