@@ -12,7 +12,7 @@
 #####       --dynamics=compressible_splitexplicit --size=512x512x128 --partition=2x2
 #####
 ##### Options (all `--name=value`):
-#####   --dynamics         anelastic (1 GPU only) | compressible_explicit | compressible_splitexplicit
+#####   --dynamics         anelastic | compressible_explicit | compressible_splitexplicit
 #####                                                                          (default compressible_splitexplicit)
 #####   --size             global grid, NxNyxNz                                (default 256x256x128)
 #####   --partition        ranks in x and y, RxxRy; must multiply to #ranks    (default <#ranks>x1)
@@ -22,6 +22,8 @@
 #####   --substeps         acoustic substeps (split-explicit only)             (default 12)
 #####   --float_type       Float32 | Float64                                   (default Float32)
 #####   --simplified       true | false: drop geostrophic forcing and drag BCs (default false)
+#####   --random_perturbation  true | false: random or smooth (sine) initial perturbation (default true);
+#####                      false to compare runs on different partitions, as rand() differs between ranks
 #####   --results_file     append one CSV line of results to this file         (default: none)
 #####
 
@@ -64,6 +66,7 @@ communicator  == "NCCL" && @eval using NCCL
 substeps      = parse(Int, option("substeps", "12"))
 FT            = option("float_type", "Float32") == "Float64" ? Float64 : Float32
 simplified    = option("simplified", "false") == "true"
+random_perturbation = option("random_perturbation", "true") == "true"
 results_file  = option("results_file", "")
 
 Rx * Ry == nranks || error("--partition=$(Rx)x$(Ry) needs $(Rx * Ry) ranks but mpiexec started $nranks")
@@ -73,11 +76,9 @@ dynamics = if dynamics_name == "compressible_explicit"
 elseif dynamics_name == "compressible_splitexplicit"
     CompressibleDynamics(SplitExplicitTimeDiscretization(FT; substeps))
 elseif dynamics_name == "anelastic"
-    # AnelasticDynamics builds a serial FourierTridiagonalPoissonSolver on each rank's local grid,
-    # which does not solve the global pressure problem on several ranks. Refuse rather than time a
-    # wrong solve. On one rank the local grid is the global grid, so it is correct.
-    nranks == 1 || error("anelastic dynamics is not distributed in this Breeze version, so it runs on 1 GPU only; see README.md (distributed pressure solver, Breeze PR 1157)")
-    nothing  # `convective_boundary_layer` builds AnelasticDynamics when `dynamics` is `nothing`
+    # `convective_boundary_layer` builds AnelasticDynamics when `dynamics` is `nothing`. On several
+    # ranks its pressure solve is Oceananigans' DistributedFourierTridiagonalPoissonSolver (Breeze PR #1157).
+    nothing
 else
     error("Unknown --dynamics=$dynamics_name")
 end
@@ -87,7 +88,7 @@ arch = nranks == 1 ? GPU() :
        communicator == "NCCL" ? Oceananigans.DistributedComputations.NCCLDistributed(GPU(); partition = Partition(Rx, Ry)) :
        Distributed(GPU(); partition = Partition(Rx, Ry))
 
-model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified)
+model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified, random_perturbation)
 
 rank == 0 && @info "Distributed CBL benchmark" dynamics_name FT (Nx, Ny, Nz) partition=(Rx, Ry) nranks Δt time_steps
 
@@ -118,7 +119,7 @@ if rank == 0
     points_per_second = total_points / seconds_per_step
 
     # @printf needs a single string literal as its format, so this stays on one line.
-    @printf("RESULT machine=%s dynamics=%s float=%s size=%dx%dx%d partition=%dx%d gpus=%d steps=%d seconds_per_step=%.4e points_per_second=%.4e points_per_second_per_gpu=%.4e max_abs_w=%.3e\n",
+    @printf("RESULT machine=%s dynamics=%s float=%s size=%dx%dx%d partition=%dx%d gpus=%d steps=%d seconds_per_step=%.4e points_per_second=%.4e points_per_second_per_gpu=%.4e max_abs_w=%.6e\n",
             machine, dynamics_name, FT, Nx, Ny, Nz, Rx, Ry, nranks, time_steps,
             seconds_per_step, points_per_second, points_per_second / nranks, max_w)
 
