@@ -12,7 +12,7 @@ Reactant or `Simulation` overhead, and reports points per second. The single-GPU
 |----------|--------------|
 | `compressible_explicit` | Yes. Run on 1 A100 GPU (256×256×128) and on 1 and 2 (128×128×64, partition 2x1); results finite. |
 | `compressible_splitexplicit` | Yes. Run on 1 and 2 A100 GPUs (256×256×128, partition 2x1); results finite. Not yet compared field by field with a serial run (the case's initial noise uses `rand()`, which differs between ranks). |
-| `anelastic` | **On this branch only**, which merges Breeze PR [#1157](https://github.com/NumericalEarth/Breeze.jl/pull/1157) (not in Breeze `main` yet). On several ranks the pressure solve is Oceananigans' `DistributedFourierTridiagonalPoissonSolver`: slab partitions `Rx×1` need 2 transposes (MPI `Alltoall`) per solve, `1×Ry` and `Rx×Ry` at least 4. Not yet run on several GPUs here. |
+| `anelastic` | **On this branch only**, which merges Breeze PR [#1157](https://github.com/NumericalEarth/Breeze.jl/pull/1157) (not in Breeze `main` yet). On several ranks the pressure solve is Oceananigans' `DistributedFourierTridiagonalPoissonSolver`: a solve takes 2 transposes (MPI `Alltoall`) with `Rx×1`, 4 with `1×Ry` and 8 with `Rx×Ry`. Distributed and 1-GPU runs agree (`max_abs_w` to 7 digits at 1×1, 2×1 and 4×1, Float64, `--random_perturbation=false`, 100 steps, pelee and rondeau, Nov 11, 2026). |
 
 ## Requirements
 
