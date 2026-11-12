@@ -1,0 +1,14 @@
+{
+  "validation_tests": 7,
+  "queue_tests": 5,
+  "shell_syntax_files": 6,
+  "python_syntax_files": 9,
+  "plot_cli_help": "PASS",
+  "cuda_functional": true,
+  "cuda_aware_mpi": true,
+  "source_pinned_to_worktree": true,
+  "launcher_dryrun_cases": 24,
+  "launcher_dryrun_anelastic_cases": 8,
+  "breeze_env_source": "PASS",
+  "plot_render_from_archived_csv": "PASS: PNG and SVG valid"
+}

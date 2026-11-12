@@ -1,0 +1,17 @@
+PLACEMENT rank=0 host=rondeau gpu_uuid=27b6f362-d593-fda1-e6fa-43275dcca7da communicator=none threads=1 pool=none
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_splitexplicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (32, 32, 32)
+│   partition = (1, 1)
+│   nranks = 1
+│   Δt = 0.005
+│   time_steps = 3
+│   communication_name = "SERIAL"
+│   communicator_type = "none"
+└   profile = false
+TIMING_START communication=SERIAL steps=3
+TIMING_END communication=SERIAL elapsed_seconds=0.078546022
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=513933312
+RESULT machine=rondeau dynamics=compressible_splitexplicit float=Float32 size=32x32x32 partition=1x1 gpus=1 steps=3 seconds_per_step=2.6182e-02 points_per_second=1.2515e+06 points_per_second_per_gpu=1.2515e+06 max_abs_w=1.485390e-04 communication=SERIAL fields_finite=true
+[rondeau:1894775] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237

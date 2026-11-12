@@ -1,0 +1,43 @@
+--------------------------------------------------------------------------
+WARNING: Open MPI will create a shared memory backing file in a
+directory that appears to be mounted on a network filesystem.
+Creating the shared memory backup file on a network file system, such
+as NFS or Lustre is not recommended -- it may cause excessive network
+traffic to your file servers and/or cause shared memory traffic in
+Open MPI to be much slower than expected.
+
+You may want to check what the typical temporary directory is on your
+node.  Possible sources of the location of this temporary directory
+include the $TEMPDIR, $TEMP, and $TMP environment variables.
+
+Note, too, that system administrators can set a list of filesystems
+where Open MPI is disallowed from creating temporary files by setting
+the MCA parameter "orte_no_session_dir".
+
+  Local host: rondeau
+  Filename:   /u/ajtse/Breeze.jl/.runtime/benchmark_results_smoke_2026-11-12/tmp/mpi/ompi.rondeau.8193/pid.1895614/1/shared_mem_cuda_pool.rondeau
+
+You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
+disable this message.
+--------------------------------------------------------------------------
+[rondeau:1895614] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:1895614] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+PLACEMENT rank=1 host=rondeau gpu_uuid=0d23b51f-58fb-31df-e839-8dd85117df68 communicator=Comm threads=1 pool=none
+PLACEMENT rank=0 host=rondeau gpu_uuid=27b6f362-d593-fda1-e6fa-43275dcca7da communicator=Comm threads=1 pool=none
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "anelastic"
+│   FT = Float64
+│   (Nx, Ny, Nz) = (32, 32, 32)
+│   partition = (2, 1)
+│   nranks = 2
+│   Δt = 0.005
+│   time_steps = 3
+│   communication_name = "MPI"
+│   communicator_type = "Comm"
+└   profile = false
+TIMING_START communication=MPI steps=3
+TIMING_END communication=MPI elapsed_seconds=0.434593712
+VALIDATION rank=1 fields_finite=true gpu_used_bytes=532807680
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=532807680
+RESULT machine=rondeau dynamics=anelastic float=Float64 size=32x32x32 partition=2x1 gpus=2 steps=3 seconds_per_step=1.4486e-01 points_per_second=2.2620e+05 points_per_second_per_gpu=1.1310e+05 max_abs_w=2.957905e-06 communication=MPI fields_finite=true
+[rondeau:1895614] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237

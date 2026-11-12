@@ -1,0 +1,23 @@
+usage: plot_split_explicit_results.py [-h]
+                                      [--dynamics {compressible_explicit,compressible_splitexplicit}]
+                                      [--comm {MPI,NCCL}] [--compare-comm]
+                                      [--output-prefix OUTPUT_PREFIX]
+                                      [--time-step TIME_STEP]
+                                      [--warmup-steps WARMUP_STEPS]
+                                      [--substeps SUBSTEPS]
+                                      csv
+
+Plot explicit or split-explicit timing and efficiency from a benchmark CSV.
+
+positional arguments:
+  csv
+
+options:
+  -h, --help            show this help message and exit
+  --dynamics {compressible_explicit,compressible_splitexplicit}
+  --comm {MPI,NCCL}
+  --compare-comm        Compare MPI and NCCL weak scaling
+  --output-prefix OUTPUT_PREFIX
+  --time-step TIME_STEP
+  --warmup-steps WARMUP_STEPS
+  --substeps SUBSTEPS

@@ -1,0 +1,26 @@
+== anelastic, 1 GPU(s), 256x256x128, partition 1x1, time step 0.005 s
+== anelastic, 2 GPU(s), 256x256x128, partition 2x1, time step 0.005 s
+== anelastic, 2 GPU(s), 256x256x128, partition 1x2, time step 0.005 s
+== anelastic, 4 GPU(s), 256x256x128, partition 2x2, time step 0.005 s
+== anelastic, 4 GPU(s), 256x256x128, partition 4x1, time step 0.005 s
+== anelastic, 4 GPU(s), 256x256x128, partition 1x4, time step 0.005 s
+== anelastic, 2 GPU(s), 512x256x128, partition 2x1, time step 0.005 s
+== anelastic, 4 GPU(s), 512x512x128, partition 2x2, time step 0.005 s
+== compressible_explicit, 1 GPU(s), 256x256x128, partition 1x1, time step 0.005 s
+== compressible_explicit, 2 GPU(s), 256x256x128, partition 2x1, time step 0.005 s
+== compressible_explicit, 2 GPU(s), 256x256x128, partition 1x2, time step 0.005 s
+== compressible_explicit, 4 GPU(s), 256x256x128, partition 2x2, time step 0.005 s
+== compressible_explicit, 4 GPU(s), 256x256x128, partition 4x1, time step 0.005 s
+== compressible_explicit, 4 GPU(s), 256x256x128, partition 1x4, time step 0.005 s
+== compressible_explicit, 2 GPU(s), 512x256x128, partition 2x1, time step 0.005 s
+== compressible_explicit, 4 GPU(s), 512x512x128, partition 2x2, time step 0.005 s
+== compressible_splitexplicit, 1 GPU(s), 256x256x128, partition 1x1, time step 0.005 s
+== compressible_splitexplicit, 2 GPU(s), 256x256x128, partition 2x1, time step 0.005 s
+== compressible_splitexplicit, 2 GPU(s), 256x256x128, partition 1x2, time step 0.005 s
+== compressible_splitexplicit, 4 GPU(s), 256x256x128, partition 2x2, time step 0.005 s
+== compressible_splitexplicit, 4 GPU(s), 256x256x128, partition 4x1, time step 0.005 s
+== compressible_splitexplicit, 4 GPU(s), 256x256x128, partition 1x4, time step 0.005 s
+== compressible_splitexplicit, 2 GPU(s), 512x256x128, partition 2x1, time step 0.005 s
+== compressible_splitexplicit, 4 GPU(s), 512x512x128, partition 2x2, time step 0.005 s
+Results: /u/ajtse/Breeze.jl/.runtime/benchmark_results_smoke_2026-11-12/tmp/launcher_mock/results.csv
+PASS: 24 mocked launches, including eight anelastic cases

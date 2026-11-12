@@ -1,0 +1,11 @@
+RUN anelastic_SERIAL_1g
+PASS anelastic_SERIAL_1g exit=0
+RUN compressible_explicit_SERIAL_1g
+PASS compressible_explicit_SERIAL_1g exit=0
+RUN compressible_splitexplicit_SERIAL_1g
+PASS compressible_splitexplicit_SERIAL_1g exit=0
+RUN anelastic_MPI_2g
+PASS anelastic_MPI_2g exit=0
+RUN anelastic_NCCL_2g
+PASS anelastic_NCCL_2g exit=0
+SUMMARY 5 / 5 cases passed
