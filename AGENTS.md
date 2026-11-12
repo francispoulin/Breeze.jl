@@ -4,6 +4,16 @@ Atmosphere model built on Oceananigans (grids, fields, solvers, advection), with
 CloudMicrophysics and RRTMGP. It runs on CPUs and GPUs through KernelAbstractions, so code that
 passes on a CPU can still fail on a GPU; `.claude/rules/kernel-rules.md` covers why.
 
+## Rondeau Access & File Storage
+
+- Use `ajtse@rondeau.math.private.uwaterloo.ca` for SSH access and file transfers to Rondeau.
+- Keep all task files, including temporary files, profiling captures, logs, caches, and environments,
+  inside `/u/ajtse`.
+- Configure `TMPDIR` and tool-specific temporary, cache, and output directories accordingly.
+  Use project-local `.runtime/` for temporary work; do not use `/tmp` or `/local_scratch` for task files.
+- If a file is too large or should not be committed, keep it inside `/u/ajtse` and add its path
+  to `.gitignore` as needed.
+
 ## Commands
 
 ```sh
