@@ -34,6 +34,7 @@ for CUDA API correlation, detailed event inspection and the full profiler interf
 <div id="tooltip"></div>
 <script id="trace-data" type="application/json">__DATA__</script>
 <script>
+(() => {
 "use strict";
 const trace = JSON.parse(document.getElementById("trace-data").textContent);
 const canvas = document.getElementById("timeline"), ctx = canvas.getContext("2d");
@@ -124,5 +125,6 @@ canvas.onpointermove=event=>{
   tip.style.top=Math.max(0,Math.min(event.clientY+14,window.innerHeight-tip.offsetHeight-10))+"px";
 };
 window.addEventListener("resize",resize); resize();
+})();
 </script>
 </html>

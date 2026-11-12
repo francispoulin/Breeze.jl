@@ -47,6 +47,24 @@ ranges and CUDA events needed for that view.
 - [PNG overview and first-step detail](timeline.png), [vector SVG](timeline.svg).
 - [Projection counts, timing totals and input hash](timeline.json).
 
+The standalone HTML was repaired on 2026-11-12: its script now keeps variables
+inside a function, avoiding a collision with the browser's built-in `window.top`.
+If an earlier copy shows a blank canvas, download the updated `timeline.html`:
+
+```bash
+scp ajtse@rondeau:/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nvtx_demo_512_cubed_2026-11-10/timeline.html ~/Downloads/breeze_512_cubed_timeline.html
+```
+
+The repaired file was opened offline in Chromium 158.0.8127.18. Browser tests
+check rendered canvas pixels, the summary and legend, all four buttons, wheel
+zoom, drag panning, hover durations and window resizing, with no JavaScript
+errors. The earlier mock-DOM check did not catch the browser global-name conflict.
+To repeat the browser regression check with Playwright and Chromium installed:
+
+```bash
+python3 -B benchmarking/distributed/test_nvtx_timeline_browser.py
+```
+
 These exports distinguish host NVTX ranges, GPU-projected NVTX ranges and actual
 CUDA kernel/copy execution. A level is the range's nesting depth on its host
 thread. The projection spans its first to last associated GPU operation,
