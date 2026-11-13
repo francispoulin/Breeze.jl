@@ -46,7 +46,7 @@ def report(study):
         for axis in axes:
             axis.set_xscale("log", base=2)
             axis.set_xticks([1, 2, 4, 8, 16], labels=[1, 2, 4, 8, 16])
-            axis.set_xlabel("GPUs (N×1 partition)")
+            axis.set_xlabel("Active GPUs (N×1 partition)")
             axis.grid(alpha=0.25)
             axis.legend()
         axes[0].set_ylabel("Synchronized seconds / step")
@@ -73,7 +73,8 @@ def report(study):
     unique = {case["gpus"]: case for case in plan}
     for count, case in sorted(unique.items()):
         lines.append(f"| {count} | {case['size'].replace('x', '×')} | {case['partition'].replace('x', '×')} | {'SERIAL' if count == 1 else 'MPI'} | {case['time_step']} |")
-    lines += ["", "Five independent Slurm allocations request only the GPUs required for their scale.",
+    lines += ["", "GPU counts and per-GPU throughput refer to active MPI ranks, with one selected GPU per rank.",
+              "The initial series used five independent Slurm allocations. Additional recovery reservations are documented below.",
               "Each runs anelastic, CE, and CSE sequentially on the same allocated GPUs, with eight CPU cores per rank and one Julia thread.",
               "Each allocation has a three-hour limit; each case has a 50-minute cap, including startup and compilation.",
               "An after-any CPU finalizer retains results and plots even if a GPU allocation fails."]
@@ -84,6 +85,10 @@ def report(study):
         lines += ["", f"Finalizer job: {submission.get('finalizer_job_id', 'not yet submitted')}. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/)."]
         if submission.get("retry_jobs"):
             lines += ["", "Recovery allocations: " + ", ".join(f"{item['gpus']} GPUs: job {item['job_id']}" for item in submission["retry_jobs"]) + ". See [recovery notes](recovery.md)."]
+            for item in submission["retry_jobs"]:
+                reserved = item.get("reserved_gpus_per_node", min(4, item["gpus"]))
+                if reserved > min(4, item["gpus"]):
+                    lines += ["", f"Job {item['job_id']} reserves {reserved} GPUs on one node and uses {item['gpus']} active GPUs; the unused GPUs do not contribute to the measured grid or throughput."]
     lines += ["", "| Dynamics | GPUs | State | s/step | Points/s/GPU | Weak efficiency (%) | Evidence / error |",
               "|---|---:|---|---:|---:|---:|---|"]
     metrics = {row["case"]: row for row in rows}
