@@ -1,0 +1,12 @@
+test_all_three_commands_preserve_local_cube_and_disable_profiling (test_series.WeakScalingChecks) ... ok
+test_idle_contexts_low_memory_and_malformed_status_block_selection (test_series.WeakScalingChecks) ... ok
+test_modified_frozen_source_is_rejected (test_series.WeakScalingChecks) ... ok
+test_preceding_campaign_must_finish_before_launch (test_series.WeakScalingChecks) ... ok
+test_rejects_strong_scaling_missing_points_and_nonfinite_fields (test_series.WeakScalingChecks) ... ok
+test_validation_requires_finite_rank_results_unique_devices_and_expected_geometry (test_series.WeakScalingChecks) ... ok
+test_weak_efficiency_has_no_gpu_count_divisor (test_series.WeakScalingChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.007s
+
+OK

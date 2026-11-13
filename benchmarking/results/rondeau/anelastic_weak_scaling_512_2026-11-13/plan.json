@@ -1,0 +1,65 @@
+{
+  "status": "AUTOMATIC_LAUNCH_PREPARED",
+  "dynamics": "anelastic",
+  "source_branch": "benchmark-results",
+  "backend": "MPI",
+  "precision": "Float32",
+  "cells_per_gpu": 134217728,
+  "time_step": 0.005,
+  "warmup_steps": 10,
+  "timed_steps": 500,
+  "cases": [
+    {
+      "gpus": 1,
+      "size": [
+        512,
+        512,
+        512
+      ],
+      "partition": [
+        1,
+        1
+      ]
+    },
+    {
+      "gpus": 2,
+      "size": [
+        1024,
+        512,
+        512
+      ],
+      "partition": [
+        2,
+        1
+      ]
+    },
+    {
+      "gpus": 4,
+      "size": [
+        2048,
+        512,
+        512
+      ],
+      "partition": [
+        4,
+        1
+      ]
+    }
+  ],
+  "profile": false,
+  "nvtx": false,
+  "poll_seconds": 30,
+  "allow_shared_gpus": false,
+  "minimum_free_memory_mib": 30000,
+  "julia": "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+  "predecessor_status": "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/status.json",
+  "runtime": "/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13",
+  "frozen_checkout": "/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/worktree",
+  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git",
+  "plot_outputs": [
+    "anelastic_weak_efficiency.png",
+    "anelastic_weak_efficiency.svg",
+    "breeze_weak_efficiency.png",
+    "breeze_weak_efficiency.svg"
+  ]
+}
