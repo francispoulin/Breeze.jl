@@ -52,13 +52,13 @@ class StudyTests(unittest.TestCase):
         for argument in ("--nodes=4", "--ntasks=16", "--partition=16x1", "--size=8192x512x512",
                          "--comm=MPI", "--random_perturbation=false", "--float_type=Float32", "--nvtx=false",
                          "--profile=false", "--time_step=0.000625", "--warmup_steps=10", "--time_steps=500",
-                         "--gpus-per-task=h100:1", "--gpu-bind=single:1"):
+                         "--gpus-per-node=h100:4", "--gpu-bind=none"):
             self.assertIn(argument, command)
 
     def test_preflight_rejects_shared_or_missing_devices(self):
-        output = "PREFLIGHT rank=0 host=node gpu_uuid=gpu0\nPREFLIGHT rank=1 host=node gpu_uuid=gpu1\n"
+        output = "PREFLIGHT rank=0 host=node gpu_uuid=gpu0 devices=2\nPREFLIGHT rank=1 host=node gpu_uuid=gpu1 devices=2\n"
         self.assertEqual(len(validate_preflight_placement(output, 2)), 2)
-        for invalid in (output.replace("gpu1", "gpu0"), output.splitlines()[0], output + output):
+        for invalid in (output.replace("gpu1", "gpu0"), output.splitlines()[0], output + output, output.replace("devices=2", "devices=1")):
             with self.assertRaises(RuntimeError):
                 validate_preflight_placement(invalid, 2)
 

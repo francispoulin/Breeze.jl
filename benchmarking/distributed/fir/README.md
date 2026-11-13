@@ -35,9 +35,11 @@ the frozen jobs. Use a fresh study directory for a new series.
 Five independent Slurm jobs allocate exactly 1, 2, 4, 8, and 16 GPUs respectively.
 Each runs the three dynamics sequentially. Allocations request eight CPU cores
 per rank, 64 GiB of host memory per GPU, and three hours. Every Julia/BLAS/OpenMP
-process has one thread. Slurm assigns one GPU per task with `--gpus-per-task=h100:1`
-and `--gpu-bind=single:1`; Oceananigans selects the rank's visible device. An all-rank
-preflight rejects shared or missing GPUs before model construction. Each case has a 50-minute
+process has one thread. Every `srun` step explicitly requests the allocation's
+GPUs with `--gpus-per-node=h100:N` and `--gpu-bind=none`, retaining GPU peer copies.
+Oceananigans selects devices by node-local rank. An all-rank preflight rejects
+shared/missing GPUs and requires all allocated node GPUs to be visible before
+model construction. Each case has a 50-minute
 limit. A failed case is recorded and the remaining cases still run.
 
 Validation reuses the existing per-rank validator and additionally checks dynamics,

@@ -43,11 +43,13 @@ def check_sources(study):
 
 
 def validate_preflight_placement(output, count):
-    placements = re.findall(r"PREFLIGHT rank=(\d+) host=(\S+) gpu_uuid=(\S+)", output)
+    placements = re.findall(r"PREFLIGHT rank=(\d+) host=(\S+) gpu_uuid=(\S+) devices=(\d+)", output)
     if len(placements) != count or {int(item[0]) for item in placements} != set(range(count)):
         raise RuntimeError("Missing or duplicate rank in GPU placement preflight")
-    if len({(host, uuid) for _, host, uuid in placements}) != count:
+    if len({(host, uuid) for _, host, uuid, _ in placements}) != count:
         raise RuntimeError("Ranks share a GPU in placement preflight")
+    if any(int(devices) != min(4, count) for _, _, _, devices in placements):
+        raise RuntimeError("Each rank must see all GPUs allocated on its node for GPU peer copies")
     return placements
 
 
@@ -158,7 +160,7 @@ def case_command(case, study):
     directory = study / "cases" / case["id"]
     count = case["gpus"]
     return ["srun", "--mpi=pmix", "--exact", "--kill-on-bad-exit=1", "--time=00:50:00", "--cpu-bind=none",
-            "--gpus-per-task=h100:1", "--gpu-bind=single:1", "--distribution=block:block", "--nodes=" + str(max(1, count // 4)),
+            "--gpus-per-node=h100:" + str(min(4, count)), "--gpu-bind=none", "--distribution=block:block", "--nodes=" + str(max(1, count // 4)),
             "--ntasks=" + str(count), "--ntasks-per-node=" + str(min(4, count)),
             "bash", str(source / "benchmarking/distributed/rorqual/rank.sh"), str(directory),
             "julia", "--startup-file=no", "--threads=1", "--project=" + config["environment"],
@@ -221,13 +223,13 @@ def run_size(study, count):
                      'using Oceananigans.DistributedComputations: Distributed, Partition; '
                      'count = MPI.Comm_size(MPI.COMM_WORLD); rank = MPI.Comm_rank(MPI.COMM_WORLD); '
                      'arch = count == 1 ? GPU() : Distributed(GPU(); partition=Partition(count, 1)); '
-                     '@printf("PREFLIGHT rank=%d host=%s gpu_uuid=%s\\n", rank, gethostname(), string(CUDA.uuid(CUDA.device()))); '
+                     '@printf("PREFLIGHT rank=%d host=%s gpu_uuid=%s devices=%d\\n", rank, gethostname(), string(CUDA.uuid(CUDA.device())), length(CUDA.devices())); '
                      'CUDA.functional() && MPI.has_cuda() || error("CUDA-aware MPI and a functional GPU are required"); '
                      'if rank == 0; CUDA.versioninfo(); MPI.versioninfo(); println("Breeze path: ", pathof(Breeze)); end; '
                      'MPI.Barrier(MPI.COMM_WORLD)')
         command = ["srun", "--mpi=pmix", "--exact", "--kill-on-bad-exit=1", "--nodes=" + str(max(1, count // 4)),
                    "--ntasks=" + str(count), "--ntasks-per-node=" + str(min(4, count)), "--cpu-bind=none",
-                   "--gpus-per-task=h100:1", "--gpu-bind=single:1", "--distribution=block:block",
+                   "--gpus-per-node=h100:" + str(min(4, count)), "--gpu-bind=none", "--distribution=block:block",
                    "julia", "--startup-file=no", "--threads=1", "--project=" + config_path(study, "environment"), "-e", preflight]
         (directory / "preflight_command.sh").write_text(shlex.join(command) + "\n")
         with (directory / "gpu_preflight.log").open("w") as handle:
