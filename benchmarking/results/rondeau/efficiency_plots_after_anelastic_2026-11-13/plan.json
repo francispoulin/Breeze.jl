@@ -1,0 +1,48 @@
+{
+  "source_branch": "benchmark-results",
+  "dependency": "all three anelastic cases successful",
+  "anelastic_status": "/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/status.json",
+  "poll_seconds": 30,
+  "figures": {
+    "breeze": {
+      "curves": [
+        "anelastic",
+        "compressible_explicit",
+        "compressible_splitexplicit"
+      ],
+      "gpus": [
+        1,
+        2,
+        4
+      ]
+    },
+    "oceananigans": {
+      "curves": [
+        "hydrostatic",
+        "nonhydrostatic"
+      ],
+      "gpus": [
+        1,
+        2,
+        4
+      ]
+    }
+  },
+  "cells_per_gpu": 134217728,
+  "formats": [
+    "png",
+    "svg"
+  ],
+  "oceananigans_inputs": {
+    "hydrostatic": {
+      "root": "/u/ajtse/Oceananigans.jl/benchmarking/results/hydrostatic_free_surface_models/rondeau",
+      "model_type": "HydrostaticFreeSurfaceModel"
+    },
+    "nonhydrostatic": {
+      "root": "/u/ajtse/Oceananigans.jl/benchmarking/results/non_hydrostatic_models/rondeau",
+      "model_type": "NonhydrostaticModel"
+    }
+  },
+  "runtime": "/u/ajtse/Breeze.jl/.runtime/efficiency_plots_after_anelastic_2026-11-13",
+  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git"
+}

@@ -1,0 +1,9 @@
+     Project No packages added to or removed from `~/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/environment/Project.toml`
+    Manifest No packages added to or removed from `~/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/environment/Manifest.toml`
+Precompiling packages...
+  13386.1 ms  ✓ Breeze
+  1 dependency successfully precompiled in 15 seconds. 126 already precompiled.
+  24 dependencies precompiled but different versions are currently loaded (ArgTools, Base64, Dates, Downloads, JuliaSyntaxHighlighting, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, Markdown, MozillaCACerts_jll, NetworkOptions, OpenSSL_jll, Pkg, Printf, StyledStrings, TOML, Tar, UUIDs, Zlib_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 55 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+ANELASTIC_ENVIRONMENT_OK /u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/worktree MPI_CUDA=true
+[rondeau:3319229] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+[rondeau:3319229] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 246

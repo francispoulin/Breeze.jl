@@ -1,0 +1,1 @@
+PLOT_RENDERING_OK: two PNG and two SVG outputs; efficiency math checked. Synthetic anelastic fixtures only; not benchmark measurements. Fixture outputs remain ignored under .runtime.

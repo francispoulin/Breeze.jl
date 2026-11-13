@@ -1,0 +1,8 @@
+{
+  "benchmarking/results/rondeau/efficiency_plots_after_anelastic_2026-11-13/queue_plots.py": "d0250d77a3b35a0714fcb0c19266ea5e4fc8a9848c9b2d44c2c025c467cc1ebf",
+  "benchmarking/results/rondeau/efficiency_plots_after_anelastic_2026-11-13/ocean_inputs.py": "97f268e3a6a2df2df0fab4d66db8b5a1573d09e904a0c1c2291e37583ad776f8",
+  "benchmarking/results/rondeau/efficiency_plots_after_anelastic_2026-11-13/plan.json": "10a38da75fd01a2857936bbc1132ccdfe212b5d8dc206ef0b485e24d7762add4",
+  "benchmarking/results/rondeau/efficiency_plots_after_anelastic_2026-11-13/environment.sh": "7ef0bf4db3c19a22a2c5b697b0ff89c3d01f24730325580269110841fa41e7d2",
+  "benchmarking/results/rondeau/anelastic_weak_scaling_512_2026-11-13/plot_efficiency.py": "1e8374d01dbfd4478145f4318a2a9bc6fa711a5ef2e8aa3b753f0af8fdb44b98",
+  "benchmarking/results/rondeau/anelastic_weak_scaling_512_2026-11-13/provenance/compressible_measurements.csv": "9fa2a80877bb09b1ada246d23bb917816715927fd5494ba4e64d8388aacd1b3d"
+}
