@@ -1,0 +1,2 @@
+sbatch: NOTE: Your memory request of 262144.0M was likely submitted as 256.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+sbatch: Job 3715553 to start at 2026-11-12T22:21:57 a using 128 processors on nodes fc[10113,10201,10204,10210] in partition gpubase_bynode_b1

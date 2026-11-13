@@ -1,0 +1,233 @@
+Precompiling packages...
+    502.0 ms  ✓ MSVCRuntime_jll
+   1642.9 ms  ✓ CUDA_Compiler_jll
+Info Given CUDA_Runtime_jll was explicitly requested, output will be shown live [0K
+[0K Downloading artifact: CUDA_Compiler
+   7710.9 ms  ✓ CUDA_Runtime_jll
+  3 dependencies successfully precompiled in 10 seconds. 31 already precompiled.
+  1 dependency had output during precompilation:
+┌ CUDA_Runtime_jll
+│  [Output was shown above]
+└
+ Downloading artifact: CUDA_Runtime
+PLEASE submit a bug report to https://github.com/julialang/julia and include the crash backtrace.
+Stack dump:
+0.	Program arguments: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/julia/1.12.5/libexec/julia/lld -flavor gnu  -shared -o /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/OceananigansCUDAExt/jl_vxWHY9 --whole-archive /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/OceananigansCUDAExt/jl_rp1sru --no-whole-archive -L/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/julia/1.12.5/lib/julia -L/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/julia/1.12.5/lib -ljulia -ljulia-internal
+Stack dump without symbol names (ensure you have llvm-symbolizer in your PATH or set the environment var `LLVM_SYMBOLIZER_PATH` to point to it):
+0  libLLVM.so.18.1jl 0x00007febf22a8ac8 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) + 40
+1  libLLVM.so.18.1jl 0x00007febf22a637c
+2  libc.so.6         0x00007febf1463790
+3  lld               0x0000000000676be1 void lld::elf::writeEhdr<llvm::object::ELFType<(llvm::endianness)1, true>>(unsigned char*, lld::elf::Partition&) + 17
+4  lld               0x00000000006de021
+5  lld               0x00000000006decf9 void lld::elf::writeResult<llvm::object::ELFType<(llvm::endianness)1, true>>() + 25
+6  lld               0x00000000005853f7 lld::elf::LinkerDriver::link(llvm::opt::InputArgList&) + 11879
+7  lld               0x000000000058649f lld::elf::LinkerDriver::linkerMain(llvm::ArrayRef<char const*>) + 3551
+8  lld               0x0000000000587d60 lld::elf::link(llvm::ArrayRef<char const*>, llvm::raw_ostream&, llvm::raw_ostream&, bool, bool) + 4560
+9  lld               0x0000000000474f12 lld::unsafeLldMain(llvm::ArrayRef<char const*>, llvm::raw_ostream&, llvm::raw_ostream&, llvm::ArrayRef<lld::DriverDef>, bool) + 690
+10 lld               0x00000000004748c1 lld_main(int, char**, llvm::ToolContext const&) + 609
+11 lld               0x0000000000472bd4 main + 84
+12 libc.so.6         0x00007febf144e94a
+13 libc.so.6         0x00007febf144ea05 __libc_start_main + 133
+14 lld               0x0000000000474153
+lld: error: failed to write output '/home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/OceananigansCUDAExt/jl_vxWHY9': No such file or directory
+  Activating project at `~/Breeze.jl/.runtime/environments/fir_weak512`
+   Installed cuFFT ────────────────── v6.4.2
+   Installed XML2_jll ─────────────── v2.15.4+0
+   Installed tree_sitter_llvm_jll ─── v1.1.0+0
+   Installed IrrationalConstants ──── v0.2.7
+   Installed NVML ─────────────────── v6.4.2
+   Installed CUPTI ────────────────── v6.4.2
+   Installed cuSOLVER ─────────────── v6.4.2
+   Installed LMDB ─────────────────── v3.0.1
+   Installed CUDATools ────────────── v6.4.2
+   Installed Hwloc_jll ────────────── v2.15.0+0
+   Installed tree_sitter_gcn_jll ──── v0.1.0+0
+   Installed LLVMExtra_jll ────────── v0.0.56+0
+   Installed CUDA_Compiler_jll ────── v0.6.4+0
+   Installed CUDACore ─────────────── v6.4.2
+   Installed SpecialFunctions ─────── v2.9.1
+   Installed OrderedCollections ───── v2.0.3
+   Installed MSVCRuntime_jll ──────── v14.51.36247+0
+   Installed LMDB_jll ─────────────── v1.0.3+0
+   Installed CompilerCaching ──────── v0.5.3
+   Installed GPUToolbox ───────────── v3.5.1
+   Installed cuSPARSE ─────────────── v6.4.2
+   Installed GPUCompiler ──────────── v2.21.0
+   Installed tree_sitter_spirv_jll ── v0.1.0+0
+   Installed cuRAND ───────────────── v6.4.2
+   Installed CUDA_Runtime_jll ─────── v0.25.0+3
+   Installed NCCL_jll ─────────────── v2.32.3+0
+   Installed OpenSpecFun_jll ──────── v0.5.6+0
+   Installed LogExpFunctions ──────── v1.0.3
+   Installed cuBLAS ───────────────── v6.4.2
+   Installed KernelAbstractions ───── v0.9.45
+   Installed NVPTX_LLVM_Backend_jll ─ v23.1.2+2
+   Installed UnsafeAtomics ────────── v0.4.0
+   Installed Atomix ───────────────── v1.5.0
+   Installed NCCL ─────────────────── v0.1.3
+   Installed tree_sitter_ptx_jll ──── v0.1.0+0
+   Installed LLVM ─────────────────── v10.4.3
+   Installed DocStringExtensions ──── v0.10.2
+   Installed CUDA ─────────────────── v6.4.2
+   Installed Oceananigans ─────────── v0.117.2
+  Installing 11 artifacts
+   Installed artifact tree_sitter_gcn    13.1 KiB
+   Installed artifact tree_sitter_ptx    23.1 KiB
+   Installed artifact tree_sitter_spirv  6.2 KiB
+   Installed artifact OpenSpecFun        194.9 KiB
+   Installed artifact tree_sitter_llvm   139.5 KiB
+   Installed artifact LMDB               909.4 KiB
+   Installed artifact XML2               2.2 MiB
+   Installed artifact LLVMExtra          5.1 MiB
+   Installed artifact Hwloc              3.6 MiB
+   Installed artifact NVPTX_LLVM_Backend 11.0 MiB
+   Installed artifact NCCL               270.9 MiB
+     Project No packages added to or removed from `~/Breeze.jl/.runtime/environments/fir_weak512/Project.toml`
+    Updating `~/Breeze.jl/.runtime/environments/fir_weak512/Manifest.toml`
+  [3161d3a3] ~ Zstd_jll v1.5.7+1 ⇒ v1.5.7+1
+  [b27032c2] ↓ LibCURL v1.0.0 ⇒ v0.6.4
+  [37e2e46d] ↓ LinearAlgebra v1.13.0 ⇒ v1.12.0
+  [44cfe95a] ↓ Pkg v1.13.0 ⇒ v1.12.1
+  [ea8e919c] ↓ SHA v1.0.0 ⇒ v0.7.0
+  [2f01184e] ↓ SparseArrays v1.13.0 ⇒ v1.12.0
+  [e66e0078] ↓ CompilerSupportLibraries_jll v1.5.5+2 ⇒ v1.3.0+1
+  [deac9b47] ↓ LibCURL_jll v8.22.0+0 ⇒ v8.15.0+0
+  [e37daf67] ↓ LibGit2_jll v1.9.7+0 ⇒ v1.9.0+0
+  [29816b5a] ↓ LibSSH2_jll v1.11.104+0 ⇒ v1.11.3+1
+  [14a3606d] ↓ MozillaCACerts_jll v2026.8.13 ⇒ v2025.11.4
+  [4536629a] ↓ OpenBLAS_jll v0.3.30+0 ⇒ v0.3.29+0
+  [458c3c95] ↓ OpenSSL_jll v3.5.8+0 ⇒ v3.5.4+0
+  [efcefdf7] - PCRE2_jll v10.46.0+0
+  [bea87d4a] ↓ SuiteSparse_jll v7.10.1+0 ⇒ v7.8.3+2
+  [83775a58] ↓ Zlib_jll v1.3.2+0 ⇒ v1.3.1+2
+  [8e850ede] ↓ nghttp2_jll v1.70.0+0 ⇒ v1.64.0+1
+  [3f19e933] ↓ p7zip_jll v17.8.3+0 ⇒ v17.7.0+0
+Precompiling packages...
+   9918.9 ms  ✓ OrderedCollections
+  14725.2 ms  ✓ GPUToolbox
+   1798.8 ms  ✓ DocStringExtensions
+   1815.2 ms  ✓ IrrationalConstants
+    917.1 ms  ✓ MPIPreferences
+    574.6 ms  ✓ PrecompileTools
+   5205.5 ms  ✓ tree_sitter_spirv_jll
+   5065.7 ms  ✓ MSVCRuntime_jll
+    614.0 ms  ✓ tree_sitter_gcn_jll
+    669.6 ms  ✓ LLVMExtra_jll
+    750.5 ms  ✓ LMDB_jll
+    637.3 ms  ✓ NVPTX_LLVM_Backend_jll
+    602.3 ms  ✓ tree_sitter_llvm_jll
+    633.3 ms  ✓ OpenSpecFun_jll
+    557.3 ms  ✓ tree_sitter_ptx_jll
+   1696.0 ms  ✓ XML2_jll
+   2357.1 ms  ✓ CUDA_Compiler_jll
+    537.6 ms  ✓ LogExpFunctions
+    920.1 ms  ✓ MPItrampoline_jll
+   2720.7 ms  ✓ Tables
+   1427.0 ms  ✓ OpenMPI_jll
+   1334.1 ms  ✓ MicrosoftMPI_jll
+    870.1 ms  ✓ MuladdMacro
+   2608.7 ms  ✓ StringManipulation
+   6139.9 ms  ✓ StaticArrays
+  18863.5 ms  ✓ LLVM
+  23132.4 ms  ✓ JLD2
+   1067.3 ms  ✓ LMDB
+    721.2 ms  ✓ Hwloc_jll
+   2603.2 ms  ✓ SpecialFunctions
+   1768.0 ms  ✓ StructArrays
+   5443.3 ms  ✓ CUDA_Runtime_jll
+    584.2 ms  ✓ StaticArrays → StaticArraysStatisticsExt
+    655.7 ms  ✓ ConstructionBase → ConstructionBaseStaticArraysExt
+   1364.5 ms  ✓ Adapt → AdaptStaticArraysExt
+   2267.0 ms  ✓ Rotations
+   1066.6 ms  ✓ TaylorSeries → TaylorSeriesSAExt
+   3431.6 ms  ✓ UnsafeAtomics
+    862.7 ms  ✓ LLVM → BFloat16sExt
+   1723.7 ms  ✓ TaylorSeries → TaylorSeriesJLD2Ext
+    836.7 ms  ✓ CompilerCaching
+   3832.5 ms  ✓ MPIABI_jll
+  17388.7 ms  ✓ PrettyTables
+    653.5 ms  ✓ MPICH_jll
+   1426.8 ms  ✓ StructArrays → AdaptExt
+   1370.2 ms  ✓ StructArrays → LinearAlgebraExt
+   2121.1 ms  ✓ StructArrays → SparseArraysExt
+   1795.4 ms  ✓ StructArrays → StaticArraysExt
+    531.0 ms  ✓ StructArrays → GPUArraysCoreExt
+   1369.3 ms  ✓ CubedSphere
+    805.6 ms  ✓ Atomix
+   5512.5 ms  ✓ NCCL_jll
+   3577.1 ms  ✓ MPI
+   4246.5 ms  ✓ KernelAbstractions
+   1283.4 ms  ✓ KernelAbstractions → SparseArraysExt
+   1164.4 ms  ✓ KernelAbstractions → LinearAlgebraExt
+   1592.0 ms  ✓ StructArrays → KernelAbstractionsExt
+   6464.4 ms  ✓ GPUArrays
+  32418.7 ms  ✓ GPUCompiler
+   2117.1 ms  ✓ GPUArrays → JLD2Ext
+   1630.0 ms  ✓ UnsafeAtomics → UnsafeAtomicsGPUCompilerExt
+  43869.0 ms  ✓ Oceananigans
+  14494.9 ms  ✓ Breeze
+  70780.8 ms  ✓ CUDACore
+   9067.7 ms  ✓ CUDACore → SpecialFunctionsExt
+   9078.4 ms  ✓ Atomix → AtomixCUDACoreExt
+   6333.0 ms  ✓ cuFFT
+   9315.8 ms  ✓ cuRAND
+   7750.3 ms  ✓ CUPTI
+   5448.0 ms  ✓ NVML
+   8432.6 ms  ✓ cuSPARSE
+   9738.0 ms  ✓ cuBLAS
+   7798.7 ms  ✓ cuSOLVER
+  14261.2 ms  ✓ CUDATools
+   7288.6 ms  ✓ CUDA
+  11070.5 ms  ✓ MPI → CUDAExt
+  11830.5 ms  ✓ NCCL
+   7571.2 ms  ✓ Oceananigans → OceananigansNCCLExt
+
+UNHANDLED TASK ERROR: CUDA extension cache linking failed; environment dump omitted. See the linker diagnostic above and successful package_preflight.log.
+
+Stacktrace:
+  [1] pipeline_error
+    @ ./process.jl:597 [inlined]
+  [2] run(::Cmd, ::Base.DevNull, ::Vararg{Any}; wait::Bool)
+    @ Base ./process.jl:512
+  [3] run
+    @ ./process.jl:509 [inlined]
+  [4] link_image (repeats 2 times)
+    @ ./linking.jl:151 [inlined]
+  [5] compilecache(pkg::Base.PkgId, path::String, internal_stderr::IO, internal_stdout::IO, keep_loaded_modules::Bool; flags::Cmd, cacheflags::Base.CacheFlags, reasons::Dict{String, Int64}, loadable_exts::Vector{Base.PkgId})
+    @ Base ./loading.jl:3236
+  [6] compilecache
+    @ ./loading.jl:3189 [inlined]
+  [7] (::Base.Precompilation.var"#_precompilepkgs##38#_precompilepkgs##39"{Pipe, Bool, Dict{Base.PkgId, Base.PkgId}, Dict{Base.PkgId, Vector{Base.PkgId}}, String, Base.PkgId, Base.CacheFlags, Cmd})()
+    @ Base.Precompilation ./precompilation.jl:1026
+  [8] with_logstate(f::Base.Precompilation.var"#_precompilepkgs##38#_precompilepkgs##39"{Pipe, Bool, Dict{Base.PkgId, Base.PkgId}, Dict{Base.PkgId, Vector{Base.PkgId}}, String, Base.PkgId, Base.CacheFlags, Cmd}, logstate::Base.CoreLogging.LogState)
+    @ Base.CoreLogging ./logging/logging.jl:542
+  [9] with_logger
+    @ ./logging/logging.jl:653 [inlined]
+ [10] #_precompilepkgs##36
+    @ ./precompilation.jl:1020 [inlined]
+ [11] mkpidlock(f::Base.Precompilation.var"#_precompilepkgs##36#_precompilepkgs##37"{Pipe, Bool, Dict{Base.PkgId, Base.PkgId}, Dict{Base.PkgId, Vector{Base.PkgId}}, String, Base.PkgId, Base.CacheFlags, Cmd}, at::String, pid::Int32; kwopts::@Kwargs{stale_age::Int64, wait::Bool})
+    @ FileWatching.Pidfile /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/julia/1.12.5/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:93
+ [12] #mkpidlock#7
+    @ /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/julia/1.12.5/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:88 [inlined]
+ [13] trymkpidlock(::Function, ::Vararg{Any}; kwargs::@Kwargs{stale_age::Int64})
+    @ FileWatching.Pidfile /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/julia/1.12.5/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:114
+ [14] #invokelatest_gr#232
+    @ ./reflection.jl:1297 [inlined]
+ [15] invokelatest_gr
+    @ ./reflection.jl:1289 [inlined]
+ [16] precompile_pkgs_maybe_cachefile_lock(f::Base.Precompilation.var"#_precompilepkgs##36#_precompilepkgs##37"{Pipe, Bool, Dict{Base.PkgId, Base.PkgId}, Dict{Base.PkgId, Vector{Base.PkgId}}, String, Base.PkgId, Base.CacheFlags, Cmd}, io::IOContext{IO}, print_lock::ReentrantLock, fancyprint::Bool, pkg_config::Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}, pkgspidlocked::Dict{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}, String}, hascolor::Bool, parallel_limiter::Base.Semaphore, ignore_loaded::Bool, fullname::String)
+    @ Base.Precompilation ./precompilation.jl:1217
+ [17] (::Base.Precompilation.var"#_precompilepkgs##32#_precompilepkgs##33"{Bool, Bool, Bool, Bool, Vector{Task}, Dict{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}, String}, Dict{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}, IOBuffer}, Base.Precompilation.var"#handle_interrupt#_precompilepkgs##19"{Base.RefValue{Bool}, String, Base.Event, ReentrantLock, IOContext{IO}}, Base.RefValue{Int64}, Base.RefValue{Int64}, Base.RefValue{Int64}, Base.Event, Base.Event, ReentrantLock, Vector{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}}, Dict{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}, String}, Vector{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}}, Base.RefValue{Union{Nothing, String}}, Vector{Base.PkgId}, Dict{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}, Bool}, Dict{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}, Base.Event}, Dict{Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}, Bool}, Vector{Base.PkgId}, Vector{Base.PkgId}, Base.Precompilation.var"#describe_pkg#_precompilepkgs##1"{Dict{Base.PkgId, Base.PkgId}, Base.Precompilation.var"#color_string#_precompilepkgs##0"{Bool}, Int64}, Dict{Base.PkgId, Base.PkgId}, Dict{Base.PkgId, Vector{Base.PkgId}}, Dict{Base.PkgId, Vector{String}}, Dict{Tuple{Base.PkgId, UInt128, String, String}, Bool}, Base.Precompilation.var"#color_string#_precompilepkgs##0"{Bool}, Bool, IOContext{IO}, Base.Semaphore, Bool, String, Vector{String}, Vector{Base.PkgId}, Base.PkgId, Base.CacheFlags, Cmd, Pair{Cmd, Base.CacheFlags}, Tuple{Base.PkgId, Pair{Cmd, Base.CacheFlags}}})()
+    @ Base.Precompilation ./precompilation.jl:984
+Status `~/Breeze.jl/.runtime/environments/fir_weak512/Project.toml`
+  [660aa2fb] Breeze v0.15.0 `~/Breeze.jl`
+⌃ [052768ef] CUDA v6.4.2
+  [da04e1cc] MPI v0.20.29
+  [3da0fdf6] MPIPreferences v0.1.12
+⌅ [3fe64909] NCCL v0.1.3
+  [5da4648a] NVTX v1.0.3
+⌅ [9e8cae18] Oceananigans v0.117.2
+  [21216c6a] Preferences v1.6.1
+⌅ [fe0851c0] OpenMPI_jll v4.1.11+0
+  [de0858da] Printf v1.11.0
+Info Packages marked with ⌃ and ⌅ have new versions available. Those with ⌃ may be upgradable, but those with ⌅ are restricted by compatibility constraints from upgrading. To see why use `status --outdated`

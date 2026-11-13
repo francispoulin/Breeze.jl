@@ -1,0 +1,22 @@
+Precompiling packages...
+   8647.7 ms  ✓ Oceananigans → OceananigansCUDAExt
+  1 dependency successfully precompiled in 15 seconds. 167 already precompiled.
+FIR_PACKAGE_PREFLIGHT_PASS Julia=1.12.5 MPI_cuda=true Breeze=/home/anditse/Breeze.jl/src/Breeze.jl
+MPIPreferences:
+  binary:  system
+  abi:     OpenMPI
+  libmpi:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  mpiexec: mpiexec
+
+Package versions
+  MPI.jl:             0.20.29
+  MPIPreferences.jl:  0.1.12
+
+Library information:
+  libmpi:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  libmpi dlpath:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  MPI version:  3.1.0
+  Library version:
+    Open MPI v4.1.5, package: Open MPI ebuser@build-node2.computecanada.ca Distribution, ident: 4.1.5, repo rev: v4.1.5, Feb 23, 2023
+  MPI launcher: mpiexec
+  MPI launcher path: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/bin/mpiexec

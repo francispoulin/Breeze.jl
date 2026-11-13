@@ -1,0 +1,11 @@
+[MPIPreferences]
+_format = "1.0"
+abi = "OpenMPI"
+binary = "system"
+cclibs = []
+libmpi = "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so"
+mpiexec = "mpiexec"
+preloads = []
+
+[OpenMPI_jll]
+libmpi_path = "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so"

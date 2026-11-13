@@ -1,0 +1,4 @@
+Precompiling packages...
+  11424.8 ms  ✓ Breeze
+  1 dependency successfully precompiled in 13 seconds. 126 already precompiled.
+FROZEN_FIR_PACKAGE_PREFLIGHT_PASS Julia=1.12.5 MPI_cuda=true Breeze=/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source/src/Breeze.jl

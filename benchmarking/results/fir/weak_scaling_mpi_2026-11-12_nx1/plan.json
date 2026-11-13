@@ -1,0 +1,137 @@
+[
+  {
+    "id": "anelastic_SERIAL_1g_1x1",
+    "dynamics": "anelastic",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "MPI",
+    "time_step": 0.01
+  },
+  {
+    "id": "compressible_explicit_SERIAL_1g_1x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "MPI",
+    "time_step": 0.01
+  },
+  {
+    "id": "compressible_splitexplicit_SERIAL_1g_1x1",
+    "dynamics": "compressible_splitexplicit",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "MPI",
+    "time_step": 0.01
+  },
+  {
+    "id": "anelastic_MPI_2g_2x1",
+    "dynamics": "anelastic",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "MPI",
+    "time_step": 0.005
+  },
+  {
+    "id": "compressible_explicit_MPI_2g_2x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "MPI",
+    "time_step": 0.005
+  },
+  {
+    "id": "compressible_splitexplicit_MPI_2g_2x1",
+    "dynamics": "compressible_splitexplicit",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "MPI",
+    "time_step": 0.005
+  },
+  {
+    "id": "anelastic_MPI_4g_4x1",
+    "dynamics": "anelastic",
+    "gpus": 4,
+    "size": "2048x512x512",
+    "partition": "4x1",
+    "backend": "MPI",
+    "time_step": 0.0025
+  },
+  {
+    "id": "compressible_explicit_MPI_4g_4x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 4,
+    "size": "2048x512x512",
+    "partition": "4x1",
+    "backend": "MPI",
+    "time_step": 0.0025
+  },
+  {
+    "id": "compressible_splitexplicit_MPI_4g_4x1",
+    "dynamics": "compressible_splitexplicit",
+    "gpus": 4,
+    "size": "2048x512x512",
+    "partition": "4x1",
+    "backend": "MPI",
+    "time_step": 0.0025
+  },
+  {
+    "id": "anelastic_MPI_8g_8x1",
+    "dynamics": "anelastic",
+    "gpus": 8,
+    "size": "4096x512x512",
+    "partition": "8x1",
+    "backend": "MPI",
+    "time_step": 0.00125
+  },
+  {
+    "id": "compressible_explicit_MPI_8g_8x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 8,
+    "size": "4096x512x512",
+    "partition": "8x1",
+    "backend": "MPI",
+    "time_step": 0.00125
+  },
+  {
+    "id": "compressible_splitexplicit_MPI_8g_8x1",
+    "dynamics": "compressible_splitexplicit",
+    "gpus": 8,
+    "size": "4096x512x512",
+    "partition": "8x1",
+    "backend": "MPI",
+    "time_step": 0.00125
+  },
+  {
+    "id": "anelastic_MPI_16g_16x1",
+    "dynamics": "anelastic",
+    "gpus": 16,
+    "size": "8192x512x512",
+    "partition": "16x1",
+    "backend": "MPI",
+    "time_step": 0.000625
+  },
+  {
+    "id": "compressible_explicit_MPI_16g_16x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 16,
+    "size": "8192x512x512",
+    "partition": "16x1",
+    "backend": "MPI",
+    "time_step": 0.000625
+  },
+  {
+    "id": "compressible_splitexplicit_MPI_16g_16x1",
+    "dynamics": "compressible_splitexplicit",
+    "gpus": 16,
+    "size": "8192x512x512",
+    "partition": "16x1",
+    "backend": "MPI",
+    "time_step": 0.000625
+  }
+]

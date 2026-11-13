@@ -1,0 +1,12 @@
+sbatch: NOTE: Your memory request of 65536.0M was likely submitted as 64.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted 1 GPUs: 3715781
+sbatch: NOTE: Your memory request of 131072.0M was likely submitted as 128.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted 2 GPUs: 3715782
+sbatch: NOTE: Your memory request of 262144.0M was likely submitted as 256.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted 4 GPUs: 3715783
+sbatch: NOTE: Your memory request of 262144.0M was likely submitted as 256.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted 8 GPUs: 3715784
+sbatch: NOTE: Your memory request of 262144.0M was likely submitted as 256.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Submitted 16 GPUs: 3715785
+sbatch: NOTE: Your memory request of 4096.0M was likely submitted as 4.0G. Please note that Slurm interprets memory requests denominated in G as multiples of 1024M, not 1000M.
+Finalizer: 3715786

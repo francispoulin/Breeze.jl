@@ -1,0 +1,17 @@
+{
+  "repository": "/home/anditse/Breeze.jl",
+  "source": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source",
+  "environment": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/environment",
+  "runtime": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1",
+  "runtime_root": "/home/anditse/Breeze.jl/.runtime",
+  "machine": "fir",
+  "prepared": "2026-11-13T03:19:15.112030+00:00",
+  "warmup_steps": 10,
+  "timed_steps": 500,
+  "substeps": 12,
+  "float_type": "Float32",
+  "random_perturbation": false,
+  "simplified": false,
+  "case_limit_seconds": 3000,
+  "allocation_limit": "03:00:00"
+}
