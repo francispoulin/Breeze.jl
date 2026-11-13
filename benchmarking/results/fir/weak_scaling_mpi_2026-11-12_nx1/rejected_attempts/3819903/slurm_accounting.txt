@@ -1,0 +1,7 @@
+JobIDRaw|JobName|State|ExitCode|Elapsed|AllocTRES|NodeList
+3819903|breeze_mpi_2g_retry|CANCELLED by 3165591|0:0|00:03:51|billing=24400,cpu=16,gres/gpu:h100=2,gres/gpu=2,mem=128G,node=1|fc10612
+3819903.batch|batch|CANCELLED|0:15|00:03:52|cpu=16,gres/gpu:h100=2,gres/gpu=2,mem=128G,node=1|fc10612
+3819903.extern|extern|COMPLETED|0:0|00:03:55|billing=24400,cpu=16,gres/gpu:h100=2,gres/gpu=2,mem=128G,node=1|fc10612
+3819903.0|julia|COMPLETED|0:0|00:02:16|cpu=16,gres/gpu:h100=2,gres/gpu=2,mem=128G,node=1|fc10612
+3819903.1|bash|CANCELLED|0:15|00:01:22|cpu=16,gres/gpu:h100=2,gres/gpu=2,mem=128G,node=1|fc10612
+3819904|breeze_retry_finalize|CANCELLED by 3165591|0:0|00:00:00||None assigned

@@ -6,5 +6,8 @@
   "environment": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/environment",
   "retained_valid_cases": 12,
   "retry_cases": 3,
-  "allocation_limit": "01:00:00"
+  "allocation_limit": "01:00:00",
+  "visibility_controller_commit": "0144c1d741c90f78c67a7fcdcd13cb28c420b566",
+  "visibility_controller_source": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/recovery_visible_source",
+  "visibility_prepared": "2026-11-13T16:34:09.501740+00:00"
 }

@@ -1,0 +1,15 @@
+test_accept_complete_evidence (test_study.StudyTests.test_accept_complete_evidence) ... ok
+test_agreed_fifteen_mpi_workloads (test_study.StudyTests.test_agreed_fifteen_mpi_workloads) ... ok
+test_command_uses_deterministic_unprofiled_configuration (test_study.StudyTests.test_command_uses_deterministic_unprofiled_configuration) ... ok
+test_finalizer_refuses_queued_or_running_allocations (test_study.StudyTests.test_finalizer_refuses_queued_or_running_allocations) ... ok
+test_frozen_source_change_is_detected (test_study.StudyTests.test_frozen_source_change_is_detected) ... ok
+test_preflight_rejects_shared_or_missing_devices (test_study.StudyTests.test_preflight_rejects_shared_or_missing_devices) ... ok
+test_reject_missing_or_nonfinite_rank (test_study.StudyTests.test_reject_missing_or_nonfinite_rank) ... ok
+test_reject_non_h100_or_missing_hardware (test_study.StudyTests.test_reject_non_h100_or_missing_hardware) ... ok
+test_reject_wrong_workload (test_study.StudyTests.test_reject_wrong_workload) ... ok
+test_report_excludes_failed_case_and_includes_anelastic (test_study.StudyTests.test_report_excludes_failed_case_and_includes_anelastic) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 5.167s
+
+OK
