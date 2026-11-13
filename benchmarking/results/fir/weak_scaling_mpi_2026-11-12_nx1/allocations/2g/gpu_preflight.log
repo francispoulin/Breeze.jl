@@ -16,10 +16,8 @@
 │
 │ In any other case, please file an issue.
 └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
-┌ Warning: Several MPI ranks share one GPU; launch at most one rank per GPU (on 2 of 2 MPI ranks)
-└ @ Oceananigans.DistributedComputations ~/Breeze.jl/.runtime/depot/packages/Oceananigans/EhPjs/src/DistributedComputations/validate_distributed_configuration.jl:17
-PREFLIGHT rank=0 host=fc10609 gpu_uuid=8c2b8643-97b0-f7a9-0e59-cde63490922e devices=1
-PREFLIGHT rank=1 host=fc10609 gpu_uuid=8c2b8643-97b0-f7a9-0e59-cde63490922e devices=1
+PREFLIGHT rank=1 host=fc10209 gpu_uuid=af307429-950f-f6ca-001a-e8d35b029d0d devices=4
+PREFLIGHT rank=0 host=fc10209 gpu_uuid=43a07f57-61ff-ef36-7247-4954cbfa582e devices=4
 CUDA toolchain:
 - runtime 13.4.0, artifact installation
 - driver 580.178.4 for CUDA 13.0
@@ -51,8 +49,14 @@ Toolchain:
 Environment:
 - JULIA_CUDA_MEMORY_POOL: none
 
-1 device:
-  0: NVIDIA H100 80GB HBM3 (sm_90, 78.151 GiB / 79.647 GiB available)
+4 devices:
+  0: NVIDIA H100 80GB HBM3 (sm_90, 78.661 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  1: NVIDIA H100 80GB HBM3 (sm_90, 78.661 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  2: NVIDIA H100 80GB HBM3 (sm_90, 79.175 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  3: NVIDIA H100 80GB HBM3 (sm_90, 79.175 GiB / 79.647 GiB available)
      compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
 MPIPreferences:
   binary:  system

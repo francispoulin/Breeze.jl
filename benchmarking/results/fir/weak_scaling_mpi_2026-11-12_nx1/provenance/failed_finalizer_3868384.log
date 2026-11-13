@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <genexpr>
+  File "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/python/3.11.5/lib/python3.11/pathlib.py", line 1051, in read_bytes
+    return f.read()
+           ^^^^^^^^
+OSError: [Errno 5] Input/output error

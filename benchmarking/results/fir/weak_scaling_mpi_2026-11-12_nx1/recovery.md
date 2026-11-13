@@ -19,3 +19,7 @@ The production recovery explicitly requests both allocated GPUs on every `srun` 
 The partial-node recovery 3823308 still exposed one device to both ranks despite an explicit two-GPU step request. Its placement gate rejected the allocation before timing; its complete evidence is retained under [rejected_attempts/3823308/](rejected_attempts/3823308/). Finalizer 3823309 correctly published the 12 valid cases and returned incomplete status.
 
 The next recovery reserves all four H100s and four task slots on one node, then launches exactly two MPI ranks and two model subdomains with all four allocated devices visible. Only two GPUs perform the benchmark; two GPUs remain unused. The global grid is still 1024×512×512 and the partition remains 2×1. This matches the full-node GPU visibility of the validated larger cases. The preflight requires four visible GPUs on both ranks and two distinct selected UUIDs. Extra reserved GPUs are recorded in submission/accounting and excluded from throughput and efficiency denominators. Scientific source, environment, precision, and stepping parameters remain unchanged.
+
+## Final report publication
+
+All 15 GPU cases passed. The automatic finalizer encountered a filesystem I/O error; the recorded frozen hashes were verified on the login node and publication was rerun there. See [finalization recovery](provenance/finalization_recovery.md).

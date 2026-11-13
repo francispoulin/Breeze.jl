@@ -1,9 +1,22 @@
 {
-  "job_id": "3823308",
+  "job_id": "3868383",
   "gpus": 2,
-  "started": "2026-11-13T16:49:23.034149+00:00",
-  "state": "failed",
-  "cases": [],
-  "error": "Ranks share a GPU in placement preflight",
-  "finished": "2026-11-13T16:51:33.500755+00:00"
+  "reserved_gpus_per_node": 4,
+  "started": "2026-11-13T20:35:25.189325+00:00",
+  "state": "validated",
+  "cases": [
+    {
+      "id": "anelastic_MPI_2g_2x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_explicit_MPI_2g_2x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_splitexplicit_MPI_2g_2x1",
+      "validated": true
+    }
+  ],
+  "finished": "2026-11-13T20:53:07.573475+00:00"
 }

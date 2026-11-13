@@ -1,6 +1,6 @@
 # Fir MPI weak scaling: anelastic, CE, CSE
 
-Status: **SUBMITTED; 12/15 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
+Status: **VALIDATED; 15/15 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
 
 Full dry convective boundary layer, WENO5, Float32, deterministic smooth initial perturbations.
 Fixed 12 km × 12 km × 3 km domain; N×1 partitions and 512³ cells per GPU.
@@ -41,9 +41,9 @@ Job 3868383 reserves 4 GPUs on one node and uses 2 active GPUs; the unused GPUs 
 | Anelastic | 1 | validated | 1.465498e-01 | 915850300.0 | 100.0 | [case files](cases/anelastic_SERIAL_1g_1x1/) |
 | CE | 1 | validated | 1.346134e-01 | 997060400.0 | 100.0 | [case files](cases/compressible_explicit_SERIAL_1g_1x1/) |
 | CSE | 1 | validated | 5.848549e-01 | 229488900.0 | 100.0 | [case files](cases/compressible_splitexplicit_SERIAL_1g_1x1/) |
-| Anelastic | 2 | pending |  |  |  | [case files](cases/anelastic_MPI_2g_2x1/) |
-| CE | 2 | pending |  |  |  | [case files](cases/compressible_explicit_MPI_2g_2x1/) |
-| CSE | 2 | pending |  |  |  | [case files](cases/compressible_splitexplicit_MPI_2g_2x1/) |
+| Anelastic | 2 | validated | 2.573568e-01 | 521524000.0 | 56.94421130508306 | [case files](cases/anelastic_MPI_2g_2x1/) |
+| CE | 2 | validated | 1.418468e-01 | 946216000.0 | 94.90055468293963 | [case files](cases/compressible_explicit_MPI_2g_2x1/) |
+| CSE | 2 | validated | 6.210830e-01 | 216102700.0 | 94.1669470908075 | [case files](cases/compressible_splitexplicit_MPI_2g_2x1/) |
 | Anelastic | 4 | validated | 2.429220e-01 | 552513750.0 | 60.32792418965759 | [case files](cases/anelastic_MPI_4g_4x1/) |
 | CE | 4 | validated | 1.409612e-01 | 952160500.0 | 95.49677499907776 | [case files](cases/compressible_explicit_MPI_4g_4x1/) |
 | CSE | 4 | validated | 6.124700e-01 | 219141725.0 | 95.49119140529332 | [case files](cases/compressible_splitexplicit_MPI_4g_4x1/) |
