@@ -62,6 +62,14 @@ class StudyTests(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 validate_preflight_placement(invalid, 2)
 
+    def test_two_active_gpus_in_full_node_allocation(self):
+        (self.directory / "config.json").write_text(json.dumps(dict(source="/source", environment="/environment")))
+        command = case_command(self.case, self.directory, node_gpus=4)
+        for argument in ("--ntasks=2", "--size=1024x512x512", "--partition=2x1", "--gpus-per-node=h100:4"):
+            self.assertIn(argument, command)
+        output = "PREFLIGHT rank=0 host=node gpu_uuid=gpu0 devices=4\nPREFLIGHT rank=1 host=node gpu_uuid=gpu1 devices=4\n"
+        self.assertEqual(len(validate_preflight_placement(output, 2, node_gpus=4)), 2)
+
     def test_accept_complete_evidence(self):
         self.assertEqual(validate_measurement(self.case, self.directory, 0)["dynamics"], "anelastic")
 

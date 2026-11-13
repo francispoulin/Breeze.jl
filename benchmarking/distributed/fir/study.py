@@ -42,13 +42,14 @@ def check_sources(study):
             raise RuntimeError(f"Frozen source/environment changed: {path}")
 
 
-def validate_preflight_placement(output, count):
+def validate_preflight_placement(output, count, node_gpus=None):
     placements = re.findall(r"PREFLIGHT rank=(\d+) host=(\S+) gpu_uuid=(\S+) devices=(\d+)", output)
     if len(placements) != count or {int(item[0]) for item in placements} != set(range(count)):
         raise RuntimeError("Missing or duplicate rank in GPU placement preflight")
     if len({(host, uuid) for _, host, uuid, _ in placements}) != count:
         raise RuntimeError("Ranks share a GPU in placement preflight")
-    if any(int(devices) != min(4, count) for _, _, _, devices in placements):
+    expected_devices = node_gpus or min(4, count)
+    if any(int(devices) != expected_devices for _, _, _, devices in placements):
         raise RuntimeError("Each rank must see all GPUs allocated on its node for GPU peer copies")
     return placements
 
@@ -154,13 +155,13 @@ def config_path(study, name):
     return read_json(study / "config.json")[name]
 
 
-def case_command(case, study):
+def case_command(case, study, node_gpus=None):
     config = read_json(study / "config.json")
     source = Path(config["source"])
     directory = study / "cases" / case["id"]
     count = case["gpus"]
     return ["srun", "--mpi=pmix", "--exact", "--kill-on-bad-exit=1", "--time=00:50:00", "--cpu-bind=none",
-            "--gpus-per-node=h100:" + str(min(4, count)), "--gpu-bind=none", "--distribution=block:block", "--nodes=" + str(max(1, count // 4)),
+            "--gpus-per-node=h100:" + str(node_gpus or min(4, count)), "--gpu-bind=none", "--distribution=block:block", "--nodes=" + str(max(1, count // 4)),
             "--ntasks=" + str(count), "--ntasks-per-node=" + str(min(4, count)),
             "bash", str(source / "benchmarking/distributed/rorqual/rank.sh"), str(directory),
             "julia", "--startup-file=no", "--threads=1", "--project=" + config["environment"],
@@ -187,14 +188,14 @@ def validate_measurement(case, directory, returncode):
     return row
 
 
-def run_case(study, case):
+def run_case(study, case, node_gpus=None):
     directory = study / "cases" / case["id"]
     directory.mkdir(exist_ok=False)
     status = dict(case=case, state="running", started=timestamp(), job_id=os.environ["SLURM_JOB_ID"])
     write_json(directory / "status.json", status)
     try:
         check_sources(study)
-        command = case_command(case, study)
+        command = case_command(case, study, node_gpus)
         (directory / "command.sh").write_text(shlex.join(command) + "\n")
         with (directory / "launcher.log").open("w") as handle:
             result = subprocess.run(command, stdout=handle, stderr=subprocess.STDOUT, timeout=CASE_SECONDS + 60)
@@ -210,10 +211,10 @@ def run_case(study, case):
     return status["state"] == "validated"
 
 
-def run_size(study, count):
+def run_size(study, count, node_gpus=None):
     check_sources(study)
     directory = study / "allocations" / f"{count}g"
-    allocation = dict(job_id=os.environ["SLURM_JOB_ID"], gpus=count, started=timestamp(), state="running", cases=[])
+    allocation = dict(job_id=os.environ["SLURM_JOB_ID"], gpus=count, reserved_gpus_per_node=node_gpus or min(4, count), started=timestamp(), state="running", cases=[])
     write_json(directory / "status.json", allocation)
     try:
         capture = 'module -t list 2>&1; julia --version; mpiexec --version; scontrol show job "$SLURM_JOB_ID"'
@@ -229,17 +230,17 @@ def run_size(study, count):
                      'MPI.Barrier(MPI.COMM_WORLD)')
         command = ["srun", "--mpi=pmix", "--exact", "--kill-on-bad-exit=1", "--nodes=" + str(max(1, count // 4)),
                    "--ntasks=" + str(count), "--ntasks-per-node=" + str(min(4, count)), "--cpu-bind=none",
-                   "--gpus-per-node=h100:" + str(min(4, count)), "--gpu-bind=none", "--distribution=block:block",
+                   "--gpus-per-node=h100:" + str(node_gpus or min(4, count)), "--gpu-bind=none", "--distribution=block:block",
                    "julia", "--startup-file=no", "--threads=1", "--project=" + config_path(study, "environment"), "-e", preflight]
         (directory / "preflight_command.sh").write_text(shlex.join(command) + "\n")
         with (directory / "gpu_preflight.log").open("w") as handle:
             subprocess.run(command, stdout=handle, stderr=subprocess.STDOUT, check=True, timeout=900)
-        placements = validate_preflight_placement((directory / "gpu_preflight.log").read_text(), count)
+        placements = validate_preflight_placement((directory / "gpu_preflight.log").read_text(), count, node_gpus)
         write_json(directory / "gpu_placement.json", dict(placements=placements, verified=timestamp()))
         for case in read_json(study / "plan.json"):
             if case["gpus"] == count:
                 print(f"STARTING {case['id']}", flush=True)
-                passed = run_case(study, case)
+                passed = run_case(study, case, node_gpus)
                 allocation["cases"].append(dict(id=case["id"], validated=passed))
                 write_json(directory / "status.json", allocation)
         allocation["state"] = "validated" if all(item["validated"] for item in allocation["cases"]) else "failed"
@@ -331,6 +332,7 @@ def main():
     worker = commands.add_parser("run-size")
     worker.add_argument("study", type=Path)
     worker.add_argument("count", type=int, choices=GPU_COUNTS)
+    worker.add_argument("--node-gpus", type=int, choices=(1, 2, 4), help="Reserved GPUs per node; rank count and measured grid are unchanged")
     finish = commands.add_parser("finalize")
     finish.add_argument("study", type=Path)
     finish.add_argument("--publish", action="store_true")
@@ -341,7 +343,7 @@ def main():
     elif arguments.action == "submit":
         submit(study)
     elif arguments.action == "run-size":
-        return run_size(study, arguments.count)
+        return run_size(study, arguments.count, arguments.node_gpus)
     elif arguments.action == "finalize":
         return finalize(study, arguments.publish)
     else:

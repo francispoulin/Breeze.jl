@@ -57,6 +57,10 @@ visibly if the checkout is on a different branch or cannot fast-forward.
 The finalizer runs as a Slurm job and survives closing the interactive session.
 
 Regenerate an intermediate report with `python3 benchmarking/distributed/fir/study.py report "$study"`.
+For a partial-node visibility failure, `run-size "$study" 2 --node-gpus=4` can
+run two MPI ranks inside a four-GPU allocation. It measures two active GPUs;
+the extra reservation must be documented in the study. The all-rank preflight
+requires four visible devices and two distinct selected GPU UUIDs.
 After allocations end, finalization is idempotent with
 `python3 benchmarking/distributed/fir/study.py finalize "$study" --publish`.
 Do not finalize while any allocation is queued or running.
