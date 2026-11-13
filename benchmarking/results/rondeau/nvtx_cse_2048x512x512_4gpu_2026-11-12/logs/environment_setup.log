@@ -1,0 +1,9 @@
+     Project No packages added to or removed from `~/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/environment/Project.toml`
+    Manifest No packages added to or removed from `~/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/environment/Manifest.toml`
+Precompiling packages...
+  12685.6 ms  ✓ Breeze
+  1 dependency successfully precompiled in 14 seconds. 126 already precompiled.
+  32 dependencies precompiled but different versions are currently loaded (ArgTools, Base64, Dates, DocStringExtensions, Downloads, JLLWrappers, JuliaSyntaxHighlighting, LibCURL, LibCURL_jll, LibGit2, LibGit2_jll, LibSSH2_jll, Logging, MPI, MPIPreferences, Markdown, MozillaCACerts_jll, NetworkOptions, OpenSSL_jll, Pkg, PkgVersion, PrecompileTools, Preferences, Printf, Serialization, StyledStrings, TOML, Tar, UUIDs, Zlib_jll, nghttp2_jll and p7zip_jll). Restart julia to access the new versions. Otherwise, 56 dependents of these packages may trigger further precompilation to work with the unexpected versions.
+ENVIRONMENT_OK julia=1.12.7 mpi_cuda=true breeze=/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree nvtx=1.0.3
+[rondeau:1933043] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+[rondeau:1933043] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 246

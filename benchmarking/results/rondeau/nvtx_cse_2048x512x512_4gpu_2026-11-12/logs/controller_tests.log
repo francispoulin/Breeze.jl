@@ -1,0 +1,11 @@
+test_busy_missing_and_low_memory_gpus_block_launch (test_campaign.CampaignChecks) ... ok
+test_changed_source_is_rejected (test_campaign.CampaignChecks) ... ok
+test_duplicate_gpu_missing_rank_and_nonfinite_are_rejected (test_campaign.CampaignChecks) ... ok
+test_four_rank_success_requires_correct_communicator (test_campaign.CampaignChecks) ... ok
+test_preceding_checks_run_first (test_campaign.CampaignChecks) ... ok
+test_requested_workload_and_capture_boundary (test_campaign.CampaignChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.010s
+
+OK
