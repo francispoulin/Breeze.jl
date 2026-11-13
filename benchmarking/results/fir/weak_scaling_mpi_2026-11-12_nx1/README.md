@@ -1,6 +1,6 @@
 # Fir MPI weak scaling: anelastic, CE, CSE
 
-Status: **INCOMPLETE; 12/15 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
+Status: **SUBMITTED; 12/15 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
 
 Full dry convective boundary layer, WENO5, Float32, deterministic smooth initial perturbations.
 Fixed 12 km × 12 km × 3 km domain; N×1 partitions and 512³ cells per GPU.
@@ -16,7 +16,8 @@ No Nsight or NVTX profiling. One Julia/BLAS/OpenMP thread per rank; CUDA memory 
 | 8 | 4096×512×512 | 8×1 | MPI | 0.00125 |
 | 16 | 8192×512×512 | 16×1 | MPI | 0.000625 |
 
-Five independent Slurm allocations request only the GPUs required for their scale.
+GPU counts and per-GPU throughput refer to active MPI ranks, with one selected GPU per rank.
+The initial series used five independent Slurm allocations. Additional recovery reservations are documented below.
 Each runs anelastic, CE, and CSE sequentially on the same allocated GPUs, with eight CPU cores per rank and one Julia thread.
 Each allocation has a three-hour limit; each case has a 50-minute cap, including startup and compilation.
 An after-any CPU finalizer retains results and plots even if a GPU allocation fails.
@@ -29,18 +30,20 @@ An after-any CPU finalizer retains results and plots even if a GPU allocation fa
 | 8 | 3715784 |
 | 16 | 3715785 |
 
-Finalizer job: 3823309. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/).
+Finalizer job: 3868384. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/).
 
-Recovery allocations: 2 GPUs: job 3819903, 2 GPUs: job 3823308. See [recovery notes](recovery.md).
+Recovery allocations: 2 GPUs: job 3819903, 2 GPUs: job 3823308, 2 GPUs: job 3868383. See [recovery notes](recovery.md).
+
+Job 3868383 reserves 4 GPUs on one node and uses 2 active GPUs; the unused GPUs do not contribute to the measured grid or throughput.
 
 | Dynamics | GPUs | State | s/step | Points/s/GPU | Weak efficiency (%) | Evidence / error |
 |---|---:|---|---:|---:|---:|---|
 | Anelastic | 1 | validated | 1.465498e-01 | 915850300.0 | 100.0 | [case files](cases/anelastic_SERIAL_1g_1x1/) |
 | CE | 1 | validated | 1.346134e-01 | 997060400.0 | 100.0 | [case files](cases/compressible_explicit_SERIAL_1g_1x1/) |
 | CSE | 1 | validated | 5.848549e-01 | 229488900.0 | 100.0 | [case files](cases/compressible_splitexplicit_SERIAL_1g_1x1/) |
-| Anelastic | 2 | not_run |  |  |  | Allocation ended before this case produced evidence |
-| CE | 2 | not_run |  |  |  | Allocation ended before this case produced evidence |
-| CSE | 2 | not_run |  |  |  | Allocation ended before this case produced evidence |
+| Anelastic | 2 | pending |  |  |  | [case files](cases/anelastic_MPI_2g_2x1/) |
+| CE | 2 | pending |  |  |  | [case files](cases/compressible_explicit_MPI_2g_2x1/) |
+| CSE | 2 | pending |  |  |  | [case files](cases/compressible_splitexplicit_MPI_2g_2x1/) |
 | Anelastic | 4 | validated | 2.429220e-01 | 552513750.0 | 60.32792418965759 | [case files](cases/anelastic_MPI_4g_4x1/) |
 | CE | 4 | validated | 1.409612e-01 | 952160500.0 | 95.49677499907776 | [case files](cases/compressible_explicit_MPI_4g_4x1/) |
 | CSE | 4 | validated | 6.124700e-01 | 219141725.0 | 95.49119140529332 | [case files](cases/compressible_splitexplicit_MPI_4g_4x1/) |

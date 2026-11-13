@@ -1,0 +1,75 @@
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: Several MPI ranks share one GPU; launch at most one rank per GPU (on 2 of 2 MPI ranks)
+└ @ Oceananigans.DistributedComputations ~/Breeze.jl/.runtime/depot/packages/Oceananigans/EhPjs/src/DistributedComputations/validate_distributed_configuration.jl:17
+PREFLIGHT rank=0 host=fc10609 gpu_uuid=8c2b8643-97b0-f7a9-0e59-cde63490922e devices=1
+PREFLIGHT rank=1 host=fc10609 gpu_uuid=8c2b8643-97b0-f7a9-0e59-cde63490922e devices=1
+CUDA toolchain:
+- runtime 13.4.0, artifact installation
+- driver 580.178.4 for CUDA 13.0
+- compiler 13.5.37, artifact installation
+
+CUDA libraries:
+- cuBLAS: 13.8.0
+- cuSPARSE: 12.8.6
+- cuSOLVER: 12.3.5
+- cuFFT: 12.4.0
+- cuRAND: 10.4.4
+- CUPTI: 2026.3.1 (API 13.4.1)
+- NVML: 13.0.0+580.178.4
+
+Julia packages:
+- CUDACore: 6.4.2
+- GPUArrays: 11.5.16
+- GPUCompiler: 2.21.0
+- KernelAbstractions: 0.9.45
+- CUDA_Driver_jll: 13.5.0+0
+- CUDA_Compiler_jll: 0.6.4+0
+- CUDA_Runtime_jll: 0.25.0+3
+- NVPTX_LLVM_Backend_jll: 23.1.2+2
+
+Toolchain:
+- Julia: 1.12.5
+- LLVM: 18.1.7
+
+Environment:
+- JULIA_CUDA_MEMORY_POOL: none
+
+1 device:
+  0: NVIDIA H100 80GB HBM3 (sm_90, 78.151 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+MPIPreferences:
+  binary:  system
+  abi:     OpenMPI
+  libmpi:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  mpiexec: mpiexec
+
+Package versions
+  MPI.jl:             0.20.29
+  MPIPreferences.jl:  0.1.12
+
+Library information:
+  libmpi:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  libmpi dlpath:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  MPI version:  3.1.0
+  Library version:
+    Open MPI v4.1.5, package: Open MPI ebuser@build-node2.computecanada.ca Distribution, ident: 4.1.5, repo rev: v4.1.5, Feb 23, 2023
+  MPI launcher: mpiexec
+  MPI launcher path: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/bin/mpiexec
+Breeze path: /home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source/src/Breeze.jl

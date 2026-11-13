@@ -1,0 +1,16 @@
+Already up to date.
+[benchmark-results 7a1f1ba] Record Fir MPI weak scaling: 12/15 cases validated
+ 13 files changed, 377 insertions(+), 141 deletions(-)
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/2g/environment.log
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/2g/gpu_preflight.log
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/2g/preflight_command.sh
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/2g/slurm-3823308.out
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/2g/status.json
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/cases/anelastic_MPI_2g_2x1/status.json
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/cases/compressible_explicit_MPI_2g_2x1/status.json
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/cases/compressible_splitexplicit_MPI_2g_2x1/status.json
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/final_status.json
+ create mode 100644 benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/slurm_accounting.txt
+To https://github.com/francispoulin/Breeze.jl
+   6e1595b..7a1f1ba  benchmark-results -> benchmark-results
+Final validation: 12/15 cases

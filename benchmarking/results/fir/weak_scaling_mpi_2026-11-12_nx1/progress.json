@@ -1,14 +1,14 @@
 {
-  "state": "incomplete",
+  "state": "submitted",
   "expected": 15,
   "validated": 12,
   "cases": {
     "anelastic_SERIAL_1g_1x1": "validated",
     "compressible_explicit_SERIAL_1g_1x1": "validated",
     "compressible_splitexplicit_SERIAL_1g_1x1": "validated",
-    "anelastic_MPI_2g_2x1": "not_run",
-    "compressible_explicit_MPI_2g_2x1": "not_run",
-    "compressible_splitexplicit_MPI_2g_2x1": "not_run",
+    "anelastic_MPI_2g_2x1": "pending",
+    "compressible_explicit_MPI_2g_2x1": "pending",
+    "compressible_splitexplicit_MPI_2g_2x1": "pending",
     "anelastic_MPI_4g_4x1": "validated",
     "compressible_explicit_MPI_4g_4x1": "validated",
     "compressible_splitexplicit_MPI_4g_4x1": "validated",

@@ -1,0 +1,12 @@
+{
+  "prepared": "2026-11-13T20:32:57.190618+00:00",
+  "controller_commit": "07e4c91402f5070aa1d43a19fea79ffe17ec6398",
+  "controller_source": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/full_node_source",
+  "scientific_source": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source",
+  "environment": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/environment",
+  "active_gpus": 2,
+  "reserved_gpus_per_node": 4,
+  "requested_task_slots": 4,
+  "active_mpi_ranks": 2,
+  "allocation_limit": "01:00:00"
+}

@@ -13,3 +13,9 @@ Recovery uses a separate frozen controller archive and hashes under provenance/.
 The first recovery allocation (3819903) established distinct GPU UUIDs but Oceananigans warned that one-device-per-rank masking can prevent direct GPU peer copies. It and its dependent finalizer (3819904) were cancelled before accepting any performance measurements. Their full evidence is retained under [rejected_attempts/3819903/](rejected_attempts/3819903/).
 
 The production recovery explicitly requests both allocated GPUs on every `srun` step with `--gpus-per-node=h100:2 --gpu-bind=none`. Its preflight requires two visible devices per rank and distinct selected GPU UUIDs. This retains the peer-copy communication configuration of the validated larger runs. No scientific source or environment changes.
+
+## Full-node reservation for two active GPUs
+
+The partial-node recovery 3823308 still exposed one device to both ranks despite an explicit two-GPU step request. Its placement gate rejected the allocation before timing; its complete evidence is retained under [rejected_attempts/3823308/](rejected_attempts/3823308/). Finalizer 3823309 correctly published the 12 valid cases and returned incomplete status.
+
+The next recovery reserves all four H100s and four task slots on one node, then launches exactly two MPI ranks and two model subdomains with all four allocated devices visible. Only two GPUs perform the benchmark; two GPUs remain unused. The global grid is still 1024×512×512 and the partition remains 2×1. This matches the full-node GPU visibility of the validated larger cases. The preflight requires four visible GPUs on both ranks and two distinct selected UUIDs. Extra reserved GPUs are recorded in submission/accounting and excluded from throughput and efficiency denominators. Scientific source, environment, precision, and stepping parameters remain unchanged.
