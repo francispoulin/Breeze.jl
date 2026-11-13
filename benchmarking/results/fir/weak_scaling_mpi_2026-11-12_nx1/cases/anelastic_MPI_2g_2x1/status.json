@@ -1,0 +1,13 @@
+{
+  "case": {
+    "id": "anelastic_MPI_2g_2x1",
+    "dynamics": "anelastic",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "MPI",
+    "time_step": 0.005
+  },
+  "state": "not_run",
+  "error": "Allocation ended before this case produced evidence"
+}
