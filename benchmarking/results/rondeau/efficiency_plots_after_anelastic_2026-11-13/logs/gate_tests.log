@@ -1,0 +1,13 @@
+test_all_three_validated_cases_are_required (test_gate.ConditionalPlotChecks) ... ok
+test_failed_dependency_never_invokes_either_renderer (test_gate.ConditionalPlotChecks) ... ok
+test_failure_cancel_and_missing_output_skip_both_jobs (test_gate.ConditionalPlotChecks) ... ok
+test_missing_or_mixed_ocean_series_do_not_unlock_plot (test_gate.ConditionalPlotChecks) ... ok
+test_no_early_plotting_even_if_data_look_complete (test_gate.ConditionalPlotChecks) ... ok
+test_nonfinite_fields_wrong_grid_and_duplicate_devices_reject_success (test_gate.ConditionalPlotChecks) ... ok
+test_ocean_rejects_profiled_wrong_size_nonfinite_and_non_a100 (test_gate.ConditionalPlotChecks) ... ok
+test_ocean_uses_median_of_slowest_rank_windows (test_gate.ConditionalPlotChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.031s
+
+OK
