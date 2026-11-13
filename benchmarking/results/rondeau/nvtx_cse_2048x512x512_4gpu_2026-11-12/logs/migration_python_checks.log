@@ -1,0 +1,30 @@
+benchmarking/distributed/rorqual test_validation.py
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.026s
+
+OK
+benchmarking/queued_fork_migration test_queue.py
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.072s
+
+OK
+benchmarking/distributed test_nvtx_timeline.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.124s
+
+OK
+benchmarking/results/rondeau/benchmark_results_four_gpu_smoke_2026-11-12 test_gpu_gate.py
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.004s
+
+OK
+benchmarking/results/rondeau/nvtx_cse_2048x512x512_4gpu_2026-11-12 test_campaign.py
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.010s
+
+OK

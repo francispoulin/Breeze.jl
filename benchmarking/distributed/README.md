@@ -54,7 +54,6 @@ have checked out.
 | `--random_perturbation` | `true` | `false`: smooth (sine) initial perturbation instead of `rand()`, which differs between ranks. Use it to compare runs on different partitions |
 | `--profile` | `false` | Start/stop an external CUDA profiler around the timed steps, after warmup |
 | `--nvtx` | `false` | Add NVTX ranges to selected Breeze host methods and halo/solver calls |
-| `--random_perturbation` | `true` | Use random initial noise; `false` selects a deterministic perturbation |
 | `--results_file` | none | Append one CSV line of results to this file |
 
 For NCCL communication on two GPUs:
@@ -90,7 +89,8 @@ For several ranks, place `nsys profile` inside the MPI launch and give each rank
 output prefix. The recorded timing includes profiling overhead and belongs in a separate
 results file from unprofiled timings. One GPU remains the shared plain-GPU serial baseline.
 For each study, list the exact `.nsys-rep` paths in its `README.md`. Keep the
-original report for inspection in the Nsight Systems GUI.
+original report for inspection in the Nsight Systems GUI. Do not generate plots
+for Nsight runs unless explicitly requested.
 
 Add `--nvtx=true` to attribute launches to Breeze methods using
 [NVTX.jl](https://github.com/JuliaGPU/NVTX.jl). The benchmark re-evaluates an explicit

@@ -43,8 +43,9 @@ Watcher and controller output go to `logs/watcher.log` and `logs/controller.log`
 under that runtime directory. After running, it writes `outcome.md`, full case
 logs and `results.json`. With `--publish-results`, it commits the results from
 the isolated checkout and attempts a normal fast-forward push to
-`origin/benchmark-results`; it never force-pushes. If the remote branch has
-advanced independently, the live state records `RESULTS_READY_PUSH_FAILED` for
+`origin/benchmark-results`; it never force-pushes. It fast-forwards from that branch
+after measurements finish and before committing. If the remote branch has
+advanced incompatibly, the live state records a publication failure for
 manual review. The local `benchmark-results` branch can then be updated by pulling.
 
 The availability and source-change gate has six CPU regression checks:
@@ -52,3 +53,10 @@ The availability and source-change gate has six CPU regression checks:
 ```bash
 python3 -B test_gpu_gate.py
 ```
+
+## Branch consolidation
+
+The waiting job was moved to the consolidated `benchmark-results` source before any
+cases started. The numerical source matches d1c2558. The driver now also
+supports optional NVTX; these smoke checks leave it disabled. Source hashes and the
+frozen environment were refreshed before restarting the watcher.

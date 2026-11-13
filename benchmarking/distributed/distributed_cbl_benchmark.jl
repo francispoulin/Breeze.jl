@@ -27,7 +27,6 @@
 #####                      false to compare runs on different partitions, as rand() differs between ranks
 #####   --profile          true | false: capture the timed steps with Nsight  (default false)
 #####   --nvtx             true | false: annotate Breeze host methods         (default false)
-#####   --random_perturbation true | false: random or deterministic initial noise (default true)
 #####   --results_file     append one CSV line of results to this file         (default: none)
 #####
 
@@ -78,10 +77,9 @@ warmup_steps  = parse(Int, option("warmup_steps", "10"))
 substeps      = parse(Int, option("substeps", "12"))
 FT            = option("float_type", "Float32") == "Float64" ? Float64 : Float32
 simplified    = option("simplified", "false") == "true"
-random_perturbation = option("random_perturbation", "true") == "true"
 profile       = parse(Bool, option("profile", "false"))
 nvtx          = parse(Bool, option("nvtx", "false"))
-random_perturbation = parse(Bool, option("random_perturbation", "true"))
+random_perturbation = option("random_perturbation", "true") == "true"
 results_file  = option("results_file", "")
 
 if nvtx

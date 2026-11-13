@@ -113,6 +113,9 @@ def main():
                     raise RuntimeError("Push destination changed since queueing; results need manual review")
                 if subprocess.check_output(["git", "diff", "--cached", "--name-only"], cwd=root, text=True).strip():
                     raise RuntimeError("Results ready, but unrelated staged changes prevent automatic publication")
+                # Do this only after the checks finish; measurements use the frozen checkout.
+                subprocess.run(["git", "fetch", "origin", "benchmark-results"], cwd=root, check=True)
+                subprocess.run(["git", "merge", "--ff-only", "origin/benchmark-results"], cwd=root, check=True)
                 for path in results.rglob("*"):
                     if path.is_file():
                         path.write_text("\n".join(line.rstrip() for line in path.read_text().splitlines()).rstrip() + "\n")

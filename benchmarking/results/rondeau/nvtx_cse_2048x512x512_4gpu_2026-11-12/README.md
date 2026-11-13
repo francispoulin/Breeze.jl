@@ -1,6 +1,6 @@
 # Four-GPU split-explicit CBL: NVTX and Nsight
 
-Status: **QUEUED: waiting for preceding checks and free GPUs**.
+Status: **QUEUED on benchmark-results: waiting for preceding checks and free GPUs**.
 
 Global grid 2048×512×512; partition 4×1; local grid 512³ per A100; Float32;
 full dry CBL with WENO5 and deterministic perturbations. Δt = 0.0025 s follows
@@ -59,6 +59,7 @@ Full controller log: `/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_202
 The live report directory is `/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/results/rondeau/nvtx_cse_2048x512x512_4gpu_2026-11-12`.
 The original checkout's README remains the initial queued snapshot until pulled.
 
-After completion it commits this report directory and immediately attempts a normal
-push to origin/NVTX-optimization. Concurrent remote changes cause a push failure
+After completion it fast-forwards from origin/benchmark-results, commits this report
+directory, and immediately attempts a normal push to origin/benchmark-results.
+This includes results published by the preceding smoke checks. Conflicting remote changes cause a failure
 recorded in status.json; it never force-pushes. No plots are produced for this run.

@@ -139,8 +139,9 @@ def describe_outcome(results, runtime, cases, state, error=None):
               f"Full controller log: `{runtime}/logs/controller.log`.", "",
               f"The live report directory is `{runtime}/worktree/{results.relative_to(results.parents[3])}`.",
               "The original checkout's README remains the initial queued snapshot until pulled.", "",
-              "After completion it commits this report directory and immediately attempts a normal",
-              "push to origin/NVTX-optimization. Concurrent remote changes cause a push failure",
+              "After completion it fast-forwards from origin/benchmark-results, commits this report",
+              "directory, and immediately attempts a normal push to origin/benchmark-results.",
+              "This includes results published by the preceding smoke checks. Conflicting remote changes cause a failure",
               "recorded in status.json; it never force-pushes. No plots are produced for this run."]
     if error:
         lines += ["", "## Failure", "", error]
@@ -213,7 +214,9 @@ def main():
                 for backend in ("NCCL", "MPI"):
                     wait_for_gpus()
                     kind = "profiled" if profiling else "benchmark"
-                    case = dict(kind=kind, backend=backend, state="RUNNING")
+                    case = dict(kind=kind, backend=backend, state="RUNNING",
+                                source_commit=subprocess.check_output(
+                                    ["git", "rev-parse", "HEAD"], cwd=root, text=True).strip())
                     cases.append(case)
                     write_json(results / "runs.json", cases)
                     command = command_for(root, results, runtime, plan, backend, profiling)
@@ -234,7 +237,8 @@ def main():
                     if profiling:
                         record = dict(case=f"compressible_splitexplicit_{backend}_4g", backend=backend,
                                       state="RUNNING", steps=10, warmup=10, size=[2048, 512, 512],
-                                      partition=[4, 1], time_step=0.0025, profiles=[])
+                                      partition=[4, 1], time_step=0.0025,
+                                      source_commit=case["source_commit"], profiles=[])
                         captures.append(record)
                         devices = {int(row[0]): row[2].lower().removeprefix("gpu-") for row in case["placements"]}
                         for rank in range(4):
@@ -289,6 +293,10 @@ def main():
                     raise RuntimeError("Push destination changed")
                 if subprocess.check_output(["git", "diff", "--cached", "--name-only"], cwd=root, text=True).strip():
                     raise RuntimeError("Unrelated staged files prevent automatic result publication")
+                # Profiling is finished and source hashes are checked. Include the preceding
+                # smoke report without changing the frozen source while measurements run.
+                subprocess.run(["git", "fetch", "origin", "benchmark-results"], cwd=root, check=True)
+                subprocess.run(["git", "merge", "--ff-only", "origin/benchmark-results"], cwd=root, check=True)
                 for path in results.rglob("*"):
                     if path.is_file():
                         path.write_text("\n".join(line.rstrip() for line in path.read_text().splitlines()).rstrip() + "\n")
@@ -296,7 +304,7 @@ def main():
                 subprocess.run(["git", "diff", "--cached", "--check"], cwd=root, check=True)
                 subprocess.run(["git", "commit", "-m", f"Record four-GPU NVTX campaign: {state}"], cwd=root, check=True)
                 publication["results_commit"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
-                push = subprocess.run(["git", "push", "origin", "HEAD:refs/heads/NVTX-optimization"], cwd=root)
+                push = subprocess.run(["git", "push", "origin", "HEAD:refs/heads/benchmark-results"], cwd=root)
                 publication["push_exit_code"] = push.returncode
                 if push.returncode:
                     state = "RESULTS_READY_PUSH_FAILED"

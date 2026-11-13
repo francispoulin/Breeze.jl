@@ -38,5 +38,8 @@
   "predecessor_status": "/u/ajtse/Breeze.jl/.runtime/benchmark_results_four_gpu_smoke_2026-11-12/watcher_status.json",
   "runtime": "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12",
   "frozen_checkout": "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree",
-  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git"
+  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git",
+  "source_branch": "benchmark-results",
+  "scientific_source_commit": "d1c25585a3b8b8238a8a4435f9e90b188021707a",
+  "publish_branch": "benchmark-results"
 }

@@ -1,0 +1,1 @@
+scientific_source_commit.txt identifies the unchanged numerical base. source_sha256.json pins the merged driver, instrumentation and controller where applicable. Actual executions record the frozen checkout commit in results.json or runs.json and captures.json. No queued GPU cases ran before consolidation.

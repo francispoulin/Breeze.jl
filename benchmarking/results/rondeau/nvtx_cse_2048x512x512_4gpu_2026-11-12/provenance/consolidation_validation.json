@@ -1,0 +1,17 @@
+{
+  "branch": "benchmark-results",
+  "numerical_source_unchanged_from": "d1c25585a3b8b8238a8a4435f9e90b188021707a",
+  "gpu_repeat_control": {
+    "passed": 26,
+    "total": 26
+  },
+  "gpu_nvtx_field_preservation": {
+    "passed": 55,
+    "total": 55
+  },
+  "python_checks": 27,
+  "chromium_timeline": "PASS",
+  "julia_instrumentation_load": "PASS",
+  "launchers_syntax": "PASS",
+  "queued_cases_executed_before_migration": 0
+}

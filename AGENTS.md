@@ -98,6 +98,9 @@ from a reference.
 
 ## Git Workflow
 
+Use `benchmark-results` for benchmark work, including NVTX instrumentation and Nsight profiling.
+Keep these tools together on that branch rather than maintaining a separate NVTX branch.
+
 Always pull the current branch from its remote before making any edit. Preserve unrelated local changes.
 
 Follow [ColPrac](https://github.com/SciML/ColPrac). Feature branches, descriptive commits,

@@ -1,0 +1,11 @@
+{
+  "source_branch": "benchmark-results",
+  "scientific_source_commit": "d1c25585a3b8b8238a8a4435f9e90b188021707a",
+  "previous_nvtx_head": "5d3236de0bd0d60ed283122dbe8b1a3e8ae879c8",
+  "source_files_unchanged": [
+    "src/",
+    "Project.toml",
+    "benchmarking/src/convective_boundary_layer.jl"
+  ],
+  "note": "Queued before branch consolidation; no cases had started. Source hashes and environments refreshed before restart."
+}
