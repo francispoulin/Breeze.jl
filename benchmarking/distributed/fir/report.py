@@ -31,7 +31,7 @@ def report(study):
         row["weak_efficiency_percent"] = 100 * baseline / float(row["seconds_per_step"]) if baseline else ""
     if rows:
         with (study / "comparison.csv").open("w") as handle:
-            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
             writer.writeheader()
             writer.writerows(rows)
         figure, axes = plt.subplots(1, 3, figsize=(15, 4.5), constrained_layout=True)
@@ -82,6 +82,8 @@ def report(study):
         lines += ["", "| GPUs | Slurm job |", "|---:|---|"]
         lines += [f"| {item['gpus']} | {item['job_id']} |" for item in submission["jobs"]]
         lines += ["", f"Finalizer job: {submission.get('finalizer_job_id', 'not yet submitted')}. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/)."]
+        if submission.get("retry_jobs"):
+            lines += ["", "Recovery allocations: " + ", ".join(f"{item['gpus']} GPUs: job {item['job_id']}" for item in submission["retry_jobs"]) + ". See [recovery notes](recovery.md)."]
     lines += ["", "| Dynamics | GPUs | State | s/step | Points/s/GPU | Weak efficiency (%) | Evidence / error |",
               "|---|---:|---|---:|---:|---:|---|"]
     metrics = {row["case"]: row for row in rows}

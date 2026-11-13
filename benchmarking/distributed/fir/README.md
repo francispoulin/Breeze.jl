@@ -35,8 +35,9 @@ the frozen jobs. Use a fresh study directory for a new series.
 Five independent Slurm jobs allocate exactly 1, 2, 4, 8, and 16 GPUs respectively.
 Each runs the three dynamics sequentially. Allocations request eight CPU cores
 per rank, 64 GiB of host memory per GPU, and three hours. Every Julia/BLAS/OpenMP
-process has one thread. All allocated GPUs on each node remain visible, allowing
-Oceananigans to select devices by MPI node-local rank. Each case has a 50-minute
+process has one thread. Slurm assigns one GPU per task with `--gpus-per-task=h100:1`
+and `--gpu-bind=single:1`; Oceananigans selects the rank's visible device. An all-rank
+preflight rejects shared or missing GPUs before model construction. Each case has a 50-minute
 limit. A failed case is recorded and the remaining cases still run.
 
 Validation reuses the existing per-rank validator and additionally checks dynamics,
@@ -48,7 +49,8 @@ not a field-by-field accuracy comparison.
 The CPU finalizer depends on all five allocations with `afterany`. It revalidates
 evidence, collects Slurm accounting, marks missing/unfinished cases explicitly,
 generates CSV/PNG/SVG comparisons for all three dynamics, and commits/pushes the
-study on `benchmark-results`. The finalizer never force-pushes. Publication fails
+study on `benchmark-results`. Its active stdout remains in `.runtime`, so publication
+does not stage its own changing log. The finalizer never force-pushes. Publication fails
 visibly if the checkout is on a different branch or cannot fast-forward.
 The finalizer runs as a Slurm job and survives closing the interactive session.
 

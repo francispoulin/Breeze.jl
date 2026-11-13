@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from study import build_plan, case_command, check_sources, finalize, validate_measurement
+from study import build_plan, case_command, check_sources, finalize, validate_measurement, validate_preflight_placement
 from report import report
 
 
@@ -51,8 +51,16 @@ class StudyTests(unittest.TestCase):
         command = case_command(case, self.directory)
         for argument in ("--nodes=4", "--ntasks=16", "--partition=16x1", "--size=8192x512x512",
                          "--comm=MPI", "--random_perturbation=false", "--float_type=Float32", "--nvtx=false",
-                         "--profile=false", "--time_step=0.000625", "--warmup_steps=10", "--time_steps=500"):
+                         "--profile=false", "--time_step=0.000625", "--warmup_steps=10", "--time_steps=500",
+                         "--gpus-per-task=h100:1", "--gpu-bind=single:1"):
             self.assertIn(argument, command)
+
+    def test_preflight_rejects_shared_or_missing_devices(self):
+        output = "PREFLIGHT rank=0 host=node gpu_uuid=gpu0\nPREFLIGHT rank=1 host=node gpu_uuid=gpu1\n"
+        self.assertEqual(len(validate_preflight_placement(output, 2)), 2)
+        for invalid in (output.replace("gpu1", "gpu0"), output.splitlines()[0], output + output):
+            with self.assertRaises(RuntimeError):
+                validate_preflight_placement(invalid, 2)
 
     def test_accept_complete_evidence(self):
         self.assertEqual(validate_measurement(self.case, self.directory, 0)["dynamics"], "anelastic")
@@ -115,6 +123,7 @@ class StudyTests(unittest.TestCase):
             rows = list(csv.DictReader(handle))
         self.assertEqual(len(rows), 1)
         self.assertEqual(float(rows[0]["weak_efficiency_percent"]), 100)
+        self.assertNotIn(b"\r", (self.directory / "comparison.csv").read_bytes())
         self.assertIn("1/15 cases validated", (self.directory / "README.md").read_text())
         self.assertGreater((self.directory / "weak_scaling.png").stat().st_size, 1000)
         self.assertTrue((self.directory / "weak_scaling.svg").exists())

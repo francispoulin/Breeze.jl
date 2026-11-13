@@ -5,6 +5,7 @@ import json
 import math
 import os
 from pathlib import Path
+import re
 import shlex
 import subprocess
 import sys
@@ -39,6 +40,15 @@ def check_sources(study):
         path = Path(name)
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
             raise RuntimeError(f"Frozen source/environment changed: {path}")
+
+
+def validate_preflight_placement(output, count):
+    placements = re.findall(r"PREFLIGHT rank=(\d+) host=(\S+) gpu_uuid=(\S+)", output)
+    if len(placements) != count or {int(item[0]) for item in placements} != set(range(count)):
+        raise RuntimeError("Missing or duplicate rank in GPU placement preflight")
+    if len({(host, uuid) for _, host, uuid in placements}) != count:
+        raise RuntimeError("Ranks share a GPU in placement preflight")
+    return placements
 
 
 def prepare(study):
@@ -129,7 +139,7 @@ def submit(study):
     dependency = "afterany:" + ":".join(item["job_id"] for item in submission["jobs"])
     command = ["sbatch", "--parsable", "--account=def-fpoulin", "--job-name=breeze_finalize", "--nodes=1",
                "--ntasks=1", "--cpus-per-task=1", "--mem=4G", "--time=00:20:00", "--dependency=" + dependency,
-               "--chdir=" + config_path(study, "repository"), "--output=" + str(study / "finalize-%j.out"),
+               "--chdir=" + config_path(study, "repository"), "--output=" + str(Path(config_path(study, "runtime")) / "finalize-%j.out"),
                str(study / "finalize.sh")]
     (study / "finalize_submission_command.sh").write_text(shlex.join(command) + "\n")
     submission.update(finalizer_job_id=run_text(command).strip().split(";")[0], finalizer_command=command, state="submitted")
@@ -148,7 +158,7 @@ def case_command(case, study):
     directory = study / "cases" / case["id"]
     count = case["gpus"]
     return ["srun", "--mpi=pmix", "--exact", "--kill-on-bad-exit=1", "--time=00:50:00", "--cpu-bind=none",
-            "--gpu-bind=none", "--distribution=block:block", "--nodes=" + str(max(1, count // 4)),
+            "--gpus-per-task=h100:1", "--gpu-bind=single:1", "--distribution=block:block", "--nodes=" + str(max(1, count // 4)),
             "--ntasks=" + str(count), "--ntasks-per-node=" + str(min(4, count)),
             "bash", str(source / "benchmarking/distributed/rorqual/rank.sh"), str(directory),
             "julia", "--startup-file=no", "--threads=1", "--project=" + config["environment"],
@@ -207,14 +217,23 @@ def run_size(study, count):
         capture = 'module -t list 2>&1; julia --version; mpiexec --version; scontrol show job "$SLURM_JOB_ID"'
         with (directory / "environment.log").open("w") as handle:
             subprocess.run(["bash", "-c", capture], stdout=handle, stderr=subprocess.STDOUT, check=True)
-        preflight = ('using MPI; MPI.Init(); using CUDA, Oceananigans, Breeze; CUDA.versioninfo(); MPI.versioninfo(); '
-                     'println("Breeze path: ", pathof(Breeze)); '
-                     'CUDA.functional() && MPI.has_cuda() || error("CUDA-aware MPI and a functional GPU are required")')
-        command = ["srun", "--exact", "--nodes=1", "--ntasks=1", "--ntasks-per-node=1", "--cpu-bind=none", "--gpu-bind=none",
+        preflight = ('using MPI; MPI.Init(); using CUDA, Oceananigans, Breeze, Printf; '
+                     'using Oceananigans.DistributedComputations: Distributed, Partition; '
+                     'count = MPI.Comm_size(MPI.COMM_WORLD); rank = MPI.Comm_rank(MPI.COMM_WORLD); '
+                     'arch = count == 1 ? GPU() : Distributed(GPU(); partition=Partition(count, 1)); '
+                     '@printf("PREFLIGHT rank=%d host=%s gpu_uuid=%s\\n", rank, gethostname(), string(CUDA.uuid(CUDA.device()))); '
+                     'CUDA.functional() && MPI.has_cuda() || error("CUDA-aware MPI and a functional GPU are required"); '
+                     'if rank == 0; CUDA.versioninfo(); MPI.versioninfo(); println("Breeze path: ", pathof(Breeze)); end; '
+                     'MPI.Barrier(MPI.COMM_WORLD)')
+        command = ["srun", "--mpi=pmix", "--exact", "--kill-on-bad-exit=1", "--nodes=" + str(max(1, count // 4)),
+                   "--ntasks=" + str(count), "--ntasks-per-node=" + str(min(4, count)), "--cpu-bind=none",
+                   "--gpus-per-task=h100:1", "--gpu-bind=single:1", "--distribution=block:block",
                    "julia", "--startup-file=no", "--threads=1", "--project=" + config_path(study, "environment"), "-e", preflight]
         (directory / "preflight_command.sh").write_text(shlex.join(command) + "\n")
         with (directory / "gpu_preflight.log").open("w") as handle:
             subprocess.run(command, stdout=handle, stderr=subprocess.STDOUT, check=True, timeout=900)
+        placements = validate_preflight_placement((directory / "gpu_preflight.log").read_text(), count)
+        write_json(directory / "gpu_placement.json", dict(placements=placements, verified=timestamp()))
         for case in read_json(study / "plan.json"):
             if case["gpus"] == count:
                 print(f"STARTING {case['id']}", flush=True)
@@ -238,12 +257,13 @@ def render_report(study):
 
 def finalize(study, publish):
     submission = read_json(study / "submission.json")
-    expected_jobs = {item["job_id"] for item in submission["jobs"]}
+    allocations = submission["jobs"] + submission.get("retry_jobs", [])
+    expected_jobs = {item["job_id"] for item in allocations}
     queued = run_text(["squeue", "--me", "--noheader", "--format=%i|%T"])
     active = [line.strip() for line in queued.splitlines() if line.split("|", 1)[0].strip() in expected_jobs]
     if active:
         raise RuntimeError("Refusing to finalize queued/running allocations: " + ", ".join(active))
-    jobs = ",".join(item["job_id"] for item in submission["jobs"])
+    jobs = ",".join(item["job_id"] for item in allocations)
     accounting = run_text(["sacct", "--jobs=" + jobs, "--parsable2",
                            "--format=JobIDRaw,JobName,State,ExitCode,Elapsed,AllocTRES,NodeList"])
     (study / "slurm_accounting.txt").write_text(accounting)
@@ -289,7 +309,7 @@ def finalize(study, publish):
                 except UnicodeDecodeError:
                     continue
                 cleaned = "\n".join(line.rstrip() for line in text.splitlines()).rstrip() + "\n" if text else ""
-                if cleaned != text:
+                if cleaned.encode() != path.read_bytes():
                     path.write_text(cleaned)
         relative = str(study.relative_to(repository))
         subprocess.run(["git", "add", "--force", "--", relative], cwd=repository, check=True)
