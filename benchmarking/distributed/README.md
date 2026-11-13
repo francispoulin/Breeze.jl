@@ -12,7 +12,7 @@ Reactant or `Simulation` overhead, and reports points per second. The single-GPU
 |----------|--------------|
 | `compressible_explicit` | Yes. Run on 1 A100 GPU (256×256×128) and on 1 and 2 (128×128×64, partition 2x1); results finite. |
 | `compressible_splitexplicit` | Yes. Run on 1 and 2 A100 GPUs (256×256×128, partition 2x1); results finite. Not yet compared field by field with a serial run (the case's initial noise uses `rand()`, which differs between ranks). |
-| `anelastic` | **1 GPU only** (run on 1 A100, 256×256×128; results finite). `AnelasticDynamics` builds a serial `FourierTridiagonalPoissonSolver` on each rank's local grid, which does not solve the global pressure problem on several ranks, so the driver refuses it there. One GPU gives a baseline for comparing the three models. Work in progress in Breeze PR [#1157](https://github.com/NumericalEarth/Breeze.jl/pull/1157), which depends on Oceananigans PR [#6385](https://github.com/CliMA/Oceananigans.jl/pull/6385). |
+| `anelastic` | Yes, since Breeze PR [#1157](https://github.com/NumericalEarth/Breeze.jl/pull/1157) (in Breeze `main` since Nov 12, 2026). On several ranks the pressure solve is Oceananigans' `DistributedFourierTridiagonalPoissonSolver`: a solve takes 2 transposes (MPI `Alltoall`) with `Rx×1`, 4 with `1×Ry` and 8 with `Rx×Ry`. Distributed and 1-GPU runs agree (`max_abs_w` to 7 digits at 1×1, 2×1 and 4×1, Float64, `--random_perturbation=false`, 100 steps, pelee and rondeau, Nov 11, 2026). |
 
 ## Requirements
 
@@ -39,7 +39,7 @@ have checked out.
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `--dynamics` | `compressible_splitexplicit` | `anelastic` (1 GPU only), `compressible_explicit` or `compressible_splitexplicit` |
+| `--dynamics` | `compressible_splitexplicit` | `anelastic`, `compressible_explicit` or `compressible_splitexplicit` |
 | `--size` | `256x256x128` | Global grid, `NxNyxNz` |
 | `--partition` | `<ranks>x1` | Ranks in x and y, `RxxRy`; must multiply to the number of ranks |
 | `--time_steps` | `100` | Timed steps |
@@ -48,6 +48,7 @@ have checked out.
 | `--substeps` | `12` | Acoustic substeps (split-explicit only) |
 | `--float_type` | `Float32` | `Float32` or `Float64` |
 | `--simplified` | `false` | Drop the geostrophic forcing and the field-dependent drag boundary conditions |
+| `--random_perturbation` | `true` | `false`: smooth (sine) initial perturbation instead of `rand()`, which differs between ranks. Use it to compare runs on different partitions |
 | `--results_file` | none | Append one CSV line of results to this file |
 
 ## Reading the output
@@ -59,7 +60,9 @@ RESULT machine=... dynamics=... float=... size=... partition=... gpus=... steps=
 ```
 
 - `points_per_second` uses the **global** number of grid points.
-- `max_abs_w` is a blow-up check. If it is not finite, the timing is meaningless.
+- `max_abs_w` is a blow-up check. If it is not finite, the timing is meaningless. With
+  `--random_perturbation=false` it is also a quick consistency check: runs of the same case on different
+  partitions should agree to many digits.
 - Small grids are dominated by kernel-launch and halo-exchange latency, so more GPUs can be slower. Judge
   scaling on grids of several million points per GPU, with at least a few hundred timed steps.
 
