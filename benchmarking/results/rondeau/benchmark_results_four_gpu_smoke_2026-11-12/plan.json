@@ -1,0 +1,45 @@
+{
+  "status": "AUTOMATIC_LAUNCH_CONFIGURED",
+  "size": [
+    32,
+    32,
+    32
+  ],
+  "partition": [
+    4,
+    1
+  ],
+  "gpus": 4,
+  "warmup_steps": 1,
+  "timed_steps": 3,
+  "time_step": 0.005,
+  "cases": [
+    {
+      "dynamics": "anelastic",
+      "backend": "MPI"
+    },
+    {
+      "dynamics": "anelastic",
+      "backend": "NCCL"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "backend": "MPI"
+    },
+    {
+      "dynamics": "compressible_explicit",
+      "backend": "NCCL"
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "backend": "MPI"
+    },
+    {
+      "dynamics": "compressible_splitexplicit",
+      "backend": "NCCL"
+    }
+  ],
+  "auto_launch": true,
+  "poll_seconds": 30,
+  "allow_shared_gpus": false
+}
