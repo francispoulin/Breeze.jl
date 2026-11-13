@@ -1,0 +1,26 @@
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_splitexplicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (4096, 512, 512)
+│   partition = (8, 1)
+│   nranks = 8
+│   Δt = 0.00125
+│   time_steps = 500
+│   communication_name = "MPI"
+│   communicator_type = "Comm"
+└   profile = false
+PLACEMENT rank=0 host=fc10104 gpu_uuid=2f611948-0822-1fa6-f7ef-aa9105ac1d67 communicator=Comm threads=1 pool=none
+DEVICE rank=0 uuid=2f611948-0822-1fa6-f7ef-aa9105ac1d67 visible=0,1,2,3
+TIMING_START communication=MPI steps=500
+TIMING_END communication=MPI elapsed_seconds=365.451895451
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=26193625088
+RESULT machine=fc10104 dynamics=compressible_splitexplicit float=Float32 size=4096x512x512 partition=8x1 gpus=8 steps=500 seconds_per_step=7.3090e-01 points_per_second=1.4691e+09 points_per_second_per_gpu=1.8363e+08 max_abs_w=8.098787e-03 communication=MPI fields_finite=true

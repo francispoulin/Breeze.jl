@@ -1,6 +1,6 @@
 # Fir MPI weak scaling: anelastic, CE, CSE
 
-Status: **SUBMITTED; 0/15 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
+Status: **SUBMITTED; 12/15 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
 
 Full dry convective boundary layer, WENO5, Float32, deterministic smooth initial perturbations.
 Fixed 12 km × 12 km × 3 km domain; N×1 partitions and 512³ cells per GPU.
@@ -29,25 +29,27 @@ An after-any CPU finalizer retains results and plots even if a GPU allocation fa
 | 8 | 3715784 |
 | 16 | 3715785 |
 
-Finalizer job: 3715786. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/).
+Finalizer job: 3819904. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/).
+
+Recovery allocations: 2 GPUs: job 3819903. See [recovery notes](recovery.md).
 
 | Dynamics | GPUs | State | s/step | Points/s/GPU | Weak efficiency (%) | Evidence / error |
 |---|---:|---|---:|---:|---:|---|
-| Anelastic | 1 | pending |  |  |  | [case files](cases/anelastic_SERIAL_1g_1x1/) |
-| CE | 1 | pending |  |  |  | [case files](cases/compressible_explicit_SERIAL_1g_1x1/) |
-| CSE | 1 | pending |  |  |  | [case files](cases/compressible_splitexplicit_SERIAL_1g_1x1/) |
+| Anelastic | 1 | validated | 1.465498e-01 | 915850300.0 | 100.0 | [case files](cases/anelastic_SERIAL_1g_1x1/) |
+| CE | 1 | validated | 1.346134e-01 | 997060400.0 | 100.0 | [case files](cases/compressible_explicit_SERIAL_1g_1x1/) |
+| CSE | 1 | validated | 5.848549e-01 | 229488900.0 | 100.0 | [case files](cases/compressible_splitexplicit_SERIAL_1g_1x1/) |
 | Anelastic | 2 | pending |  |  |  | [case files](cases/anelastic_MPI_2g_2x1/) |
 | CE | 2 | pending |  |  |  | [case files](cases/compressible_explicit_MPI_2g_2x1/) |
 | CSE | 2 | pending |  |  |  | [case files](cases/compressible_splitexplicit_MPI_2g_2x1/) |
-| Anelastic | 4 | pending |  |  |  | [case files](cases/anelastic_MPI_4g_4x1/) |
-| CE | 4 | pending |  |  |  | [case files](cases/compressible_explicit_MPI_4g_4x1/) |
-| CSE | 4 | pending |  |  |  | [case files](cases/compressible_splitexplicit_MPI_4g_4x1/) |
-| Anelastic | 8 | pending |  |  |  | [case files](cases/anelastic_MPI_8g_8x1/) |
-| CE | 8 | pending |  |  |  | [case files](cases/compressible_explicit_MPI_8g_8x1/) |
-| CSE | 8 | pending |  |  |  | [case files](cases/compressible_splitexplicit_MPI_8g_8x1/) |
-| Anelastic | 16 | pending |  |  |  | [case files](cases/anelastic_MPI_16g_16x1/) |
-| CE | 16 | pending |  |  |  | [case files](cases/compressible_explicit_MPI_16g_16x1/) |
-| CSE | 16 | pending |  |  |  | [case files](cases/compressible_splitexplicit_MPI_16g_16x1/) |
+| Anelastic | 4 | validated | 2.429220e-01 | 552513750.0 | 60.32792418965759 | [case files](cases/anelastic_MPI_4g_4x1/) |
+| CE | 4 | validated | 1.409612e-01 | 952160500.0 | 95.49677499907776 | [case files](cases/compressible_explicit_MPI_4g_4x1/) |
+| CSE | 4 | validated | 6.124700e-01 | 219141725.0 | 95.49119140529332 | [case files](cases/compressible_splitexplicit_MPI_4g_4x1/) |
+| Anelastic | 8 | validated | 7.160144e-01 | 187451125.0 | 20.467437526396115 | [case files](cases/anelastic_MPI_8g_8x1/) |
+| CE | 8 | validated | 1.703054e-01 | 788100250.0 | 79.04235567398332 | [case files](cases/compressible_explicit_MPI_8g_8x1/) |
+| CSE | 8 | validated | 7.309038e-01 | 183632500.0 | 80.01804067785665 | [case files](cases/compressible_splitexplicit_MPI_8g_8x1/) |
+| Anelastic | 16 | validated | 9.872682e-01 | 135948625.0 | 14.84397046314264 | [case files](cases/anelastic_MPI_16g_16x1/) |
+| CE | 16 | validated | 1.751621e-01 | 766248750.0 | 76.85075709871029 | [case files](cases/compressible_explicit_MPI_16g_16x1/) |
+| CSE | 16 | validated | 7.453969e-01 | 180062125.0 | 78.46221254743614 | [case files](cases/compressible_splitexplicit_MPI_16g_16x1/) |
 
 Timing includes final GPU synchronization and an MPI barrier and uses the slowest rank.
 Weak efficiency is 100 × serial seconds/step ÷ distributed seconds/step, using a separate serial baseline for each dynamics.
@@ -60,3 +62,7 @@ Finite fields do not establish full numerical agreement with serial solutions. O
 Per-case directories retain exact commands, every rank's log and field validation, hardware details, final device-memory use, and five-second process-memory samples (which can miss peaks).
 
 Julia 1.12.5; Breeze 0.15.0, Oceananigans 0.117.2, CUDA 6.4.2, MPI 0.20.29.
+
+![MPI weak scaling](weak_scaling.png)
+
+[Comparison CSV](comparison.csv) · [Vector SVG](weak_scaling.svg)

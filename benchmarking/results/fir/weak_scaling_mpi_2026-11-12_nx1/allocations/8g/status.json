@@ -1,0 +1,21 @@
+{
+  "job_id": "3715784",
+  "gpus": 8,
+  "started": "2026-11-13T03:38:07.609358+00:00",
+  "state": "validated",
+  "cases": [
+    {
+      "id": "anelastic_MPI_8g_8x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_explicit_MPI_8g_8x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_splitexplicit_MPI_8g_8x1",
+      "validated": true
+    }
+  ],
+  "finished": "2026-11-13T04:07:14.165998+00:00"
+}

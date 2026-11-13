@@ -1,0 +1,10 @@
+{
+  "prepared": "2026-11-13T16:24:49.157664+00:00",
+  "controller_commit": "ce77bcf02dc5d77c960f86a4298e8ac88e09fd43",
+  "controller_source": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/recovery_source",
+  "scientific_source": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source",
+  "environment": "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/environment",
+  "retained_valid_cases": 12,
+  "retry_cases": 3,
+  "allocation_limit": "01:00:00"
+}

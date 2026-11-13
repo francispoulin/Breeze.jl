@@ -1,0 +1,2 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite
+fc10114,anelastic,Float32,8192,512,512,16,1,16,500,9.872682e-01,2.175178e+09,9.697472e-05,MPI,true

@@ -1,0 +1,3 @@
+STARTING anelastic_MPI_8g_8x1
+STARTING compressible_explicit_MPI_8g_8x1
+STARTING compressible_splitexplicit_MPI_8g_8x1

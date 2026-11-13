@@ -107,8 +107,8 @@
       ]
     }
   ],
-  "state": "submitted",
-  "finalizer_job_id": "3715786",
+  "state": "retry_submitted",
+  "finalizer_job_id": "3819904",
   "finalizer_command": [
     "sbatch",
     "--parsable",
@@ -123,5 +123,44 @@
     "--chdir=/home/anditse/Breeze.jl",
     "--output=/home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/finalize-%j.out",
     "/home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/finalize.sh"
+  ],
+  "retry_jobs": [
+    {
+      "gpus": 2,
+      "job_id": "3819903",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin_gpu",
+        "--job-name=breeze_mpi_2g_retry",
+        "--nodes=1",
+        "--ntasks=2",
+        "--ntasks-per-node=2",
+        "--gpus-per-node=h100:2",
+        "--cpus-per-task=8",
+        "--mem=128G",
+        "--time=01:00:00",
+        "--distribution=block:block",
+        "--chdir=/home/anditse/Breeze.jl",
+        "--output=/home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/2g/slurm-%j.out",
+        "/home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/2g/allocation.sh"
+      ]
+    }
+  ],
+  "original_finalizer_job_id": "3715786",
+  "recovery_finalizer_command": [
+    "sbatch",
+    "--parsable",
+    "--account=def-fpoulin",
+    "--job-name=breeze_retry_finalize",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=4G",
+    "--time=00:20:00",
+    "--dependency=afterany:3819903",
+    "--chdir=/home/anditse/Breeze.jl",
+    "--output=/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/recovery_finalize-%j.out",
+    "/home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/recovery_finalize.sh"
   ]
 }

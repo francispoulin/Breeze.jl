@@ -1,0 +1,201 @@
+Precompiling packages...
+    997.5 ms  ✓ MPIPreferences
+    PrecompileTools Being precompiled by another machine (hostname: fc10108, pid: 400294, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/PrecompileTools/AQ9Mk_UKt66.ji.pidfile)
+   2645.3 ms  ✓ DocStringExtensions
+    939.9 ms  ✓ XML2_jll
+   1120.3 ms  ✓ MPItrampoline_jll
+   1263.0 ms  ✓ OpenMPI_jll
+   3210.6 ms  ✓ PrecompileTools
+   1191.0 ms  ✓ MicrosoftMPI_jll
+    818.1 ms  ✓ Hwloc_jll
+    744.0 ms  ✓ MPICH_jll
+   1180.5 ms  ✓ MPIABI_jll
+   4143.7 ms  ✓ MPI
+  11 dependencies successfully precompiled in 15 seconds. 34 already precompiled.
+Precompiling packages...
+   2647.5 ms  ✓ OrderedCollections
+    tree_sitter_spirv_jll Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/tree_sitter_spirv_jll/4DbdU_UKt66.ji.pidfile)
+   3337.5 ms  ✓ GPUToolbox
+    tree_sitter_gcn_jll Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/tree_sitter_gcn_jll/bPIzo_UKt66.ji.pidfile)
+    LLVMExtra_jll Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/LLVMExtra_jll/R9OeX_UKt66.ji.pidfile)
+    527.8 ms  ✓ MSVCRuntime_jll
+    NVPTX_LLVM_Backend_jll Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/NVPTX_LLVM_Backend_jll/ndaUV_UKt66.ji.pidfile)
+    817.5 ms  ✓ LMDB_jll
+    tree_sitter_ptx_jll Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/tree_sitter_ptx_jll/A9M2F_UKt66.ji.pidfile)
+    808.9 ms  ✓ tree_sitter_llvm_jll
+    StringManipulation Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/StringManipulation/4nJQd_UKt66.ji.pidfile)
+   7620.8 ms  ✓ StaticArrays
+   2025.9 ms  ✓ Tables
+  11031.0 ms  ✓ tree_sitter_spirv_jll
+   1041.3 ms  ✓ LMDB
+    653.8 ms  ✓ StaticArrays → StaticArraysStatisticsExt
+    Adapt → AdaptStaticArraysExt Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/AdaptStaticArraysExt/9bCdf_UKt66.ji.pidfile)
+  12207.8 ms  ✓ tree_sitter_gcn_jll
+  12200.4 ms  ✓ LLVMExtra_jll
+  11768.4 ms  ✓ NVPTX_LLVM_Backend_jll
+  11386.5 ms  ✓ tree_sitter_ptx_jll
+  10968.6 ms  ✓ StringManipulation
+    891.7 ms  ✓ CompilerCaching
+    LLVM Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/LLVM/e8NBy_UKt66.ji.pidfile)
+    PrettyTables Being precompiled by another machine (hostname: fc10108, pid: 400294, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/PrettyTables/kRdcL_UKt66.ji.pidfile)
+  10124.3 ms  ✓ Adapt → AdaptStaticArraysExt
+  10499.6 ms  ✓ LLVM
+   2235.8 ms  ✓ UnsafeAtomics
+    648.3 ms  ✓ LLVM → BFloat16sExt
+    GPUCompiler Being precompiled by another machine (hostname: fc10114, pid: 889115, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/GPUCompiler/yPwef_UKt66.ji.pidfile)
+    735.2 ms  ✓ Atomix
+    KernelAbstractions Being precompiled by another machine (hostname: fc10114, pid: 889518, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/KernelAbstractions/aywHT_UKt66.ji.pidfile)
+  27759.6 ms  ✓ CUDA_Compiler_jll
+  10290.6 ms  ✓ KernelAbstractions
+   1129.0 ms  ✓ KernelAbstractions → SparseArraysExt
+   1057.9 ms  ✓ KernelAbstractions → LinearAlgebraExt
+   5336.7 ms  ✓ GPUArrays
+  30355.7 ms  ✓ GPUCompiler
+   1292.0 ms  ✓ UnsafeAtomics → UnsafeAtomicsGPUCompilerExt
+  50774.2 ms  ✓ PrettyTables
+  37651.3 ms  ✓ CUDA_Runtime_jll
+  72771.0 ms  ✓ CUDACore
+   5239.5 ms  ✓ Atomix → AtomixCUDACoreExt
+   9183.5 ms  ✓ cuFFT
+   9668.3 ms  ✓ cuRAND
+   8149.1 ms  ✓ CUPTI
+    cuSPARSE Being precompiled by another machine (hostname: fc10108, pid: 400294, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/cuSPARSE/Dbmja_UKt66.ji.pidfile)
+    cuBLAS Being precompiled by another machine (hostname: fc10108, pid: 400294, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/cuBLAS/EI0St_UKt66.ji.pidfile)
+   7700.3 ms  ✓ NVML
+  13707.4 ms  ✓ CUDATools
+  31234.4 ms  ✓ cuBLAS
+  31243.0 ms  ✓ cuSPARSE
+   9145.3 ms  ✓ cuSOLVER
+    CUDA Being precompiled by another machine (hostname: fc10108, pid: 400294, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/CUDA/oWw5k_UKt66.ji.pidfile)
+  11016.0 ms  ✓ CUDA
+  41 dependencies successfully precompiled in 234 seconds. 69 already precompiled.
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+Precompiling packages...
+    MPI → CUDAExt Being precompiled by another machine (hostname: fc10108, pid: 400294, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/CUDAExt/HrViO_UKt66.ji.pidfile)
+Info Given CUDAExt was explicitly requested, output will be shown live [0K
+[0K┌ Warning: Module MPI with build ID fafbfcfd-2bf5-70e0-e63a-7a50351846cb is missing from the cache.
+[0K│ This may mean MPI [da04e1cc-30fd-572f-bb4f-1f8673147195] does not support precompilation but is imported by a module that does.
+[0K└ @ Base loading.jl:2641
+  15875.3 ms  ✓ MPI → CUDAExt
+  1 dependency successfully precompiled in 18 seconds. 124 already precompiled.
+  1 dependency had output during precompilation:
+┌ MPI → CUDAExt
+│  [Output was shown above]
+└
+┌ Warning: Module MPI with build ID fafbfcfd-2bf5-70e0-e63a-7a50351846cb is missing from the cache.
+│ This may mean MPI [da04e1cc-30fd-572f-bb4f-1f8673147195] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:2641
+Precompiling packages...
+    462.3 ms  ✓ StructArrays → AdaptExt
+    603.4 ms  ✓ StructArrays → LinearAlgebraExt
+    597.0 ms  ✓ StructArrays → SparseArraysExt
+    528.8 ms  ✓ StructArrays → GPUArraysCoreExt
+   1538.2 ms  ✓ StructArrays → StaticArraysExt
+    JLD2 Being precompiled by another machine (hostname: fc10108, pid: 400294, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/JLD2/O1EyT_UKt66.ji.pidfile)
+   2198.2 ms  ✓ Rotations
+   1396.9 ms  ✓ CubedSphere
+    995.7 ms  ✓ StructArrays → KernelAbstractionsExt
+  20240.5 ms  ✓ JLD2
+   2517.9 ms  ✓ TaylorSeries → TaylorSeriesJLD2Ext
+    Oceananigans Being precompiled by another machine (hostname: fc10108, pid: 400294, pidfile: /home/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Oceananigans/hU93i_UKt66.ji.pidfile)
+Info Given Oceananigans was explicitly requested, output will be shown live [0K
+[0K┌ Warning: Module MPI with build ID fafbfcfd-2bf5-70e0-e63a-7a50351846cb is missing from the cache.
+[0K│ This may mean MPI [da04e1cc-30fd-572f-bb4f-1f8673147195] does not support precompilation but is imported by a module that does.
+[0K└ @ Base loading.jl:2641
+  54517.5 ms  ✓ Oceananigans
+  11 dependencies successfully precompiled in 81 seconds. 110 already precompiled.
+  1 dependency had output during precompilation:
+┌ Oceananigans
+│  [Output was shown above]
+└
+┌ Warning: Module MPI with build ID fafbfcfd-2bf5-70e0-e63a-7a50351846cb is missing from the cache.
+│ This may mean MPI [da04e1cc-30fd-572f-bb4f-1f8673147195] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:2641
+Precompiling packages...
+   5825.5 ms  ? MPI → CUDAExt
+  15028.5 ms  ? Oceananigans
+Info Given OceananigansCUDAExt was explicitly requested, output will be shown live [0K
+[0K┌ Warning: Module MPI with build ID fafbfcfd-2bf5-70e0-e63a-7a50351846cb is missing from the cache.
+[0K│ This may mean MPI [da04e1cc-30fd-572f-bb4f-1f8673147195] does not support precompilation but is imported by a module that does.
+[0K└ @ Base loading.jl:2641
+   5622.7 ms  ? Oceananigans → OceananigansCUDAExt
+┌ Warning: Module MPI with build ID fafbfcfd-2bf5-70e0-e63a-7a50351846cb is missing from the cache.
+│ This may mean MPI [da04e1cc-30fd-572f-bb4f-1f8673147195] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:2641
+Precompiling packages...
+  14576.1 ms  ? Oceananigans
+Info Given Breeze was explicitly requested, output will be shown live [0K
+[0K┌ Warning: Module Oceananigans with build ID ffffffff-ffff-ffff-624b-47e9d552f9b9 is missing from the cache.
+[0K│ This may mean Oceananigans [9e8cae18-63c1-5223-a75c-80ca9d6e9a09] does not support precompilation but is imported by a module that does.
+[0K└ @ Base loading.jl:2641
+    429.8 ms  ? Breeze
+┌ Warning: Module Oceananigans with build ID ffffffff-ffff-ffff-624b-47e9d552f9b9 is missing from the cache.
+│ This may mean Oceananigans [9e8cae18-63c1-5223-a75c-80ca9d6e9a09] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:2641
+CUDA toolchain:
+- runtime 13.4.0, artifact installation
+- driver 580.178.4 for CUDA 13.0
+- compiler 13.5.37, artifact installation
+
+CUDA libraries:
+- cuBLAS: 13.8.0
+- cuSPARSE: 12.8.6
+- cuSOLVER: 12.3.5
+- cuFFT: 12.4.0
+- cuRAND: 10.4.4
+- CUPTI: 2026.3.1 (API 13.4.1)
+- NVML: 13.0.0+580.178.4
+
+Julia packages:
+- CUDACore: 6.4.2
+- GPUArrays: 11.5.16
+- GPUCompiler: 2.21.0
+- KernelAbstractions: 0.9.45
+- CUDA_Driver_jll: 13.5.0+0
+- CUDA_Compiler_jll: 0.6.4+0
+- CUDA_Runtime_jll: 0.25.0+3
+- NVPTX_LLVM_Backend_jll: 23.1.2+2
+
+Toolchain:
+- Julia: 1.12.5
+- LLVM: 18.1.7
+
+Environment:
+- JULIA_CUDA_MEMORY_POOL: none
+
+4 devices:
+  0: NVIDIA H100 80GB HBM3 (sm_90, 79.175 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  1: NVIDIA H100 80GB HBM3 (sm_90, 79.175 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  2: NVIDIA H100 80GB HBM3 (sm_90, 79.175 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  3: NVIDIA H100 80GB HBM3 (sm_90, 79.175 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+MPIPreferences:
+  binary:  system
+  abi:     OpenMPI
+  libmpi:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  mpiexec: mpiexec
+
+Package versions
+  MPI.jl:             0.20.29
+  MPIPreferences.jl:  0.1.12
+
+Library information:
+  libmpi:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  libmpi dlpath:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  MPI version:  3.1.0
+  Library version:
+    Open MPI v4.1.5, package: Open MPI ebuser@build-node2.computecanada.ca Distribution, ident: 4.1.5, repo rev: v4.1.5, Feb 23, 2023
+  MPI launcher: mpiexec
+  MPI launcher path: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/bin/mpiexec
+Breeze path: /home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source/src/Breeze.jl

@@ -1,0 +1,12 @@
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+PLACEMENT rank=4 host=fc10107 gpu_uuid=e2acaf9a-da10-5ac9-a388-4322dec600c5 communicator=Comm threads=1 pool=none
+DEVICE rank=4 uuid=e2acaf9a-da10-5ac9-a388-4322dec600c5 visible=0,1,2,3
+VALIDATION rank=4 fields_finite=true gpu_used_bytes=21718302720

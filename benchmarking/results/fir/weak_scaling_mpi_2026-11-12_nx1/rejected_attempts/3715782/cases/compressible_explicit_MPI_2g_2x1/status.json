@@ -1,0 +1,16 @@
+{
+  "case": {
+    "id": "compressible_explicit_MPI_2g_2x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "MPI",
+    "time_step": 0.005
+  },
+  "state": "failed",
+  "started": "2026-11-13T08:40:42.729625+00:00",
+  "job_id": "3715782",
+  "error": "Ranks share a GPU",
+  "finished": "2026-11-13T08:45:31.644290+00:00"
+}

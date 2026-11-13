@@ -1,0 +1,16 @@
+{
+  "case": {
+    "id": "anelastic_MPI_2g_2x1",
+    "dynamics": "anelastic",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "MPI",
+    "time_step": 0.005
+  },
+  "state": "failed",
+  "started": "2026-11-13T08:33:51.192443+00:00",
+  "job_id": "3715782",
+  "error": "Ranks share a GPU",
+  "finished": "2026-11-13T08:40:42.703917+00:00"
+}

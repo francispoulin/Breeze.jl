@@ -1,0 +1,21 @@
+{
+  "job_id": "3715782",
+  "gpus": 2,
+  "started": "2026-11-13T08:31:31.902611+00:00",
+  "state": "failed",
+  "cases": [
+    {
+      "id": "anelastic_MPI_2g_2x1",
+      "validated": false
+    },
+    {
+      "id": "compressible_explicit_MPI_2g_2x1",
+      "validated": false
+    },
+    {
+      "id": "compressible_splitexplicit_MPI_2g_2x1",
+      "validated": false
+    }
+  ],
+  "finished": "2026-11-13T09:01:00.335613+00:00"
+}

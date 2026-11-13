@@ -1,0 +1,39 @@
+Already up to date.
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:1: trailing whitespace.
++machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite,points_per_second_per_gpu,max_final_device_memory_bytes,max_sampled_process_memory_mib,case,time_step,weak_efficiency_percent
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:2: trailing whitespace.
++fc10516,anelastic,Float32,512,512,512,1,1,1,500,1.465498e-01,9.158503e+08,1.648191e-03,SERIAL,true,915850300.0,16475357184,15702.0,anelastic_SERIAL_1g_1x1,0.01,100.0
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:3: trailing whitespace.
++fc10516,compressible_explicit,Float32,512,512,512,1,1,1,500,1.346134e-01,9.970604e+08,4.754995e-03,SERIAL,true,997060400.0,15458238464,16906.0,compressible_explicit_SERIAL_1g_1x1,0.01,100.0
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:4: trailing whitespace.
++fc10516,compressible_splitexplicit,Float32,512,512,512,1,1,1,500,5.848549e-01,2.294889e+08,1.547465e-02,SERIAL,true,229488900.0,25121914880,26124.0,compressible_splitexplicit_SERIAL_1g_1x1,0.01,100.0
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:5: trailing whitespace.
++fc10108,anelastic,Float32,2048,512,512,4,1,4,500,2.429220e-01,2.210055e+09,4.409021e-04,MPI,true,552513750.0,21546336256,21082.0,anelastic_MPI_4g_4x1,0.0025,60.32792418965759
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:6: trailing whitespace.
++fc10108,compressible_explicit,Float32,2048,512,512,4,1,4,500,1.409612e-01,3.808642e+09,5.164833e-03,MPI,true,952160500.0,16123101184,17612.0,compressible_explicit_MPI_4g_4x1,0.0025,95.49677499907776
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:7: trailing whitespace.
++fc10108,compressible_splitexplicit,Float32,2048,512,512,4,1,4,500,6.124700e-01,8.765669e+08,9.289212e-03,MPI,true,219141725.0,26191527936,27214.0,compressible_splitexplicit_MPI_4g_4x1,0.0025,95.49119140529332
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:8: trailing whitespace.
++fc10104,anelastic,Float32,4096,512,512,8,1,8,500,7.160144e-01,1.499609e+09,2.228809e-04,MPI,true,187451125.0,21718302720,21244.0,anelastic_MPI_8g_8x1,0.00125,20.467437526396115
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:9: trailing whitespace.
++fc10104,compressible_explicit,Float32,4096,512,512,8,1,8,500,1.703054e-01,6.304802e+09,4.998009e-03,MPI,true,788100250.0,16125198336,17614.0,compressible_explicit_MPI_8g_8x1,0.00125,79.04235567398332
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:10: trailing whitespace.
++fc10104,compressible_splitexplicit,Float32,4096,512,512,8,1,8,500,7.309038e-01,1.469060e+09,8.098787e-03,MPI,true,183632500.0,26193625088,27216.0,compressible_splitexplicit_MPI_8g_8x1,0.00125,80.01804067785665
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:11: trailing whitespace.
++fc10114,anelastic,Float32,8192,512,512,16,1,16,500,9.872682e-01,2.175178e+09,9.697472e-05,MPI,true,135948625.0,22053847040,21564.0,anelastic_MPI_16g_16x1,0.000625,14.84397046314264
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:12: trailing whitespace.
++fc10114,compressible_explicit,Float32,8192,512,512,16,1,16,500,1.751621e-01,1.225998e+10,3.054427e-03,MPI,true,766248750.0,16125198336,17614.0,compressible_explicit_MPI_16g_16x1,0.000625,76.85075709871029
+benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/comparison.csv:13: trailing whitespace.
++fc10114,compressible_splitexplicit,Float32,8192,512,512,16,1,16,500,7.453969e-01,2.880994e+09,5.429898e-03,MPI,true,180062125.0,26193625088,27216.0,compressible_splitexplicit_MPI_16g_16x1,0.000625,78.46221254743614
+Traceback (most recent call last):
+  File "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source/benchmarking/distributed/fir/study.py", line 331, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source/benchmarking/distributed/fir/study.py", line 324, in main
+    return finalize(study, arguments.publish)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/anditse/Breeze.jl/.runtime/studies/weak_scaling_mpi_2026-11-12_nx1/source/benchmarking/distributed/fir/study.py", line 296, in finalize
+    subprocess.run(["git", "diff", "--cached", "--check", "--", relative], cwd=repository, check=True)
+  File "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/python/3.11.5/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'diff', '--cached', '--check', '--', 'benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1']' returned non-zero exit status 2.

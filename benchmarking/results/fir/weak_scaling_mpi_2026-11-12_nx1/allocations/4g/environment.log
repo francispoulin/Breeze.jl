@@ -1,0 +1,59 @@
+CCconfig
+gentoo/2023
+StdEnv/2023
+mii/1.1.2
+gcc/12.3
+flexiblas/3.3.1
+aocl-blas/5.1
+aocl-lapack/5.1
+gcccore/.12.3 <H>
+hwloc/2.9.1
+libfabric/1.18.0
+pmix/4.2.4
+openmpi/4.1.5
+julia/1.12.5
+cudacore/.12.6.2 <H>
+ucx/1.14.1
+gdrcopy/2.3.1
+ucx-cuda/1.14.1
+ucc/1.2.0
+nccl/2.26.2
+ucc-cuda/1.2.0
+cuda/12.6
+python/3.11.5
+python/3.11
+ipykernel/2025a
+scipy-stack/2025a
+julia version 1.12.5
+mpiexec (OpenRTE) 4.1.5
+
+Report bugs to http://www.open-mpi.org/community/help/
+JobId=3715783 JobName=breeze_mpi_4g
+   UserId=anditse(3165591) GroupId=anditse(3165591) MCS_label=N/A
+   Priority=1688207 Nice=0 Account=def-fpoulin_gpu QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:07 TimeLimit=03:00:00 TimeMin=N/A
+   SubmitTime=2026-11-12T20:21:16 EligibleTime=2026-11-12T20:21:16
+   AccrueTime=2026-11-12T20:21:16
+   StartTime=2026-11-12T20:38:00 EndTime=2026-11-12T23:38:00 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-12T20:38:00 Scheduler=Main
+   Partition=gpubase_bynode_b1 AllocNode:Sid=login3:300802
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=fc10108
+   BatchHost=fc10108
+   NumNodes=1 NumCPUs=32 NumTasks=4 CPUs/Task=8 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=32,mem=256G,node=1,billing=48800,gres/gpu=4,gres/gpu:h100=4
+   AllocTRES=cpu=32,mem=256G,node=1,billing=48800,gres/gpu=4,gres/gpu:h100=4
+   Socks/Node=* NtasksPerN:B:S:C=4:0:*:* CoreSpec=*
+   MinCPUsNode=32 MinMemoryNode=256G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/4g/allocation.sh
+   SubmitLine=sbatch --parsable --account=def-fpoulin_gpu --job-name=breeze_mpi_4g --nodes=1 --ntasks=4 --ntasks-per-node=4 --gpus-per-node=h100:4 --cpus-per-task=8 --mem=256G --time=03:00:00 --distribution=block:block --chdir=/home/anditse/Breeze.jl --output=/home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/4g/slurm-%j.out /home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/4g/allocation.sh
+   WorkDir=/home/anditse/Breeze.jl
+   StdErr=
+   StdIn=/dev/null
+   StdOut=/home/anditse/Breeze.jl/benchmarking/results/fir/weak_scaling_mpi_2026-11-12_nx1/allocations/4g/slurm-3715783.out
+   TresPerNode=gres/gpu:h100:4
+   TresPerTask=cpu=8

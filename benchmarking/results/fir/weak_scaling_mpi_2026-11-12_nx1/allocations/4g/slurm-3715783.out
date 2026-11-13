@@ -1,0 +1,3 @@
+STARTING anelastic_MPI_4g_4x1
+STARTING compressible_explicit_MPI_4g_4x1
+STARTING compressible_splitexplicit_MPI_4g_4x1

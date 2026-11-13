@@ -1,0 +1,6 @@
+STARTING anelastic_MPI_2g_2x1
+FAILED anelastic_MPI_2g_2x1: Ranks share a GPU
+STARTING compressible_explicit_MPI_2g_2x1
+FAILED compressible_explicit_MPI_2g_2x1: Ranks share a GPU
+STARTING compressible_splitexplicit_MPI_2g_2x1
+FAILED compressible_splitexplicit_MPI_2g_2x1: Ranks share a GPU

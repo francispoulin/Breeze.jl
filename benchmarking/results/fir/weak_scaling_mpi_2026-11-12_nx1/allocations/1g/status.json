@@ -1,0 +1,21 @@
+{
+  "job_id": "3715781",
+  "gpus": 1,
+  "started": "2026-11-13T05:48:06.709886+00:00",
+  "state": "validated",
+  "cases": [
+    {
+      "id": "anelastic_SERIAL_1g_1x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_explicit_SERIAL_1g_1x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_splitexplicit_SERIAL_1g_1x1",
+      "validated": true
+    }
+  ],
+  "finished": "2026-11-13T06:02:43.249781+00:00"
+}
