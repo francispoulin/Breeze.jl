@@ -21,7 +21,7 @@ read it first if you have not used `run_local.sh` before.
 
 | `--dynamics` | What it is | Distributed over several GPUs? |
 |--------------|-----------|--------------------------------|
-| `anelastic` | Filters sound waves; needs a global pressure (Poisson) solve every step | Yes on the branch `claude/distributed-anelastic` (Breeze PR #1157, not in Breeze `main` yet); 1 GPU only otherwise |
+| `anelastic` | Filters sound waves; needs a global pressure (Poisson) solve every step | Yes (Breeze PR #1157, in Breeze `main` since Nov 12, 2026); see `distributed_anelastic.md` |
 | `compressible_explicit` | Fully compressible; sound waves resolved with the main time step, so a small step | Yes |
 | `compressible_splitexplicit` | Fully compressible; sound waves handled by short substeps inside each (larger) step | Yes |
 

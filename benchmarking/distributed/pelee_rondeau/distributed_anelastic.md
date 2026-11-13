@@ -1,13 +1,12 @@
 # Anelastic on several GPUs (pelee, rondeau)
 
-The branch `claude/distributed-anelastic` of `francispoulin/Breeze.jl` runs Breeze's anelastic model on
-several GPUs. It is the benchmark branch plus Breeze PR
-[#1157](https://github.com/NumericalEarth/Breeze.jl/pull/1157) (distributed anelastic pressure solver),
-which is not in Breeze `main` yet. When #1157 is merged, this moves back to `fjp/distributed-benchmark`.
+The benchmark branch `fjp/distributed-benchmark` of `francispoulin/Breeze.jl` runs Breeze's anelastic
+model on several GPUs, using Breeze PR [#1157](https://github.com/NumericalEarth/Breeze.jl/pull/1157)
+(distributed anelastic pressure solver), in Breeze `main` since Nov 12, 2026.
 
 Checked on Nov 11, 2026: 1, 2 and 4 GPUs give the same `max |w|` to 7 digits after 1000 steps.
 
-## Switch your clone to the branch
+## Update your clone
 
 Use the clone from `student_guide.md` (`.../scratch/$USER/software/Breeze.jl`; `origin` is
 `francispoulin/Breeze.jl`):
@@ -17,12 +16,12 @@ ocean_setup
 cd /mnt/autofs/bow.math/scratch/$USER/software/Breeze.jl
 git status -s                                       # should print nothing; commit or stash your changes first
 git fetch origin
-git switch claude/distributed-anelastic             # creates the local branch, tracking origin
+git switch fjp/distributed-benchmark
+git pull
 bash benchmarking/distributed/pelee_rondeau/setup_breeze.sh
 ```
 
-Later updates: `git pull`, then `setup_breeze.sh` again if `Manifest.toml` changed. To go back:
-`git switch fjp/distributed-benchmark`.
+Later updates: `git pull`, then `setup_breeze.sh` again if `Manifest.toml` changed.
 
 ## Run
 

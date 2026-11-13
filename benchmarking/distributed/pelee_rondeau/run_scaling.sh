@@ -1,6 +1,6 @@
 #!/bin/bash
 # Strong and weak scaling sweep of the distributed CBL benchmark on pelee / rondeau, for the three
-# dynamics (anelastic on several GPUs needs Breeze PR #1157, merged on this branch).
+# dynamics (anelastic on several GPUs needs Breeze PR #1157, in Breeze main since Nov 12, 2026).
 # After `ocean_setup` and `source breeze_env.sh`:
 #
 #     bash benchmarking/distributed/pelee_rondeau/run_scaling.sh
