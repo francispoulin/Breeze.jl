@@ -1,0 +1,464 @@
+{
+  "source_commit": "738add6a77725e7be500486666588fa9383c8e09",
+  "driver_sha256": "e4af4bff65fbf01831b81afa914eefa876d71eca55d095d75cc00ca20b07774e",
+  "size": [
+    32,
+    32,
+    32
+  ],
+  "warmup_steps": 1,
+  "timed_steps": 3,
+  "time_step": 0.005,
+  "cases": [
+    {
+      "case": "anelastic_MPI_4g",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_including_startup_seconds": 203.1288000199711,
+      "precision": "Float64",
+      "ranks": 4,
+      "gpu_indices": "0,1,2,3",
+      "placements": [
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "Comm"
+        ],
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "Comm"
+        ],
+        [
+          "2",
+          "rondeau",
+          "0d23b51f-58fb-31df-e839-8dd85117df68",
+          "Comm"
+        ],
+        [
+          "3",
+          "rondeau",
+          "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+          "Comm"
+        ]
+      ],
+      "shared_gpus_allowed": false,
+      "existing_gpu_pids": [],
+      "rank_validation": [
+        [
+          "1",
+          "true"
+        ],
+        [
+          "2",
+          "true"
+        ],
+        [
+          "3",
+          "true"
+        ],
+        [
+          "0",
+          "true"
+        ]
+      ],
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "anelastic",
+        "float": "Float64",
+        "Nx": "32",
+        "Ny": "32",
+        "Nz": "32",
+        "Rx": "4",
+        "Ry": "1",
+        "gpus": "4",
+        "steps": "3",
+        "seconds_per_step": "1.838517e-01",
+        "points_per_second": "1.782306e+05",
+        "max_abs_w": "2.957905e-06",
+        "communication": "MPI",
+        "fields_finite": "true"
+      },
+      "launcher_messages": [
+        "[rondeau:726539] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    },
+    {
+      "case": "anelastic_NCCL_4g",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_including_startup_seconds": 172.16672699002083,
+      "precision": "Float64",
+      "ranks": 4,
+      "gpu_indices": "0,1,2,3",
+      "placements": [
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "NCCLCommunicator"
+        ],
+        [
+          "2",
+          "rondeau",
+          "0d23b51f-58fb-31df-e839-8dd85117df68",
+          "NCCLCommunicator"
+        ],
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "NCCLCommunicator"
+        ],
+        [
+          "3",
+          "rondeau",
+          "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+          "NCCLCommunicator"
+        ]
+      ],
+      "shared_gpus_allowed": false,
+      "existing_gpu_pids": [],
+      "rank_validation": [
+        [
+          "1",
+          "true"
+        ],
+        [
+          "0",
+          "true"
+        ],
+        [
+          "3",
+          "true"
+        ],
+        [
+          "2",
+          "true"
+        ]
+      ],
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "anelastic",
+        "float": "Float64",
+        "Nx": "32",
+        "Ny": "32",
+        "Nz": "32",
+        "Rx": "4",
+        "Ry": "1",
+        "gpus": "4",
+        "steps": "3",
+        "seconds_per_step": "1.507858e-01",
+        "points_per_second": "2.173148e+05",
+        "max_abs_w": "2.957905e-06",
+        "communication": "NCCL",
+        "fields_finite": "true"
+      },
+      "launcher_messages": [
+        "[rondeau:728833] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    },
+    {
+      "case": "compressible_explicit_MPI_4g",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_including_startup_seconds": 141.69455515302252,
+      "precision": "Float32",
+      "ranks": 4,
+      "gpu_indices": "0,1,2,3",
+      "placements": [
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "Comm"
+        ],
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "Comm"
+        ],
+        [
+          "2",
+          "rondeau",
+          "0d23b51f-58fb-31df-e839-8dd85117df68",
+          "Comm"
+        ],
+        [
+          "3",
+          "rondeau",
+          "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+          "Comm"
+        ]
+      ],
+      "shared_gpus_allowed": false,
+      "existing_gpu_pids": [],
+      "rank_validation": [
+        [
+          "1",
+          "true"
+        ],
+        [
+          "2",
+          "true"
+        ],
+        [
+          "3",
+          "true"
+        ],
+        [
+          "0",
+          "true"
+        ]
+      ],
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "compressible_explicit",
+        "float": "Float32",
+        "Nx": "32",
+        "Ny": "32",
+        "Nz": "32",
+        "Rx": "4",
+        "Ry": "1",
+        "gpus": "4",
+        "steps": "3",
+        "seconds_per_step": "2.806355e-02",
+        "points_per_second": "1.167636e+06",
+        "max_abs_w": "1.485664e-04",
+        "communication": "MPI",
+        "fields_finite": "true"
+      },
+      "launcher_messages": [
+        "[rondeau:729498] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    },
+    {
+      "case": "compressible_explicit_NCCL_4g",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_including_startup_seconds": 151.34207220899407,
+      "precision": "Float32",
+      "ranks": 4,
+      "gpu_indices": "0,1,2,3",
+      "placements": [
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "NCCLCommunicator"
+        ],
+        [
+          "2",
+          "rondeau",
+          "0d23b51f-58fb-31df-e839-8dd85117df68",
+          "NCCLCommunicator"
+        ],
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "NCCLCommunicator"
+        ],
+        [
+          "3",
+          "rondeau",
+          "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+          "NCCLCommunicator"
+        ]
+      ],
+      "shared_gpus_allowed": false,
+      "existing_gpu_pids": [],
+      "rank_validation": [
+        [
+          "1",
+          "true"
+        ],
+        [
+          "3",
+          "true"
+        ],
+        [
+          "0",
+          "true"
+        ],
+        [
+          "2",
+          "true"
+        ]
+      ],
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "compressible_explicit",
+        "float": "Float32",
+        "Nx": "32",
+        "Ny": "32",
+        "Nz": "32",
+        "Rx": "4",
+        "Ry": "1",
+        "gpus": "4",
+        "steps": "3",
+        "seconds_per_step": "2.326338e-02",
+        "points_per_second": "1.408566e+06",
+        "max_abs_w": "1.485664e-04",
+        "communication": "NCCL",
+        "fields_finite": "true"
+      },
+      "launcher_messages": [
+        "[rondeau:730141] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    },
+    {
+      "case": "compressible_splitexplicit_MPI_4g",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_including_startup_seconds": 181.87840144196525,
+      "precision": "Float32",
+      "ranks": 4,
+      "gpu_indices": "0,1,2,3",
+      "placements": [
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "Comm"
+        ],
+        [
+          "2",
+          "rondeau",
+          "0d23b51f-58fb-31df-e839-8dd85117df68",
+          "Comm"
+        ],
+        [
+          "3",
+          "rondeau",
+          "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+          "Comm"
+        ],
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "Comm"
+        ]
+      ],
+      "shared_gpus_allowed": false,
+      "existing_gpu_pids": [],
+      "rank_validation": [
+        [
+          "3",
+          "true"
+        ],
+        [
+          "2",
+          "true"
+        ],
+        [
+          "1",
+          "true"
+        ],
+        [
+          "0",
+          "true"
+        ]
+      ],
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "compressible_splitexplicit",
+        "float": "Float32",
+        "Nx": "32",
+        "Ny": "32",
+        "Nz": "32",
+        "Rx": "4",
+        "Ry": "1",
+        "gpus": "4",
+        "steps": "3",
+        "seconds_per_step": "5.655738e-02",
+        "points_per_second": "5.793762e+05",
+        "max_abs_w": "1.485390e-04",
+        "communication": "MPI",
+        "fields_finite": "true"
+      },
+      "launcher_messages": [
+        "[rondeau:730740] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    },
+    {
+      "case": "compressible_splitexplicit_NCCL_4g",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_including_startup_seconds": 181.57344656204805,
+      "precision": "Float32",
+      "ranks": 4,
+      "gpu_indices": "0,1,2,3",
+      "placements": [
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "NCCLCommunicator"
+        ],
+        [
+          "2",
+          "rondeau",
+          "0d23b51f-58fb-31df-e839-8dd85117df68",
+          "NCCLCommunicator"
+        ],
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "NCCLCommunicator"
+        ],
+        [
+          "3",
+          "rondeau",
+          "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+          "NCCLCommunicator"
+        ]
+      ],
+      "shared_gpus_allowed": false,
+      "existing_gpu_pids": [],
+      "rank_validation": [
+        [
+          "0",
+          "true"
+        ],
+        [
+          "3",
+          "true"
+        ],
+        [
+          "2",
+          "true"
+        ],
+        [
+          "1",
+          "true"
+        ]
+      ],
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "compressible_splitexplicit",
+        "float": "Float32",
+        "Nx": "32",
+        "Ny": "32",
+        "Nz": "32",
+        "Rx": "4",
+        "Ry": "1",
+        "gpus": "4",
+        "steps": "3",
+        "seconds_per_step": "3.565332e-02",
+        "points_per_second": "9.190728e+05",
+        "max_abs_w": "1.485390e-04",
+        "communication": "NCCL",
+        "fields_finite": "true"
+      },
+      "launcher_messages": [
+        "[rondeau:732995] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    }
+  ]
+}

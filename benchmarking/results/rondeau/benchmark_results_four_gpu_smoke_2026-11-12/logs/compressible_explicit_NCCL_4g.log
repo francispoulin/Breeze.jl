@@ -1,0 +1,51 @@
+--------------------------------------------------------------------------
+WARNING: Open MPI will create a shared memory backing file in a
+directory that appears to be mounted on a network filesystem.
+Creating the shared memory backup file on a network file system, such
+as NFS or Lustre is not recommended -- it may cause excessive network
+traffic to your file servers and/or cause shared memory traffic in
+Open MPI to be much slower than expected.
+
+You may want to check what the typical temporary directory is on your
+node.  Possible sources of the location of this temporary directory
+include the $TEMPDIR, $TEMP, and $TMP environment variables.
+
+Note, too, that system administrators can set a list of filesystems
+where Open MPI is disallowed from creating temporary files by setting
+the MCA parameter "orte_no_session_dir".
+
+  Local host: rondeau
+  Filename:   /u/ajtse/Breeze.jl/.runtime/benchmark_results_four_gpu_smoke_2026-11-12/tmp/mpi/ompi.rondeau.8193/pid.730141/1/shared_mem_cuda_pool.rondeau
+
+You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
+disable this message.
+--------------------------------------------------------------------------
+[rondeau:730141] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:730141] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+PLACEMENT rank=0 host=rondeau gpu_uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 communicator=NCCLCommunicator threads=1 pool=none
+PLACEMENT rank=2 host=rondeau gpu_uuid=0d23b51f-58fb-31df-e839-8dd85117df68 communicator=NCCLCommunicator threads=1 pool=none
+PLACEMENT rank=1 host=rondeau gpu_uuid=27b6f362-d593-fda1-e6fa-43275dcca7da communicator=NCCLCommunicator threads=1 pool=none
+PLACEMENT rank=3 host=rondeau gpu_uuid=628b07c6-4d27-afb0-6c71-f0b5ec437cab communicator=NCCLCommunicator threads=1 pool=none
+DEVICE rank=0 uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 visible=0,1,2,3
+DEVICE rank=2 uuid=0d23b51f-58fb-31df-e839-8dd85117df68 visible=0,1,2,3
+DEVICE rank=1 uuid=27b6f362-d593-fda1-e6fa-43275dcca7da visible=0,1,2,3
+DEVICE rank=3 uuid=628b07c6-4d27-afb0-6c71-f0b5ec437cab visible=0,1,2,3
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_explicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (32, 32, 32)
+│   partition = (4, 1)
+│   nranks = 4
+│   Δt = 0.005
+│   time_steps = 3
+│   communication_name = "NCCL"
+│   communicator_type = "NCCLCommunicator"
+└   profile = false
+TIMING_START communication=NCCL steps=3
+TIMING_END communication=NCCL elapsed_seconds=0.069790143
+VALIDATION rank=1 fields_finite=true gpu_used_bytes=1111687168
+VALIDATION rank=3 fields_finite=true gpu_used_bytes=1111687168
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=1111687168
+VALIDATION rank=2 fields_finite=true gpu_used_bytes=1111687168
+RESULT machine=rondeau dynamics=compressible_explicit float=Float32 size=32x32x32 partition=4x1 gpus=4 steps=3 seconds_per_step=2.3263e-02 points_per_second=1.4086e+06 points_per_second_per_gpu=3.5214e+05 max_abs_w=1.485664e-04 communication=NCCL fields_finite=true
+[rondeau:730141] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
