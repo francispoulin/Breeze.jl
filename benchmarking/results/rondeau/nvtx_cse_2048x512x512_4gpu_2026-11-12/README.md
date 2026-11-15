@@ -1,6 +1,6 @@
 # Four-GPU split-explicit CBL: NVTX and Nsight
 
-Status: **QUEUED on benchmark-results: waiting for preceding checks and free GPUs**.
+Status: **COMPLETE**.
 
 Global grid 2048×512×512; partition 4×1; local grid 512³ per A100; Float32;
 full dry CBL with WENO5 and deterministic perturbations. Δt = 0.0025 s follows
@@ -19,6 +19,10 @@ The detached checkout and Julia environment live under:
 
 | Launch | State | Unprofiled seconds/step | Maximum absolute w |
 |--------|-------|-------------------------|--------------------|
+| benchmark NCCL | COMPLETE | 1.093693e+00 | 1.347708e-03 |
+| benchmark MPI | COMPLETE | 1.142791e+00 | 1.347708e-03 |
+| profiled NCCL | COMPLETE | see trace | 1.347708e-03 |
+| profiled MPI | COMPLETE | see trace | 1.347708e-03 |
 
 Unprofiled wall timings and captured timings are kept separate. The driver's
 profiled timer can include report generation and must not be used as a simulation

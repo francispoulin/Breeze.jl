@@ -1,0 +1,408 @@
+[
+  {
+    "kind": "benchmark",
+    "backend": "NCCL",
+    "state": "COMPLETE",
+    "source_commit": "738add6a77725e7be500486666588fa9383c8e09",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "1200s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "4",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "--startup-file=no",
+      "--threads=1",
+      "--project=/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/environment",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "--dynamics=compressible_splitexplicit",
+      "--comm=NCCL",
+      "--size=2048x512x512",
+      "--partition=4x1",
+      "--float_type=Float32",
+      "--time_step=0.0025",
+      "--substeps=12",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--nvtx=true",
+      "--profile=false",
+      "--results_file=/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/results/rondeau/nvtx_cse_2048x512x512_4gpu_2026-11-12/logs/benchmark_NCCL.csv"
+    ],
+    "exit_code": 0,
+    "placements": [
+      [
+        "2",
+        "rondeau",
+        "0d23b51f-58fb-31df-e839-8dd85117df68",
+        "NCCLCommunicator"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ],
+      [
+        "3",
+        "rondeau",
+        "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+        "NCCLCommunicator"
+      ],
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true"
+      ],
+      [
+        "1",
+        "true"
+      ],
+      [
+        "2",
+        "true"
+      ],
+      [
+        "3",
+        "true"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "compressible_splitexplicit",
+      "float": "Float32",
+      "Nx": "2048",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "4",
+      "Ry": "1",
+      "gpus": "4",
+      "steps": "10",
+      "seconds_per_step": "1.093693e+00",
+      "points_per_second": "4.908788e+08",
+      "max_abs_w": "1.347708e-03",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    },
+    "launcher_messages": [
+      "[rondeau:734028] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+    ]
+  },
+  {
+    "kind": "benchmark",
+    "backend": "MPI",
+    "state": "COMPLETE",
+    "source_commit": "738add6a77725e7be500486666588fa9383c8e09",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "1200s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "4",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "--startup-file=no",
+      "--threads=1",
+      "--project=/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/environment",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "--dynamics=compressible_splitexplicit",
+      "--comm=MPI",
+      "--size=2048x512x512",
+      "--partition=4x1",
+      "--float_type=Float32",
+      "--time_step=0.0025",
+      "--substeps=12",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--nvtx=true",
+      "--profile=false",
+      "--results_file=/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/results/rondeau/nvtx_cse_2048x512x512_4gpu_2026-11-12/logs/benchmark_MPI.csv"
+    ],
+    "exit_code": 0,
+    "placements": [
+      [
+        "3",
+        "rondeau",
+        "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+        "Comm"
+      ],
+      [
+        "2",
+        "rondeau",
+        "0d23b51f-58fb-31df-e839-8dd85117df68",
+        "Comm"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "Comm"
+      ],
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "Comm"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "2",
+        "true"
+      ],
+      [
+        "3",
+        "true"
+      ],
+      [
+        "0",
+        "true"
+      ],
+      [
+        "1",
+        "true"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "compressible_splitexplicit",
+      "float": "Float32",
+      "Nx": "2048",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "4",
+      "Ry": "1",
+      "gpus": "4",
+      "steps": "10",
+      "seconds_per_step": "1.142791e+00",
+      "points_per_second": "4.697893e+08",
+      "max_abs_w": "1.347708e-03",
+      "communication": "MPI",
+      "fields_finite": "true"
+    },
+    "launcher_messages": [
+      "[rondeau:734798] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+    ]
+  },
+  {
+    "kind": "profiled",
+    "backend": "NCCL",
+    "state": "COMPLETE",
+    "source_commit": "738add6a77725e7be500486666588fa9383c8e09",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "1200s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "4",
+      "bash",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/results/rondeau/nvtx_cse_2048x512x512_4gpu_2026-11-12/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/raw/NCCL",
+      "--dynamics=compressible_splitexplicit",
+      "--comm=NCCL",
+      "--size=2048x512x512",
+      "--partition=4x1",
+      "--float_type=Float32",
+      "--time_step=0.0025",
+      "--substeps=12",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/results/rondeau/nvtx_cse_2048x512x512_4gpu_2026-11-12/logs/profiled_NCCL.csv"
+    ],
+    "exit_code": 0,
+    "placements": [
+      [
+        "2",
+        "rondeau",
+        "0d23b51f-58fb-31df-e839-8dd85117df68",
+        "NCCLCommunicator"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ],
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ],
+      [
+        "3",
+        "rondeau",
+        "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true"
+      ],
+      [
+        "1",
+        "true"
+      ],
+      [
+        "2",
+        "true"
+      ],
+      [
+        "3",
+        "true"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "compressible_splitexplicit",
+      "float": "Float32",
+      "Nx": "2048",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "4",
+      "Ry": "1",
+      "gpus": "4",
+      "steps": "10",
+      "seconds_per_step": "1.720128e+00",
+      "points_per_second": "3.121111e+08",
+      "max_abs_w": "1.347708e-03",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    },
+    "launcher_messages": [
+      "[rondeau:735652] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+    ]
+  },
+  {
+    "kind": "profiled",
+    "backend": "MPI",
+    "state": "COMPLETE",
+    "source_commit": "738add6a77725e7be500486666588fa9383c8e09",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "1200s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "4",
+      "bash",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/results/rondeau/nvtx_cse_2048x512x512_4gpu_2026-11-12/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/raw/MPI",
+      "--dynamics=compressible_splitexplicit",
+      "--comm=MPI",
+      "--size=2048x512x512",
+      "--partition=4x1",
+      "--float_type=Float32",
+      "--time_step=0.0025",
+      "--substeps=12",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/worktree/benchmarking/results/rondeau/nvtx_cse_2048x512x512_4gpu_2026-11-12/logs/profiled_MPI.csv"
+    ],
+    "exit_code": 0,
+    "placements": [
+      [
+        "2",
+        "rondeau",
+        "0d23b51f-58fb-31df-e839-8dd85117df68",
+        "Comm"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "Comm"
+      ],
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "Comm"
+      ],
+      [
+        "3",
+        "rondeau",
+        "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+        "Comm"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "1",
+        "true"
+      ],
+      [
+        "0",
+        "true"
+      ],
+      [
+        "3",
+        "true"
+      ],
+      [
+        "2",
+        "true"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "compressible_splitexplicit",
+      "float": "Float32",
+      "Nx": "2048",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "4",
+      "Ry": "1",
+      "gpus": "4",
+      "steps": "10",
+      "seconds_per_step": "1.539126e+01",
+      "points_per_second": "3.488154e+07",
+      "max_abs_w": "1.347708e-03",
+      "communication": "MPI",
+      "fields_finite": "true"
+    },
+    "launcher_messages": [
+      "[rondeau:739869] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+    ]
+  }
+]

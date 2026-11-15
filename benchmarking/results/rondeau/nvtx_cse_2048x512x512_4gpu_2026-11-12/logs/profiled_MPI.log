@@ -1,0 +1,622 @@
+--------------------------------------------------------------------------
+WARNING: Open MPI will create a shared memory backing file in a
+directory that appears to be mounted on a network filesystem.
+Creating the shared memory backup file on a network file system, such
+as NFS or Lustre is not recommended -- it may cause excessive network
+traffic to your file servers and/or cause shared memory traffic in
+Open MPI to be much slower than expected.
+
+You may want to check what the typical temporary directory is on your
+node.  Possible sources of the location of this temporary directory
+include the $TEMPDIR, $TEMP, and $TMP environment variables.
+
+Note, too, that system administrators can set a list of filesystems
+where Open MPI is disallowed from creating temporary files by setting
+the MCA parameter "orte_no_session_dir".
+
+  Local host: rondeau
+  Filename:   /u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/tmp/mpi/ompi.rondeau.8193/pid.739869/1/shared_mem_cuda_pool.rondeau
+
+You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
+disable this message.
+--------------------------------------------------------------------------
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+[rondeau:739869] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:739869] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+┌ Info: Breeze NVTX host instrumentation enabled
+└   NVTX.isactive() = true
+PLACEMENT rank=2 host=rondeau gpu_uuid=0d23b51f-58fb-31df-e839-8dd85117df68 communicator=Comm threads=1 pool=none
+PLACEMENT rank=1 host=rondeau gpu_uuid=27b6f362-d593-fda1-e6fa-43275dcca7da communicator=Comm threads=1 pool=none
+PLACEMENT rank=0 host=rondeau gpu_uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 communicator=Comm threads=1 pool=none
+PLACEMENT rank=3 host=rondeau gpu_uuid=628b07c6-4d27-afb0-6c71-f0b5ec437cab communicator=Comm threads=1 pool=none
+DEVICE rank=1 uuid=27b6f362-d593-fda1-e6fa-43275dcca7da visible=0,1,2,3
+DEVICE rank=2 uuid=0d23b51f-58fb-31df-e839-8dd85117df68 visible=0,1,2,3
+DEVICE rank=0 uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 visible=0,1,2,3
+DEVICE rank=3 uuid=628b07c6-4d27-afb0-6c71-f0b5ec437cab visible=0,1,2,3
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_splitexplicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (2048, 512, 512)
+│   partition = (4, 1)
+│   nranks = 4
+│   Δt = 0.0025
+│   time_steps = 10
+│   communication_name = "MPI"
+│   communicator_type = "Comm"
+└   profile = true
+TIMING_START communication=MPI steps=10
+PROFILE_START rank=1 steps=10
+PROFILE_START rank=3 steps=10
+PROFILE_START rank=0 steps=10
+PROFILE_START rank=2 steps=10
+Capture range started in the application.
+Capture range started in the application.
+Capture range started in the application.
+Capture range started in the application.
+Capture range ended in the application.
+Capture range ended in the application.
+Capture range ended in the application.
+Capture range ended in the application.
+Generating '/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/tmp/nsys-report-6cba.qdstrm'
+Generating '/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/tmp/nsys-report-7bcd.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [==20%                       ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-repGenerating '/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/tmp/nsys-report-c083.qdstrm'
+Generating '/u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/tmp/nsys-report-716e.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [===23%                      ] profile.nsys-rep
+[1/1] [==20%                       ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [==20%                       ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [==20%                       ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [==21%                       ] profile.nsys-rep
+[1/1] [===22%                      ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [===23%                      ] profile.nsys-rep
+[1/1] [===24%                      ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [====25%                     ] profile.nsys-rep
+[1/1] [====26%                     ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [====27%                     ] profile.nsys-rep
+[1/1] [====28%                     ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [=====29%                    ] profile.nsys-rep
+[1/1] [=====30%                    ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [=====31%                    ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [======33%                   ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [======34%                   ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [======35%                   ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [=======36%                  ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [=======37%                  ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [=======38%                  ] profile.nsys-rep
+[1/1] [==20%                       ] profile.nsys-rep
+[1/1] [=======39%                  ] profile.nsys-rep
+[1/1] [==21%                       ] profile.nsys-rep
+[1/1] [========40%                 ] profile.nsys-rep
+[1/1] [===22%                      ] profile.nsys-rep
+[1/1] [========41%                 ] profile.nsys-rep
+[1/1] [===23%                      ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [========42%                 ] profile.nsys-rep
+[1/1] [===24%                      ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [=========43%                ] profile.nsys-rep
+[1/1] [====25%                     ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [=========44%                ] profile.nsys-rep
+[1/1] [====26%                     ] profile.nsys-rep
+[1/1] [=========45%                ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [====27%                     ] profile.nsys-rep
+[1/1] [=========46%                ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [====28%                     ] profile.nsys-rep
+[1/1] [==========47%               ] profile.nsys-rep
+[1/1] [=====29%                    ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [==========48%               ] profile.nsys-rep
+[1/1] [==========49%               ] profile.nsys-rep
+[1/1] [=====30%                    ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [===========50%              ] profile.nsys-rep
+[1/1] [=====31%                    ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [===========51%              ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [===========52%              ] profile.nsys-rep
+[1/1] [======33%                   ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [===========53%              ] profile.nsys-rep
+[1/1] [======34%                   ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [============54%             ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [======35%                   ] profile.nsys-rep
+[1/1] [============55%             ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [=======36%                  ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [============56%             ] profile.nsys-rep
+[1/1] [=======37%                  ] profile.nsys-rep
+[1/1] [============57%             ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [=======38%                  ] profile.nsys-rep
+[1/1] [=============58%            ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [=16%                        ] profile.nsys-rep
+[1/1] [=======39%                  ] profile.nsys-rep
+[1/1] [=============59%            ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [========40%                 ] profile.nsys-rep
+[1/1] [=============60%            ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [========41%                 ] profile.nsys-rep
+[1/1] [==============61%           ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [========42%                 ] profile.nsys-rep
+[1/1] [==20%                       ] profile.nsys-rep
+[1/1] [==20%                       ] profile.nsys-rep
+[1/1] [==============63%           ] profile.nsys-rep
+[1/1] [=========43%                ] profile.nsys-rep
+[1/1] [==21%                       ] profile.nsys-rep
+[1/1] [==21%                       ] profile.nsys-rep
+[1/1] [==============64%           ] profile.nsys-rep
+[1/1] [===22%                      ] profile.nsys-rep
+[1/1] [=========44%                ] profile.nsys-rep
+[1/1] [===============65%          ] profile.nsys-rep
+[1/1] [===22%                      ] profile.nsys-rep
+[1/1] [===23%                      ] profile.nsys-rep
+[1/1] [===============66%          ] profile.nsys-rep
+[1/1] [===23%                      ] profile.nsys-rep
+[1/1] [=========45%                ] profile.nsys-rep
+[1/1] [===24%                      ] profile.nsys-rep
+[1/1] [===============67%          ] profile.nsys-rep
+[1/1] [===24%                      ] profile.nsys-rep
+[1/1] [====25%                     ] profile.nsys-rep
+[1/1] [================68%         ] profile.nsys-rep
+[1/1] [=========46%                ] profile.nsys-rep
+[1/1] [====26%                     ] profile.nsys-rep
+[1/1] [====25%                     ] profile.nsys-rep
+[1/1] [================69%         ] profile.nsys-rep
+[1/1] [====27%                     ] profile.nsys-rep
+[1/1] [==========47%               ] profile.nsys-rep
+[1/1] [================70%         ] profile.nsys-rep
+[1/1] [====26%                     ] profile.nsys-rep
+[1/1] [====28%                     ] profile.nsys-rep
+[1/1] [================71%         ] profile.nsys-rep
+[1/1] [====27%                     ] profile.nsys-rep
+[1/1] [==========48%               ] profile.nsys-rep
+[1/1] [=====29%                    ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [====28%                     ] profile.nsys-rep
+[1/1] [=====30%                    ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [==========49%               ] profile.nsys-rep
+[1/1] [=====29%                    ] profile.nsys-rep
+[1/1] [=====31%                    ] profile.nsys-rep
+[1/1] [=================74%        ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [===========50%              ] profile.nsys-rep
+[1/1] [=====30%                    ] profile.nsys-rep
+[1/1] [==================75%       ] profile.nsys-rep
+[1/1] [======33%                   ] profile.nsys-rep
+[1/1] [==================76%       ] profile.nsys-rep
+[1/1] [=====31%                    ] profile.nsys-rep
+[1/1] [===========51%              ] profile.nsys-rep
+[1/1] [======34%                   ] profile.nsys-rep
+[1/1] [==================77%       ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [======35%                   ] profile.nsys-rep
+[1/1] [==================78%       ] profile.nsys-rep
+[1/1] [======33%                   ] profile.nsys-rep
+[1/1] [===========52%              ] profile.nsys-rep
+[1/1] [=======36%                  ] profile.nsys-rep
+[1/1] [===================79%      ] profile.nsys-rep
+[1/1] [======34%                   ] profile.nsys-rep
+[1/1] [=======37%                  ] profile.nsys-rep
+[1/1] [===========53%              ] profile.nsys-rep
+[1/1] [===================80%      ] profile.nsys-rep
+[1/1] [======35%                   ] profile.nsys-rep
+[1/1] [=======38%                  ] profile.nsys-rep
+[1/1] [===================81%      ] profile.nsys-rep
+[1/1] [============54%             ] profile.nsys-rep
+[1/1] [=======39%                  ] profile.nsys-rep
+[1/1] [=======36%                  ] profile.nsys-rep
+[1/1] [===================82%      ] profile.nsys-rep
+[1/1] [========40%                 ] profile.nsys-rep
+[1/1] [====================83%     ] profile.nsys-rep
+[1/1] [============55%             ] profile.nsys-rep
+[1/1] [=======37%                  ] profile.nsys-rep
+[1/1] [========41%                 ] profile.nsys-rep
+[1/1] [====================84%     ] profile.nsys-rep
+[1/1] [========42%                 ] profile.nsys-rep
+[1/1] [====================85%     ] profile.nsys-rep
+[1/1] [=======38%                  ] profile.nsys-rep
+[1/1] [============56%             ] profile.nsys-rep
+[1/1] [=========43%                ] profile.nsys-rep
+[1/1] [=====================86%    ] profile.nsys-rep
+[1/1] [============57%             ] profile.nsys-rep
+[1/1] [=======39%                  ] profile.nsys-rep
+[1/1] [=====================87%    ] profile.nsys-rep
+[1/1] [=========44%                ] profile.nsys-rep
+[1/1] [=====================88%    ] profile.nsys-rep
+[1/1] [=============58%            ] profile.nsys-rep
+[1/1] [========40%                 ] profile.nsys-rep
+[1/1] [=========45%                ] profile.nsys-rep
+[1/1] [=====================89%    ] profile.nsys-rep
+[1/1] [======================90%   ] profile.nsys-rep
+[1/1] [=========46%                ] profile.nsys-rep
+[1/1] [=============59%            ] profile.nsys-rep
+[1/1] [========41%                 ] profile.nsys-rep
+[1/1] [======================91%   ] profile.nsys-rep
+[1/1] [==========47%               ] profile.nsys-rep
+[1/1] [======================92%   ] profile.nsys-rep
+[1/1] [=============60%            ] profile.nsys-rep
+[1/1] [========42%                 ] profile.nsys-rep
+[1/1] [=======================93%  ] profile.nsys-rep
+[1/1] [==========48%               ] profile.nsys-rep
+[1/1] [==============61%           ] profile.nsys-rep
+[1/1] [=========43%                ] profile.nsys-rep
+[1/1] [=======================94%  ] profile.nsys-rep
+[1/1] [=======================95%  ] profile.nsys-rep
+[1/1] [==========49%               ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [=========44%                ] profile.nsys-rep
+[1/1] [=======================96%  ] profile.nsys-rep
+[1/1] [===========50%              ] profile.nsys-rep
+[1/1] [========================97% ] profile.nsys-rep
+[1/1] [==============63%           ] profile.nsys-rep
+[1/1] [=========45%                ] profile.nsys-rep
+[1/1] [===========51%              ] profile.nsys-rep
+[1/1] [========================98% ] profile.nsys-rep
+[1/1] [==============64%           ] profile.nsys-rep
+[1/1] [=========46%                ] profile.nsys-rep
+[1/1] [===========52%              ] profile.nsys-rep
+[1/1] [===============65%          ] profile.nsys-rep
+[1/1] [==========47%               ] profile.nsys-rep
+[1/1] [===========53%              ] profile.nsys-rep
+[1/1] [========================99% ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [===============66%          ] profile.nsys-rep
+[1/1] [============54%             ] profile.nsys-rep
+[1/1] [==========48%               ] profile.nsys-rep
+[1/1] [============55%             ] profile.nsys-rep
+[1/1] [===============67%          ] profile.nsys-rep
+[1/1] [==========49%               ] profile.nsys-rep
+[1/1] [============56%             ] profile.nsys-rep
+[1/1] [================68%         ] profile.nsys-rep
+[1/1] [===========50%              ] profile.nsys-rep
+[1/1] [============57%             ] profile.nsys-rep
+[1/1] [================69%         ] profile.nsys-rep
+[1/1] [===========51%              ] profile.nsys-rep
+[1/1] [=============58%            ] profile.nsys-rep
+[1/1] [================70%         ] profile.nsys-rep
+[1/1] [===========52%              ] profile.nsys-rep
+[1/1] [=============59%            ] profile.nsys-rep
+[1/1] [================71%         ] profile.nsys-rep
+[1/1] [===========53%              ] profile.nsys-rep
+[1/1] [=============60%            ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [============54%             ] profile.nsys-rep
+[1/1] [==============61%           ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [============55%             ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [=================74%        ] profile.nsys-rep
+[1/1] [==============63%           ] profile.nsys-rep
+[1/1] [============56%             ] profile.nsys-rep
+[1/1] [==================75%       ] profile.nsys-rep
+[1/1] [==============64%           ] profile.nsys-rep
+[1/1] [============57%             ] profile.nsys-rep
+[1/1] [==================76%       ] profile.nsys-rep
+[1/1] [===============65%          ] profile.nsys-rep
+[1/1] [=============58%            ] profile.nsys-rep
+[1/1] [==================77%       ] profile.nsys-rep
+[1/1] [===============66%          ] profile.nsys-rep
+[1/1] [=============59%            ] profile.nsys-rep
+[1/1] [===============67%          ] profile.nsys-rep
+[1/1] [==================78%       ] profile.nsys-rep
+[1/1] [=============60%            ] profile.nsys-rep
+[1/1] [================68%         ] profile.nsys-rep
+[1/1] [===================79%      ] profile.nsys-rep
+[1/1] [==============61%           ] profile.nsys-rep
+[1/1] [================69%         ] profile.nsys-rep
+[1/1] [===================80%      ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [================70%         ] profile.nsys-rep
+[1/1] [===================81%      ] profile.nsys-rep
+[1/1] [================71%         ] profile.nsys-rep
+[1/1] [==============63%           ] profile.nsys-rep
+[1/1] [===================82%      ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [==============64%           ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [====================83%     ] profile.nsys-rep
+[1/1] [=================74%        ] profile.nsys-rep
+[1/1] [===============65%          ] profile.nsys-rep
+[1/1] [====================84%     ] profile.nsys-rep
+[1/1] [==================75%       ] profile.nsys-rep
+[1/1] [===============66%          ] profile.nsys-rep
+[1/1] [==================76%       ] profile.nsys-rep
+[1/1] [====================85%     ] profile.nsys-rep
+[1/1] [===============67%          ] profile.nsys-rep
+[1/1] [==================77%       ] profile.nsys-rep
+[1/1] [=====================86%    ] profile.nsys-rep
+[1/1] [==================78%       ] profile.nsys-rep
+[1/1] [================68%         ] profile.nsys-rep
+[1/1] [===================79%      ] profile.nsys-rep
+[1/1] [=====================87%    ] profile.nsys-rep
+[1/1] [================69%         ] profile.nsys-rep
+[1/1] [===================80%      ] profile.nsys-rep
+[1/1] [=====================88%    ] profile.nsys-rep
+[1/1] [===================81%      ] profile.nsys-rep
+[1/1] [================70%         ] profile.nsys-rep
+[1/1] [===================82%      ] profile.nsys-rep
+[1/1] [=====================89%    ] profile.nsys-rep
+[1/1] [====================83%     ] profile.nsys-rep
+[1/1] [================71%         ] profile.nsys-rep
+[1/1] [======================90%   ] profile.nsys-rep
+[1/1] [====================84%     ] profile.nsys-rep
+[1/1] [=================72%        ] profile.nsys-rep
+[1/1] [====================85%     ] profile.nsys-rep
+[1/1] [======================91%   ] profile.nsys-rep
+[1/1] [=================73%        ] profile.nsys-rep
+[1/1] [=====================86%    ] profile.nsys-rep
+[1/1] [======================92%   ] profile.nsys-rep
+[1/1] [=====================87%    ] profile.nsys-rep
+[1/1] [=================74%        ] profile.nsys-rep
+[1/1] [=======================93%  ] profile.nsys-rep
+[1/1] [=====================88%    ] profile.nsys-rep
+[1/1] [==================75%       ] profile.nsys-rep
+[1/1] [=====================89%    ] profile.nsys-rep
+[1/1] [=======================94%  ] profile.nsys-rep
+[1/1] [======================90%   ] profile.nsys-rep
+[1/1] [==================76%       ] profile.nsys-rep
+[1/1] [=======================95%  ] profile.nsys-rep
+[1/1] [======================91%   ] profile.nsys-rep
+[1/1] [==================77%       ] profile.nsys-rep
+[1/1] [======================92%   ] profile.nsys-rep
+[1/1] [=======================96%  ] profile.nsys-rep
+[1/1] [=======================93%  ] profile.nsys-rep
+[1/1] [==================78%       ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/raw/MPI/rank_1/profile.nsys-rep
+PROFILE_END rank=1 steps=10
+
+[1/1] [========================97% ] profile.nsys-rep
+[1/1] [=======================94%  ] profile.nsys-rep
+[1/1] [===================79%      ] profile.nsys-rep
+[1/1] [=======================95%  ] profile.nsys-rep
+[1/1] [========================98% ] profile.nsys-rep
+[1/1] [=======================96%  ] profile.nsys-rep
+[1/1] [===================80%      ] profile.nsys-rep
+[1/1] [========================97% ] profile.nsys-rep
+[1/1] [===================81%      ] profile.nsys-rep
+[1/1] [========================98% ] profile.nsys-rep
+[1/1] [===================82%      ] profile.nsys-rep
+[1/1] [====================83%     ] profile.nsys-rep
+[1/1] [========================99% ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [====================84%     ] profile.nsys-rep
+[1/1] [========================99% ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [====================85%     ] profile.nsys-rep
+[1/1] [=====================86%    ] profile.nsys-rep
+[1/1] [=====================87%    ] profile.nsys-rep
+[1/1] [=====================88%    ] profile.nsys-rep
+[1/1] [=====================89%    ] profile.nsys-rep
+[1/1] [======================90%   ] profile.nsys-rep
+[1/1] [======================91%   ] profile.nsys-rep
+[1/1] [======================92%   ] profile.nsys-rep
+[1/1] [=======================93%  ] profile.nsys-rep
+[1/1] [=======================94%  ] profile.nsys-rep
+[1/1] [=======================95%  ] profile.nsys-rep
+[1/1] [=======================96%  ] profile.nsys-rep
+[1/1] [========================97% ] profile.nsys-rep
+[1/1] [========================98% ] profile.nsys-rep
+[1/1] [========================99% ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/raw/MPI/rank_0/profile.nsys-rep
+PROFILE_END rank=0 steps=10
+
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/raw/MPI/rank_2/profile.nsys-rep
+PROFILE_END rank=2 steps=10
+
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/nvtx_cse_2048x512x512_4gpu_2026-11-12/raw/MPI/rank_3/profile.nsys-rep
+PROFILE_END rank=3 steps=10
+TIMING_END communication=MPI elapsed_seconds=153.912638844
+VALIDATION rank=1 fields_finite=true gpu_used_bytes=26084704256
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=27275886592
+VALIDATION rank=3 fields_finite=true gpu_used_bytes=27871477760
+VALIDATION rank=2 fields_finite=true gpu_used_bytes=27871477760
+RESULT machine=rondeau dynamics=compressible_splitexplicit float=Float32 size=2048x512x512 partition=4x1 gpus=4 steps=10 seconds_per_step=1.5391e+01 points_per_second=3.4882e+07 points_per_second_per_gpu=8.7204e+06 max_abs_w=1.347708e-03 communication=MPI fields_finite=true
+[rondeau:739869] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
