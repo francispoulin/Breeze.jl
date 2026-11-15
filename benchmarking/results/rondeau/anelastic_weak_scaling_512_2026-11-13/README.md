@@ -1,6 +1,6 @@
 # Anelastic weak scaling: 512³ cells per A100
 
-Status: **QUEUED: waiting for preceding NVTX/Nsight campaign**.
+Status: **COMPLETE**.
 
 Three unprofiled dry-CBL cases use the tracked distributed benchmark driver on
 benchmark-results: Float32, WENO5, deterministic initial perturbations, Δt=0.005 s,
@@ -10,9 +10,9 @@ and the CUDA memory pool disabled. No NVTX instrumentation or Nsight capture is 
 
 | GPUs | Global grid | Partition | Seconds/step | Weak efficiency | State |
 |------|-------------|-----------|--------------|-----------------|-------|
-| 1 | 512×512×512 | 1×1 | pending | pending | PENDING |
-| 2 | 1024×512×512 | 2×1 | pending | pending | PENDING |
-| 4 | 2048×512×512 | 4×1 | pending | pending | PENDING |
+| 1 | 512×512×512 | 1×1 | 2.959723e-01 | 100.00% | COMPLETE |
+| 2 | 1024×512×512 | 2×1 | 4.652040e-01 | 63.62% | COMPLETE |
+| 4 | 2048×512×512 | 4×1 | 5.122670e-01 | 57.78% | COMPLETE |
 
 Efficiency is **100 × T₁ / Tₙ**, with fixed 512³ cells per GPU. It is not divided
 by GPU count. Each local grid remains cubic; the global grid grows in x. N×1 is
@@ -54,3 +54,7 @@ After completion the watcher fast-forwards from origin/benchmark-results, commit
 only this report and its figures, then immediately attempts a normal push. It never
 force-pushes. Incoming conflicting edits or a rejected push are recorded in status.json.
 All task files, logs, temporary files, caches and environments remain inside /u/ajtse.
+
+![Anelastic weak-scaling efficiency](anelastic_weak_efficiency.png)
+
+![Breeze weak-scaling efficiency](breeze_weak_efficiency.png)

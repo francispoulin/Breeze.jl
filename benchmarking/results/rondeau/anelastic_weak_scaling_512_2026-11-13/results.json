@@ -1,0 +1,266 @@
+{
+  "status": "COMPLETE",
+  "error": null,
+  "cases": [
+    {
+      "ranks": 1,
+      "state": "COMPLETE",
+      "gpu_indices": [
+        0
+      ],
+      "source_commit": "0abd6c0bb99476fe0caffc727026d9d2e7a9f14b",
+      "command": [
+        "timeout",
+        "--foreground",
+        "--kill-after=30s",
+        "7200s",
+        "mpiexec",
+        "--bind-to",
+        "none",
+        "-n",
+        "1",
+        "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+        "--startup-file=no",
+        "--threads=1",
+        "--project=/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/environment",
+        "/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "--dynamics=anelastic",
+        "--comm=MPI",
+        "--size=512x512x512",
+        "--partition=1x1",
+        "--float_type=Float32",
+        "--time_step=0.005",
+        "--warmup_steps=10",
+        "--time_steps=500",
+        "--simplified=false",
+        "--random_perturbation=false",
+        "--profile=false",
+        "--nvtx=false",
+        "--results_file=/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/worktree/benchmarking/results/rondeau/anelastic_weak_scaling_512_2026-11-13/logs/anelastic_1g.csv"
+      ],
+      "exit_code": 0,
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "anelastic",
+        "float": "Float32",
+        "Nx": "512",
+        "Ny": "512",
+        "Nz": "512",
+        "Rx": "1",
+        "Ry": "1",
+        "gpus": "1",
+        "steps": "500",
+        "seconds_per_step": "2.959723e-01",
+        "points_per_second": "4.534807e+08",
+        "max_abs_w": "8.239414e-04",
+        "communication": "SERIAL",
+        "fields_finite": "true"
+      },
+      "placements": [
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "none"
+        ]
+      ],
+      "rank_validation": [
+        [
+          "0",
+          "true"
+        ]
+      ],
+      "launcher_messages": [
+        "[rondeau:743765] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    },
+    {
+      "ranks": 2,
+      "state": "COMPLETE",
+      "gpu_indices": [
+        0,
+        1
+      ],
+      "source_commit": "0abd6c0bb99476fe0caffc727026d9d2e7a9f14b",
+      "command": [
+        "timeout",
+        "--foreground",
+        "--kill-after=30s",
+        "7200s",
+        "mpiexec",
+        "--bind-to",
+        "none",
+        "-n",
+        "2",
+        "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+        "--startup-file=no",
+        "--threads=1",
+        "--project=/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/environment",
+        "/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "--dynamics=anelastic",
+        "--comm=MPI",
+        "--size=1024x512x512",
+        "--partition=2x1",
+        "--float_type=Float32",
+        "--time_step=0.005",
+        "--warmup_steps=10",
+        "--time_steps=500",
+        "--simplified=false",
+        "--random_perturbation=false",
+        "--profile=false",
+        "--nvtx=false",
+        "--results_file=/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/worktree/benchmarking/results/rondeau/anelastic_weak_scaling_512_2026-11-13/logs/anelastic_2g.csv"
+      ],
+      "exit_code": 0,
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "anelastic",
+        "float": "Float32",
+        "Nx": "1024",
+        "Ny": "512",
+        "Nz": "512",
+        "Rx": "2",
+        "Ry": "1",
+        "gpus": "2",
+        "steps": "500",
+        "seconds_per_step": "4.652040e-01",
+        "points_per_second": "5.770274e+08",
+        "max_abs_w": "8.249357e-04",
+        "communication": "MPI",
+        "fields_finite": "true"
+      },
+      "placements": [
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "Comm"
+        ],
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "Comm"
+        ]
+      ],
+      "rank_validation": [
+        [
+          "1",
+          "true"
+        ],
+        [
+          "0",
+          "true"
+        ]
+      ],
+      "launcher_messages": [
+        "[rondeau:745791] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    },
+    {
+      "ranks": 4,
+      "state": "COMPLETE",
+      "gpu_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "source_commit": "0abd6c0bb99476fe0caffc727026d9d2e7a9f14b",
+      "command": [
+        "timeout",
+        "--foreground",
+        "--kill-after=30s",
+        "7200s",
+        "mpiexec",
+        "--bind-to",
+        "none",
+        "-n",
+        "4",
+        "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+        "--startup-file=no",
+        "--threads=1",
+        "--project=/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/environment",
+        "/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "--dynamics=anelastic",
+        "--comm=MPI",
+        "--size=2048x512x512",
+        "--partition=4x1",
+        "--float_type=Float32",
+        "--time_step=0.005",
+        "--warmup_steps=10",
+        "--time_steps=500",
+        "--simplified=false",
+        "--random_perturbation=false",
+        "--profile=false",
+        "--nvtx=false",
+        "--results_file=/u/ajtse/Breeze.jl/.runtime/anelastic_weak_scaling_512_2026-11-13/worktree/benchmarking/results/rondeau/anelastic_weak_scaling_512_2026-11-13/logs/anelastic_4g.csv"
+      ],
+      "exit_code": 0,
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "anelastic",
+        "float": "Float32",
+        "Nx": "2048",
+        "Ny": "512",
+        "Nz": "512",
+        "Rx": "4",
+        "Ry": "1",
+        "gpus": "4",
+        "steps": "500",
+        "seconds_per_step": "5.122670e-01",
+        "points_per_second": "1.048030e+09",
+        "max_abs_w": "8.595177e-04",
+        "communication": "MPI",
+        "fields_finite": "true"
+      },
+      "placements": [
+        [
+          "3",
+          "rondeau",
+          "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+          "Comm"
+        ],
+        [
+          "2",
+          "rondeau",
+          "0d23b51f-58fb-31df-e839-8dd85117df68",
+          "Comm"
+        ],
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "Comm"
+        ],
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "Comm"
+        ]
+      ],
+      "rank_validation": [
+        [
+          "2",
+          "true"
+        ],
+        [
+          "1",
+          "true"
+        ],
+        [
+          "3",
+          "true"
+        ],
+        [
+          "0",
+          "true"
+        ]
+      ],
+      "launcher_messages": [
+        "[rondeau:746822] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237"
+      ]
+    }
+  ]
+}

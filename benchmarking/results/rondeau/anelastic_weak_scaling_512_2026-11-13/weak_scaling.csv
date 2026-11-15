@@ -1,0 +1,4 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite,weak_efficiency_percent
+rondeau,anelastic,Float32,512,512,512,1,1,1,500,2.959723e-01,4.534807e+08,8.239414e-04,SERIAL,true,100.0
+rondeau,anelastic,Float32,1024,512,512,2,1,2,500,4.652040e-01,5.770274e+08,8.249357e-04,MPI,true,63.62204538224091
+rondeau,anelastic,Float32,2048,512,512,4,1,4,500,5.122670e-01,1.048030e+09,8.595177e-04,MPI,true,57.77696006184275
