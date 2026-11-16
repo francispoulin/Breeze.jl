@@ -1,0 +1,35 @@
+figure,model,gpus,seconds_per_step,partition,grid,efficiency_percent
+breeze_weak_efficiency_fir,Anelastic,1,0.1465498,1×1,512×512×512,100.0
+breeze_weak_efficiency_fir,Anelastic,2,0.2573568,2×1,1024×512×512,56.94421130508306
+breeze_weak_efficiency_fir,Anelastic,4,0.242922,4×1,2048×512×512,60.32792418965759
+breeze_weak_efficiency_fir,Anelastic,8,0.7160144,8×1,4096×512×512,20.467437526396115
+breeze_weak_efficiency_fir,Anelastic,16,0.9872682,16×1,8192×512×512,14.84397046314264
+breeze_weak_efficiency_fir,Compressible explicit,1,0.1346134,1×1,512×512×512,100.0
+breeze_weak_efficiency_fir,Compressible explicit,2,0.1418468,2×1,1024×512×512,94.90055468293963
+breeze_weak_efficiency_fir,Compressible explicit,4,0.1409612,4×1,2048×512×512,95.49677499907776
+breeze_weak_efficiency_fir,Compressible explicit,8,0.1703054,8×1,4096×512×512,79.04235567398332
+breeze_weak_efficiency_fir,Compressible explicit,16,0.1751621,16×1,8192×512×512,76.85075709871029
+breeze_weak_efficiency_fir,Compressible split-explicit,1,0.5848549,1×1,512×512×512,100.0
+breeze_weak_efficiency_fir,Compressible split-explicit,2,0.621083,2×1,1024×512×512,94.1669470908075
+breeze_weak_efficiency_fir,Compressible split-explicit,4,0.61247,4×1,2048×512×512,95.49119140529332
+breeze_weak_efficiency_fir,Compressible split-explicit,8,0.7309038,8×1,4096×512×512,80.01804067785665
+breeze_weak_efficiency_fir,Compressible split-explicit,16,0.7453969,16×1,8192×512×512,78.46221254743614
+breeze_weak_efficiency_rondeau,Anelastic,1,0.2959723,1×1,512×512×512,100.0
+breeze_weak_efficiency_rondeau,Anelastic,2,0.465204,2×1,1024×512×512,63.62204538224091
+breeze_weak_efficiency_rondeau,Anelastic,4,0.512267,4×1,2048×512×512,57.77696006184275
+breeze_weak_efficiency_rondeau,Compressible explicit,1,0.3360169,1×1,512×512×512,99.99999999999999
+breeze_weak_efficiency_rondeau,Compressible explicit,2,0.3436055,2×1,1024×512×512,97.7914788907628
+breeze_weak_efficiency_rondeau,Compressible explicit,4,0.3672024,2×2,1024×1024×512,91.50727228362342
+breeze_weak_efficiency_rondeau,Compressible split-explicit,1,1.215426,1×1,512×512×512,100.0
+breeze_weak_efficiency_rondeau,Compressible split-explicit,2,1.266162,2×1,1024×512×512,95.99292981466826
+breeze_weak_efficiency_rondeau,Compressible split-explicit,4,1.474333,2×2,1024×1024×512,82.43904192607776
+oceananigans_weak_efficiency_fir,Hydrostatic,1,0.1431390791,1×1,512×512×512,100.0
+oceananigans_weak_efficiency_fir,Hydrostatic,2,0.1563531939,2×1,1024×512×512,91.54854821293165
+oceananigans_weak_efficiency_fir,Hydrostatic,4,0.1593928063,4×1,2048×512×512,89.80272223238974
+oceananigans_weak_efficiency_fir,Hydrostatic,8,0.1617090427,8×1,4096×512×512,88.51643464710214
+oceananigans_weak_efficiency_fir,Hydrostatic,16,0.1614717835,16×1,8192×512×512,88.64649661840146
+oceananigans_weak_efficiency_fir,Nonhydrostatic,1,0.3011308524,1×1,512×512×512,100.0
+oceananigans_weak_efficiency_fir,Nonhydrostatic,2,0.7519046531,2×1,1024×512×512,40.049074195575024
+oceananigans_weak_efficiency_fir,Nonhydrostatic,4,1.03726687,4×1,2048×512×512,29.03118388423993
+oceananigans_weak_efficiency_fir,Nonhydrostatic,8,1.5696273222000001,8×1,4096×512×512,19.184863065325146
+oceananigans_weak_efficiency_fir,Nonhydrostatic,16,2.0903203264999997,16×1,8192×512×512,14.405966807212216
