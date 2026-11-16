@@ -6,6 +6,10 @@ Ideal weak scaling is 100%. Each point is one measured window; no error bars are
 `plot_weak_efficiency.py` regenerates every figure and `weak_efficiency.csv` from the
 source measurements below; it skips a figure whose series is incomplete.
 
+Each figure covers one machine. Rondeau uses A100 GPUs and Fir uses H100 GPUs, whose
+compute, memory bandwidth and interconnect differ, so neither timings nor efficiencies
+are comparable between Rondeau and Fir figures. Compare models only within one figure.
+
 ## Breeze: anelastic, compressible explicit, compressible split-explicit
 
 ![Breeze weak scaling on Fir](breeze_weak_efficiency_fir.png)
