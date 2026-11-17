@@ -71,3 +71,27 @@ Watcher log: `/u/ajtse/Breeze.jl/.runtime/weak_scaling_efficiency_2026-11-15/wat
 When the study exits, the watcher reruns `plot_weak_efficiency.py`; if both Rondeau series
 are complete it adds `oceananigans_weak_efficiency_rondeau.png/.svg`, updates this status,
 then commits and pushes this directory to `benchmark-results`.
+
+## Cross-code comparisons on Fir
+
+Same Fir data as above (H100, 1–16 GPUs, N×1). In these figures color encodes the code
+(blue Breeze, orange Oceananigans) and line style plus marker encode the model, so each
+model looks the same in every panel. CE is compressible explicit, CSE compressible split-explicit.
+The workloads differ, so compare scaling shapes, not absolute speed.
+
+1. **By code**: Oceananigans (hydrostatic, nonhydrostatic) beside Breeze (anelastic, CE, CSE).
+
+   ![Weak scaling on Fir by code](by_code_weak_efficiency_fir.png)
+
+2. **By pressure treatment**: models with no global pressure solve (hydrostatic, CE, CSE)
+   beside models with a global elliptic pressure solve (nonhydrostatic, anelastic).
+
+   ![Weak scaling on Fir by pressure treatment](by_solver_weak_efficiency_fir.png)
+
+3. **All five models** in one panel.
+
+   ![Weak scaling on Fir, all five models](all_models_weak_efficiency_fir.png)
+
+The script writes the matching `*_rondeau` figures once the Rondeau Oceananigans series is
+complete at 1, 2 and 4 GPUs. The watcher's directory commit picks them up. Rondeau and Fir
+figures are never combined.

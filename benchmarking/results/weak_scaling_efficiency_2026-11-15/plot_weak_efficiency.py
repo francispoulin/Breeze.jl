@@ -20,6 +20,19 @@ OCEANANIGANS_RESULTS = Path("/u/ajtse/Oceananigans.jl/benchmarking/results")
 
 # Categorical slots 1-3 of the reference palette, assigned in fixed order.
 COLORS = ["#2a78d6", "#eb6834", "#1baf7a"]
+
+# Cross-code figures: color encodes the code (slot 1 Breeze, slot 2 Oceananigans) and
+# line style plus marker encode the model, so every model keeps one look in every panel.
+BREEZE_COLOR, OCEANANIGANS_COLOR = COLORS[:2]
+MODEL_STYLES = {
+    "Anelastic": dict(code="Breeze", color=BREEZE_COLOR, linestyle="-", marker="o"),
+    "Compressible explicit": dict(code="Breeze", color=BREEZE_COLOR, linestyle=(0, (5, 2)), marker="s"),
+    "Compressible split-explicit": dict(code="Breeze", color=BREEZE_COLOR, linestyle=(0, (1, 1.5)), marker="^"),
+    "Hydrostatic": dict(code="Oceananigans", color=OCEANANIGANS_COLOR, linestyle="-", marker="D"),
+    "Nonhydrostatic": dict(code="Oceananigans", color=OCEANANIGANS_COLOR, linestyle=(0, (5, 2)), marker="o"),
+}
+SHORT_LABELS = {"Compressible explicit": "CE", "Compressible split-explicit": "CSE",
+                "Hydrostatic": "Hydrostatic", "Nonhydrostatic": "Nonhydrostatic", "Anelastic": "Anelastic"}
 CELLS_PER_GPU = 512**3
 
 
@@ -137,6 +150,101 @@ def draw(curves, gpu_counts, gpu_name, title, subtitle, footer, stem):
         plt.close(figure)
 
 
+def style_axis(axis, gpu_counts, gpu_name, ylabel=True):
+    axis.axhline(100, color="#8a8984", linewidth=1, linestyle=(0, (4, 3)), zorder=1)
+    axis.text(gpu_counts[0], 101.5, "ideal", color="#52514e", fontsize=9, va="bottom")
+    axis.set_xscale("log", base=2)
+    axis.set_xticks(gpu_counts, labels=[str(n) for n in gpu_counts])
+    axis.minorticks_off()
+    axis.set_xlim(gpu_counts[0] / 1.15, gpu_counts[-1] * 2.6)
+    axis.set_ylim(0, 115)
+    axis.set_xlabel(f"Number of {gpu_name} GPUs")
+    if ylabel:
+        axis.set_ylabel("Weak-scaling efficiency (%)")
+    axis.grid(axis="y", color="#e4e3df", linewidth=0.8)
+    for side in ("top", "right"):
+        axis.spines[side].set_visible(False)
+    for side in ("left", "bottom"):
+        axis.spines[side].set_color("#8a8984")
+
+
+def draw_models(axis, curves):
+    """Plot curves in the code-by-color, model-by-style scheme with direct end labels."""
+    ends = []
+    for label, points in curves:
+        style = MODEL_STYLES[label]
+        x = [point["gpus"] for point in points]
+        y = [point["efficiency_percent"] for point in points]
+        axis.plot(x, y, color=style["color"], linestyle=style["linestyle"], linewidth=2,
+                  marker=style["marker"], markersize=6.5, markeredgecolor="white", markeredgewidth=1.2,
+                  label=f"{style['code']} {label.lower()}",
+                  zorder=3)
+        ends.append([y[-1], y[-1], x[-1], label])
+    # Spread end labels at least 5.5 percentage points apart so close curves stay legible.
+    ends.sort(key=lambda end: end[0])
+    for lower, upper in zip(ends, ends[1:]):
+        upper[1] = max(upper[1], lower[1] + 5.5)
+    for value, position, gpus, label in ends:
+        axis.annotate(f"{SHORT_LABELS[label]} {value:.0f}%", (gpus, value), xytext=(gpus * 1.08, position),
+                      textcoords="data", va="center", fontsize=8.5, color=MODEL_STYLES[label]["color"],
+                      fontweight="bold")
+
+
+def draw_comparison(panels, gpu_counts, gpu_name, title, subtitle, footer, stem):
+    """Draw one or more side-by-side panels sharing the efficiency axis."""
+    width = 10 if len(panels) == 1 else 13
+    with plt.rc_context({"font.size": 11, "svg.hashsalt": "breeze-weak-scaling", "svg.fonttype": "none"}):
+        figure, axes = plt.subplots(1, len(panels), figsize=(width, 5.6), sharey=True, squeeze=False)
+        for index, (axis, (panel_title, curves)) in enumerate(zip(axes[0], panels)):
+            style_axis(axis, gpu_counts, gpu_name, ylabel=index == 0)
+            draw_models(axis, curves)
+            if panel_title:
+                axis.set_title(panel_title, loc="left", fontsize=11.5, pad=8)
+            axis.legend(loc="lower left", frameon=False, fontsize=9, handlelength=3)
+        figure.text(0.01, 0.985, title, ha="left", va="top", fontsize=14)
+        figure.text(0.01, 0.935, subtitle, ha="left", va="top", fontsize=9.5, color="#52514e")
+        figure.text(0.01, 0.015, footer, ha="left", va="bottom", fontsize=8.5, color="#52514e")
+        figure.tight_layout(rect=(0, 0.11, 1, 0.86))
+        save(figure, stem)
+
+
+def save(figure, stem):
+    for suffix in (".png", ".svg"):
+        path = HERE / f"{stem}{suffix}"
+        figure.savefig(path, dpi=200, metadata={"Creator": "Breeze benchmark report"} if suffix == ".png" else {"Creator": "Breeze benchmark report", "Date": None})
+        if suffix == ".svg":
+            path.write_text("\n".join(line.rstrip() for line in path.read_text().splitlines()).rstrip() + "\n")
+    plt.close(figure)
+
+
+def comparison_figures(machine, breeze_curves, oceananigans_curves, gpu_counts, gpu_name):
+    """Three cross-code figure sets for one machine; GPU types are never mixed in one figure."""
+    curves = dict(breeze_curves + oceananigans_curves)
+    pick = lambda *labels: [(label, curves[label]) for label in labels]
+    name = machine.capitalize()
+    subtitle = ("512³ cells per GPU · MPI, N×1 partitions · each model normalized to its own 1-GPU time\n"
+                "Blue = Breeze, orange = Oceananigans · CE = compressible explicit, CSE = compressible split-explicit")
+    footer = ("Breeze: Float32 WENO5 dry CBL, Δt halved per GPU doubling, 500 timed steps.\n"
+              "Oceananigans: Float64 rectilinear buoyancy, WENO5, Δt = 10 s, median of five 10-step windows.\n"
+              "Workloads differ, so compare scaling shapes, not absolute speed.")
+    return [
+        (f"by_code_weak_efficiency_{machine}", [
+            ("Oceananigans", pick("Hydrostatic", "Nonhydrostatic")),
+            ("Breeze", pick("Anelastic", "Compressible explicit", "Compressible split-explicit"))],
+         f"Weak scaling on {name}, by code", subtitle, footer),
+        (f"by_solver_weak_efficiency_{machine}", [
+            ("No global pressure solve",
+             pick("Hydrostatic", "Compressible explicit", "Compressible split-explicit")),
+            ("Global elliptic pressure solve",
+             pick("Nonhydrostatic", "Anelastic"))],
+         f"Weak scaling on {name}, by pressure treatment", subtitle, footer),
+        (f"all_models_weak_efficiency_{machine}", [
+            (None, pick("Hydrostatic", "Compressible explicit", "Compressible split-explicit",
+                        "Nonhydrostatic", "Anelastic"))],
+         f"Weak scaling on {name}, all five models", subtitle, footer),
+    ]
+
+
 def main():
     figures = []
     subtitle = "512³ cells per GPU · MPI · each model normalized to its own 1-GPU time"
@@ -147,11 +255,15 @@ def main():
                     "Breeze weak scaling on Rondeau",
                     "Float32, WENO5 dry CBL · Δt = 0.005 s · 4 GPUs: anelastic 4×1, compressible 2×2\n"
                     "Anelastic measured 13 Nov; compressible 9–10 Nov (different source revisions)"))
+    comparisons = []
+    breeze_curves = dict(fir=figures[0][1], rondeau=figures[1][1])
     for machine, counts, gpu in [("fir", (1, 2, 4, 8, 16), "H100"), ("rondeau", (1, 2, 4), "A100")]:
         curves = oceananigans(machine, counts)
         if curves is None:
-            print(f"Oceananigans {machine}: incomplete, figure skipped", file=sys.stderr)
+            print(f"Oceananigans {machine}: incomplete, figures skipped", file=sys.stderr)
             continue
+        comparisons += [(*comparison, counts, gpu) for comparison in
+                        comparison_figures(machine, breeze_curves[machine], curves, counts, gpu)]
         figures.append((f"oceananigans_weak_efficiency_{machine}", curves, counts, gpu,
                         f"Oceananigans weak scaling on {machine.capitalize()}",
                         "Partitions N×1 · Float64 rectilinear buoyancy, WENO5 · Δt = 10 s · median of five 10-step windows"))
@@ -159,11 +271,13 @@ def main():
     for stem, curves, counts, gpu, title, footer in figures:
         draw(curves, counts, gpu, title, subtitle, footer, stem)
         rows += [dict(figure=stem, model=label, **point) for label, points in curves for point in points]
+    for stem, panels, title, subtitle, footer, counts, gpu in comparisons:
+        draw_comparison(panels, counts, gpu, title, subtitle, footer, stem)
     with (HERE / "weak_efficiency.csv").open("w") as stream:
         writer = csv.DictWriter(stream, fieldnames=rows[0].keys(), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
-    for stem, *_ in figures:
+    for stem, *_ in figures + comparisons:
         print(stem)
 
 
