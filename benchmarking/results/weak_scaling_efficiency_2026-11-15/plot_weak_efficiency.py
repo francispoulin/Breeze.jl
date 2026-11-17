@@ -92,7 +92,12 @@ def breeze_rondeau():
     return curves
 
 
-def oceananigans(machine, gpu_counts):
+def oceananigans(machine, gpu_counts, partial=False):
+    """Hydrostatic and nonhydrostatic curves, or None if either is missing a GPU count.
+
+    With `partial=True`, a series measured at a leading subset of `gpu_counts` (at least
+    two counts) is accepted, so a cross-code figure can show it before the study finishes.
+    """
     curves = []
     for folder, label in [("hydrostatic_free_surface_models", "Hydrostatic"),
                           ("non_hydrostatic_models", "Nonhydrostatic")]:
@@ -100,9 +105,11 @@ def oceananigans(machine, gpu_counts):
         if not path.is_file():
             return None
         rows = [row for row in read_csv(path) if row["state"] == "COMPLETED"]
-        if sorted(int(row["ranks"]) for row in rows) != list(gpu_counts):
+        measured = sorted(int(row["ranks"]) for row in rows)
+        expected = list(gpu_counts[:len(measured)]) if partial and len(measured) >= 2 else list(gpu_counts)
+        if measured != expected:
             return None
-        curves.append((label, with_efficiency(map(oceananigans_point, rows), gpu_counts)))
+        curves.append((label, with_efficiency(map(oceananigans_point, rows), expected)))
     return curves
 
 
@@ -180,14 +187,17 @@ def draw_models(axis, curves):
                   label=f"{style['code']} {label.lower()}",
                   zorder=3)
         ends.append([y[-1], y[-1], x[-1], label])
-    # Spread end labels at least 5.5 percentage points apart so close curves stay legible.
-    ends.sort(key=lambda end: end[0])
+    # Spread end labels that share a GPU count at least 5.5 percentage points apart
+    # so close curves stay legible; labels at different counts do not collide.
+    ends.sort(key=lambda end: (end[2], end[0]))
     for lower, upper in zip(ends, ends[1:]):
-        upper[1] = max(upper[1], lower[1] + 5.5)
+        if lower[2] == upper[2]:
+            upper[1] = max(upper[1], lower[1] + 5.5)
     for value, position, gpus, label in ends:
         axis.annotate(f"{SHORT_LABELS[label]} {value:.0f}%", (gpus, value), xytext=(gpus * 1.08, position),
                       textcoords="data", va="center", fontsize=8.5, color=MODEL_STYLES[label]["color"],
-                      fontweight="bold")
+                      fontweight="bold", zorder=4,
+                      bbox=dict(facecolor="white", edgecolor="none", pad=1.5, alpha=0.9))
 
 
 def draw_comparison(panels, gpu_counts, gpu_name, title, subtitle, footer, stem):
@@ -204,7 +214,7 @@ def draw_comparison(panels, gpu_counts, gpu_name, title, subtitle, footer, stem)
         figure.text(0.01, 0.985, title, ha="left", va="top", fontsize=14)
         figure.text(0.01, 0.935, subtitle, ha="left", va="top", fontsize=9.5, color="#52514e")
         figure.text(0.01, 0.015, footer, ha="left", va="bottom", fontsize=8.5, color="#52514e")
-        figure.tight_layout(rect=(0, 0.11, 1, 0.86))
+        figure.tight_layout(rect=(0, 0.035 * (footer.count("\n") + 1), 1, 0.86))
         save(figure, stem)
 
 
@@ -217,16 +227,29 @@ def save(figure, stem):
     plt.close(figure)
 
 
+COMPARISON_NOTES = dict(
+    fir=dict(partitions="N×1 partitions",
+             breeze="Breeze: Float32 WENO5 dry CBL, Δt halved per GPU doubling, 500 timed steps."),
+    rondeau=dict(partitions="N×1 partitions except Breeze compressible 2×2 at 4 GPUs",
+                 breeze="Breeze: Float32 WENO5 dry CBL, Δt = 0.005 s; anelastic measured 13 Nov, "
+                        "compressible 9–10 Nov (different source revisions)."),
+)
+
+
 def comparison_figures(machine, breeze_curves, oceananigans_curves, gpu_counts, gpu_name):
     """Three cross-code figure sets for one machine; GPU types are never mixed in one figure."""
     curves = dict(breeze_curves + oceananigans_curves)
     pick = lambda *labels: [(label, curves[label]) for label in labels]
     name = machine.capitalize()
-    subtitle = ("512³ cells per GPU · MPI, N×1 partitions · each model normalized to its own 1-GPU time\n"
+    notes = COMPARISON_NOTES[machine]
+    measured = max(point["gpus"] for _, points in oceananigans_curves for point in points)
+    pending = (f"\nOceananigans {gpu_counts[-1]}-GPU cases not yet run; its lines stop at {measured} GPUs."
+               if measured < gpu_counts[-1] else "")
+    subtitle = (f"512³ cells per GPU · MPI, {notes['partitions']} · each model normalized to its own 1-GPU time\n"
                 "Blue = Breeze, orange = Oceananigans · CE = compressible explicit, CSE = compressible split-explicit")
-    footer = ("Breeze: Float32 WENO5 dry CBL, Δt halved per GPU doubling, 500 timed steps.\n"
+    footer = (notes["breeze"] + "\n"
               "Oceananigans: Float64 rectilinear buoyancy, WENO5, Δt = 10 s, median of five 10-step windows.\n"
-              "Workloads differ, so compare scaling shapes, not absolute speed.")
+              "Workloads differ, so compare scaling shapes, not absolute speed." + pending)
     return [
         (f"by_code_weak_efficiency_{machine}", [
             ("Oceananigans", pick("Hydrostatic", "Nonhydrostatic")),
@@ -258,12 +281,14 @@ def main():
     comparisons = []
     breeze_curves = dict(fir=figures[0][1], rondeau=figures[1][1])
     for machine, counts, gpu in [("fir", (1, 2, 4, 8, 16), "H100"), ("rondeau", (1, 2, 4), "A100")]:
+        partial_curves = oceananigans(machine, counts, partial=True)
+        if partial_curves is not None:
+            comparisons += [(*comparison, counts, gpu) for comparison in
+                            comparison_figures(machine, breeze_curves[machine], partial_curves, counts, gpu)]
         curves = oceananigans(machine, counts)
         if curves is None:
-            print(f"Oceananigans {machine}: incomplete, figures skipped", file=sys.stderr)
+            print(f"Oceananigans {machine}: incomplete, standalone figure skipped", file=sys.stderr)
             continue
-        comparisons += [(*comparison, counts, gpu) for comparison in
-                        comparison_figures(machine, breeze_curves[machine], curves, counts, gpu)]
         figures.append((f"oceananigans_weak_efficiency_{machine}", curves, counts, gpu,
                         f"Oceananigans weak scaling on {machine.capitalize()}",
                         "Partitions N×1 · Float64 rectilinear buoyancy, WENO5 · Δt = 10 s · median of five 10-step windows"))

@@ -92,6 +92,23 @@ The workloads differ, so compare scaling shapes, not absolute speed.
 
    ![Weak scaling on Fir, all five models](all_models_weak_efficiency_fir.png)
 
-The script writes the matching `*_rondeau` figures once the Rondeau Oceananigans series is
-complete at 1, 2 and 4 GPUs. The watcher's directory commit picks them up. Rondeau and Fir
-figures are never combined.
+## Cross-code comparisons on Rondeau
+
+The same three sets for Rondeau (A100, 1–4 GPUs), drawn from the Rondeau data above. Breeze
+compressible uses 2×2 at four GPUs, and its anelastic and compressible runs come from different
+source revisions. **The Oceananigans lines stop at 2 GPUs for now**: the four-GPU cases have not
+started because other users' jobs occupy the GPUs (see the Oceananigans Rondeau status above).
+When the study finishes, the watcher reruns the script, which redraws these figures with the
+four-GPU points and commits them. Do not compare these figures with the Fir figures.
+
+1. **By code**
+
+   ![Weak scaling on Rondeau by code](by_code_weak_efficiency_rondeau.png)
+
+2. **By pressure treatment**
+
+   ![Weak scaling on Rondeau by pressure treatment](by_solver_weak_efficiency_rondeau.png)
+
+3. **All five models**
+
+   ![Weak scaling on Rondeau, all five models](all_models_weak_efficiency_rondeau.png)
