@@ -1,10 +1,12 @@
-"""Attribute GPU kernels to the innermost enclosing Breeze host-method NVTX range.
+"""Attribute GPU kernels to the innermost enclosing Breeze or Oceananigans host-method NVTX range.
 
 Usage: python3 analyze_nvtx.py /path/to/results/captures.json
 Writes analysis.json, kernels.csv, phases.csv, rank_summary.csv beside the manifest.
 GPU attribution follows CUDA launch correlation IDs; it does not intersect CPU
 ranges with GPU timestamps. Phase kernel totals are exclusive. Host ranges and
 the acoustic-substep inclusive metric overlap and must not be summed.
+solve_kernel_fraction counts kernels launched inside any call/solve! range
+(pressure solve for anelastic and nonhydrostatic, vertical solve for split-explicit).
 """
 
 from collections import defaultdict
@@ -16,7 +18,8 @@ import sys
 
 
 MODULES = ("AtmosphereModels/", "CompressibleEquations/", "TimeSteppers/",
-           "AnelasticEquations/", "PotentialTemperatureFormulations/")
+           "AnelasticEquations/", "PotentialTemperatureFormulations/",
+           "NonhydrostaticModels/")
 
 
 def union_duration(intervals):
@@ -38,7 +41,7 @@ def analyze(database, steps):
         ranges = sorted(r for r in ranges if r[3] and
                         (r[3].startswith(MODULES) or r[3].startswith("call/")))
         if not ranges:
-            raise RuntimeError(f"No Breeze ranges found: {database}")
+            raise RuntimeError(f"No host-method ranges found: {database}")
         # MPI progress can issue millions of cuEventQuery calls. Only launch APIs
         # with kernel correlation IDs are needed for attribution; aggregate all API
         # durations in SQL instead of materializing every polling event in Python.
@@ -71,14 +74,16 @@ def analyze(database, steps):
         innermost = min(functions, key=lambda r: r[1] - r[0], default=None)
         correlation[identifier] = (innermost[3] if innermost else "unattributed",
                                   any(r[3].endswith("/acoustic_substep!") for r in functions),
-                                  any(r[3] == "call/fill_halo_regions!" for r in enclosing))
+                                  any(r[3] == "call/fill_halo_regions!" for r in enclosing),
+                                  any(r[3] == "call/solve!" for r in enclosing))
     phase_totals = defaultdict(lambda: [0, 0])
     kernel_totals = defaultdict(lambda: [0, 0, 0, 0])
     acoustic = 0
     halo_gpu = 0
+    solve_gpu = 0
     for start, end, identifier, name_id, registers, threads in kernels:
         duration = end - start
-        phase, in_acoustic, in_halo = correlation.get(identifier, ("unattributed", False, False))
+        phase, in_acoustic, in_halo, in_solve = correlation.get(identifier, ("unattributed", False, False, False))
         phase_totals[phase][0] += duration
         phase_totals[phase][1] += 1
         kernel_totals[strings[name_id]][0] += duration
@@ -87,6 +92,7 @@ def analyze(database, steps):
         kernel_totals[strings[name_id]][3] = max(kernel_totals[strings[name_id]][3], threads)
         acoustic += duration if in_acoustic else 0
         halo_gpu += duration if in_halo else 0
+        solve_gpu += duration if in_solve else 0
     host_totals = defaultdict(lambda: [0, 0])
     for start, end, _, label in ranges:
         host_totals[label][0] += end - start
@@ -105,6 +111,7 @@ def analyze(database, steps):
                 attributed_kernel_fraction=assigned / kernel_ns,
                 acoustic_kernel_fraction=acoustic / kernel_ns,
                 halo_kernel_fraction=halo_gpu / kernel_ns,
+                solve_kernel_fraction=solve_gpu / kernel_ns,
                 memcpy_bytes=sum(c[2] for c in copies),
                 mpi_p2p_seconds=None if mpi is None else sum(end - start for start, end in mpi) / 1e9,
                 phases={k: dict(seconds=v[0] / 1e9, calls=v[1], fraction=v[0] / kernel_ns)
@@ -132,19 +139,21 @@ def main():
             print(record["case"], record["rank"], f"kernels={record['kernel_count']}",
                   f"active={record['gpu_active_fraction']:.3f}",
                   f"acoustic={record['acoustic_kernel_fraction']:.3f}",
-                  f"halo={record['halo_kernel_fraction']:.3f}")
+                  f"halo={record['halo_kernel_fraction']:.3f}",
+                  f"solve={record['solve_kernel_fraction']:.3f}")
     manifest.with_name("analysis.json").write_text(json.dumps(output, indent=2) + "\n")
     with manifest.with_name("rank_summary.csv").open("w") as stream:
         writer = csv.writer(stream)
         writer.writerow(["case", "rank", "steps", "trace_window_seconds", "trace_seconds_per_step",
                          "summed_kernel_seconds", "kernel_launches", "timeline_active_fraction",
-                         "attributed_kernel_fraction", "acoustic_kernel_fraction", "halo_kernel_fraction"])
+                         "attributed_kernel_fraction", "acoustic_kernel_fraction", "halo_kernel_fraction",
+                         "solve_kernel_fraction"])
         for record in output:
             writer.writerow([record["case"], record["rank"], record["steps"], record["window_seconds"],
                              record["window_seconds"] / record["steps"], record["kernel_seconds"],
                              record["kernel_count"], record["gpu_active_fraction"],
                              record["attributed_kernel_fraction"], record["acoustic_kernel_fraction"],
-                             record["halo_kernel_fraction"]])
+                             record["halo_kernel_fraction"], record["solve_kernel_fraction"]])
     for category in ("phases", "kernels"):
         with manifest.with_name(f"{category}.csv").open("w") as stream:
             writer = csv.writer(stream)
