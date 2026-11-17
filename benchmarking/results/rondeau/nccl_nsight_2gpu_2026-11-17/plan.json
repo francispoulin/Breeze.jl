@@ -1,0 +1,54 @@
+{
+  "global_size": [
+    1024,
+    512,
+    512
+  ],
+  "partition": [
+    2,
+    1
+  ],
+  "local_size": [
+    512,
+    512,
+    512
+  ],
+  "ranks": 2,
+  "backend": "NCCL",
+  "warmup_steps": 10,
+  "measured_steps": 10,
+  "nvtx": true,
+  "nsight_trace": [
+    "cuda",
+    "nvtx",
+    "mpi"
+  ],
+  "cases": {
+    "anelastic": {
+      "model": "Breeze AtmosphereModel, AnelasticDynamics, dry CBL",
+      "arguments": [
+        "--dynamics=anelastic",
+        "--float_type=Float32",
+        "--time_step=0.005",
+        "--simplified=false",
+        "--random_perturbation=false"
+      ]
+    },
+    "oceananigans_nonhydrostatic": {
+      "model": "Oceananigans NonhydrostaticModel, rectilinear_buoyancy",
+      "arguments": [
+        "--dynamics=oceananigans_nonhydrostatic",
+        "--float_type=Float64",
+        "--time_step=10"
+      ]
+    }
+  },
+  "minimum_free_mib": 35000,
+  "poll_seconds": 30,
+  "julia": "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+  "runtime": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17",
+  "frozen_checkout": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/worktree",
+  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git",
+  "publish_branch": "benchmark-results",
+  "frozen_commit": "50afa1d432120ef9832d7cc6646996155d94185c"
+}
