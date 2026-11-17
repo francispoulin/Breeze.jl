@@ -13,7 +13,7 @@
 #####
 ##### Options (all `--name=value`):
 #####   --dynamics         anelastic | compressible_explicit | compressible_splitexplicit
-#####                                                                          (default compressible_splitexplicit)
+#####                      | oceananigans_nonhydrostatic                       (default compressible_splitexplicit)
 #####   --size             global grid, NxNyxNz                                (default 256x256x128)
 #####   --partition        ranks in x and y, RxxRy; must multiply to #ranks    (default <#ranks>x1)
 #####   --comm             MPI | NCCL; one rank uses the serial GPU baseline (default MPI)
@@ -26,7 +26,8 @@
 #####   --random_perturbation  true | false: random or smooth (sine) initial perturbation (default true);
 #####                      false to compare runs on different partitions, as rand() differs between ranks
 #####   --profile          true | false: capture the timed steps with Nsight  (default false)
-#####   --nvtx             true | false: annotate Breeze host methods         (default false)
+#####   --nvtx             true | false: annotate Breeze (or, for oceananigans_nonhydrostatic,
+#####                      Oceananigans NonhydrostaticModel) host methods      (default false)
 #####   --results_file     append one CSV line of results to this file         (default: none)
 #####
 
@@ -45,6 +46,7 @@ using Printf
 # Include the case directly rather than loading the whole BreezeBenchmarks module, which pulls in
 # Reactant, Enzyme, AMDGPU and Metal.
 include(joinpath(@__DIR__, "..", "src", "convective_boundary_layer.jl"))
+include(joinpath(@__DIR__, "oceananigans_nonhydrostatic.jl"))
 
 const comm   = MPI.COMM_WORLD
 const rank   = MPI.Comm_rank(comm)
@@ -84,7 +86,7 @@ results_file  = option("results_file", "")
 
 if nvtx
     include(joinpath(@__DIR__, "nvtx_instrumentation.jl"))
-    BreezeNVTX.enable!()
+    BreezeNVTX.enable!(dynamics_name == "oceananigans_nonhydrostatic" ? :Oceananigans : :Breeze)
 end
 
 Rx * Ry == nranks || error("--partition=$(Rx)x$(Ry) needs $(Rx * Ry) ranks but mpiexec started $nranks")
@@ -102,9 +104,10 @@ dynamics = if dynamics_name == "compressible_explicit"
     CompressibleDynamics(ExplicitTimeStepping())
 elseif dynamics_name == "compressible_splitexplicit"
     CompressibleDynamics(SplitExplicitTimeDiscretization(FT; substeps))
-elseif dynamics_name == "anelastic"
+elseif dynamics_name in ("anelastic", "oceananigans_nonhydrostatic")
     # `convective_boundary_layer` builds AnelasticDynamics when `dynamics` is `nothing`. On several
     # ranks its pressure solve is Oceananigans' DistributedFourierTridiagonalPoissonSolver (Breeze PR #1157).
+    # Oceananigans' NonhydrostaticModel does not use `dynamics`.
     nothing
 else
     error("Unknown --dynamics=$dynamics_name")
@@ -133,7 +136,11 @@ communicator_type = nranks == 1 ? "none" : string(nameof(typeof(arch.communicato
 @printf("DEVICE rank=%d uuid=%s visible=%s\n", rank, string(CUDA.uuid(CUDA.device())),
         get(ENV, "CUDA_VISIBLE_DEVICES", "all"))
 
-model = convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified, random_perturbation)
+model = if dynamics_name == "oceananigans_nonhydrostatic"
+    oceananigans_nonhydrostatic(arch; float_type = FT, Nx, Ny, Nz)
+else
+    convective_boundary_layer(arch; float_type = FT, Nx, Ny, Nz, dynamics, simplified, random_perturbation)
+end
 
 rank == 0 && @info "Distributed CBL benchmark" dynamics_name FT (Nx, Ny, Nz) partition=(Rx, Ry) nranks Δt time_steps communication_name communicator_type profile
 

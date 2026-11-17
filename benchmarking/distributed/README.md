@@ -18,6 +18,14 @@ Reactant or `Simulation` overhead, and reports points per second. The single-GPU
 | `compressible_splitexplicit` | Yes. Run on 1 and 2 A100 GPUs (256×256×128, partition 2x1); results finite. Not yet compared field by field with a serial run (the case's initial noise uses `rand()`, which differs between ranks). |
 | `anelastic` | **On this branch only**, which merges Breeze PR [#1157](https://github.com/NumericalEarth/Breeze.jl/pull/1157) (not in Breeze `main` yet). On several ranks the pressure solve is Oceananigans' `DistributedFourierTridiagonalPoissonSolver`: a solve takes 2 transposes (MPI `Alltoall`) with `Rx×1`, 4 with `1×Ry` and 8 with `Rx×Ry`. Distributed and 1-GPU runs agree (`max_abs_w` to 7 digits at 1×1, 2×1 and 4×1, Float64, `--random_perturbation=false`, 100 steps, pelee and rondeau, Nov 11, 2026). |
 
+`--dynamics=oceananigans_nonhydrostatic` replaces the CBL with the Oceananigans benchmark
+suite's `rectilinear_buoyancy` `NonhydrostaticModel` case
+([`oceananigans_nonhydrostatic.jl`](oceananigans_nonhydrostatic.jl)): 1 km × 1 km × 10 m cells,
+WENO5, one buoyancy tracer, RungeKutta3, and the distributed FFT pressure solver. The suite uses
+`--float_type=Float64 --time_step=10`. The CBL options `--substeps`, `--simplified`, and
+`--random_perturbation` do not apply. With `--nvtx=true` the ranges go in an `Oceananigans`
+NVTX domain instead of `Breeze`.
+
 ## Requirements
 
 - Julia ≥ 1.11.9.
@@ -45,7 +53,7 @@ have checked out.
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `--dynamics` | `compressible_splitexplicit` | `anelastic`, `compressible_explicit` or `compressible_splitexplicit` |
+| `--dynamics` | `compressible_splitexplicit` | `anelastic`, `compressible_explicit`, `compressible_splitexplicit` or `oceananigans_nonhydrostatic` |
 | `--size` | `256x256x128` | Global grid, `NxNyxNz` |
 | `--partition` | `<ranks>x1` | Ranks in x and y, `RxxRy`; must multiply to the number of ranks |
 | `--comm` | `MPI` | `MPI` or `NCCL` for multi-GPU halo exchange; one rank uses the shared serial GPU baseline |
@@ -57,7 +65,7 @@ have checked out.
 | `--simplified` | `false` | Drop the geostrophic forcing and the field-dependent drag boundary conditions |
 | `--random_perturbation` | `true` | `false`: smooth (sine) initial perturbation instead of `rand()`, which differs between ranks. Use it to compare runs on different partitions |
 | `--profile` | `false` | Start/stop an external CUDA profiler around the timed steps, after warmup |
-| `--nvtx` | `false` | Add NVTX ranges to selected Breeze host methods and halo/solver calls |
+| `--nvtx` | `false` | Add NVTX ranges to selected Breeze (or Oceananigans `NonhydrostaticModel`) host methods and halo/solver calls |
 | `--results_file` | none | Append one CSV line of results to this file |
 
 For NCCL communication on two GPUs:
