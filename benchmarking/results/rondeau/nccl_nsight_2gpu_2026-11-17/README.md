@@ -1,6 +1,6 @@
 # Two-GPU NCCL Nsight: Breeze anelastic and Oceananigans nonhydrostatic
 
-Status: **QUEUED**.
+Status: **COMPLETE**.
 
 Global grid 1024×512×512, partition 2×1, 512³ cells per A100, NCCL halo and
 transpose communication (MPI only launches ranks and supplies barriers). Each launch
@@ -26,6 +26,24 @@ Nsight records CUDA, NVTX and MPI only during the measured steps
 
 | Launch | State | Unprofiled seconds/step | Maximum absolute w | GPUs |
 |--------|-------|-------------------------|--------------------|------|
+| benchmark anelastic | COMPLETE | 4.767870e-01 | 3.279216e-05 | 0,1 |
+| profiled anelastic | COMPLETE | see trace | 3.279216e-05 | 0,1 |
+| benchmark oceananigans_nonhydrostatic | COMPLETE | 6.877646e-01 | 2.523582e-06 | 0,1 |
+| profiled oceananigans_nonhydrostatic | COMPLETE | see trace | 2.523582e-06 | 0,1 |
+
+## Trace summary (per rank, from analysis.json)
+
+| Case | Rank | Trace s/step | Kernel launches | GPU active fraction | Halo kernel fraction | Solve kernel fraction |
+|------|------|--------------|-----------------|---------------------|----------------------|-----------------------|
+| anelastic_NCCL_2g | 0 | 0.4787 | 4730 | 0.982 | 0.052 | 0.436 |
+| anelastic_NCCL_2g | 1 | 0.4793 | 4730 | 0.985 | 0.054 | 0.436 |
+| oceananigans_nonhydrostatic_NCCL_2g | 0 | 0.6851 | 3270 | 0.999 | 0.086 | 0.542 |
+| oceananigans_nonhydrostatic_NCCL_2g | 1 | 0.6885 | 3270 | 0.999 | 0.032 | 0.577 |
+
+Trace seconds per step include profiling overhead; use the unprofiled timings
+for performance. Fractions are of summed kernel time, attributed through CUDA
+launch correlation IDs to enclosing `call/fill_halo_regions!` and `call/solve!`
+ranges. Per-phase and per-kernel totals are in phases.csv and kernels.csv.
 
 Finite-field checks establish a functional run, not field-by-field accuracy.
 No plots are produced for Nsight runs.

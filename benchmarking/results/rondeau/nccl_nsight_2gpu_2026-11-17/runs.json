@@ -1,0 +1,328 @@
+[
+  {
+    "kind": "benchmark",
+    "case": "anelastic",
+    "state": "COMPLETE",
+    "source_commit": "50afa1d432120ef9832d7cc6646996155d94185c",
+    "cuda_visible_devices": "0,1",
+    "started_utc": "2026-11-18T02:54:41.124000+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "2",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "--startup-file=no",
+      "--threads=1",
+      "--project=/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/environment",
+      "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "--dynamics=anelastic",
+      "--float_type=Float32",
+      "--time_step=0.005",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--comm=NCCL",
+      "--size=1024x512x512",
+      "--partition=2x1",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=false",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nccl_nsight_2gpu_2026-11-17/logs/benchmark_anelastic.csv"
+    ],
+    "exit_code": 0,
+    "finished_utc": "2026-11-18T02:57:53.036012+00:00",
+    "placements": [
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "1",
+        "true",
+        "21774860288"
+      ],
+      [
+        "0",
+        "true",
+        "21774860288"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "anelastic",
+      "float": "Float32",
+      "Nx": "1024",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "2",
+      "Ry": "1",
+      "gpus": "2",
+      "steps": "10",
+      "seconds_per_step": "4.767870e-01",
+      "points_per_second": "5.630092e+08",
+      "max_abs_w": "3.279216e-05",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    }
+  },
+  {
+    "kind": "profiled",
+    "case": "anelastic",
+    "state": "COMPLETE",
+    "source_commit": "50afa1d432120ef9832d7cc6646996155d94185c",
+    "cuda_visible_devices": "0,1",
+    "started_utc": "2026-11-18T02:57:53.302942+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "2",
+      "bash",
+      "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nccl_nsight_2gpu_2026-11-17/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/anelastic",
+      "--dynamics=anelastic",
+      "--float_type=Float32",
+      "--time_step=0.005",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--comm=NCCL",
+      "--size=1024x512x512",
+      "--partition=2x1",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nccl_nsight_2gpu_2026-11-17/logs/profiled_anelastic.csv"
+    ],
+    "exit_code": 0,
+    "finished_utc": "2026-11-18T03:01:11.707197+00:00",
+    "placements": [
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true",
+        "21804285952"
+      ],
+      [
+        "1",
+        "true",
+        "21804285952"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "anelastic",
+      "float": "Float32",
+      "Nx": "1024",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "2",
+      "Ry": "1",
+      "gpus": "2",
+      "steps": "10",
+      "seconds_per_step": "9.857402e-01",
+      "points_per_second": "2.723187e+08",
+      "max_abs_w": "3.279216e-05",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    }
+  },
+  {
+    "kind": "benchmark",
+    "case": "oceananigans_nonhydrostatic",
+    "state": "COMPLETE",
+    "source_commit": "50afa1d432120ef9832d7cc6646996155d94185c",
+    "cuda_visible_devices": "0,1",
+    "started_utc": "2026-11-18T03:01:12.744724+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "2",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "--startup-file=no",
+      "--threads=1",
+      "--project=/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/environment",
+      "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "--dynamics=oceananigans_nonhydrostatic",
+      "--float_type=Float64",
+      "--time_step=10",
+      "--comm=NCCL",
+      "--size=1024x512x512",
+      "--partition=2x1",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=false",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nccl_nsight_2gpu_2026-11-17/logs/benchmark_oceananigans_nonhydrostatic.csv"
+    ],
+    "exit_code": 0,
+    "finished_utc": "2026-11-18T03:03:15.602885+00:00",
+    "placements": [
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "1",
+        "true",
+        "30125719552"
+      ],
+      [
+        "0",
+        "true",
+        "30125719552"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "oceananigans_nonhydrostatic",
+      "float": "Float64",
+      "Nx": "1024",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "2",
+      "Ry": "1",
+      "gpus": "2",
+      "steps": "10",
+      "seconds_per_step": "6.877646e-01",
+      "points_per_second": "3.903014e+08",
+      "max_abs_w": "2.523582e-06",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    }
+  },
+  {
+    "kind": "profiled",
+    "case": "oceananigans_nonhydrostatic",
+    "state": "COMPLETE",
+    "source_commit": "50afa1d432120ef9832d7cc6646996155d94185c",
+    "cuda_visible_devices": "0,1",
+    "started_utc": "2026-11-18T03:03:15.877274+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "2",
+      "bash",
+      "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nccl_nsight_2gpu_2026-11-17/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/oceananigans_nonhydrostatic",
+      "--dynamics=oceananigans_nonhydrostatic",
+      "--float_type=Float64",
+      "--time_step=10",
+      "--comm=NCCL",
+      "--size=1024x512x512",
+      "--partition=2x1",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/nccl_nsight_2gpu_2026-11-17/logs/profiled_oceananigans_nonhydrostatic.csv"
+    ],
+    "exit_code": 0,
+    "finished_utc": "2026-11-18T03:05:26.777212+00:00",
+    "placements": [
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ],
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true",
+        "30155145216"
+      ],
+      [
+        "1",
+        "true",
+        "30155145216"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "oceananigans_nonhydrostatic",
+      "float": "Float64",
+      "Nx": "1024",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "2",
+      "Ry": "1",
+      "gpus": "2",
+      "steps": "10",
+      "seconds_per_step": "1.162416e+00",
+      "points_per_second": "2.309290e+08",
+      "max_abs_w": "2.523582e-06",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    }
+  }
+]

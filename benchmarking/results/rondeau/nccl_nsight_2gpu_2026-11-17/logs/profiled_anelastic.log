@@ -1,0 +1,113 @@
+--------------------------------------------------------------------------
+WARNING: Open MPI will create a shared memory backing file in a
+directory that appears to be mounted on a network filesystem.
+Creating the shared memory backup file on a network file system, such
+as NFS or Lustre is not recommended -- it may cause excessive network
+traffic to your file servers and/or cause shared memory traffic in
+Open MPI to be much slower than expected.
+
+You may want to check what the typical temporary directory is on your
+node.  Possible sources of the location of this temporary directory
+include the $TEMPDIR, $TEMP, and $TMP environment variables.
+
+Note, too, that system administrators can set a list of filesystems
+where Open MPI is disallowed from creating temporary files by setting
+the MCA parameter "orte_no_session_dir".
+
+  Local host: rondeau
+  Filename:   /u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/tmp/mpi/ompi.rondeau.8193/pid.2134069/1/shared_mem_cuda_pool.rondeau
+
+You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
+disable this message.
+--------------------------------------------------------------------------
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+[rondeau:2134069] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:2134069] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+┌ Info: NVTX host instrumentation enabled
+│   package = :Breeze
+└   NVTX.isactive() = true
+┌ Info: NVTX host instrumentation enabled
+│   package = :Breeze
+└   NVTX.isactive() = true
+PLACEMENT rank=0 host=rondeau gpu_uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 communicator=NCCLCommunicator threads=1 pool=none
+PLACEMENT rank=1 host=rondeau gpu_uuid=27b6f362-d593-fda1-e6fa-43275dcca7da communicator=NCCLCommunicator threads=1 pool=none
+DEVICE rank=0 uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 visible=0,1
+DEVICE rank=1 uuid=27b6f362-d593-fda1-e6fa-43275dcca7da visible=0,1
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "anelastic"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (1024, 512, 512)
+│   partition = (2, 1)
+│   nranks = 2
+│   Δt = 0.005
+│   time_steps = 10
+│   communication_name = "NCCL"
+│   communicator_type = "NCCLCommunicator"
+└   profile = true
+TIMING_START communication=NCCL steps=10
+PROFILE_START rank=0 steps=10
+PROFILE_START rank=1 steps=10
+Capture range started in the application.
+Capture range started in the application.
+Capture range ended in the application.
+Capture range ended in the application.
+Generating '/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/tmp/nsys-report-8b9b.qdstrm'
+Generating '/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/tmp/nsys-report-d869.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [7%                          ] profile.nsys-rep
+[1/1] [12%                         ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [==19%                       ] profile.nsys-rep
+[1/1] [======35%                   ] profile.nsys-rep
+[1/1] [======35%                   ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [==============62%           ] profile.nsys-rep
+[1/1] [===================80%      ] profile.nsys-rep
+[1/1] [===================80%      ] profile.nsys-rep
+[1/1] [=====================86%    ] profile.nsys-rep
+[1/1] [=====================86%    ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/anelastic/rank_1/profile.nsys-rep
+PROFILE_END rank=1 steps=10
+
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/anelastic/rank_0/profile.nsys-rep
+PROFILE_END rank=0 steps=10
+TIMING_END communication=NCCL elapsed_seconds=9.857401603
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=21804285952
+VALIDATION rank=1 fields_finite=true gpu_used_bytes=21804285952
+RESULT machine=rondeau dynamics=anelastic float=Float32 size=1024x512x512 partition=2x1 gpus=2 steps=10 seconds_per_step=9.8574e-01 points_per_second=2.7232e+08 points_per_second_per_gpu=1.3616e+08 max_abs_w=3.279216e-05 communication=NCCL fields_finite=true
+[rondeau:2134069] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237

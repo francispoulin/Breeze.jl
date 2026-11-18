@@ -1,0 +1,58 @@
+[
+  {
+    "case": "anelastic_NCCL_2g",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "50afa1d432120ef9832d7cc6646996155d94185c",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/anelastic/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/anelastic/rank_0/profile.sqlite",
+        "bytes": 1169734,
+        "sha256": "85f8aef3d37bd7411462c3e63c20aa7c6f96cc3212785f542220fcd30587aa2c",
+        "kernels": 4730,
+        "ranges": 6524,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 1,
+        "report": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/anelastic/rank_1/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/anelastic/rank_1/profile.sqlite",
+        "bytes": 1172521,
+        "sha256": "f222a4af23a012f2363f18012533a1412c245fac945f2e287969f1a18a61cd5d",
+        "kernels": 4730,
+        "ranges": 6521,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      }
+    ]
+  },
+  {
+    "case": "oceananigans_nonhydrostatic_NCCL_2g",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "50afa1d432120ef9832d7cc6646996155d94185c",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/oceananigans_nonhydrostatic/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/oceananigans_nonhydrostatic/rank_0/profile.sqlite",
+        "bytes": 864857,
+        "sha256": "645ef9a18de3a0d646733c66362fba64262a163d84b1d7406eab7bf1eb35b3c1",
+        "kernels": 3270,
+        "ranges": 3311,
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+      },
+      {
+        "rank": 1,
+        "report": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/oceananigans_nonhydrostatic/rank_1/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/nccl_nsight_2gpu_2026-11-17/raw/oceananigans_nonhydrostatic/rank_1/profile.sqlite",
+        "bytes": 869365,
+        "sha256": "36117b7196edc4e11ad522255dc61c1f905639a43fd02c931bd258695d2cfe8b",
+        "kernels": 3270,
+        "ranges": 3311,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      }
+    ]
+  }
+]

@@ -1,0 +1,2 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite
+rondeau,anelastic,Float32,1024,512,512,2,1,2,10,9.857402e-01,2.723187e+08,3.279216e-05,NCCL,true
