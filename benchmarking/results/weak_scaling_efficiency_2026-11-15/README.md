@@ -59,16 +59,39 @@ distributed FFT pressure solver. Times are the median of five ten-step windows (
 The Breeze and Oceananigans workloads differ (Float32 atmosphere vs Float64 ocean
 buoyancy case), so the figures compare each code's scaling, not their absolute speed.
 
-### Rondeau
+### Rondeau (NCCL)
 
-Status: **INCOMPLETE**. The Rondeau study exited without complete hydrostatic and
-nonhydrostatic series; see the study directory and watcher log below.
+The Rondeau Oceananigans series was rerun on 18 November with NCCL for multi-GPU halo exchange
+and the distributed FFT transposes (`gpu_weak_scaling_512_x_nccl`, Oceananigans commit 627157d42,
+config `benchmarking/server/rondeau/weak512_nccl_config.json`). MPI still launches the ranks and
+times the windows; one-GPU cases have nothing to exchange and use plain `Distributed`.
+The workload is otherwise identical to the Fir series above.
 
-Study: `/u/ajtse/Oceananigans.jl/.runtime/studies/2026-11-15_rondeau_weak512`.
-Watcher log: `/u/ajtse/Breeze.jl/.runtime/weak_scaling_efficiency_2026-11-15/watcher.log`.
-When the study exits, the watcher reruns `plot_weak_efficiency.py`; if both Rondeau series
-are complete it adds `oceananigans_weak_efficiency_rondeau.png/.svg`, updates this status,
-then commits and pushes this directory to `benchmark-results`.
+The run uses a separate Julia environment,
+`/u/ajtse/Oceananigans.jl/.runtime/envs/benchmarking_nccl` (NCCL.jl 0.1.3, NCCL 2.32.3,
+CUDA.jl 6.4.2), because no NCCL.jl release works with the CUDA.jl 6.1 pin in Oceananigans'
+`benchmarking/Project.toml`. The NCCL series reruns its own one-GPU baseline in that
+environment, so its efficiencies do not depend on the MPI series.
+
+<!-- rondeau-nccl-status -->
+
+Status: **RUNNING**, study state `WAITING_FOR_GPUS`.
+
+| GPUs | Hydrostatic NCCL | Nonhydrostatic NCCL | Hydrostatic MPI | Nonhydrostatic MPI |
+|---:|---:|---:|---:|---:|
+| 1 | 100.0% (0.277 s) | 100.0% (0.582 s) | 100.0% (0.284 s) | 100.0% (0.587 s) |
+| 2 | 94.4% (0.293 s) | 77.1% (0.754 s) | 93.7% (0.302 s) | 78.4% (0.748 s) |
+| 4 | — | — | — | — |
+
+Efficiency (median seconds per step). Each column is normalized to its own one-GPU case; the MPI columns are the 15 November series, which never reached four GPUs.
+
+<!-- /rondeau-nccl-status -->
+
+Study: `/u/ajtse/Oceananigans.jl/.runtime/studies/2026-11-18_rondeau_weak512_nccl`.
+Watcher log: `/u/ajtse/Breeze.jl/.runtime/weak_scaling_efficiency_2026-11-15/watcher_nccl.log`.
+The local backend waits for GPUs with no other processes, so the four-GPU cases start only
+when other users' jobs leave all four A100s. When the study exits, the watcher reruns
+`plot_weak_efficiency.py`, refreshes the table above, and commits and pushes this directory.
 
 ## Cross-code comparisons on Fir
 
@@ -92,12 +115,11 @@ The workloads differ, so compare scaling shapes, not absolute speed.
 
 ## Cross-code comparisons on Rondeau
 
-The same three sets for Rondeau (A100, 1–4 GPUs), drawn from the Rondeau data above. Breeze
-compressible uses 2×2 at four GPUs, and its anelastic and compressible runs come from different
-source revisions. **The Oceananigans lines stop at 2 GPUs for now**: the four-GPU cases have not
-started because other users' jobs occupy the GPUs (see the Oceananigans Rondeau status above).
-When the study finishes, the watcher reruns the script, which redraws these figures with the
-four-GPU points and commits them. Do not compare these figures with the Fir figures.
+The same three sets for Rondeau (A100, 1–4 GPUs). The Oceananigans lines are the NCCL rerun;
+the Breeze lines are MPI. Breeze compressible uses 2×2 at four GPUs, and its anelastic and
+compressible runs come from different source revisions. Until the Oceananigans four-GPU cases
+run, its lines stop at the last measured count, and each figure's footer says so.
+Do not compare these figures with the Fir figures.
 
 1. **By code**
 

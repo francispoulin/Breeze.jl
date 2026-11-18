@@ -17,6 +17,10 @@ import matplotlib.pyplot as plt
 HERE = Path(__file__).resolve().parent
 BREEZE_RESULTS = HERE.parent
 OCEANANIGANS_RESULTS = Path("/u/ajtse/Oceananigans.jl/benchmarking/results")
+# Oceananigans series and halo/transpose backend per machine. Rondeau uses the NCCL rerun;
+# its earlier MPI series (gpu_weak_scaling_512_x, 1-2 GPUs only) stays recorded but is not plotted.
+OCEANANIGANS_SERIES = dict(fir=("gpu_weak_scaling_512_x", "MPI"),
+                           rondeau=("gpu_weak_scaling_512_x_nccl", "NCCL"))
 
 # Categorical slots 1-3 of the reference palette, assigned in fixed order.
 COLORS = ["#2a78d6", "#eb6834", "#1baf7a"]
@@ -101,7 +105,8 @@ def oceananigans(machine, gpu_counts, partial=False):
     curves = []
     for folder, label in [("hydrostatic_free_surface_models", "Hydrostatic"),
                           ("non_hydrostatic_models", "Nonhydrostatic")]:
-        path = OCEANANIGANS_RESULTS / folder / machine / "baseline/gpu_weak_scaling_512_x/results.csv"
+        series, _ = OCEANANIGANS_SERIES[machine]
+        path = OCEANANIGANS_RESULTS / folder / machine / "baseline" / series / "results.csv"
         if not path.is_file():
             return None
         rows = [row for row in read_csv(path) if row["state"] == "COMPLETED"]
@@ -228,9 +233,10 @@ def save(figure, stem):
 
 
 COMPARISON_NOTES = dict(
-    fir=dict(partitions="N×1 partitions",
+    fir=dict(partitions="N×1 partitions", communication="MPI",
              breeze="Breeze: Float32 WENO5 dry CBL, Δt halved per GPU doubling, 500 timed steps."),
     rondeau=dict(partitions="N×1 partitions except Breeze compressible 2×2 at 4 GPUs",
+                 communication="Breeze MPI, Oceananigans NCCL",
                  breeze="Breeze: Float32 WENO5 dry CBL, Δt = 0.005 s; anelastic measured 13 Nov, "
                         "compressible 9–10 Nov (different source revisions)."),
 )
@@ -245,10 +251,12 @@ def comparison_figures(machine, breeze_curves, oceananigans_curves, gpu_counts, 
     measured = max(point["gpus"] for _, points in oceananigans_curves for point in points)
     pending = (f"\nOceananigans {gpu_counts[-1]}-GPU cases not yet run; its lines stop at {measured} GPUs."
                if measured < gpu_counts[-1] else "")
-    subtitle = (f"512³ cells per GPU · MPI, {notes['partitions']} · each model normalized to its own 1-GPU time\n"
+    subtitle = (f"512³ cells per GPU · {notes['communication']} · {notes['partitions']} · "
+                "each model normalized to its own 1-GPU time\n"
                 "Blue = Breeze, orange = Oceananigans · CE = compressible explicit, CSE = compressible split-explicit")
     footer = (notes["breeze"] + "\n"
-              "Oceananigans: Float64 rectilinear buoyancy, WENO5, Δt = 10 s, median of five 10-step windows.\n"
+              f"Oceananigans ({OCEANANIGANS_SERIES[machine][1]}): Float64 rectilinear buoyancy, WENO5, Δt = 10 s, "
+              "median of five 10-step windows.\n"
               "Workloads differ, so compare scaling shapes, not absolute speed." + pending)
     return [
         (f"by_code_weak_efficiency_{machine}", [
@@ -270,14 +278,14 @@ def comparison_figures(machine, breeze_curves, oceananigans_curves, gpu_counts, 
 
 def main():
     figures = []
-    subtitle = "512³ cells per GPU · MPI · each model normalized to its own 1-GPU time"
+    subtitle = "512³ cells per GPU · {} · each model normalized to its own 1-GPU time"
     figures.append(("breeze_weak_efficiency_fir", breeze_fir(), (1, 2, 4, 8, 16), "H100",
                     "Breeze weak scaling on Fir",
-                    "Partitions N×1 · Float32, WENO5 dry CBL · Δt halved per GPU doubling · 500 timed steps"))
+                    "Partitions N×1 · Float32, WENO5 dry CBL · Δt halved per GPU doubling · 500 timed steps", "MPI"))
     figures.append(("breeze_weak_efficiency_rondeau", breeze_rondeau(), (1, 2, 4), "A100",
                     "Breeze weak scaling on Rondeau",
                     "Float32, WENO5 dry CBL · Δt = 0.005 s · 4 GPUs: anelastic 4×1, compressible 2×2\n"
-                    "Anelastic measured 13 Nov; compressible 9–10 Nov (different source revisions)"))
+                    "Anelastic measured 13 Nov; compressible 9–10 Nov (different source revisions)", "MPI"))
     comparisons = []
     breeze_curves = dict(fir=figures[0][1], rondeau=figures[1][1])
     for machine, counts, gpu in [("fir", (1, 2, 4, 8, 16), "H100"), ("rondeau", (1, 2, 4), "A100")]:
@@ -291,10 +299,11 @@ def main():
             continue
         figures.append((f"oceananigans_weak_efficiency_{machine}", curves, counts, gpu,
                         f"Oceananigans weak scaling on {machine.capitalize()}",
-                        "Partitions N×1 · Float64 rectilinear buoyancy, WENO5 · Δt = 10 s · median of five 10-step windows"))
+                        "Partitions N×1 · Float64 rectilinear buoyancy, WENO5 · Δt = 10 s · median of five 10-step windows",
+                        OCEANANIGANS_SERIES[machine][1]))
     rows = []
-    for stem, curves, counts, gpu, title, footer in figures:
-        draw(curves, counts, gpu, title, subtitle, footer, stem)
+    for stem, curves, counts, gpu, title, footer, communication in figures:
+        draw(curves, counts, gpu, title, subtitle.format(communication), footer, stem)
         rows += [dict(figure=stem, model=label, **point) for label, points in curves for point in points]
     for stem, panels, title, subtitle, footer, counts, gpu in comparisons:
         draw_comparison(panels, counts, gpu, title, subtitle, footer, stem)
