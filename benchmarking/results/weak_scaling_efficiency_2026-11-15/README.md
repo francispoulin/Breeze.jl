@@ -61,10 +61,8 @@ buoyancy case), so the figures compare each code's scaling, not their absolute s
 
 ### Rondeau
 
-Status: **RUNNING**. The same Oceananigans workload on 1, 2 and 4 Rondeau A100s
-(`benchmarking/server/rondeau/weak512_config.json` in Oceananigans, commit 20c72c03c)
-was started on 15 November. The local backend waits for GPUs with no other processes,
-so the four-GPU cases start only when the other users' jobs leave GPUs 1 and 3.
+Status: **INCOMPLETE**. The Rondeau study exited without complete hydrostatic and
+nonhydrostatic series; see the study directory and watcher log below.
 
 Study: `/u/ajtse/Oceananigans.jl/.runtime/studies/2026-11-15_rondeau_weak512`.
 Watcher log: `/u/ajtse/Breeze.jl/.runtime/weak_scaling_efficiency_2026-11-15/watcher.log`.
