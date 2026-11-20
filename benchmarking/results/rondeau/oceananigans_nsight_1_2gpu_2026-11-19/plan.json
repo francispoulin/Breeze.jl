@@ -1,0 +1,23 @@
+{
+  "local_size": [512, 512, 512],
+  "backend": "NCCL for two ranks; one rank has no inter-rank communication",
+  "warmup_steps": 10,
+  "measured_steps": 10,
+  "nvtx": true,
+  "nsight_trace": ["cuda", "nvtx", "mpi"],
+  "cases": [
+    {"dynamics": "oceananigans_hydrostatic", "ranks": 1, "size": "512x512x512", "partition": "1x1"},
+    {"dynamics": "oceananigans_hydrostatic", "ranks": 2, "size": "1024x512x512", "partition": "2x1"},
+    {"dynamics": "oceananigans_nonhydrostatic", "ranks": 1, "size": "512x512x512", "partition": "1x1"},
+    {"dynamics": "oceananigans_nonhydrostatic", "ranks": 2, "size": "1024x512x512", "partition": "2x1"}
+  ],
+  "arguments": ["--float_type=Float64", "--time_step=10", "--comm=NCCL"],
+  "minimum_free_mib": 35000,
+  "poll_seconds": 30,
+  "julia": "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+  "runtime": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19",
+  "frozen_checkout": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/worktree",
+  "frozen_commit": "9a9ffe87a72ba71dde075e5c72e679ea33eb5898",
+  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git",
+  "publish_branch": "benchmark-results"
+}
