@@ -9,6 +9,10 @@ passes on a CPU can still fail on a GPU; `.claude/rules/kernel-rules.md` covers 
 - Use `ajtse@rondeau.math.private.uwaterloo.ca` for SSH access and file transfers to Rondeau.
 - The user's local Downloads directory is `C:\Users\andix\Downloads`; use this destination
   in commands for downloading files to the user's computer.
+- Download Nsight results (`.nsys-rep` reports, kernel tables) to
+  `C:\Users\andix\Downloads\Nsight Results` instead, one subfolder per run. Quote the path in
+  commands because it contains a space, and copy whole case/rank folders, because every rank's
+  report is named `profile.nsys-rep`.
 - Keep all task files, including temporary files, profiling captures, logs, caches, and environments,
   inside `/u/ajtse`.
 - Configure `TMPDIR` and tool-specific temporary, cache, and output directories accordingly.
