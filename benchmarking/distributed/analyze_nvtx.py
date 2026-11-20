@@ -19,7 +19,7 @@ import sys
 
 MODULES = ("AtmosphereModels/", "CompressibleEquations/", "TimeSteppers/",
            "AnelasticEquations/", "PotentialTemperatureFormulations/",
-           "NonhydrostaticModels/")
+           "NonhydrostaticModels/", "HydrostaticFreeSurfaceModels/", "SplitExplicitFreeSurfaces/")
 
 
 def union_duration(intervals):

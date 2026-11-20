@@ -18,13 +18,18 @@ Reactant or `Simulation` overhead, and reports points per second. The single-GPU
 | `compressible_splitexplicit` | Yes. Run on 1 and 2 A100 GPUs (256×256×128, partition 2x1); results finite. Not yet compared field by field with a serial run (the case's initial noise uses `rand()`, which differs between ranks). |
 | `anelastic` | **On this branch only**, which merges Breeze PR [#1157](https://github.com/NumericalEarth/Breeze.jl/pull/1157) (not in Breeze `main` yet). On several ranks the pressure solve is Oceananigans' `DistributedFourierTridiagonalPoissonSolver`: a solve takes 2 transposes (MPI `Alltoall`) with `Rx×1`, 4 with `1×Ry` and 8 with `Rx×Ry`. Distributed and 1-GPU runs agree (`max_abs_w` to 7 digits at 1×1, 2×1 and 4×1, Float64, `--random_perturbation=false`, 100 steps, pelee and rondeau, Nov 11, 2026). |
 
-`--dynamics=oceananigans_nonhydrostatic` replaces the CBL with the Oceananigans benchmark
-suite's `rectilinear_buoyancy` `NonhydrostaticModel` case
-([`oceananigans_nonhydrostatic.jl`](oceananigans_nonhydrostatic.jl)): 1 km × 1 km × 10 m cells,
-WENO5, one buoyancy tracer, RungeKutta3, and the distributed FFT pressure solver. The suite uses
+`--dynamics=oceananigans_hydrostatic` and `--dynamics=oceananigans_nonhydrostatic` replace the
+CBL with the Oceananigans benchmark suite's `rectilinear_buoyancy` cases
+([`oceananigans_rectilinear_buoyancy.jl`](oceananigans_rectilinear_buoyancy.jl)): 1 km × 1 km × 10 m
+cells, WENO5 and one buoyancy tracer. The hydrostatic case is a `HydrostaticFreeSurfaceModel` with
+SplitRungeKutta3 and a 30-substep `SplitExplicitFreeSurface`. The nonhydrostatic case is a
+`NonhydrostaticModel` with RungeKutta3 and the distributed FFT pressure solver. The suite uses
 `--float_type=Float64 --time_step=10`. The CBL options `--substeps`, `--simplified`, and
 `--random_perturbation` do not apply. With `--nvtx=true` the ranges go in an `Oceananigans`
 NVTX domain instead of `Breeze`.
+
+`kernel_step_table.py analysis.json` turns the per-rank kernel totals from `analyze_nvtx.py` into
+GPU milliseconds and launches per time step for every kernel (`kernels_per_step.md` and `.csv`).
 
 ## Requirements
 

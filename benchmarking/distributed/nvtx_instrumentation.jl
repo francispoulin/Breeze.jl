@@ -90,12 +90,33 @@ function breeze_sources()
     )
 end
 
-# Oceananigans' NonhydrostaticModel with the RungeKutta3 time stepper. Breeze has its own
-# time steppers, so these methods are never called by Breeze models.
+# Oceananigans' NonhydrostaticModel (RungeKutta3) and HydrostaticFreeSurfaceModel
+# (SplitRungeKutta3, SplitExplicitFreeSurface). Breeze has its own time steppers, so these
+# methods are never called by Breeze models. Only `function` definitions are annotated;
+# one-line and `@inline` methods such as `rk_substep!` are covered by enclosing ranges.
 function oceananigans_sources()
     NonhydrostaticModels = Oceananigans.Models.NonhydrostaticModels
+    HydrostaticFreeSurfaceModels = Oceananigans.Models.HydrostaticFreeSurfaceModels
+    SplitExplicitFreeSurfaces = HydrostaticFreeSurfaceModels.SplitExplicitFreeSurfaces
+    hydrostatic = "Models/HydrostaticFreeSurfaceModels"
+    split_explicit = "$hydrostatic/SplitExplicitFreeSurfaces"
     return (
         (Oceananigans.TimeSteppers, "TimeSteppers/runge_kutta_3.jl", (:time_step!,)),
+        (Oceananigans.TimeSteppers, "TimeSteppers/split_runge_kutta.jl", (:time_step!,)),
+        (HydrostaticFreeSurfaceModels, "$hydrostatic/hydrostatic_free_surface_rk_step.jl",
+         (:rk_substep_velocities!, :rk_substep_tracers!)),
+        (HydrostaticFreeSurfaceModels, "$hydrostatic/update_hydrostatic_free_surface_model_state.jl",
+         (:update_state!,)),
+        (HydrostaticFreeSurfaceModels, "$hydrostatic/compute_hydrostatic_free_surface_tendencies.jl",
+         (:compute_momentum_tendencies!, :compute_tracer_tendencies!)),
+        (HydrostaticFreeSurfaceModels, "$hydrostatic/compute_w_from_continuity.jl",
+         (:update_vertical_velocities!,)),
+        (SplitExplicitFreeSurfaces, "$split_explicit/step_split_explicit_free_surface.jl",
+         (:step_free_surface!, :iterate_split_explicit!)),
+        (SplitExplicitFreeSurfaces, "$split_explicit/compute_slow_tendencies.jl",
+         (:compute_free_surface_tendency!,)),
+        (SplitExplicitFreeSurfaces, "$split_explicit/barotropic_split_explicit_corrector.jl",
+         (:barotropic_split_explicit_corrector!, :compute_transport_velocities!)),
         (NonhydrostaticModels, "Models/NonhydrostaticModels/nonhydrostatic_rk3_substep.jl",
          (:pressure_correction_rk3_substep!,)),
         (NonhydrostaticModels, "Models/NonhydrostaticModels/update_nonhydrostatic_model_state.jl",
@@ -113,7 +134,7 @@ end
     enable!(package=:Breeze)
 
 Annotate the host methods of `package`, either `:Breeze` (AtmosphereModel) or
-`:Oceananigans` (NonhydrostaticModel), with NVTX ranges in a domain of the same name.
+`:Oceananigans` (NonhydrostaticModel and HydrostaticFreeSurfaceModel), with NVTX ranges in a domain of the same name.
 """
 function enable!(package=:Breeze)
     enabled[] && error("NVTX instrumentation has already been enabled")
