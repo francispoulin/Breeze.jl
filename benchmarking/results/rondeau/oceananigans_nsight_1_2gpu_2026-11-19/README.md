@@ -17,6 +17,17 @@ ten steps (cudaProfilerApi start/stop) with Oceananigans host NVTX ranges.
 (CSV: kernels_per_step.csv). Each entry sums all launches of a kernel during the
 ten captured steps and divides by ten.
 
+**1-GPU vs 2-GPU per-kernel comparison** (hydrostatic and nonhydrostatic tables, with
+difference in ms and %, and weak-scaling efficiency = 100 × T₁/T₂, slowest rank):
+[kernel_scaling_1_vs_2gpu.md](kernel_scaling_1_vs_2gpu.md) (CSV: kernel_scaling_1_vs_2gpu.csv).
+Regenerate with:
+
+```sh
+python3 benchmarking/distributed/kernel_scaling_table.py benchmarking/results/rondeau/oceananigans_nsight_1_2gpu_2026-11-19/analysis.json \
+    benchmarking/results/rondeau/oceananigans_nsight_1_2gpu_2026-11-19/kernel_scaling_1_vs_2gpu \
+    "Hydrostatic=hydrostatic_1g:hydrostatic_2g" "Nonhydrostatic=nonhydrostatic_1g:nonhydrostatic_2g"
+```
+
 ## Launches
 
 | Case | State | Maximum absolute w | GPUs |
