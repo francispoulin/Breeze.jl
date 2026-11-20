@@ -118,6 +118,10 @@ remote and branch. For a new branch, set its upstream on the first push.
 - For Nsight runs, record the exact path to each Nsight result file in the run's `README.md`.
 - For compressible weak-scaling benchmarks on the fixed 12 km × 12 km × 3 km domain, use
   Δt = 0.01 s at 512×512×512 and halve Δt for every doubling of spatial resolution.
+- NCCL is the default for multi-GPU benchmarks and profiling, in Breeze and in Oceananigans.
+  Pass `--comm=NCCL` explicitly, because `distributed_cbl_benchmark.jl` still defaults to MPI.
+  MPI still launches the ranks; one-GPU baselines have no inter-rank communication.
+  Run MPI-only communication only when asked or as a comparison against NCCL.
   Apply the same Δt to explicit and split-explicit dynamics on the same grid. The current
   scaling matrix uses 0.005 s at 1024×512×512 and 1024×1024×512, 0.00125 s at
   4096×512×512, and 0.000625 s (1/1600 s) at 8192×512×512.
