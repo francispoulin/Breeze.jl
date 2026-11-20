@@ -1,0 +1,2123 @@
+[
+  {
+    "case": "hydrostatic_1g",
+    "rank": 0,
+    "steps": 10,
+    "window_seconds": 2.343229873,
+    "kernel_seconds": 2.243670579,
+    "kernel_count": 2790,
+    "gpu_active_fraction": 0.9986082449538659,
+    "attributed_kernel_fraction": 1.0,
+    "acoustic_kernel_fraction": 0.0,
+    "halo_kernel_fraction": 0.005119301428429525,
+    "solve_kernel_fraction": 0.0,
+    "memcpy_bytes": 66716079360,
+    "mpi_p2p_seconds": null,
+    "phases": {
+      "HydrostaticFreeSurfaceModels/compute_momentum_tendencies!": {
+        "seconds": 0.71802641,
+        "calls": 60,
+        "fraction": 0.3200230981858411
+      },
+      "HydrostaticFreeSurfaceModels/compute_tracer_tendencies!": {
+        "seconds": 0.349208178,
+        "calls": 30,
+        "fraction": 0.15564146593910477
+      },
+      "HydrostaticFreeSurfaceModels/update_vertical_velocities!": {
+        "seconds": 0.247114516,
+        "calls": 60,
+        "fraction": 0.11013850175373717
+      },
+      "SplitExplicitFreeSurfaces/barotropic_split_explicit_corrector!": {
+        "seconds": 0.212641176,
+        "calls": 60,
+        "fraction": 0.09477379522210154
+      },
+      "SplitExplicitFreeSurfaces/compute_transport_velocities!": {
+        "seconds": 0.199363197,
+        "calls": 60,
+        "fraction": 0.08885582351793186
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_velocities!": {
+        "seconds": 0.143320775,
+        "calls": 60,
+        "fraction": 0.06387781537157644
+      },
+      "SplitExplicitFreeSurfaces/compute_free_surface_tendency!": {
+        "seconds": 0.113233606,
+        "calls": 150,
+        "fraction": 0.05046801747985126
+      },
+      "HydrostaticFreeSurfaceModels/update_state!": {
+        "seconds": 0.105442312,
+        "calls": 210,
+        "fraction": 0.04699545155465534
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_tracers!": {
+        "seconds": 0.071672737,
+        "calls": 30,
+        "fraction": 0.03194441183604788
+      },
+      "TimeSteppers/time_step!": {
+        "seconds": 0.066681221,
+        "calls": 240,
+        "fraction": 0.029719702002653038
+      },
+      "SplitExplicitFreeSurfaces/step_free_surface!": {
+        "seconds": 0.016966451,
+        "calls": 1830,
+        "fraction": 0.007561917136499565
+      },
+      "unattributed": {
+        "seconds": 0.0,
+        "calls": 0,
+        "fraction": 0.0
+      }
+    },
+    "kernels": {
+      "gpu_compute_hydrostatic_free_surface_Gv_": {
+        "seconds": 0.361665014,
+        "calls": 30,
+        "fraction": 0.16119345566370685,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_hydrostatic_free_surface_Gu_": {
+        "seconds": 0.356361396,
+        "calls": 30,
+        "fraction": 0.15882964252213427,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_hydrostatic_free_surface_Gc_": {
+        "seconds": 0.349208178,
+        "calls": 30,
+        "fraction": 0.15564146593910477,
+        "registers": 60,
+        "threads": 256
+      },
+      "gpu__compute_w_from_continuity_": {
+        "seconds": 0.247114516,
+        "calls": 60,
+        "fraction": 0.11013850175373717,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__compute_barotropic_mode_": {
+        "seconds": 0.145365493,
+        "calls": 60,
+        "fraction": 0.06478914255977325,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__rk_substep_field_": {
+        "seconds": 0.143320775,
+        "calls": 60,
+        "fraction": 0.06387781537157644,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__barotropic_split_explicit_corrector_": {
+        "seconds": 0.140002429,
+        "calls": 30,
+        "fraction": 0.06239883444137278,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__compute_split_explicit_transport_velocities_": {
+        "seconds": 0.126636451,
+        "calls": 30,
+        "fraction": 0.056441641738887376,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__compute_realized_barotropic_tendency_": {
+        "seconds": 0.112668685,
+        "calls": 30,
+        "fraction": 0.05021623319151256,
+        "registers": 40,
+        "threads": 256
+      },
+      "gpu__update_hydrostatic_pressure_": {
+        "seconds": 0.094521207,
+        "calls": 30,
+        "fraction": 0.04212793441456452,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__rk_substep_tracer_field_": {
+        "seconds": 0.071672737,
+        "calls": 30,
+        "fraction": 0.03194441183604788,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu_broadcast_kernel_cartesian": {
+        "seconds": 0.039747569,
+        "calls": 140,
+        "fraction": 0.017715421048002254,
+        "registers": 21,
+        "threads": 518
+      },
+      "gpu__fill_periodic_west_and_east_halo_": {
+        "seconds": 0.018633141,
+        "calls": 330,
+        "fraction": 0.008304757915176994,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__cache_tracer_fields_": {
+        "seconds": 0.016438465,
+        "calls": 10,
+        "fraction": 0.007326594712191036,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__split_explicit_free_surface_": {
+        "seconds": 0.007341637,
+        "calls": 630,
+        "fraction": 0.0032721545973438556,
+        "registers": 23,
+        "threads": 256
+      },
+      "gpu__split_explicit_barotropic_velocity_": {
+        "seconds": 0.007240253,
+        "calls": 630,
+        "fraction": 0.003226967928253963,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__fill_periodic_south_and_north_halo_": {
+        "seconds": 0.003898628,
+        "calls": 330,
+        "fraction": 0.0017376115890139325,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__fill_bottom_and_top_halo_": {
+        "seconds": 0.001199293,
+        "calls": 120,
+        "fraction": 0.0005345227642707348,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu_fill_kernel_": {
+        "seconds": 0.000401688,
+        "calls": 150,
+        "fraction": 0.00017903162958041356,
+        "registers": 16,
+        "threads": 1024
+      },
+      "gpu__update_split_explicit_state_": {
+        "seconds": 0.000233024,
+        "calls": 30,
+        "fraction": 0.00010385838374894517,
+        "registers": 16,
+        "threads": 256
+      }
+    },
+    "host_ranges": {
+      "TimeSteppers/time_step!": {
+        "seconds": 1.499353376,
+        "calls": 10
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_velocities!": {
+        "seconds": 0.000670422,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/compute_free_surface_tendency!": {
+        "seconds": 0.001670664,
+        "calls": 30
+      },
+      "call/fill_halo_regions!": {
+        "seconds": 0.003099053,
+        "calls": 120
+      },
+      "SplitExplicitFreeSurfaces/step_free_surface!": {
+        "seconds": 1.487060516,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/compute_transport_velocities!": {
+        "seconds": 0.001048504,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/update_vertical_velocities!": {
+        "seconds": 0.00068863,
+        "calls": 60
+      },
+      "HydrostaticFreeSurfaceModels/compute_tracer_tendencies!": {
+        "seconds": 0.000423388,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/barotropic_split_explicit_corrector!": {
+        "seconds": 0.000593477,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_tracers!": {
+        "seconds": 0.000327122,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/update_state!": {
+        "seconds": 0.003446902,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/compute_momentum_tendencies!": {
+        "seconds": 0.000779706,
+        "calls": 30
+      }
+    },
+    "cuda_apis": {
+      "cuLaunchKernelEx": {
+        "seconds": 1.487407942,
+        "calls": 2790
+      },
+      "cuStreamSynchronize": {
+        "seconds": 0.843669562,
+        "calls": 1
+      },
+      "cuMemcpyDtoDAsync_v2": {
+        "seconds": 0.000843603,
+        "calls": 60
+      },
+      "cuStreamIsCapturing": {
+        "seconds": 0.000103153,
+        "calls": 970
+      },
+      "cuCtxSynchronize": {
+        "seconds": 9.538e-06,
+        "calls": 1
+      },
+      "cuProfilerStart": {
+        "seconds": 6.052e-06,
+        "calls": 1
+      },
+      "cuProfilerStop": {
+        "seconds": 7.32e-07,
+        "calls": 1
+      }
+    }
+  },
+  {
+    "case": "hydrostatic_2g",
+    "rank": 0,
+    "steps": 10,
+    "window_seconds": 2.509899238,
+    "kernel_seconds": 2.475274149,
+    "kernel_count": 4200,
+    "gpu_active_fraction": 0.9972151838232479,
+    "attributed_kernel_fraction": 1.0,
+    "acoustic_kernel_fraction": 0.0,
+    "halo_kernel_fraction": 0.03457724148841341,
+    "solve_kernel_fraction": 0.0,
+    "memcpy_bytes": 66716079360,
+    "mpi_p2p_seconds": null,
+    "phases": {
+      "HydrostaticFreeSurfaceModels/compute_momentum_tendencies!": {
+        "seconds": 0.788006521,
+        "calls": 300,
+        "fraction": 0.31835121023598584
+      },
+      "HydrostaticFreeSurfaceModels/compute_tracer_tendencies!": {
+        "seconds": 0.378437564,
+        "calls": 210,
+        "fraction": 0.1528871313720491
+      },
+      "HydrostaticFreeSurfaceModels/update_vertical_velocities!": {
+        "seconds": 0.246142098,
+        "calls": 60,
+        "fraction": 0.09944033799223424
+      },
+      "SplitExplicitFreeSurfaces/barotropic_split_explicit_corrector!": {
+        "seconds": 0.21771079,
+        "calls": 60,
+        "fraction": 0.08795421310724479
+      },
+      "SplitExplicitFreeSurfaces/compute_transport_velocities!": {
+        "seconds": 0.206767158,
+        "calls": 360,
+        "fraction": 0.08353303333432098
+      },
+      "SplitExplicitFreeSurfaces/compute_free_surface_tendency!": {
+        "seconds": 0.154449253,
+        "calls": 270,
+        "fraction": 0.062396827059498366
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_velocities!": {
+        "seconds": 0.143511545,
+        "calls": 60,
+        "fraction": 0.057978040556832075
+      },
+      "HydrostaticFreeSurfaceModels/update_state!": {
+        "seconds": 0.139216767,
+        "calls": 240,
+        "fraction": 0.05624296890760281
+      },
+      "TimeSteppers/time_step!": {
+        "seconds": 0.102774239,
+        "calls": 360,
+        "fraction": 0.04152034595502092
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_tracers!": {
+        "seconds": 0.071767739,
+        "calls": 30,
+        "fraction": 0.028993854692416134
+      },
+      "SplitExplicitFreeSurfaces/step_free_surface!": {
+        "seconds": 0.026490475,
+        "calls": 2250,
+        "fraction": 0.010702036786794721
+      },
+      "unattributed": {
+        "seconds": 0.0,
+        "calls": 0,
+        "fraction": 0.0
+      }
+    },
+    "kernels": {
+      "gpu_compute_hydrostatic_free_surface_Gv_": {
+        "seconds": 0.383627544,
+        "calls": 90,
+        "fraction": 0.15498386073921705,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_hydrostatic_free_surface_Gu_": {
+        "seconds": 0.382920669,
+        "calls": 90,
+        "fraction": 0.15469828631091156,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_hydrostatic_free_surface_Gc_": {
+        "seconds": 0.37180715,
+        "calls": 90,
+        "fraction": 0.1502084729282243,
+        "registers": 58,
+        "threads": 256
+      },
+      "gpu__compute_w_from_continuity_": {
+        "seconds": 0.246142098,
+        "calls": 60,
+        "fraction": 0.09944033799223424,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__compute_barotropic_mode_": {
+        "seconds": 0.154117319,
+        "calls": 60,
+        "fraction": 0.06226272716590311,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__rk_substep_field_": {
+        "seconds": 0.143511545,
+        "calls": 60,
+        "fraction": 0.057978040556832075,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__barotropic_split_explicit_corrector_": {
+        "seconds": 0.140885297,
+        "calls": 30,
+        "fraction": 0.056917047777078365,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__compute_split_explicit_transport_velocities_": {
+        "seconds": 0.128054124,
+        "calls": 30,
+        "fraction": 0.05173330964238176,
+        "registers": 32,
+        "threads": 256
+      },
+      "ncclDevKernel_SendRecv": {
+        "seconds": 0.12756343,
+        "calls": 300,
+        "fraction": 0.05153507139867116,
+        "registers": 96,
+        "threads": 640
+      },
+      "gpu__compute_realized_barotropic_tendency_": {
+        "seconds": 0.114153196,
+        "calls": 30,
+        "fraction": 0.046117395136258905,
+        "registers": 40,
+        "threads": 256
+      },
+      "gpu__update_hydrostatic_pressure_": {
+        "seconds": 0.112380024,
+        "calls": 90,
+        "fraction": 0.0454010413535006,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__rk_substep_tracer_field_": {
+        "seconds": 0.071767739,
+        "calls": 30,
+        "fraction": 0.028993854692416134,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu_broadcast_kernel_cartesian": {
+        "seconds": 0.048562768,
+        "calls": 740,
+        "fraction": 0.019619147244606883,
+        "registers": 21,
+        "threads": 1023
+      },
+      "gpu__cache_tracer_fields_": {
+        "seconds": 0.016446634,
+        "calls": 10,
+        "fraction": 0.006644368667868312,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__copy_from_buffer_": {
+        "seconds": 0.011524101,
+        "calls": 600,
+        "fraction": 0.004655686726521055,
+        "registers": 24,
+        "threads": 1023
+      },
+      "gpu__split_explicit_barotropic_velocity_": {
+        "seconds": 0.008139406,
+        "calls": 630,
+        "fraction": 0.0032882846545657517,
+        "registers": 25,
+        "threads": 256
+      },
+      "gpu__split_explicit_free_surface_": {
+        "seconds": 0.007920029,
+        "calls": 630,
+        "fraction": 0.00319965729985895,
+        "registers": 25,
+        "threads": 256
+      },
+      "gpu__fill_periodic_south_and_north_halo_": {
+        "seconds": 0.004007692,
+        "calls": 330,
+        "fraction": 0.0016190901527489753,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__fill_bottom_and_top_halo_": {
+        "seconds": 0.001072952,
+        "calls": 120,
+        "fraction": 0.0004334679455338181,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu_fill_kernel_": {
+        "seconds": 0.000430625,
+        "calls": 150,
+        "fraction": 0.00017397062873781904,
+        "registers": 16,
+        "threads": 1024
+      },
+      "gpu__update_split_explicit_state_": {
+        "seconds": 0.000239807,
+        "calls": 30,
+        "fraction": 9.688098592912668e-05,
+        "registers": 16,
+        "threads": 256
+      }
+    },
+    "host_ranges": {
+      "TimeSteppers/time_step!": {
+        "seconds": 1.864608861,
+        "calls": 10
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_velocities!": {
+        "seconds": 0.000562098,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/compute_free_surface_tendency!": {
+        "seconds": 0.005116612,
+        "calls": 30
+      },
+      "call/fill_halo_regions!": {
+        "seconds": 0.007881919,
+        "calls": 120
+      },
+      "SplitExplicitFreeSurfaces/step_free_surface!": {
+        "seconds": 1.555448815,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/compute_transport_velocities!": {
+        "seconds": 0.2529045,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/update_vertical_velocities!": {
+        "seconds": 0.000633862,
+        "calls": 60
+      },
+      "HydrostaticFreeSurfaceModels/compute_tracer_tendencies!": {
+        "seconds": 0.002963353,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/barotropic_split_explicit_corrector!": {
+        "seconds": 0.000560943,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_tracers!": {
+        "seconds": 0.000282989,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/update_state!": {
+        "seconds": 0.007648514,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/compute_momentum_tendencies!": {
+        "seconds": 0.003781643,
+        "calls": 30
+      }
+    },
+    "cuda_apis": {
+      "cuLaunchKernelEx": {
+        "seconds": 1.830272359,
+        "calls": 4200
+      },
+      "cuStreamSynchronize": {
+        "seconds": 0.644482595,
+        "calls": 1
+      },
+      "cuMemcpyDtoDAsync_v2": {
+        "seconds": 0.000662025,
+        "calls": 60
+      },
+      "cudaEventRecord_v3020": {
+        "seconds": 0.000507771,
+        "calls": 600
+      },
+      "cudaStreamWaitEvent_v3020": {
+        "seconds": 0.000491629,
+        "calls": 600
+      },
+      "cuStreamWaitEvent": {
+        "seconds": 0.000437875,
+        "calls": 600
+      },
+      "cuStreamIsCapturing": {
+        "seconds": 0.00043282,
+        "calls": 3820
+      },
+      "cuEventCreate": {
+        "seconds": 0.000417647,
+        "calls": 600
+      },
+      "cuEventRecord": {
+        "seconds": 0.000360464,
+        "calls": 600
+      },
+      "cuMemGetInfo_v2": {
+        "seconds": 0.000233138,
+        "calls": 1
+      },
+      "cudaGetFuncBySymbol_v11000": {
+        "seconds": 0.000228898,
+        "calls": 300
+      },
+      "cudaStreamGetCaptureInfo_v3_v12030": {
+        "seconds": 0.000188641,
+        "calls": 300
+      },
+      "cuCtxGetId": {
+        "seconds": 7.776e-05,
+        "calls": 600
+      },
+      "cuCtxSynchronize": {
+        "seconds": 1.4878e-05,
+        "calls": 1
+      },
+      "cuProfilerStart": {
+        "seconds": 4.218e-06,
+        "calls": 1
+      },
+      "cuProfilerStop": {
+        "seconds": 1.162e-06,
+        "calls": 1
+      }
+    }
+  },
+  {
+    "case": "hydrostatic_2g",
+    "rank": 1,
+    "steps": 10,
+    "window_seconds": 2.483024651,
+    "kernel_seconds": 2.444356916,
+    "kernel_count": 4200,
+    "gpu_active_fraction": 0.9984290554673192,
+    "attributed_kernel_fraction": 1.0,
+    "acoustic_kernel_fraction": 0.0,
+    "halo_kernel_fraction": 0.020518251107973628,
+    "solve_kernel_fraction": 0.0,
+    "memcpy_bytes": 66716079360,
+    "mpi_p2p_seconds": null,
+    "phases": {
+      "HydrostaticFreeSurfaceModels/compute_momentum_tendencies!": {
+        "seconds": 0.788052202,
+        "calls": 300,
+        "fraction": 0.32239653580933925
+      },
+      "HydrostaticFreeSurfaceModels/compute_tracer_tendencies!": {
+        "seconds": 0.37836046,
+        "calls": 210,
+        "fraction": 0.15478936710239413
+      },
+      "HydrostaticFreeSurfaceModels/update_vertical_velocities!": {
+        "seconds": 0.254943037,
+        "calls": 60,
+        "fraction": 0.10429861340265907
+      },
+      "SplitExplicitFreeSurfaces/barotropic_split_explicit_corrector!": {
+        "seconds": 0.22215792,
+        "calls": 60,
+        "fraction": 0.09088603981923563
+      },
+      "SplitExplicitFreeSurfaces/compute_transport_velocities!": {
+        "seconds": 0.212144475,
+        "calls": 360,
+        "fraction": 0.08678948381530056
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_velocities!": {
+        "seconds": 0.143300161,
+        "calls": 60,
+        "fraction": 0.05862489232321259
+      },
+      "HydrostaticFreeSurfaceModels/update_state!": {
+        "seconds": 0.139605579,
+        "calls": 240,
+        "fraction": 0.05711341829263366
+      },
+      "SplitExplicitFreeSurfaces/compute_free_surface_tendency!": {
+        "seconds": 0.11957519,
+        "calls": 270,
+        "fraction": 0.04891887482441619
+      },
+      "TimeSteppers/time_step!": {
+        "seconds": 0.086976313,
+        "calls": 360,
+        "fraction": 0.03558249306010923
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_tracers!": {
+        "seconds": 0.071683071,
+        "calls": 30,
+        "fraction": 0.02932594275851653
+      },
+      "SplitExplicitFreeSurfaces/step_free_surface!": {
+        "seconds": 0.027558508,
+        "calls": 2250,
+        "fraction": 0.011274338792183163
+      },
+      "unattributed": {
+        "seconds": 0.0,
+        "calls": 0,
+        "fraction": 0.0
+      }
+    },
+    "kernels": {
+      "gpu_compute_hydrostatic_free_surface_Gv_": {
+        "seconds": 0.383679269,
+        "calls": 90,
+        "fraction": 0.15696532142607933,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_hydrostatic_free_surface_Gu_": {
+        "seconds": 0.382921861,
+        "calls": 90,
+        "fraction": 0.15665546160362778,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_hydrostatic_free_surface_Gc_": {
+        "seconds": 0.371358345,
+        "calls": 90,
+        "fraction": 0.15192476293834334,
+        "registers": 58,
+        "threads": 256
+      },
+      "gpu__compute_w_from_continuity_": {
+        "seconds": 0.254943037,
+        "calls": 60,
+        "fraction": 0.10429861340265907,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__compute_barotropic_mode_": {
+        "seconds": 0.156611755,
+        "calls": 60,
+        "fraction": 0.06407073941406354,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__barotropic_split_explicit_corrector_": {
+        "seconds": 0.143938524,
+        "calls": 30,
+        "fraction": 0.058886050174515515,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__rk_substep_field_": {
+        "seconds": 0.143300161,
+        "calls": 60,
+        "fraction": 0.05862489232321259,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__compute_split_explicit_transport_velocities_": {
+        "seconds": 0.132498239,
+        "calls": 30,
+        "fraction": 0.05420576599624537,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__compute_realized_barotropic_tendency_": {
+        "seconds": 0.11546406,
+        "calls": 30,
+        "fraction": 0.047236988691875634,
+        "registers": 40,
+        "threads": 256
+      },
+      "gpu__update_hydrostatic_pressure_": {
+        "seconds": 0.112017177,
+        "calls": 90,
+        "fraction": 0.04582684969890052,
+        "registers": 26,
+        "threads": 256
+      },
+      "ncclDevKernel_SendRecv": {
+        "seconds": 0.077103881,
+        "calls": 300,
+        "fraction": 0.031543626258220304,
+        "registers": 96,
+        "threads": 640
+      },
+      "gpu__rk_substep_tracer_field_": {
+        "seconds": 0.071683071,
+        "calls": 30,
+        "fraction": 0.02932594275851653,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu_broadcast_kernel_cartesian": {
+        "seconds": 0.048364968,
+        "calls": 740,
+        "fraction": 0.0197863772198806,
+        "registers": 21,
+        "threads": 1023
+      },
+      "gpu__cache_tracer_fields_": {
+        "seconds": 0.016434831,
+        "calls": 10,
+        "fraction": 0.006723580706411043,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__copy_from_buffer_": {
+        "seconds": 0.011725625,
+        "calls": 600,
+        "fraction": 0.004797018358181535,
+        "registers": 24,
+        "threads": 1023
+      },
+      "gpu__split_explicit_barotropic_velocity_": {
+        "seconds": 0.008314886,
+        "calls": 630,
+        "fraction": 0.003401666076493716,
+        "registers": 25,
+        "threads": 256
+      },
+      "gpu__split_explicit_free_surface_": {
+        "seconds": 0.008035455,
+        "calls": 630,
+        "fraction": 0.003287349301324373,
+        "registers": 25,
+        "threads": 256
+      },
+      "gpu__fill_periodic_south_and_north_halo_": {
+        "seconds": 0.004198223,
+        "calls": 330,
+        "fraction": 0.001717516362900908,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__fill_bottom_and_top_halo_": {
+        "seconds": 0.001098818,
+        "calls": 120,
+        "fraction": 0.00044953255099837474,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu_fill_kernel_": {
+        "seconds": 0.000418745,
+        "calls": 150,
+        "fraction": 0.00017131090687248882,
+        "registers": 16,
+        "threads": 1024
+      },
+      "gpu__update_split_explicit_state_": {
+        "seconds": 0.000245985,
+        "calls": 30,
+        "fraction": 0.00010063383067745087,
+        "registers": 16,
+        "threads": 256
+      }
+    },
+    "host_ranges": {
+      "TimeSteppers/time_step!": {
+        "seconds": 1.837606513,
+        "calls": 10
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_velocities!": {
+        "seconds": 0.000516671,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/compute_free_surface_tendency!": {
+        "seconds": 0.004688696,
+        "calls": 30
+      },
+      "call/fill_halo_regions!": {
+        "seconds": 0.007325575,
+        "calls": 120
+      },
+      "SplitExplicitFreeSurfaces/step_free_surface!": {
+        "seconds": 1.561020878,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/compute_transport_velocities!": {
+        "seconds": 0.253396798,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/update_vertical_velocities!": {
+        "seconds": 0.000596029,
+        "calls": 60
+      },
+      "HydrostaticFreeSurfaceModels/compute_tracer_tendencies!": {
+        "seconds": 0.002793024,
+        "calls": 30
+      },
+      "SplitExplicitFreeSurfaces/barotropic_split_explicit_corrector!": {
+        "seconds": 0.000546719,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/rk_substep_tracers!": {
+        "seconds": 0.000294267,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/update_state!": {
+        "seconds": 0.007124987,
+        "calls": 30
+      },
+      "HydrostaticFreeSurfaceModels/compute_momentum_tendencies!": {
+        "seconds": 0.003508869,
+        "calls": 30
+      }
+    },
+    "cuda_apis": {
+      "cuLaunchKernelEx": {
+        "seconds": 1.804722927,
+        "calls": 4200
+      },
+      "cuStreamSynchronize": {
+        "seconds": 0.644414117,
+        "calls": 1
+      },
+      "cuMemcpyDtoDAsync_v2": {
+        "seconds": 0.000621987,
+        "calls": 60
+      },
+      "cudaEventRecord_v3020": {
+        "seconds": 0.000520324,
+        "calls": 600
+      },
+      "cudaStreamWaitEvent_v3020": {
+        "seconds": 0.00047429,
+        "calls": 600
+      },
+      "cuStreamIsCapturing": {
+        "seconds": 0.000431366,
+        "calls": 3820
+      },
+      "cuStreamWaitEvent": {
+        "seconds": 0.000412462,
+        "calls": 600
+      },
+      "cuEventCreate": {
+        "seconds": 0.000382989,
+        "calls": 600
+      },
+      "cuEventRecord": {
+        "seconds": 0.000363123,
+        "calls": 600
+      },
+      "cuMemGetInfo_v2": {
+        "seconds": 0.000261282,
+        "calls": 1
+      },
+      "cudaGetFuncBySymbol_v11000": {
+        "seconds": 0.00021731,
+        "calls": 300
+      },
+      "cudaStreamGetCaptureInfo_v3_v12030": {
+        "seconds": 0.000180884,
+        "calls": 300
+      },
+      "cuCtxGetId": {
+        "seconds": 8.3845e-05,
+        "calls": 600
+      },
+      "cuCtxSynchronize": {
+        "seconds": 1.3916e-05,
+        "calls": 1
+      },
+      "cuProfilerStart": {
+        "seconds": 4.198e-06,
+        "calls": 1
+      },
+      "cuProfilerStop": {
+        "seconds": 1.012e-06,
+        "calls": 1
+      }
+    }
+  },
+  {
+    "case": "nonhydrostatic_1g",
+    "rank": 0,
+    "steps": 10,
+    "window_seconds": 4.264783138,
+    "kernel_seconds": 4.075884206,
+    "kernel_count": 1710,
+    "gpu_active_fraction": 0.9994317070946926,
+    "attributed_kernel_fraction": 1.0,
+    "acoustic_kernel_fraction": 0.0,
+    "halo_kernel_fraction": 0.012263679848023632,
+    "solve_kernel_fraction": 0.38064783899309823,
+    "memcpy_bytes": 128849019360,
+    "mpi_p2p_seconds": null,
+    "phases": {
+      "NonhydrostaticModels/solve_for_pressure!": {
+        "seconds": 1.551476515,
+        "calls": 450,
+        "fraction": 0.38064783899309823
+      },
+      "NonhydrostaticModels/compute_interior_tendency_contributions!": {
+        "seconds": 1.457737569,
+        "calls": 120,
+        "fraction": 0.3576494069321458
+      },
+      "NonhydrostaticModels/pressure_correction_rk3_substep!": {
+        "seconds": 0.361949895,
+        "calls": 120,
+        "fraction": 0.08880279142061574
+      },
+      "NonhydrostaticModels/make_pressure_correction!": {
+        "seconds": 0.247349914,
+        "calls": 60,
+        "fraction": 0.060686197521480814
+      },
+      "TimeSteppers/time_step!": {
+        "seconds": 0.197701427,
+        "calls": 120,
+        "fraction": 0.04850516280834696
+      },
+      "NonhydrostaticModels/compute_source_term!": {
+        "seconds": 0.117094105,
+        "calls": 30,
+        "fraction": 0.028728516091705673
+      },
+      "NonhydrostaticModels/compute_auxiliaries!": {
+        "seconds": 0.092589442,
+        "calls": 30,
+        "fraction": 0.022716406384583145
+      },
+      "NonhydrostaticModels/update_state!": {
+        "seconds": 0.027830611,
+        "calls": 420,
+        "fraction": 0.006828116205811564
+      },
+      "NonhydrostaticModels/compute_pressure_correction!": {
+        "seconds": 0.022154728,
+        "calls": 360,
+        "fraction": 0.005435563642212067
+      },
+      "unattributed": {
+        "seconds": 0.0,
+        "calls": 0,
+        "fraction": 0.0
+      }
+    },
+    "kernels": {
+      "gpu_broadcast_kernel_cartesian": {
+        "seconds": 0.43057265,
+        "calls": 90,
+        "fraction": 0.1056390781087857,
+        "registers": 30,
+        "threads": 1024
+      },
+      "regular_fft": {
+        "seconds": 0.394998655,
+        "calls": 120,
+        "fraction": 0.09691115719591176,
+        "registers": 64,
+        "threads": 512
+      },
+      "gpu_compute_Gw_": {
+        "seconds": 0.370925837,
+        "calls": 30,
+        "fraction": 0.09100499873229224,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_Gv_": {
+        "seconds": 0.369528979,
+        "calls": 30,
+        "fraction": 0.09066228585591962,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_Gu_": {
+        "seconds": 0.364888538,
+        "calls": 30,
+        "fraction": 0.08952377436602771,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu__rk3_substep_field_": {
+        "seconds": 0.361949895,
+        "calls": 120,
+        "fraction": 0.08880279142061574,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu_compute_Gc_": {
+        "seconds": 0.352394215,
+        "calls": 30,
+        "fraction": 0.08645834797790622,
+        "registers": 60,
+        "threads": 256
+      },
+      "gpu__cache_field_tendencies_": {
+        "seconds": 0.197701427,
+        "calls": 120,
+        "fraction": 0.04850516280834696,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__make_pressure_correction_": {
+        "seconds": 0.190773439,
+        "calls": 30,
+        "fraction": 0.0468054118709181,
+        "registers": 28,
+        "threads": 256
+      },
+      "vector_fft": {
+        "seconds": 0.186889787,
+        "calls": 60,
+        "fraction": 0.045852575184762254,
+        "registers": 60,
+        "threads": 64
+      },
+      "scal_kernel_ref": {
+        "seconds": 0.186777626,
+        "calls": 60,
+        "fraction": 0.04582505698396673,
+        "registers": 18,
+        "threads": 384
+      },
+      "gpu__compute_source_term_": {
+        "seconds": 0.117094105,
+        "calls": 30,
+        "fraction": 0.028728516091705673,
+        "registers": 28,
+        "threads": 256
+      },
+      "gpu__spectral_poisson_solve_": {
+        "seconds": 0.094676563,
+        "calls": 30,
+        "fraction": 0.023228472207485473,
+        "registers": 34,
+        "threads": 256
+      },
+      "gpu_unpermute_z_indices_": {
+        "seconds": 0.093035968,
+        "calls": 30,
+        "fraction": 0.02282595954591748,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu_permute_z_indices_": {
+        "seconds": 0.09282557,
+        "calls": 30,
+        "fraction": 0.02277433933558612,
+        "registers": 20,
+        "threads": 256
+      },
+      "gpu__update_hydrostatic_pressure_": {
+        "seconds": 0.092589442,
+        "calls": 30,
+        "fraction": 0.022716406384583145,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu_copy_real_component_": {
+        "seconds": 0.071699696,
+        "calls": 30,
+        "fraction": 0.017591200430682696,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__divide_by_": {
+        "seconds": 0.056576475,
+        "calls": 30,
+        "fraction": 0.013880785650562714,
+        "registers": 25,
+        "threads": 256
+      },
+      "gpu__fill_periodic_west_and_east_halo_": {
+        "seconds": 0.040002582,
+        "calls": 270,
+        "fraction": 0.009814454969332365,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__fill_periodic_south_and_north_halo_": {
+        "seconds": 0.00743118,
+        "calls": 270,
+        "fraction": 0.0018232068489729809,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__fill_bottom_and_top_halo_": {
+        "seconds": 0.002551577,
+        "calls": 240,
+        "fraction": 0.0006260180297182859,
+        "registers": 16,
+        "threads": 256
+      }
+    },
+    "host_ranges": {
+      "TimeSteppers/time_step!": {
+        "seconds": 1.936626495,
+        "calls": 10
+      },
+      "NonhydrostaticModels/pressure_correction_rk3_substep!": {
+        "seconds": 1.35126298,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_pressure_correction!": {
+        "seconds": 1.302123551,
+        "calls": 30
+      },
+      "call/fill_halo_regions!": {
+        "seconds": 1.081453507,
+        "calls": 150
+      },
+      "call/solve_for_pressure!": {
+        "seconds": 0.643833498,
+        "calls": 30
+      },
+      "NonhydrostaticModels/solve_for_pressure!": {
+        "seconds": 0.643742691,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_source_term!": {
+        "seconds": 0.152798809,
+        "calls": 30
+      },
+      "call/solve!": {
+        "seconds": 0.490834586,
+        "calls": 30
+      },
+      "NonhydrostaticModels/make_pressure_correction!": {
+        "seconds": 0.043814272,
+        "calls": 30
+      },
+      "NonhydrostaticModels/update_state!": {
+        "seconds": 0.45055077,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_auxiliaries!": {
+        "seconds": 0.023226287,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_tendencies!": {
+        "seconds": 0.003738631,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_interior_tendency_contributions!": {
+        "seconds": 0.003694808,
+        "calls": 30
+      }
+    },
+    "cuda_apis": {
+      "cuStreamSynchronize": {
+        "seconds": 2.328126504,
+        "calls": 1
+      },
+      "cuLaunchKernelEx": {
+        "seconds": 1.570961609,
+        "calls": 1470
+      },
+      "cuMemcpyDtoDAsync_v2": {
+        "seconds": 0.169780492,
+        "calls": 60
+      },
+      "cuLaunchKernel": {
+        "seconds": 0.099316224,
+        "calls": 180
+      },
+      "cudaLaunchKernel_v7000": {
+        "seconds": 0.043800253,
+        "calls": 60
+      },
+      "cuMemcpyHtoDAsync_v2": {
+        "seconds": 0.043476395,
+        "calls": 60
+      },
+      "cuMemAlloc_v2": {
+        "seconds": 0.000421706,
+        "calls": 60
+      },
+      "cuStreamIsCapturing": {
+        "seconds": 9.9633e-05,
+        "calls": 870
+      },
+      "cuMemGetInfo_v2": {
+        "seconds": 8.1624e-05,
+        "calls": 1
+      },
+      "cuCtxSynchronize": {
+        "seconds": 1.3716e-05,
+        "calls": 1
+      },
+      "cuKernelGetName": {
+        "seconds": 1.0188e-05,
+        "calls": 60
+      },
+      "cuProfilerStart": {
+        "seconds": 5.691e-06,
+        "calls": 1
+      },
+      "cuProfilerStop": {
+        "seconds": 2.585e-06,
+        "calls": 1
+      }
+    }
+  },
+  {
+    "case": "nonhydrostatic_2g",
+    "rank": 0,
+    "steps": 10,
+    "window_seconds": 6.884922076,
+    "kernel_seconds": 6.67626747,
+    "kernel_count": 3270,
+    "gpu_active_fraction": 0.9989192603898979,
+    "attributed_kernel_fraction": 1.0,
+    "acoustic_kernel_fraction": 0.0,
+    "halo_kernel_fraction": 0.034052402037751194,
+    "solve_kernel_fraction": 0.5750737805596036,
+    "memcpy_bytes": 193273529040,
+    "mpi_p2p_seconds": null,
+    "phases": {
+      "NonhydrostaticModels/solve_for_pressure!": {
+        "seconds": 3.839346374,
+        "calls": 780,
+        "fraction": 0.5750737805596036
+      },
+      "NonhydrostaticModels/compute_interior_tendency_contributions!": {
+        "seconds": 1.552914967,
+        "calls": 360,
+        "fraction": 0.2326022697529822
+      },
+      "NonhydrostaticModels/pressure_correction_rk3_substep!": {
+        "seconds": 0.362016474,
+        "calls": 120,
+        "fraction": 0.05422438145666444
+      },
+      "NonhydrostaticModels/make_pressure_correction!": {
+        "seconds": 0.247271597,
+        "calls": 60,
+        "fraction": 0.03703740122922307
+      },
+      "TimeSteppers/time_step!": {
+        "seconds": 0.197946013,
+        "calls": 120,
+        "fraction": 0.029649203524196133
+      },
+      "NonhydrostaticModels/compute_pressure_correction!": {
+        "seconds": 0.1334458,
+        "calls": 840,
+        "fraction": 0.019988084749396656
+      },
+      "NonhydrostaticModels/compute_source_term!": {
+        "seconds": 0.118311965,
+        "calls": 30,
+        "fraction": 0.017721273980055206
+      },
+      "NonhydrostaticModels/compute_auxiliaries!": {
+        "seconds": 0.118069054,
+        "calls": 90,
+        "fraction": 0.01768488972776281
+      },
+      "NonhydrostaticModels/update_state!": {
+        "seconds": 0.093897144,
+        "calls": 630,
+        "fraction": 0.014064317288354536
+      },
+      "NonhydrostaticModels/compute_tendencies!": {
+        "seconds": 0.013048082,
+        "calls": 240,
+        "fraction": 0.001954397731761337
+      },
+      "unattributed": {
+        "seconds": 0.0,
+        "calls": 0,
+        "fraction": 0.0
+      }
+    },
+    "kernels": {
+      "ncclDevKernel_SendRecv": {
+        "seconds": 1.05968615,
+        "calls": 300,
+        "fraction": 0.15872434032365093,
+        "registers": 96,
+        "threads": 640
+      },
+      "gpu_permutedims_kernel_": {
+        "seconds": 0.875904932,
+        "calls": 120,
+        "fraction": 0.13119680059792452,
+        "registers": 22,
+        "threads": 1024
+      },
+      "gpu_broadcast_kernel_cartesian": {
+        "seconds": 0.448043197,
+        "calls": 570,
+        "fraction": 0.06710983330330832,
+        "registers": 30,
+        "threads": 1024
+      },
+      "gpu_compute_Gw_": {
+        "seconds": 0.394690293,
+        "calls": 90,
+        "fraction": 0.059118406321129614,
+        "registers": 66,
+        "threads": 256
+      },
+      "gpu_compute_Gv_": {
+        "seconds": 0.392980122,
+        "calls": 90,
+        "fraction": 0.05886224956772141,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_Gu_": {
+        "seconds": 0.391374431,
+        "calls": 90,
+        "fraction": 0.058621742277200885,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_Gc_": {
+        "seconds": 0.373870121,
+        "calls": 90,
+        "fraction": 0.055999871586930296,
+        "registers": 60,
+        "threads": 256
+      },
+      "vector_fft": {
+        "seconds": 0.373612235,
+        "calls": 120,
+        "fraction": 0.05596124431485667,
+        "registers": 124,
+        "threads": 64
+      },
+      "gpu__rk3_substep_field_": {
+        "seconds": 0.362016474,
+        "calls": 120,
+        "fraction": 0.05422438145666444,
+        "registers": 16,
+        "threads": 256
+      },
+      "scal_kernel_ref": {
+        "seconds": 0.280503015,
+        "calls": 90,
+        "fraction": 0.04201494566544081,
+        "registers": 18,
+        "threads": 384
+      },
+      "regular_fft": {
+        "seconds": 0.205354502,
+        "calls": 60,
+        "fraction": 0.03075887880807148,
+        "registers": 64,
+        "threads": 512
+      },
+      "gpu__cache_field_tendencies_": {
+        "seconds": 0.197946013,
+        "calls": 120,
+        "fraction": 0.029649203524196133,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__make_pressure_correction_": {
+        "seconds": 0.190623478,
+        "calls": 30,
+        "fraction": 0.02855240279940432,
+        "registers": 28,
+        "threads": 256
+      },
+      "gpu__pack_buffer_x_to_y_": {
+        "seconds": 0.162801999,
+        "calls": 30,
+        "fraction": 0.024385182249146767,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__compute_source_term_": {
+        "seconds": 0.118311965,
+        "calls": 30,
+        "fraction": 0.017721273980055206,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__update_hydrostatic_pressure_": {
+        "seconds": 0.118069054,
+        "calls": 90,
+        "fraction": 0.01768488972776281,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__unpack_buffer_y_from_x_": {
+        "seconds": 0.097429726,
+        "calls": 30,
+        "fraction": 0.014593442584168965,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__spectral_poisson_solve_": {
+        "seconds": 0.094601422,
+        "calls": 30,
+        "fraction": 0.014169807070356933,
+        "registers": 34,
+        "threads": 256
+      },
+      "gpu__pack_buffer_y_to_x_": {
+        "seconds": 0.094093941,
+        "calls": 30,
+        "fraction": 0.014093794387779374,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__unpack_buffer_x_from_y_": {
+        "seconds": 0.093552924,
+        "calls": 30,
+        "fraction": 0.014012758539166196,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu_unpermute_z_indices_": {
+        "seconds": 0.093349563,
+        "calls": 30,
+        "fraction": 0.013982298255644931,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu_permute_z_indices_": {
+        "seconds": 0.093194362,
+        "calls": 30,
+        "fraction": 0.013959051583653823,
+        "registers": 20,
+        "threads": 256
+      },
+      "gpu__copy_real_component_": {
+        "seconds": 0.071866269,
+        "calls": 30,
+        "fraction": 0.010764438261788214,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__divide_by_": {
+        "seconds": 0.056648119,
+        "calls": 30,
+        "fraction": 0.00848499842981875,
+        "registers": 25,
+        "threads": 256
+      },
+      "gpu__copy_from_buffer_": {
+        "seconds": 0.026731147,
+        "calls": 480,
+        "fraction": 0.004003905942971455,
+        "registers": 24,
+        "threads": 1023
+      },
+      "gpu__fill_periodic_south_and_north_halo_": {
+        "seconds": 0.006730237,
+        "calls": 270,
+        "fraction": 0.0010080837878713687,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__fill_bottom_and_top_halo_": {
+        "seconds": 0.002281779,
+        "calls": 240,
+        "fraction": 0.00034177465331538013,
+        "registers": 16,
+        "threads": 256
+      }
+    },
+    "host_ranges": {
+      "TimeSteppers/time_step!": {
+        "seconds": 4.821927389,
+        "calls": 10
+      },
+      "NonhydrostaticModels/pressure_correction_rk3_substep!": {
+        "seconds": 2.961280168,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_pressure_correction!": {
+        "seconds": 2.883635484,
+        "calls": 30
+      },
+      "call/fill_halo_regions!": {
+        "seconds": 1.436923368,
+        "calls": 150
+      },
+      "call/solve_for_pressure!": {
+        "seconds": 2.006123717,
+        "calls": 30
+      },
+      "NonhydrostaticModels/solve_for_pressure!": {
+        "seconds": 2.00605605,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_source_term!": {
+        "seconds": 0.001337603,
+        "calls": 30
+      },
+      "call/solve!": {
+        "seconds": 2.004552344,
+        "calls": 30
+      },
+      "NonhydrostaticModels/make_pressure_correction!": {
+        "seconds": 0.07240525,
+        "calls": 30
+      },
+      "NonhydrostaticModels/update_state!": {
+        "seconds": 1.664109708,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_auxiliaries!": {
+        "seconds": 0.001449516,
+        "calls": 60
+      },
+      "NonhydrostaticModels/compute_tendencies!": {
+        "seconds": 1.104070803,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_interior_tendency_contributions!": {
+        "seconds": 1.030842239,
+        "calls": 60
+      }
+    },
+    "cuda_apis": {
+      "cuLaunchKernelEx": {
+        "seconds": 3.796776411,
+        "calls": 3000
+      },
+      "cuMemFree_v2": {
+        "seconds": 1.899894113,
+        "calls": 90
+      },
+      "cuMemcpyHtoDAsync_v2": {
+        "seconds": 0.31026027,
+        "calls": 90
+      },
+      "cuMemcpyDtoDAsync_v2": {
+        "seconds": 0.25987609,
+        "calls": 120
+      },
+      "cuLaunchKernel": {
+        "seconds": 0.215493818,
+        "calls": 180
+      },
+      "cudaLaunchKernel_v7000": {
+        "seconds": 0.201022688,
+        "calls": 90
+      },
+      "cuMemAlloc_v2": {
+        "seconds": 0.001406345,
+        "calls": 90
+      },
+      "cuEventCreate": {
+        "seconds": 0.000924077,
+        "calls": 480
+      },
+      "cudaEventRecord_v3020": {
+        "seconds": 0.000591792,
+        "calls": 600
+      },
+      "cudaStreamWaitEvent_v3020": {
+        "seconds": 0.000560201,
+        "calls": 600
+      },
+      "cuEventDestroy_v2": {
+        "seconds": 0.00049671,
+        "calls": 480
+      },
+      "cuStreamIsCapturing": {
+        "seconds": 0.000466334,
+        "calls": 3870
+      },
+      "cuStreamWaitEvent": {
+        "seconds": 0.000356141,
+        "calls": 480
+      },
+      "cuEventRecord": {
+        "seconds": 0.000319769,
+        "calls": 480
+      },
+      "cudaGetFuncBySymbol_v11000": {
+        "seconds": 0.000269251,
+        "calls": 300
+      },
+      "cuMemGetInfo_v2": {
+        "seconds": 0.000248207,
+        "calls": 1
+      },
+      "cudaStreamGetCaptureInfo_v3_v12030": {
+        "seconds": 0.000214885,
+        "calls": 300
+      },
+      "cuCtxGetId": {
+        "seconds": 6.7423e-05,
+        "calls": 480
+      },
+      "cuCtxSynchronize": {
+        "seconds": 2.1701e-05,
+        "calls": 1
+      },
+      "cuKernelGetName": {
+        "seconds": 2.1143e-05,
+        "calls": 90
+      },
+      "cuProfilerStart": {
+        "seconds": 5.06e-06,
+        "calls": 1
+      },
+      "cuProfilerStop": {
+        "seconds": 9.22e-07,
+        "calls": 1
+      }
+    }
+  },
+  {
+    "case": "nonhydrostatic_2g",
+    "rank": 1,
+    "steps": 10,
+    "window_seconds": 6.860082905,
+    "kernel_seconds": 7.15756046,
+    "kernel_count": 3270,
+    "gpu_active_fraction": 0.9990779781982825,
+    "attributed_kernel_fraction": 1.0,
+    "acoustic_kernel_fraction": 0.0,
+    "halo_kernel_fraction": 0.09304551120759935,
+    "solve_kernel_fraction": 0.5377101214175423,
+    "memcpy_bytes": 193273529040,
+    "mpi_p2p_seconds": null,
+    "phases": {
+      "NonhydrostaticModels/solve_for_pressure!": {
+        "seconds": 3.848692704,
+        "calls": 780,
+        "fraction": 0.5377101214175423
+      },
+      "NonhydrostaticModels/compute_interior_tendency_contributions!": {
+        "seconds": 1.571106608,
+        "calls": 360,
+        "fraction": 0.21950308583212444
+      },
+      "NonhydrostaticModels/update_state!": {
+        "seconds": 0.600708374,
+        "calls": 630,
+        "fraction": 0.08392641282697597
+      },
+      "NonhydrostaticModels/pressure_correction_rk3_substep!": {
+        "seconds": 0.366199928,
+        "calls": 120,
+        "fraction": 0.05116267337824206
+      },
+      "NonhydrostaticModels/make_pressure_correction!": {
+        "seconds": 0.2534729,
+        "calls": 60,
+        "fraction": 0.03541330896421097
+      },
+      "TimeSteppers/time_step!": {
+        "seconds": 0.197899471,
+        "calls": 120,
+        "fraction": 0.027649011434267366
+      },
+      "NonhydrostaticModels/compute_auxiliaries!": {
+        "seconds": 0.122154937,
+        "calls": 90,
+        "fraction": 0.017066560273247065
+      },
+      "NonhydrostaticModels/compute_source_term!": {
+        "seconds": 0.119040797,
+        "calls": 30,
+        "fraction": 0.016631476278161958
+      },
+      "NonhydrostaticModels/compute_pressure_correction!": {
+        "seconds": 0.065270498,
+        "calls": 840,
+        "fraction": 0.00911909838062339
+      },
+      "NonhydrostaticModels/compute_tendencies!": {
+        "seconds": 0.013014243,
+        "calls": 240,
+        "fraction": 0.00181825121460448
+      },
+      "unattributed": {
+        "seconds": 0.0,
+        "calls": 0,
+        "fraction": 0.0
+      }
+    },
+    "kernels": {
+      "ncclDevKernel_SendRecv": {
+        "seconds": 1.506501754,
+        "calls": 300,
+        "fraction": 0.2104769861769355,
+        "registers": 96,
+        "threads": 640
+      },
+      "gpu_permutedims_kernel_": {
+        "seconds": 0.875690387,
+        "calls": 120,
+        "fraction": 0.12234481174050746,
+        "registers": 22,
+        "threads": 1024
+      },
+      "gpu_broadcast_kernel_cartesian": {
+        "seconds": 0.448593396,
+        "calls": 570,
+        "fraction": 0.06267406311228002,
+        "registers": 30,
+        "threads": 1024
+      },
+      "gpu_compute_Gu_": {
+        "seconds": 0.401600087,
+        "calls": 90,
+        "fraction": 0.05610851479974784,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_Gv_": {
+        "seconds": 0.401521624,
+        "calls": 90,
+        "fraction": 0.05609755254515866,
+        "registers": 64,
+        "threads": 256
+      },
+      "gpu_compute_Gw_": {
+        "seconds": 0.394118589,
+        "calls": 90,
+        "fraction": 0.05506325670632198,
+        "registers": 66,
+        "threads": 256
+      },
+      "vector_fft": {
+        "seconds": 0.374448338,
+        "calls": 120,
+        "fraction": 0.052315078593132835,
+        "registers": 124,
+        "threads": 64
+      },
+      "gpu_compute_Gc_": {
+        "seconds": 0.373866308,
+        "calls": 90,
+        "fraction": 0.05223376178089594,
+        "registers": 60,
+        "threads": 256
+      },
+      "gpu__rk3_substep_field_": {
+        "seconds": 0.366199928,
+        "calls": 120,
+        "fraction": 0.05116267337824206,
+        "registers": 16,
+        "threads": 256
+      },
+      "scal_kernel_ref": {
+        "seconds": 0.280598125,
+        "calls": 90,
+        "fraction": 0.03920303943894314,
+        "registers": 18,
+        "threads": 384
+      },
+      "regular_fft": {
+        "seconds": 0.204666965,
+        "calls": 60,
+        "fraction": 0.028594514310257044,
+        "registers": 64,
+        "threads": 512
+      },
+      "gpu__cache_field_tendencies_": {
+        "seconds": 0.197899471,
+        "calls": 120,
+        "fraction": 0.027649011434267366,
+        "registers": 16,
+        "threads": 256
+      },
+      "gpu__make_pressure_correction_": {
+        "seconds": 0.194865074,
+        "calls": 30,
+        "fraction": 0.027225068525652384,
+        "registers": 28,
+        "threads": 256
+      },
+      "gpu__pack_buffer_x_to_y_": {
+        "seconds": 0.16292729,
+        "calls": 30,
+        "fraction": 0.022762963849277774,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__update_hydrostatic_pressure_": {
+        "seconds": 0.122154937,
+        "calls": 90,
+        "fraction": 0.017066560273247065,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__compute_source_term_": {
+        "seconds": 0.119040797,
+        "calls": 30,
+        "fraction": 0.016631476278161958,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__unpack_buffer_y_from_x_": {
+        "seconds": 0.097194186,
+        "calls": 30,
+        "fraction": 0.013579233670909152,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu__spectral_poisson_solve_": {
+        "seconds": 0.094595906,
+        "calls": 30,
+        "fraction": 0.013216221718090804,
+        "registers": 34,
+        "threads": 256
+      },
+      "gpu__pack_buffer_y_to_x_": {
+        "seconds": 0.094078285,
+        "calls": 30,
+        "fraction": 0.013143903642275346,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__unpack_buffer_x_from_y_": {
+        "seconds": 0.093575565,
+        "calls": 30,
+        "fraction": 0.013073667421036357,
+        "registers": 32,
+        "threads": 256
+      },
+      "gpu_unpermute_z_indices_": {
+        "seconds": 0.093307442,
+        "calls": 30,
+        "fraction": 0.01303620731133859,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu_permute_z_indices_": {
+        "seconds": 0.093096884,
+        "calls": 30,
+        "fraction": 0.013006789746348855,
+        "registers": 20,
+        "threads": 256
+      },
+      "gpu__copy_real_component_": {
+        "seconds": 0.072167479,
+        "calls": 30,
+        "fraction": 0.010082692197056202,
+        "registers": 18,
+        "threads": 256
+      },
+      "gpu__divide_by_": {
+        "seconds": 0.058607826,
+        "calls": 30,
+        "fraction": 0.008188240438558586,
+        "registers": 25,
+        "threads": 256
+      },
+      "gpu__copy_from_buffer_": {
+        "seconds": 0.026704068,
+        "calls": 480,
+        "fraction": 0.0037308896165440144,
+        "registers": 24,
+        "threads": 1023
+      },
+      "gpu__fill_periodic_south_and_north_halo_": {
+        "seconds": 0.007206711,
+        "calls": 270,
+        "fraction": 0.0010068669402479627,
+        "registers": 26,
+        "threads": 256
+      },
+      "gpu__fill_bottom_and_top_halo_": {
+        "seconds": 0.002333038,
+        "calls": 240,
+        "fraction": 0.00032595435456510275,
+        "registers": 16,
+        "threads": 256
+      }
+    },
+    "host_ranges": {
+      "TimeSteppers/time_step!": {
+        "seconds": 4.796630722,
+        "calls": 10
+      },
+      "NonhydrostaticModels/pressure_correction_rk3_substep!": {
+        "seconds": 2.924849676,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_pressure_correction!": {
+        "seconds": 2.847598332,
+        "calls": 30
+      },
+      "call/fill_halo_regions!": {
+        "seconds": 1.397436797,
+        "calls": 150
+      },
+      "call/solve_for_pressure!": {
+        "seconds": 2.006338941,
+        "calls": 30
+      },
+      "NonhydrostaticModels/solve_for_pressure!": {
+        "seconds": 2.006281927,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_source_term!": {
+        "seconds": 0.001279054,
+        "calls": 30
+      },
+      "call/solve!": {
+        "seconds": 2.004827123,
+        "calls": 30
+      },
+      "NonhydrostaticModels/make_pressure_correction!": {
+        "seconds": 0.072081775,
+        "calls": 30
+      },
+      "NonhydrostaticModels/update_state!": {
+        "seconds": 1.675011724,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_auxiliaries!": {
+        "seconds": 0.001311138,
+        "calls": 60
+      },
+      "NonhydrostaticModels/compute_tendencies!": {
+        "seconds": 1.118174676,
+        "calls": 30
+      },
+      "NonhydrostaticModels/compute_interior_tendency_contributions!": {
+        "seconds": 1.042545474,
+        "calls": 60
+      }
+    },
+    "cuda_apis": {
+      "cuLaunchKernelEx": {
+        "seconds": 3.785325369,
+        "calls": 3000
+      },
+      "cuMemFree_v2": {
+        "seconds": 1.907615988,
+        "calls": 90
+      },
+      "cuMemcpyHtoDAsync_v2": {
+        "seconds": 0.300767454,
+        "calls": 90
+      },
+      "cuMemcpyDtoDAsync_v2": {
+        "seconds": 0.259609693,
+        "calls": 120
+      },
+      "cuLaunchKernel": {
+        "seconds": 0.212315454,
+        "calls": 180
+      },
+      "cudaLaunchKernel_v7000": {
+        "seconds": 0.201046138,
+        "calls": 90
+      },
+      "cuMemAlloc_v2": {
+        "seconds": 0.001152497,
+        "calls": 90
+      },
+      "cuEventDestroy_v2": {
+        "seconds": 0.000624303,
+        "calls": 480
+      },
+      "cudaEventRecord_v3020": {
+        "seconds": 0.000613588,
+        "calls": 600
+      },
+      "cuEventCreate": {
+        "seconds": 0.000612216,
+        "calls": 480
+      },
+      "cudaStreamWaitEvent_v3020": {
+        "seconds": 0.000604376,
+        "calls": 600
+      },
+      "cuStreamIsCapturing": {
+        "seconds": 0.000444993,
+        "calls": 3870
+      },
+      "cuStreamWaitEvent": {
+        "seconds": 0.000412708,
+        "calls": 480
+      },
+      "cuEventRecord": {
+        "seconds": 0.000311212,
+        "calls": 480
+      },
+      "cudaGetFuncBySymbol_v11000": {
+        "seconds": 0.000272949,
+        "calls": 300
+      },
+      "cudaStreamGetCaptureInfo_v3_v12030": {
+        "seconds": 0.000219029,
+        "calls": 300
+      },
+      "cuMemGetInfo_v2": {
+        "seconds": 0.000198885,
+        "calls": 1
+      },
+      "cuCtxGetId": {
+        "seconds": 6.537e-05,
+        "calls": 480
+      },
+      "cuCtxSynchronize": {
+        "seconds": 2.0519e-05,
+        "calls": 1
+      },
+      "cuKernelGetName": {
+        "seconds": 1.8753e-05,
+        "calls": 90
+      },
+      "cuProfilerStart": {
+        "seconds": 3.707e-06,
+        "calls": 1
+      },
+      "cuProfilerStop": {
+        "seconds": 3.81e-07,
+        "calls": 1
+      }
+    }
+  }
+]

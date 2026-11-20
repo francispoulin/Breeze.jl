@@ -1,0 +1,94 @@
+[
+  {
+    "case": "hydrostatic_1g",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "9a9ffe87a72ba71dde075e5c72e679ea33eb5898",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/hydrostatic_1g/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/hydrostatic_1g/rank_0/profile.sqlite",
+        "bytes": 517854,
+        "sha256": "4e2b6aa4eea3170530ca02274892e2c0e5714d8f29ee8e54fdaed62324dfaa4a",
+        "kernels": 2790,
+        "ranges": 460,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      }
+    ]
+  },
+  {
+    "case": "hydrostatic_2g",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "9a9ffe87a72ba71dde075e5c72e679ea33eb5898",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/hydrostatic_2g/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/hydrostatic_2g/rank_0/profile.sqlite",
+        "bytes": 828465,
+        "sha256": "e25d50540fc6d5aece01cf0f927b820338b7d5a69bfb0afd0ebbcdcc1f75913f",
+        "kernels": 4200,
+        "ranges": 3460,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      },
+      {
+        "rank": 1,
+        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/hydrostatic_2g/rank_1/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/hydrostatic_2g/rank_1/profile.sqlite",
+        "bytes": 826854,
+        "sha256": "8ab2f7eca7c536066e085c358404af0cdc6cedfa8672a32917620f39e948ff71",
+        "kernels": 4200,
+        "ranges": 3460,
+        "gpu_uuid": "628b07c6-4d27-afb0-6c71-f0b5ec437cab"
+      }
+    ]
+  },
+  {
+    "case": "nonhydrostatic_1g",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "9a9ffe87a72ba71dde075e5c72e679ea33eb5898",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/nonhydrostatic_1g/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/nonhydrostatic_1g/rank_0/profile.sqlite",
+        "bytes": 469929,
+        "sha256": "a13933693f4fddaa1d230dee3b95bebe6e468d1ca90984c217b35177e78c1ff2",
+        "kernels": 1710,
+        "ranges": 490,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      }
+    ]
+  },
+  {
+    "case": "nonhydrostatic_2g",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "9a9ffe87a72ba71dde075e5c72e679ea33eb5898",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/nonhydrostatic_2g/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/nonhydrostatic_2g/rank_0/profile.sqlite",
+        "bytes": 805947,
+        "sha256": "ae8406675b0cffd066941fd2ccb7d7f4440d01b785906c42ab7e65e78840bbc1",
+        "kernels": 3270,
+        "ranges": 3311,
+        "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+      },
+      {
+        "rank": 1,
+        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/nonhydrostatic_2g/rank_1/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_nsight_1_2gpu_2026-11-19/raw/nonhydrostatic_2g/rank_1/profile.sqlite",
+        "bytes": 802996,
+        "sha256": "36944c5aa1115ba9515f49688f172fd7bd9280730a1ad054bb80772f14c3208c",
+        "kernels": 3270,
+        "ranges": 3311,
+        "gpu_uuid": "628b07c6-4d27-afb0-6c71-f0b5ec437cab"
+      }
+    ]
+  }
+]
