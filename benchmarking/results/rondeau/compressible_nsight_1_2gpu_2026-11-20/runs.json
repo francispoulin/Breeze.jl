@@ -1,0 +1,312 @@
+[
+  {
+    "case": "explicit_1g",
+    "state": "COMPLETE",
+    "source_commit": "4500870251b2c7f939cfedac68dba469cf6cab3b",
+    "cuda_visible_devices": "0",
+    "started_utc": "2026-11-20T19:42:20.672283+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "1",
+      "bash",
+      "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_1g",
+      "--dynamics=compressible_explicit",
+      "--size=512x512x512",
+      "--partition=1x1",
+      "--float_type=Float32",
+      "--substeps=12",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--comm=NCCL",
+      "--time_step=0.01",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/logs/profiled_explicit_1g.csv"
+    ],
+    "exit_code": 0,
+    "finished_utc": "2026-11-20T19:44:18.975957+00:00",
+    "placements": [
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "none"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true",
+        "15363932160"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "compressible_explicit",
+      "float": "Float32",
+      "Nx": "512",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "1",
+      "Ry": "1",
+      "gpus": "1",
+      "steps": "10",
+      "seconds_per_step": "7.206722e-01",
+      "points_per_second": "1.862396e+08",
+      "max_abs_w": "2.102493e-03",
+      "communication": "SERIAL",
+      "fields_finite": "true"
+    }
+  },
+  {
+    "case": "explicit_2g",
+    "state": "COMPLETE",
+    "source_commit": "4500870251b2c7f939cfedac68dba469cf6cab3b",
+    "cuda_visible_devices": "0,1",
+    "started_utc": "2026-11-20T21:29:35.891177+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "2",
+      "bash",
+      "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g",
+      "--dynamics=compressible_explicit",
+      "--size=1024x512x512",
+      "--partition=2x1",
+      "--float_type=Float32",
+      "--substeps=12",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--comm=NCCL",
+      "--time_step=0.005",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/logs/profiled_explicit_2g.csv"
+    ],
+    "exit_code": 0,
+    "finished_utc": "2026-11-20T21:32:34.488356+00:00",
+    "placements": [
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ],
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "1",
+        "true",
+        "20722286592"
+      ],
+      [
+        "0",
+        "true",
+        "16370630656"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "compressible_explicit",
+      "float": "Float32",
+      "Nx": "1024",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "2",
+      "Ry": "1",
+      "gpus": "2",
+      "steps": "10",
+      "seconds_per_step": "1.123868e+00",
+      "points_per_second": "2.388495e+08",
+      "max_abs_w": "1.610592e-03",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    }
+  },
+  {
+    "case": "splitexplicit_1g",
+    "state": "COMPLETE",
+    "source_commit": "4500870251b2c7f939cfedac68dba469cf6cab3b",
+    "cuda_visible_devices": "0",
+    "started_utc": "2026-11-20T21:32:35.438427+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "1",
+      "bash",
+      "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/splitexplicit_1g",
+      "--dynamics=compressible_splitexplicit",
+      "--size=512x512x512",
+      "--partition=1x1",
+      "--float_type=Float32",
+      "--substeps=12",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--comm=NCCL",
+      "--time_step=0.01",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/logs/profiled_splitexplicit_1g.csv"
+    ],
+    "exit_code": 0,
+    "finished_utc": "2026-11-20T21:35:04.163050+00:00",
+    "placements": [
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "none"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true",
+        "26738884608"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "compressible_splitexplicit",
+      "float": "Float32",
+      "Nx": "512",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "1",
+      "Ry": "1",
+      "gpus": "1",
+      "steps": "10",
+      "seconds_per_step": "1.508181e+00",
+      "points_per_second": "8.899311e+07",
+      "max_abs_w": "2.344239e-03",
+      "communication": "SERIAL",
+      "fields_finite": "true"
+    }
+  },
+  {
+    "case": "splitexplicit_2g",
+    "state": "COMPLETE",
+    "source_commit": "4500870251b2c7f939cfedac68dba469cf6cab3b",
+    "cuda_visible_devices": "0,1",
+    "started_utc": "2026-11-21T22:02:31.095725+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "2",
+      "bash",
+      "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/splitexplicit_2g",
+      "--dynamics=compressible_splitexplicit",
+      "--size=1024x512x512",
+      "--partition=2x1",
+      "--float_type=Float32",
+      "--substeps=12",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--comm=NCCL",
+      "--time_step=0.005",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/logs/profiled_splitexplicit_2g.csv"
+    ],
+    "exit_code": 0,
+    "finished_utc": "2026-11-21T22:06:03.492230+00:00",
+    "placements": [
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true",
+        "27584102400"
+      ],
+      [
+        "1",
+        "true",
+        "26436894720"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "compressible_splitexplicit",
+      "float": "Float32",
+      "Nx": "1024",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "2",
+      "Ry": "1",
+      "gpus": "2",
+      "steps": "10",
+      "seconds_per_step": "1.697214e+00",
+      "points_per_second": "1.581624e+08",
+      "max_abs_w": "1.746902e-03",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    }
+  }
+]

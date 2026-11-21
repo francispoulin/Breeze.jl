@@ -1,6 +1,6 @@
 # Breeze compressible explicit and split-explicit: NVTX Nsight on 1 and 2 GPUs
 
-Status: **QUEUED**.
+Status: **COMPLETE**.
 
 512³ cells per A100: 512×512×512 on one GPU (no inter-rank communication) and
 1024×512×512 with a 2×1 partition on two GPUs using NCCL for halo exchange
@@ -24,6 +24,25 @@ efficiency = 100 × T₁/T₂ with the slower rank): [kernel_scaling_1_vs_2gpu.m
 
 | Case | State | Maximum absolute w | GPUs |
 |------|-------|--------------------|------|
+| explicit_1g | COMPLETE | 2.102493e-03 | 0 |
+| explicit_2g | COMPLETE | 1.610592e-03 | 0,1 |
+| splitexplicit_1g | COMPLETE | 2.344239e-03 | 0 |
+| splitexplicit_2g | COMPLETE | 1.746902e-03 | 0,1 |
+
+## Trace summary per rank
+
+| Case | Rank | Trace s/step | Kernel ms/step | Launches/step | GPU active fraction | Halo kernel fraction | Solve kernel fraction |
+|------|------|--------------|----------------|---------------|---------------------|----------------------|-----------------------|
+| explicit_1g | 0 | 0.2723 | 272.0 | 231 | 0.999 | 0.056 | 0.000 |
+| explicit_2g | 0 | 0.6389 | 639.9 | 465 | 0.999 | 0.598 | 0.000 |
+| explicit_2g | 1 | 0.6465 | 647.8 | 465 | 0.995 | 0.094 | 0.000 |
+| splitexplicit_1g | 0 | 1.0552 | 1048.9 | 1030 | 0.999 | 0.060 | 0.143 |
+| splitexplicit_2g | 0 | 1.1191 | 1113.3 | 2152 | 0.997 | 0.111 | 0.134 |
+| splitexplicit_2g | 1 | 1.1165 | 1110.5 | 2152 | 0.997 | 0.120 | 0.130 |
+
+Trace seconds per step include profiling overhead. Fractions are of summed
+kernel time, attributed through CUDA launch correlation IDs to enclosing
+`call/fill_halo_regions!` and `call/solve!` ranges. Per-phase totals are in phases.csv.
 
 Finite-field checks establish a functional run, not field-by-field accuracy.
 No plots are produced for Nsight runs.
