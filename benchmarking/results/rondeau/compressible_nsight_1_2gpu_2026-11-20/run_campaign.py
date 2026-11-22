@@ -13,10 +13,12 @@ import os
 from pathlib import Path
 import re
 import shlex
+import shutil
 import signal
 import sqlite3
 import subprocess
 import sys
+import threading
 import time
 
 
@@ -51,6 +53,61 @@ def free_gpus(count, minimum_free_mib):
         if uuid not in busy and int(memory) >= minimum_free_mib:
             free.append(index)
     return (free[:count] if len(free) >= count else None), inventory.splitlines(), sorted(busy)
+
+
+def gpu_uuids(indices):
+    inventory = subprocess.check_output(["nvidia-smi", "--query-gpu=index,uuid",
+                                         "--format=csv,noheader"], text=True)
+    uuids = dict((field.strip() for field in row) for row in csv.reader(inventory.splitlines()))
+    return {uuids[index] for index in indices}
+
+
+def watch_foreign_processes(uuids, done, foreign, interval=5):
+    """Record compute processes of other users on the launch's GPUs until `done` is set."""
+    while not done.is_set():
+        try:
+            listing = subprocess.check_output(["nvidia-smi", "--query-compute-apps=gpu_uuid,pid,used_memory",
+                                               "--format=csv,noheader,nounits"], text=True)
+            for row in csv.reader(listing.splitlines()):
+                uuid, pid, memory = (field.strip() for field in row)
+                if uuid in uuids:
+                    try:
+                        owner = os.stat(f"/proc/{pid}").st_uid
+                    except OSError:
+                        owner = None
+                    if owner != os.getuid():
+                        entry = foreign.setdefault(f"{uuid}:{pid}", dict(gpu_uuid=uuid, pid=int(pid), uid=owner,
+                                                                         max_used_mib=0, samples=0))
+                        entry["max_used_mib"] = max(entry["max_used_mib"], int(memory or 0))
+                        entry["samples"] += 1
+        except (subprocess.CalledProcessError, ValueError):
+            pass
+        done.wait(interval)
+
+
+def supersede(results, runtime, name, runs, captures):
+    """Move an earlier launch's reports, logs and records aside before it is captured again."""
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    archive = f"{name}_{stamp}"
+    old_run = next(run for run in runs if run["case"] == name)
+    raw = runtime / "raw" / name
+    if raw.exists():
+        (runtime / "raw" / "superseded").mkdir(exist_ok=True)
+        raw.rename(runtime / "raw" / "superseded" / archive)
+    logs = results / "logs" / "superseded" / archive
+    logs.mkdir(parents=True)
+    for path in (results / "logs").glob("*"):
+        if path.is_file() and re.fullmatch(rf"(profiled|export|summary)_{re.escape(name)}(_\d+)?\.\w+(\.\w+)?", path.name):
+            shutil.move(str(path), logs / path.name)
+    superseded_path = results / "superseded_runs.json"
+    superseded = json.loads(superseded_path.read_text()) if superseded_path.exists() else []
+    superseded.append(dict(run=old_run, capture=next((c for c in captures if c["case"] == name), None),
+                           superseded_utc=datetime.now(timezone.utc).isoformat(),
+                           reports=str(runtime / "raw" / "superseded" / archive),
+                           logs=str(logs.relative_to(results))))
+    write_json(superseded_path, superseded)
+    runs[:] = [run for run in runs if run["case"] != name]
+    captures[:] = [capture for capture in captures if capture["case"] != name]
 
 
 def command_for(checkout, results, runtime, plan, case):
@@ -136,10 +193,15 @@ def describe_outcome(results, runtime, plan, runs, state, error=None):
              "efficiency = 100 × T₁/T₂ with the slower rank): [kernel_scaling_1_vs_2gpu.md](kernel_scaling_1_vs_2gpu.md)",
              "(CSV: kernel_scaling_1_vs_2gpu.csv).", "",
              "## Launches", "",
-             "| Case | State | Maximum absolute w | GPUs |", "|------|-------|--------------------|------|"]
-    for run in runs:
+             "| Case | State | Maximum absolute w | GPUs | Other users' processes on these GPUs |",
+             "|------|-------|--------------------|------|---------------------------------------|"]
+    order = [case_name(case) for case in plan["cases"]]
+    for run in sorted(runs, key=lambda run: order.index(run["case"])):
+        foreign = run.get("foreign_processes")
+        foreign = "not monitored" if foreign is None else (", ".join(
+            f"pid {p['pid']} ({p['max_used_mib']} MiB)" for p in foreign) or "none")
         lines.append(f"| {run['case']} | {run['state']} | "
-                     f"{run.get('measurement', {}).get('max_abs_w', 'pending')} | {run.get('cuda_visible_devices', '')} |")
+                     f"{run.get('measurement', {}).get('max_abs_w', 'pending')} | {run.get('cuda_visible_devices', '')} | {foreign} |")
     summary = results / "rank_summary.csv"
     if summary.exists():
         with summary.open() as stream:
@@ -170,6 +232,14 @@ def describe_outcome(results, runtime, plan, runs, state, error=None):
               f"{plan['minimum_free_mib']} MiB free, and sets CUDA_VISIBLE_DEVICES for one launch.",
               f"Live state: `{runtime}/status.json`. Controller log: `{runtime}/logs/controller.log`.",
               "On completion it commits this directory to benchmark-results and pushes."]
+    superseded_path = results / "superseded_runs.json"
+    if superseded_path.exists():
+        lines += ["", "## Superseded captures", "",
+                  "These launches were captured again; the tables above use only the newer capture.", ""]
+        for entry in json.loads(superseded_path.read_text()):
+            lines.append(f"- `{entry['run']['case']}` from {entry['run']['started_utc'][:19]} UTC "
+                         f"(superseded {entry['superseded_utc'][:19]} UTC): reports in `{entry['reports']}`, "
+                         f"logs in `{entry['logs']}`. Reason: {entry.get('reason', 'not recorded')}")
     if error:
         lines += ["", "## Failure", "", error]
     (results / "README.md").write_text("\n".join(lines) + "\n")
@@ -178,6 +248,9 @@ def describe_outcome(results, runtime, plan, runs, state, error=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--publish-results", action="store_true")
+    parser.add_argument("--rerun", action="append", default=[], metavar="CASE",
+                        help="capture CASE again, superseding its earlier capture, then redo the analysis")
+    parser.add_argument("--reason", default="", help="why the --rerun cases are captured again")
     args = parser.parse_args()
     results = Path(__file__).resolve().parent
     root = results.parents[3]
@@ -222,9 +295,23 @@ def main():
         failure = None
         state = "COMPLETE"
         try:
-            if (results / "runs.json").exists():
-                raise RuntimeError("This is a one-shot controller; choose fresh paths for another run")
-            for case in plan["cases"]:
+            selected = plan["cases"]
+            if args.rerun:
+                names = {case_name(case) for case in plan["cases"]}
+                if not set(args.rerun) <= names:
+                    raise RuntimeError(f"Unknown cases: {sorted(set(args.rerun) - names)}")
+                runs[:] = json.loads((results / "runs.json").read_text())
+                captures[:] = json.loads((results / "captures.json").read_text())
+                for name in args.rerun:
+                    supersede(results, runtime, name, runs, captures)
+                    superseded_path = results / "superseded_runs.json"
+                    superseded = json.loads(superseded_path.read_text())
+                    superseded[-1]["reason"] = args.reason or "not recorded"
+                    write_json(superseded_path, superseded)
+                selected = [case for case in plan["cases"] if case_name(case) in args.rerun]
+            elif (results / "runs.json").exists():
+                raise RuntimeError("Captures exist; pass --rerun CASE to capture a case again")
+            for case in selected:
                 name = case_name(case)
                 gpus = wait_for_gpus(case["ranks"])
                 run = dict(case=name, state="RUNNING", source_commit=plan["frozen_commit"],
@@ -245,7 +332,14 @@ def main():
                                              stderr=subprocess.STDOUT, start_new_session=True)
                     status("RUNNING", launch=name, controller_child_pid=child.pid,
                            cuda_visible_devices=run["cuda_visible_devices"])
+                    done, foreign = threading.Event(), {}
+                    watcher = threading.Thread(target=watch_foreign_processes, daemon=True,
+                                               args=(gpu_uuids(gpus), done, foreign))
+                    watcher.start()
                     run["exit_code"] = child.wait()
+                    done.set()
+                    watcher.join()
+                    run["foreign_processes"] = list(foreign.values())
                 run["finished_utc"] = datetime.now(timezone.utc).isoformat()
                 if run["exit_code"] != 0:
                     raise RuntimeError(f"{name} failed with exit {run['exit_code']}")
