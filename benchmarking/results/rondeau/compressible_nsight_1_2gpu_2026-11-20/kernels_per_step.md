@@ -29,31 +29,6 @@ step's wall time. NCCL kernels include time spent waiting for the peer rank.
 | `gpu__compute_z_bcs_` | 9 | 0.056 |
 | **All kernels** | 231 | **272.035** |
 
-## explicit_2g
-
-2 rank(s), 10 captured steps.
-
-| Kernel | Launches/step | Rank 0 ms/step | Rank 1 ms/step |
-|---|---|---|---|
-| `ncclDevKernel_SendRecv` | 63 | 371.534 | 36.745 |
-| `gpu_compute_potential_temperature_tendency_` | 3 | 39.072 | 88.470 |
-| `gpu_compute_z_momentum_tendency_` | 3 | 34.128 | 77.334 |
-| `gpu_compute_y_momentum_tendency_` | 3 | 33.484 | 76.369 |
-| `gpu_compute_scalar_tendency_` | 3 | 33.064 | 74.080 |
-| `gpu_compute_x_momentum_tendency_` | 3 | 33.088 | 73.908 |
-| `gpu__ssp_rk3_substep_` | 18 | 30.253 | 71.097 |
-| `gpu_broadcast_kernel_cartesian` | 132 | 15.629 | 36.033 |
-| `gpu__compute_auxiliary_thermodynamic_variables_` | 3 | 12.955 | 30.366 |
-| `gpu__compute_temperature_and_pressure_` | 3 | 11.466 | 26.929 |
-| `gpu__compute_velocities_` | 3 | 9.112 | 21.939 |
-| `gpu__copy_from_buffer_` | 90 | 5.095 | 10.851 |
-| `gpu__compute_density_tendency_` | 3 | 5.038 | 10.615 |
-| `gpu__compute_total_density_` | 3 | 3.833 | 8.872 |
-| `gpu__fill_periodic_south_and_north_halo_` | 63 | 1.592 | 3.173 |
-| `gpu__fill_bottom_and_top_halo_` | 60 | 0.476 | 0.988 |
-| `gpu__compute_z_bcs_` | 9 | 0.055 | 0.056 |
-| **All kernels** | 465 | **639.876** | **647.826** |
-
 ## splitexplicit_1g
 
 1 rank(s), 10 captured steps.
@@ -128,3 +103,28 @@ step's wall time. NCCL kernels include time spent waiting for the peer rank.
 | `gpu__fill_bottom_and_top_halo_` | 273 | 2.014 | 1.998 |
 | `gpu__compute_z_bcs_` | 9 | 0.057 | 0.056 |
 | **All kernels** | 2152 | **1113.338** | **1110.542** |
+
+## explicit_2g
+
+2 rank(s), 10 captured steps.
+
+| Kernel | Launches/step | Rank 0 ms/step | Rank 1 ms/step |
+|---|---|---|---|
+| `gpu_compute_potential_temperature_tendency_` | 3 | 39.114 | 39.126 |
+| `gpu_compute_z_momentum_tendency_` | 3 | 34.126 | 34.138 |
+| `gpu_compute_y_momentum_tendency_` | 3 | 33.481 | 33.496 |
+| `gpu_compute_x_momentum_tendency_` | 3 | 33.089 | 33.096 |
+| `gpu_compute_scalar_tendency_` | 3 | 33.080 | 33.084 |
+| `gpu__ssp_rk3_substep_` | 18 | 30.270 | 30.246 |
+| `ncclDevKernel_SendRecv` | 63 | 17.082 | 16.087 |
+| `gpu_broadcast_kernel_cartesian` | 132 | 15.695 | 15.714 |
+| `gpu__compute_auxiliary_thermodynamic_variables_` | 3 | 13.001 | 12.984 |
+| `gpu__compute_temperature_and_pressure_` | 3 | 11.466 | 11.463 |
+| `gpu__compute_velocities_` | 3 | 9.098 | 9.103 |
+| `gpu__copy_from_buffer_` | 90 | 5.092 | 5.090 |
+| `gpu__compute_density_tendency_` | 3 | 5.033 | 5.035 |
+| `gpu__compute_total_density_` | 3 | 3.824 | 3.825 |
+| `gpu__fill_periodic_south_and_north_halo_` | 63 | 1.607 | 1.609 |
+| `gpu__fill_bottom_and_top_halo_` | 60 | 0.502 | 0.491 |
+| `gpu__compute_z_bcs_` | 9 | 0.055 | 0.055 |
+| **All kernels** | 465 | **285.617** | **284.642** |

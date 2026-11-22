@@ -1,0 +1,119 @@
+[
+  {
+    "run": {
+      "case": "explicit_2g",
+      "state": "COMPLETE",
+      "source_commit": "4500870251b2c7f939cfedac68dba469cf6cab3b",
+      "cuda_visible_devices": "0,1",
+      "started_utc": "2026-11-20T21:29:35.891177+00:00",
+      "command": [
+        "timeout",
+        "--foreground",
+        "--kill-after=30s",
+        "2400s",
+        "mpiexec",
+        "--bind-to",
+        "none",
+        "-n",
+        "2",
+        "bash",
+        "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/profile_rank.sh",
+        "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/environment",
+        "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+        "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g",
+        "--dynamics=compressible_explicit",
+        "--size=1024x512x512",
+        "--partition=2x1",
+        "--float_type=Float32",
+        "--substeps=12",
+        "--simplified=false",
+        "--random_perturbation=false",
+        "--comm=NCCL",
+        "--time_step=0.005",
+        "--warmup_steps=10",
+        "--time_steps=10",
+        "--nvtx=true",
+        "--profile=true",
+        "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/logs/profiled_explicit_2g.csv"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-11-20T21:32:34.488356+00:00",
+      "placements": [
+        [
+          "1",
+          "rondeau",
+          "27b6f362-d593-fda1-e6fa-43275dcca7da",
+          "NCCLCommunicator"
+        ],
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "NCCLCommunicator"
+        ]
+      ],
+      "rank_validation": [
+        [
+          "1",
+          "true",
+          "20722286592"
+        ],
+        [
+          "0",
+          "true",
+          "16370630656"
+        ]
+      ],
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "compressible_explicit",
+        "float": "Float32",
+        "Nx": "1024",
+        "Ny": "512",
+        "Nz": "512",
+        "Rx": "2",
+        "Ry": "1",
+        "gpus": "2",
+        "steps": "10",
+        "seconds_per_step": "1.123868e+00",
+        "points_per_second": "2.388495e+08",
+        "max_abs_w": "1.610592e-03",
+        "communication": "NCCL",
+        "fields_finite": "true"
+      }
+    },
+    "capture": {
+      "case": "explicit_2g",
+      "state": "COMPLETE",
+      "steps": 10,
+      "source_commit": "4500870251b2c7f939cfedac68dba469cf6cab3b",
+      "profiles": [
+        {
+          "rank": 0,
+          "report": "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g/rank_0/profile.nsys-rep",
+          "sqlite": "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g/rank_0/profile.sqlite",
+          "bytes": 1170729,
+          "sha256": "a35ba28225e651444b5163074d0462b5dff950cd882f8fea79ba2ca5bc5f6d54",
+          "kernels": 4650,
+          "ranges": 7041,
+          "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
+        },
+        {
+          "rank": 1,
+          "report": "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g/rank_1/profile.nsys-rep",
+          "sqlite": "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g/rank_1/profile.sqlite",
+          "bytes": 1143900,
+          "sha256": "090e3b76cbbe8c6eea9815d45ac8859cb3af6b8154fdce6747ce921df2b9c457",
+          "kernels": 4650,
+          "ranges": 7040,
+          "gpu_uuid": "27b6f362-d593-fda1-e6fa-43275dcca7da"
+        }
+      ]
+    },
+    "superseded_utc": "2026-11-22T05:31:57.524198+00:00",
+    "reports": "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/superseded/explicit_2g_20261122T053157Z",
+    "logs": "logs/superseded/explicit_2g_20261122T053157Z",
+    "reason": "Rank 1 compute kernels ran about 2.2x slower than rank 0 and the 1-GPU case, consistent with another user's job sharing its GPU during the capture."
+  }
+]
