@@ -1,0 +1,13 @@
+{
+  "state": "submitted",
+  "expected": 6,
+  "validated": 0,
+  "cases": {
+    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1": "pending",
+    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2": "pending",
+    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3": "pending",
+    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r1": "pending",
+    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r2": "pending",
+    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r3": "pending"
+  }
+}

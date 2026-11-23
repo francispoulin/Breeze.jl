@@ -1,0 +1,22 @@
+{
+  "repository": "/home/anditse/Breeze.jl",
+  "source": "/home/anditse/Breeze.jl/.runtime/studies/oceananigans_nonhydrostatic_nccl_2026-11-23/source",
+  "environment": "/home/anditse/Breeze.jl/.runtime/studies/oceananigans_nonhydrostatic_nccl_2026-11-23/environment",
+  "runtime": "/home/anditse/Breeze.jl/.runtime/studies/oceananigans_nonhydrostatic_nccl_2026-11-23",
+  "runtime_root": "/home/anditse/Breeze.jl/.runtime",
+  "machine": "fir",
+  "prepared": "2026-11-23T17:50:50.121871+00:00",
+  "series": "oceananigans_nonhydrostatic_nccl",
+  "warmup_steps": 10,
+  "timed_steps": 100,
+  "repeats": 3,
+  "substeps": 12,
+  "float_type": "Float64",
+  "backend": "NCCL",
+  "random_perturbation": false,
+  "simplified": false,
+  "nvtx": false,
+  "profile": false,
+  "case_limit_seconds": 3000,
+  "allocation_limit": "03:00:00"
+}

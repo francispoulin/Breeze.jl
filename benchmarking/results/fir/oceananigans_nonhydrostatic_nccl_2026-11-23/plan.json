@@ -1,0 +1,74 @@
+[
+  {
+    "id": "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1",
+    "dynamics": "oceananigans_nonhydrostatic",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "NCCL",
+    "time_step": 10.0,
+    "float_type": "Float64",
+    "timed_steps": 100,
+    "repeat": 1
+  },
+  {
+    "id": "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2",
+    "dynamics": "oceananigans_nonhydrostatic",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "NCCL",
+    "time_step": 10.0,
+    "float_type": "Float64",
+    "timed_steps": 100,
+    "repeat": 2
+  },
+  {
+    "id": "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3",
+    "dynamics": "oceananigans_nonhydrostatic",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "NCCL",
+    "time_step": 10.0,
+    "float_type": "Float64",
+    "timed_steps": 100,
+    "repeat": 3
+  },
+  {
+    "id": "oceananigans_nonhydrostatic_NCCL_2g_2x1_r1",
+    "dynamics": "oceananigans_nonhydrostatic",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "NCCL",
+    "time_step": 10.0,
+    "float_type": "Float64",
+    "timed_steps": 100,
+    "repeat": 1
+  },
+  {
+    "id": "oceananigans_nonhydrostatic_NCCL_2g_2x1_r2",
+    "dynamics": "oceananigans_nonhydrostatic",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "NCCL",
+    "time_step": 10.0,
+    "float_type": "Float64",
+    "timed_steps": 100,
+    "repeat": 2
+  },
+  {
+    "id": "oceananigans_nonhydrostatic_NCCL_2g_2x1_r3",
+    "dynamics": "oceananigans_nonhydrostatic",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "NCCL",
+    "time_step": 10.0,
+    "float_type": "Float64",
+    "timed_steps": 100,
+    "repeat": 3
+  }
+]
