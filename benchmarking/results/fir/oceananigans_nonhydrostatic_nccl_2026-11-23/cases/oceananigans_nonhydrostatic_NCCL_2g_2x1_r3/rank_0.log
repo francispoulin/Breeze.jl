@@ -1,0 +1,28 @@
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: MPI ranks run on CPU cores that are not attached to their GPU; bind each rank to its GPU's cores, e.g. with Slurm's --cpu-bind, or choose GPUs with the `devices` keyword (on 2 of 2 MPI ranks)
+└ @ Oceananigans.DistributedComputations ~/Breeze.jl/.runtime/depot/packages/Oceananigans/EhPjs/src/DistributedComputations/validate_distributed_configuration.jl:17
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "oceananigans_nonhydrostatic"
+│   FT = Float64
+│   (Nx, Ny, Nz) = (1024, 512, 512)
+│   partition = (2, 1)
+│   nranks = 2
+│   Δt = 10.0
+│   time_steps = 100
+│   communication_name = "NCCL"
+│   communicator_type = "NCCLCommunicator"
+└   profile = false
+PLACEMENT rank=0 host=fc10408 gpu_uuid=e4d6f767-1589-8579-da55-dab8d0dfddcd communicator=NCCLCommunicator threads=1 pool=none
+DEVICE rank=0 uuid=e4d6f767-1589-8579-da55-dab8d0dfddcd visible=0,1,2,3
+TIMING_START communication=NCCL steps=100
+TIMING_END communication=NCCL elapsed_seconds=35.055758624
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=30532567040
+RESULT machine=fc10408 dynamics=oceananigans_nonhydrostatic float=Float64 size=1024x512x512 partition=2x1 gpus=2 steps=100 seconds_per_step=3.5056e-01 points_per_second=7.6574e+08 points_per_second_per_gpu=3.8287e+08 max_abs_w=1.354208e-05 communication=NCCL fields_finite=true

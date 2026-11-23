@@ -1,13 +1,13 @@
 {
-  "state": "submitted",
+  "state": "incomplete",
   "expected": 6,
-  "validated": 0,
+  "validated": 3,
   "cases": {
-    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1": "pending",
-    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2": "pending",
-    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3": "pending",
-    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r1": "pending",
-    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r2": "pending",
-    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r3": "pending"
+    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1": "not_run",
+    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2": "not_run",
+    "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3": "not_run",
+    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r1": "validated",
+    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r2": "validated",
+    "oceananigans_nonhydrostatic_NCCL_2g_2x1_r3": "validated"
   }
 }

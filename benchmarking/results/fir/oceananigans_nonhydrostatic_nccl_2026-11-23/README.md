@@ -1,6 +1,6 @@
 # Fir NCCL weak scaling: Oceananigans nonhydrostatic, 1 and 2 GPUs
 
-Status: **SUBMITTED; 0/6 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
+Status: **INCOMPLETE; 3/6 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
 
 Oceananigans `NonhydrostaticModel` from the suite `rectilinear_buoyancy` workload, run by
 `distributed_cbl_benchmark.jl --dynamics=oceananigans_nonhydrostatic`: Float64 RectilinearGrid, periodic x/y,
@@ -29,14 +29,18 @@ An after-any CPU finalizer retains results and plots even if a GPU allocation fa
 
 Finalizer job: 5468406. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/).
 
+| Dynamics | GPUs | Repeats | Median s/step | Min–max s/step | Points/s/GPU | Weak efficiency (%) |
+|---|---:|---:|---:|---|---:|---:|
+| Oceananigans nonhydrostatic | 2 | 3 | 0.3506 | 0.3504–0.3507 | 3.829e+08 |  |
+
 | Case | GPUs | State | s/step | Evidence / error |
 |---|---:|---|---:|---|
-| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1 | 1 | pending |  | [case files](cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1/) |
-| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2 | 1 | pending |  | [case files](cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2/) |
-| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3 | 1 | pending |  | [case files](cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3/) |
-| oceananigans_nonhydrostatic_NCCL_2g_2x1_r1 | 2 | pending |  | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/) |
-| oceananigans_nonhydrostatic_NCCL_2g_2x1_r2 | 2 | pending |  | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/) |
-| oceananigans_nonhydrostatic_NCCL_2g_2x1_r3 | 2 | pending |  | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/) |
+| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1 | 1 | not_run |  | Allocation ended before this case produced evidence |
+| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2 | 1 | not_run |  | Allocation ended before this case produced evidence |
+| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3 | 1 | not_run |  | Allocation ended before this case produced evidence |
+| oceananigans_nonhydrostatic_NCCL_2g_2x1_r1 | 2 | validated | 3.507307e-01 | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/) |
+| oceananigans_nonhydrostatic_NCCL_2g_2x1_r2 | 2 | validated | 3.504498e-01 | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/) |
+| oceananigans_nonhydrostatic_NCCL_2g_2x1_r3 | 2 | validated | 3.505576e-01 | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/) |
 
 Timing includes final GPU synchronization and an MPI barrier and uses the slowest rank.
 Weak efficiency is 100 × serial seconds/step ÷ distributed seconds/step, using a separate serial baseline for each dynamics and the median over repeats.
@@ -49,3 +53,7 @@ Finite fields do not establish full numerical agreement with serial solutions. T
 Per-case directories retain exact commands, every rank's log and field validation, hardware details, final device-memory use, and five-second process-memory samples (which can miss peaks).
 
 Julia 1.12.5; Breeze 0.15.0, Oceananigans 0.117.2, CUDA 6.4.2, MPI 0.20.29.
+
+![Weak scaling](weak_scaling.png)
+
+[Comparison CSV](comparison.csv) · [Vector SVG](weak_scaling.svg)
