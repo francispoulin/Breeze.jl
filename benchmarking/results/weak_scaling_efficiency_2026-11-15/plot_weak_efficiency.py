@@ -6,7 +6,10 @@ Figures are written only for series that have a measurement at every GPU count.
 """
 
 import csv
+import json
 import math
+import os
+import re
 import sys
 from pathlib import Path
 
@@ -16,7 +19,16 @@ import matplotlib.pyplot as plt
 
 HERE = Path(__file__).resolve().parent
 BREEZE_RESULTS = HERE.parent
-OCEANANIGANS_RESULTS = Path("/u/ajtse/Oceananigans.jl/benchmarking/results")
+# The Oceananigans checkout is /u/ajtse/Oceananigans.jl on Rondeau and ~/Oceananigans.jl on Fir.
+OCEANANIGANS_RESULTS = Path(os.environ.get("OCEANANIGANS_RESULTS", next(
+    (str(path) for path in (Path("/u/ajtse/Oceananigans.jl/benchmarking/results"),
+                            Path.home() / "Oceananigans.jl/benchmarking/results") if path.is_dir()),
+    "/u/ajtse/Oceananigans.jl/benchmarking/results")))
+# Pure performance rerun (no Nsight, no NVTX, NCCL, median of three 100-step launches) of the Fir
+# Oceananigans nonhydrostatic 1- and 2-GPU cases. Once validated it replaces those two points of the
+# Fir suite series; the suite's 4-16 GPU points stay normalized to the suite's own 1-GPU time.
+FIR_NONHYDROSTATIC_NCCL = BREEZE_RESULTS / "fir/oceananigans_nonhydrostatic_nccl_2026-11-23"
+README_MARKERS = ("<!-- fir-nonhydrostatic-nccl -->", "<!-- /fir-nonhydrostatic-nccl -->")
 # Oceananigans series and halo/transpose backend per machine. Rondeau uses the NCCL rerun;
 # its earlier MPI series (gpu_weak_scaling_512_x, 1-2 GPUs only) stays recorded but is not plotted.
 OCEANANIGANS_SERIES = dict(fir=("gpu_weak_scaling_512_x", "MPI"),
@@ -96,6 +108,54 @@ def breeze_rondeau():
     return curves
 
 
+def fir_nonhydrostatic_nccl():
+    """Validated median timings at 1 and 2 GPUs from the Fir NCCL rerun, or None while pending."""
+    status = FIR_NONHYDROSTATIC_NCCL / "final_status.json"
+    if not status.is_file() or json.loads(status.read_text())["state"] != "validated":
+        return None
+    rows = [row for row in read_csv(FIR_NONHYDROSTATIC_NCCL / "comparison.csv")
+            if row["dynamics"] == "oceananigans_nonhydrostatic"]
+    points = with_efficiency(map(breeze_point, rows), (1, 2))
+    for point, row in zip(points, sorted(rows, key=lambda row: int(row["gpus"]))):
+        point.update(seconds_per_step_min=float(row["seconds_per_step_min"]),
+                     seconds_per_step_max=float(row["seconds_per_step_max"]), source="NCCL rerun")
+    return points
+
+
+def with_fir_nonhydrostatic_nccl(points):
+    """Replace the suite's 1- and 2-GPU points with the NCCL rerun when it is available."""
+    rerun = fir_nonhydrostatic_nccl()
+    if rerun is None:
+        return points
+    replaced = {point["gpus"]: point for point in rerun}
+    return [replaced.get(point["gpus"], dict(point, source="MPI suite")) for point in points]
+
+
+def update_readme(points):
+    """Rewrite the README block that tabulates the Fir nonhydrostatic rerun."""
+    path = HERE / "README.md"
+    text = path.read_text()
+    start, end = README_MARKERS
+    if start not in text:
+        return
+    suite = {int(row["ranks"]): float(row["median"]) for row in read_csv(
+        OCEANANIGANS_RESULTS / "non_hydrostatic_models/fir/baseline" / OCEANANIGANS_SERIES["fir"][0] / "results.csv")}
+    if points is None:
+        body = "Status: **PENDING**; the figures still use the MPI suite at every GPU count."
+    else:
+        lines = ["Status: **COMPLETE**; the Fir figures use these points at 1 and 2 GPUs.", "",
+                 "| GPUs | NCCL rerun median s/step (min–max) | Efficiency | MPI suite median s/step | Suite efficiency |",
+                 "|---:|---|---:|---:|---:|"]
+        for point in points:
+            gpus = point["gpus"]
+            lines.append(f"| {gpus} | {point['seconds_per_step']:.4f} ({point['seconds_per_step_min']:.4f}–"
+                         f"{point['seconds_per_step_max']:.4f}) | {point['efficiency_percent']:.1f}% | "
+                         f"{suite[gpus]:.4f} | {100 * suite[1] / suite[gpus]:.1f}% |")
+        body = "\n".join(lines)
+    pattern = re.compile(re.escape(start) + ".*?" + re.escape(end), re.DOTALL)
+    path.write_text(pattern.sub(lambda _: f"{start}\n\n{body}\n\n{end}", text))
+
+
 def oceananigans(machine, gpu_counts, partial=False):
     """Hydrostatic and nonhydrostatic curves, or None if either is missing a GPU count.
 
@@ -114,7 +174,10 @@ def oceananigans(machine, gpu_counts, partial=False):
         expected = list(gpu_counts[:len(measured)]) if partial and len(measured) >= 2 else list(gpu_counts)
         if measured != expected:
             return None
-        curves.append((label, with_efficiency(map(oceananigans_point, rows), expected)))
+        points = with_efficiency(map(oceananigans_point, rows), expected)
+        if machine == "fir" and label == "Nonhydrostatic":
+            points = with_fir_nonhydrostatic_nccl(points)
+        curves.append((label, points))
     return curves
 
 
@@ -153,7 +216,7 @@ def draw(curves, gpu_counts, gpu_name, title, subtitle, footer, stem):
             axis.spines[side].set_color("#8a8984")
         axis.legend(loc="lower left", frameon=False)
         figure.text(0.01, 0.015, footer, ha="left", va="bottom", fontsize=8.5, color="#52514e")
-        figure.tight_layout(rect=(0, 0.08, 1, 1))
+        figure.tight_layout(rect=(0, 0.04 * (footer.count("\n") + 1) + 0.03, 1, 1))
         for suffix in (".png", ".svg"):
             path = HERE / f"{stem}{suffix}"
             figure.savefig(path, dpi=200, metadata={"Creator": "Breeze benchmark report"} if suffix == ".png" else {"Creator": "Breeze benchmark report", "Date": None})
@@ -242,6 +305,13 @@ COMPARISON_NOTES = dict(
 )
 
 
+def rerun_note(machine):
+    if machine != "fir" or fir_nonhydrostatic_nccl() is None:
+        return ""
+    return ("\nNonhydrostatic 1–2 GPUs: NCCL rerun without Nsight or NVTX, median of three 100-step launches;"
+            "\nnonhydrostatic 4–16 GPUs: MPI suite, normalized to the suite's own 1-GPU time.")
+
+
 def comparison_figures(machine, breeze_curves, oceananigans_curves, gpu_counts, gpu_name):
     """Three cross-code figure sets for one machine; GPU types are never mixed in one figure."""
     curves = dict(breeze_curves + oceananigans_curves)
@@ -256,7 +326,7 @@ def comparison_figures(machine, breeze_curves, oceananigans_curves, gpu_counts, 
                 "Blue = Breeze, orange = Oceananigans · CE = compressible explicit, CSE = compressible split-explicit")
     footer = (notes["breeze"] + "\n"
               f"Oceananigans ({OCEANANIGANS_SERIES[machine][1]}): Float64 rectilinear buoyancy, WENO5, Δt = 10 s, "
-              "median of five 10-step windows.\n"
+              "median of five 10-step windows." + rerun_note(machine) + "\n"
               "Workloads differ, so compare scaling shapes, not absolute speed." + pending)
     return [
         (f"by_code_weak_efficiency_{machine}", [
@@ -299,7 +369,8 @@ def main():
             continue
         figures.append((f"oceananigans_weak_efficiency_{machine}", curves, counts, gpu,
                         f"Oceananigans weak scaling on {machine.capitalize()}",
-                        "Partitions N×1 · Float64 rectilinear buoyancy, WENO5 · Δt = 10 s · median of five 10-step windows",
+                        "Partitions N×1 · Float64 rectilinear buoyancy, WENO5 · Δt = 10 s · median of five 10-step windows"
+                        + rerun_note(machine),
                         OCEANANIGANS_SERIES[machine][1]))
     rows = []
     for stem, curves, counts, gpu, title, footer, communication in figures:
@@ -308,9 +379,12 @@ def main():
     for stem, panels, title, subtitle, footer, counts, gpu in comparisons:
         draw_comparison(panels, counts, gpu, title, subtitle, footer, stem)
     with (HERE / "weak_efficiency.csv").open("w") as stream:
-        writer = csv.DictWriter(stream, fieldnames=rows[0].keys(), lineterminator="\n")
+        # Rerun points carry a timing range and source; other rows leave those columns empty.
+        fieldnames = list(dict.fromkeys(key for row in rows for key in row))
+        writer = csv.DictWriter(stream, fieldnames=fieldnames, restval="", lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
+    update_readme(fir_nonhydrostatic_nccl())
     for stem, *_ in figures + comparisons:
         print(stem)
 

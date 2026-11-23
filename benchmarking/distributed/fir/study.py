@@ -1,4 +1,4 @@
-"""Prepare, submit, run, and retain the agreed Fir MPI weak-scaling series."""
+"""Prepare, submit, run, and retain Fir weak-scaling series (no Nsight or NVTX)."""
 import argparse
 import hashlib
 import json
@@ -19,12 +19,53 @@ DYNAMICS = ("anelastic", "compressible_explicit", "compressible_splitexplicit")
 GPU_COUNTS = (1, 2, 4, 8, 16)
 CASE_SECONDS = 3000
 
+# Each series fixes its workload. `time_step(count)` gives Δt in seconds; `node_gpus` maps an active
+# GPU count to a larger per-node reservation (two ranks on a full node keep every GPU visible, see
+# results/fir/weak_scaling_mpi_2026-11-12_nx1/recovery.md); `post_finalize` names scripts rerun after
+# publication. Plans written before series existed carry none of the optional case fields; their
+# defaults below reproduce that series exactly.
+SERIES = {
+    "breeze_mpi_nx1": dict(
+        dynamics=DYNAMICS, gpu_counts=GPU_COUNTS, backend="MPI", float_type="Float32",
+        time_step=lambda count: 0.01 / count, timed_steps=500, repeats=1, node_gpus={},
+        title="Fir MPI weak scaling: anelastic, CE, CSE", post_finalize=()),
+    "oceananigans_nonhydrostatic_nccl": dict(
+        dynamics=("oceananigans_nonhydrostatic",), gpu_counts=(1, 2), backend="NCCL", float_type="Float64",
+        time_step=lambda count: 10.0, timed_steps=100, repeats=3, node_gpus={2: 4},
+        title="Fir NCCL weak scaling: Oceananigans nonhydrostatic, 1 and 2 GPUs",
+        post_finalize=("benchmarking/results/weak_scaling_efficiency_2026-11-15",)),
+}
+CASE_DEFAULTS = dict(float_type="Float32", timed_steps=500, repeat=1)
 
-def build_plan():
-    return [dict(id=f"{dynamics}_{'SERIAL' if count == 1 else 'MPI'}_{count}g_{count}x1",
-                 dynamics=dynamics, gpus=count, size=f"{512 * count}x512x512",
-                 partition=f"{count}x1", backend="MPI", time_step=0.01 / count)
-            for count in GPU_COUNTS for dynamics in DYNAMICS]
+
+def build_plan(series="breeze_mpi_nx1"):
+    settings = SERIES[series]
+    plan = []
+    for count in settings["gpu_counts"]:
+        for dynamics in settings["dynamics"]:
+            backend = "SERIAL" if count == 1 else settings["backend"]
+            for repeat in range(1, settings["repeats"] + 1):
+                suffix = f"_r{repeat}" if settings["repeats"] > 1 else ""
+                case = dict(id=f"{dynamics}_{backend}_{count}g_{count}x1{suffix}",
+                            dynamics=dynamics, gpus=count, size=f"{512 * count}x512x512",
+                            partition=f"{count}x1", backend=settings["backend"],
+                            time_step=settings["time_step"](count))
+                if series != "breeze_mpi_nx1":
+                    case.update(float_type=settings["float_type"], timed_steps=settings["timed_steps"], repeat=repeat)
+                plan.append(case)
+    return plan
+
+
+def case_setting(case, name):
+    return case.get(name, CASE_DEFAULTS[name])
+
+
+def study_series(study):
+    return read_json(study / "config.json").get("series", "breeze_mpi_nx1")
+
+
+def reserved_gpus_per_node(study, count):
+    return SERIES[study_series(study)]["node_gpus"].get(count)
 
 
 def read_json(path):
@@ -54,7 +95,7 @@ def validate_preflight_placement(output, count, node_gpus=None):
     return placements
 
 
-def prepare(study):
+def prepare(study, series):
     if study.exists():
         raise RuntimeError("Use a fresh study directory")
     if run_text(["git", "status", "--porcelain"], cwd=REPO).strip():
@@ -87,18 +128,21 @@ def prepare(study):
     (study / "provenance/setup.log").write_text((installed / "setup.log").read_text())
     config = dict(repository=str(REPO), source=str(source), environment=str(environment),
                   runtime=str(runtime), runtime_root=str(REPO / ".runtime"), machine="fir",
-                  prepared=timestamp(), warmup_steps=10, timed_steps=500, substeps=12,
-                  float_type="Float32", random_perturbation=False, simplified=False,
+                  prepared=timestamp(), series=series, warmup_steps=10,
+                  timed_steps=SERIES[series]["timed_steps"], repeats=SERIES[series]["repeats"], substeps=12,
+                  float_type=SERIES[series]["float_type"], backend=SERIES[series]["backend"],
+                  random_perturbation=False, simplified=False, nvtx=False, profile=False,
                   case_limit_seconds=CASE_SECONDS, allocation_limit="03:00:00")
+    plan = build_plan(series)
     write_json(study / "config.json", config)
-    write_json(study / "plan.json", build_plan())
+    write_json(study / "plan.json", plan)
     files = [path for path in source.rglob("*") if path.is_file()]
     files += list(environment.iterdir()) + [study / "plan.json", study / "config.json"]
     write_json(study / "provenance/hashes.json", {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in files})
-    write_json(study / "progress.json", dict(state="prepared", expected=len(build_plan()), validated=0, checked=timestamp()))
+    write_json(study / "progress.json", dict(state="prepared", expected=len(plan), validated=0, checked=timestamp()))
     generate_scripts(study)
     render_report(study)
-    print(f"Prepared {len(build_plan())} cases: {study}")
+    print(f"Prepared {len(plan)} cases: {study}")
 
 
 def script_prefix(config):
@@ -111,10 +155,13 @@ def script_prefix(config):
 def generate_scripts(study):
     config = read_json(study / "config.json")
     worker = Path(config["source"]) / "benchmarking/distributed/fir/study.py"
-    for count in GPU_COUNTS:
+    for count in SERIES[study_series(study)]["gpu_counts"]:
         directory = study / "allocations" / f"{count}g"
         directory.mkdir()
         command = ["python3", str(worker), "run-size", str(study), str(count)]
+        node_gpus = reserved_gpus_per_node(study, count)
+        if node_gpus:
+            command.append(f"--node-gpus={node_gpus}")
         (directory / "allocation.sh").write_text(script_prefix(config) + shlex.join(command) + "\n")
     command = ["python3", str(worker), "finalize", str(study), "--publish"]
     (study / "finalize.sh").write_text(script_prefix(config) + shlex.join(command) + "\n")
@@ -126,17 +173,20 @@ def submit(study):
         raise RuntimeError("Study already submitted; refusing duplicate jobs")
     submission = dict(submitted=timestamp(), jobs=[], state="submitting")
     write_json(study / "submission.json", submission)
-    for count in GPU_COUNTS:
+    series = study_series(study)
+    prefix = "breeze_mpi_" if series == "breeze_mpi_nx1" else series + "_"
+    for count in SERIES[series]["gpu_counts"]:
         directory = study / "allocations" / f"{count}g"
-        nodes, per_node = max(1, count // 4), min(4, count)
-        command = ["sbatch", "--parsable", "--account=def-fpoulin_gpu", "--job-name=breeze_mpi_" + str(count) + "g",
-                   "--nodes=" + str(nodes), "--ntasks=" + str(count), "--ntasks-per-node=" + str(per_node),
+        nodes = max(1, count // 4)
+        per_node = reserved_gpus_per_node(study, count) or min(4, count)
+        command = ["sbatch", "--parsable", "--account=def-fpoulin_gpu", "--job-name=" + prefix + str(count) + "g",
+                   "--nodes=" + str(nodes), "--ntasks=" + str(nodes * per_node), "--ntasks-per-node=" + str(per_node),
                    "--gpus-per-node=h100:" + str(per_node), "--cpus-per-task=8", "--mem=" + str(64 * per_node) + "G",
                    "--time=03:00:00", "--distribution=block:block", "--chdir=" + config_path(study, "repository"),
                    "--output=" + str(directory / "slurm-%j.out"), str(directory / "allocation.sh")]
         (directory / "submission_command.sh").write_text(shlex.join(command) + "\n")
         job = run_text(command).strip().split(";")[0]
-        submission["jobs"].append(dict(gpus=count, job_id=job, command=command))
+        submission["jobs"].append(dict(gpus=count, reserved_gpus_per_node=per_node, job_id=job, command=command))
         write_json(study / "submission.json", submission)
         print(f"Submitted {count} GPUs: {job}", flush=True)
     dependency = "afterany:" + ":".join(item["job_id"] for item in submission["jobs"])
@@ -160,24 +210,26 @@ def case_command(case, study, node_gpus=None):
     source = Path(config["source"])
     directory = study / "cases" / case["id"]
     count = case["gpus"]
+    float_type = case_setting(case, "float_type")
     return ["srun", "--mpi=pmix", "--exact", "--kill-on-bad-exit=1", "--time=00:50:00", "--cpu-bind=none",
             "--gpus-per-node=h100:" + str(node_gpus or min(4, count)), "--gpu-bind=none", "--distribution=block:block", "--nodes=" + str(max(1, count // 4)),
             "--ntasks=" + str(count), "--ntasks-per-node=" + str(min(4, count)),
             "bash", str(source / "benchmarking/distributed/rorqual/rank.sh"), str(directory),
             "julia", "--startup-file=no", "--threads=1", "--project=" + config["environment"],
             str(source / "benchmarking/distributed/distributed_cbl_benchmark.jl"),
-            "--dynamics=" + case["dynamics"], "--comm=MPI", "--size=" + case["size"],
-            "--partition=" + case["partition"], "--float_type=Float32", "--simplified=false",
+            "--dynamics=" + case["dynamics"], "--comm=" + case["backend"], "--size=" + case["size"],
+            "--partition=" + case["partition"], "--float_type=" + float_type, "--simplified=false",
             "--random_perturbation=false", "--time_step=" + str(case["time_step"]),
-            "--warmup_steps=10", "--time_steps=500", "--substeps=12", "--profile=false", "--nvtx=false",
+            "--warmup_steps=10", "--time_steps=" + str(case_setting(case, "timed_steps")), "--substeps=12",
+            "--profile=false", "--nvtx=false",
             "--results_file=" + str(directory / "measurement.csv")]
 
 
 def validate_measurement(case, directory, returncode):
-    row = validate(case, directory, returncode)
+    row = validate(case, directory, returncode, expected_steps=case_setting(case, "timed_steps"))
     dimensions = tuple(map(int, case["size"].split("x")))
     if (row["dynamics"], row["float"], *(int(row[key]) for key in ("Nx", "Ny", "Nz", "Rx", "Ry"))) != (
-            case["dynamics"], "Float32", *dimensions, case["gpus"], 1):
+            case["dynamics"], case_setting(case, "float_type"), *dimensions, case["gpus"], 1):
         raise RuntimeError("Measurement dynamics, precision, grid, or partition differs from plan")
     maximum_velocity = float(row["max_abs_w"])
     if not math.isfinite(maximum_velocity) or maximum_velocity < 0:
@@ -213,6 +265,7 @@ def run_case(study, case, node_gpus=None):
 
 def run_size(study, count, node_gpus=None):
     check_sources(study)
+    node_gpus = node_gpus or reserved_gpus_per_node(study, count)
     directory = study / "allocations" / f"{count}g"
     allocation = dict(job_id=os.environ["SLURM_JOB_ID"], gpus=count, reserved_gpus_per_node=node_gpus or min(4, count), started=timestamp(), state="running", cases=[])
     write_json(directory / "status.json", allocation)
@@ -318,17 +371,36 @@ def finalize(study, publish):
         subprocess.run(["git", "add", "--force", "--", relative], cwd=repository, check=True)
         subprocess.run(["git", "diff", "--cached", "--check", "--", relative], cwd=repository, check=True)
         if subprocess.run(["git", "diff", "--cached", "--quiet", "--", relative], cwd=repository).returncode:
-            subprocess.run(["git", "commit", "-m", f"Record Fir MPI weak scaling: {validated}/{len(plan)} cases validated", "--", relative], cwd=repository, check=True)
+            title = SERIES[study_series(study)]["title"].split(":")[0]
+            subprocess.run(["git", "commit", "-m", f"Record {title}: {validated}/{len(plan)} cases validated", "--", relative], cwd=repository, check=True)
             subprocess.run(["git", "push"], cwd=repository, check=True)
+        if validated == len(plan):
+            post_finalize(study, repository)
     print(f"Final validation: {validated}/{len(plan)} cases")
     return 0 if validated == len(plan) else 1
+
+
+def post_finalize(study, repository):
+    """Regenerate dependent reports from the live checkout, then commit and push them."""
+    for folder in SERIES[study_series(study)]["post_finalize"]:
+        directory = repository / folder
+        subprocess.run([sys.executable, str(directory / "plot_weak_efficiency.py")], cwd=repository, check=True)
+        subprocess.run(["git", "add", "--force", "--", folder], cwd=repository, check=True)
+        subprocess.run(["git", "diff", "--cached", "--check", "--", folder], cwd=repository, check=True)
+        if subprocess.run(["git", "diff", "--cached", "--quiet", "--", folder], cwd=repository).returncode:
+            message = f"Update weak-scaling efficiency figures from {study.name}"
+            subprocess.run(["git", "commit", "-m", message, "--", folder], cwd=repository, check=True)
+            subprocess.run(["git", "push"], cwd=repository, check=True)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="action", required=True)
-    for name in ("prepare", "submit", "report"):
+    for name in ("submit", "report"):
         commands.add_parser(name).add_argument("study", type=Path)
+    preparation = commands.add_parser("prepare")
+    preparation.add_argument("study", type=Path)
+    preparation.add_argument("--series", choices=sorted(SERIES), default="breeze_mpi_nx1")
     worker = commands.add_parser("run-size")
     worker.add_argument("study", type=Path)
     worker.add_argument("count", type=int, choices=GPU_COUNTS)
@@ -339,7 +411,7 @@ def main():
     arguments = parser.parse_args()
     study = arguments.study.resolve()
     if arguments.action == "prepare":
-        prepare(study)
+        prepare(study, arguments.series)
     elif arguments.action == "submit":
         submit(study)
     elif arguments.action == "run-size":

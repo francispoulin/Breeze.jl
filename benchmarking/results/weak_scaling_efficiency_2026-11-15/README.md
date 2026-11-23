@@ -56,6 +56,22 @@ distributed FFT pressure solver. Times are the median of five ten-step windows (
 | 8 | 88.5% | 19.2% |
 | 16 | 88.6% | 14.4% |
 
+### Fir nonhydrostatic rerun without profiling (NCCL)
+
+The suite's two-GPU nonhydrostatic point (40%) used MPI. The 1- and 2-GPU cases are rerun as a pure
+performance benchmark, with no Nsight capture and no NVTX instrumentation, using NCCL for halos and the
+FFT transposes: Breeze's driver (`--dynamics=oceananigans_nonhydrostatic --comm=NCCL --profile=false
+--nvtx=false`), the same Float64 workload, 10 warmup and 100 timed steps, three launches per case, median
+of the slowest rank. Study: [fir/oceananigans_nonhydrostatic_nccl_2026-11-23](../fir/oceananigans_nonhydrostatic_nccl_2026-11-23/README.md).
+Once it validates, the Fir figures take their nonhydrostatic 1- and 2-GPU points from it; the 4–16 GPU
+points remain the MPI suite, normalized to the suite's own one-GPU time, and each Fir figure's footer says so.
+
+<!-- fir-nonhydrostatic-nccl -->
+
+Status: **PENDING**; the figures still use the MPI suite at every GPU count.
+
+<!-- /fir-nonhydrostatic-nccl -->
+
 The Breeze and Oceananigans workloads differ (Float32 atmosphere vs Float64 ocean
 buoyancy case), so the figures compare each code's scaling, not their absolute speed.
 

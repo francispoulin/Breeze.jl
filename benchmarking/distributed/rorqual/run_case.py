@@ -45,7 +45,7 @@ def check_sources(study):
             raise RuntimeError(f"Frozen source/environment changed: {name}")
 
 
-def validate(case, directory, returncode):
+def validate(case, directory, returncode, expected_steps=500):
     if returncode:
         raise RuntimeError(f"srun failed with exit code {returncode}")
     placements = set()
@@ -74,7 +74,7 @@ def validate(case, directory, returncode):
     expected_backend = "SERIAL" if case["gpus"] == 1 else case["backend"]
     if row["fields_finite"] != "true" or row["communication"] != expected_backend:
         raise RuntimeError("Invalid finite-field/backend measurement")
-    if int(row["steps"]) != 500 or int(row["gpus"]) != case["gpus"]:
+    if int(row["steps"]) != expected_steps or int(row["gpus"]) != case["gpus"]:
         raise RuntimeError("Wrong number of steps or GPUs")
     if not all(math.isfinite(float(row[key])) and float(row[key]) > 0 for key in ("seconds_per_step", "points_per_second")):
         raise RuntimeError("Invalid timing")

@@ -55,6 +55,61 @@ class StudyTests(unittest.TestCase):
                          "--gpus-per-node=h100:4", "--gpu-bind=none"):
             self.assertIn(argument, command)
 
+    def test_oceananigans_nonhydrostatic_nccl_series(self):
+        plan = build_plan("oceananigans_nonhydrostatic_nccl")
+        self.assertEqual([case["id"] for case in plan], [
+            "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1", "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2",
+            "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3", "oceananigans_nonhydrostatic_NCCL_2g_2x1_r1",
+            "oceananigans_nonhydrostatic_NCCL_2g_2x1_r2", "oceananigans_nonhydrostatic_NCCL_2g_2x1_r3"])
+        (self.directory / "config.json").write_text(json.dumps(dict(source="/source", environment="/environment")))
+        command = case_command(plan[-1], self.directory, node_gpus=4)
+        for argument in ("--dynamics=oceananigans_nonhydrostatic", "--comm=NCCL", "--float_type=Float64",
+                         "--time_step=10.0", "--time_steps=100", "--warmup_steps=10", "--size=1024x512x512",
+                         "--partition=2x1", "--ntasks=2", "--gpus-per-node=h100:4", "--profile=false", "--nvtx=false"):
+            self.assertIn(argument, command)
+        self.assertFalse(any("nvtx=true" in argument or "profile=true" in argument for argument in command))
+
+    def test_nccl_series_validates_its_own_workload(self):
+        case = build_plan("oceananigans_nonhydrostatic_nccl")[-1]
+        for rank in range(2):
+            path = self.directory / f"rank_{rank}.log"
+            path.write_text(path.read_text().replace("communicator=Comm", "communicator=NCCLCommunicator"))
+        self.row.update(dynamics="oceananigans_nonhydrostatic", float="Float64", communication="NCCL", steps=100)
+        self.write_measurement()
+        self.assertEqual(validate_measurement(case, self.directory, 0)["communication"], "NCCL")
+        for key, value in (("steps", 500), ("float", "Float32"), ("communication", "MPI")):
+            with self.subTest(key=key):
+                previous = self.row[key]
+                self.row[key] = value
+                self.write_measurement()
+                with self.assertRaises(RuntimeError):
+                    validate_measurement(case, self.directory, 0)
+                self.row[key] = previous
+
+    def test_report_uses_median_of_repeats(self):
+        plan = build_plan("oceananigans_nonhydrostatic_nccl")
+        (self.directory / "plan.json").write_text(json.dumps(plan))
+        (self.directory / "config.json").write_text(json.dumps(dict(series="oceananigans_nonhydrostatic_nccl", repeats=3)))
+        times = [0.30, 0.32, 0.31, 0.50, 0.40, 0.45]
+        for case, seconds in zip(plan, times):
+            directory = self.directory / "cases" / case["id"]
+            directory.mkdir(parents=True)
+            row = dict(self.row, dynamics=case["dynamics"], float="Float64", gpus=case["gpus"],
+                       communication="SERIAL" if case["gpus"] == 1 else "NCCL",
+                       seconds_per_step=seconds, points_per_second=1 / seconds, points_per_second_per_gpu=1 / seconds / case["gpus"])
+            (directory / "status.json").write_text(json.dumps(dict(state="validated", measurement=row)))
+        report(self.directory)
+        with (self.directory / "comparison.csv").open() as handle:
+            rows = list(csv.DictReader(handle))
+        self.assertEqual([int(row["gpus"]) for row in rows], [1, 2])
+        self.assertAlmostEqual(float(rows[0]["seconds_per_step"]), 0.31)
+        self.assertAlmostEqual(float(rows[1]["seconds_per_step"]), 0.45)
+        self.assertAlmostEqual(float(rows[1]["weak_efficiency_percent"]), 100 * 0.31 / 0.45)
+        self.assertEqual((float(rows[1]["seconds_per_step_min"]), float(rows[1]["seconds_per_step_max"])), (0.40, 0.50))
+        readme = (self.directory / "README.md").read_text()
+        self.assertIn("6/6 cases validated", readme)
+        self.assertIn("no Nsight capture and no NVTX instrumentation", readme)
+
     def test_preflight_rejects_shared_or_missing_devices(self):
         output = "PREFLIGHT rank=0 host=node gpu_uuid=gpu0 devices=2\nPREFLIGHT rank=1 host=node gpu_uuid=gpu1 devices=2\n"
         self.assertEqual(len(validate_preflight_placement(output, 2)), 2)

@@ -71,3 +71,21 @@ stay under `.runtime`:
 ```bash
 python3 -m unittest discover -s benchmarking/distributed/fir -p 'test_*.py' -v
 ```
+
+## Other series
+
+`prepare --series=NAME` selects a workload from `SERIES` in `study.py`; the default,
+`breeze_mpi_nx1`, is the series above. `oceananigans_nonhydrostatic_nccl` is a pure performance
+benchmark of Oceananigans' `NonhydrostaticModel` (`--dynamics=oceananigans_nonhydrostatic`,
+Float64, Δt = 10 s) on 1 and 2 GPUs with NCCL, 10 warmup and 100 timed steps, three launches
+per case, and no Nsight or NVTX (`--profile=false --nvtx=false`). Its two-GPU allocation reserves
+a full node, as in the recovery above. After all cases validate, the finalizer reruns
+`benchmarking/results/weak_scaling_efficiency_2026-11-15/plot_weak_efficiency.py` and commits the
+updated Fir efficiency figures and README.
+
+```bash
+source benchmarking/distributed/fir/environment.sh
+study="$BREEZE_ROOT/benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23"
+python3 benchmarking/distributed/fir/study.py prepare "$study" --series=oceananigans_nonhydrostatic_nccl
+python3 benchmarking/distributed/fir/study.py submit "$study"
+```
