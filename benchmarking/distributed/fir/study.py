@@ -113,7 +113,8 @@ def prepare(study, series):
     (study / "provenance/source_commit.txt").write_text(run_text(["git", "rev-parse", "HEAD"], cwd=REPO))
     paths = ["src", "ext", "Project.toml", "AGENTS.md", "benchmarking/src",
              "benchmarking/distributed/fir", "benchmarking/distributed/rorqual/run_case.py",
-             "benchmarking/distributed/rorqual/rank.sh", "benchmarking/distributed/distributed_cbl_benchmark.jl"]
+             "benchmarking/distributed/rorqual/rank.sh", "benchmarking/distributed/distributed_cbl_benchmark.jl",
+             "benchmarking/distributed/oceananigans_rectilinear_buoyancy.jl"]
     if (REPO / "Artifacts.toml").exists():
         paths.append("Artifacts.toml")
     archive = study / "provenance/source.tar.gz"
