@@ -1,6 +1,6 @@
 # Fir NCCL weak scaling: Oceananigans nonhydrostatic, 1 and 2 GPUs
 
-Status: **INCOMPLETE; 3/6 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
+Status: **VALIDATED; 6/6 cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.
 
 Oceananigans `NonhydrostaticModel` from the suite `rectilinear_buoyancy` workload, run by
 `distributed_cbl_benchmark.jl --dynamics=oceananigans_nonhydrostatic`: Float64 RectilinearGrid, periodic x/y,
@@ -29,17 +29,20 @@ An after-any CPU finalizer retains results and plots even if a GPU allocation fa
 
 Finalizer job: 5468406. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/).
 
-Recovery allocations: 1 GPUs: job 5641460. See [recovery notes](recovery.md).
+Recovery allocations: 1 GPUs: job 5641460, 1 GPUs: job 5648886. See [recovery notes](recovery.md).
+
+Job 5648886 reserves 4 GPUs on one node and uses 1 active GPUs; the unused GPUs do not contribute to the measured grid or throughput.
 
 | Dynamics | GPUs | Repeats | Median s/step | Min–max s/step | Points/s/GPU | Weak efficiency (%) |
 |---|---:|---:|---:|---|---:|---:|
-| Oceananigans nonhydrostatic | 2 | 3 | 0.3506 | 0.3504–0.3507 | 3.829e+08 |  |
+| Oceananigans nonhydrostatic | 1 | 3 | 0.1984 | 0.1984–0.1985 | 6.765e+08 | 100.0 |
+| Oceananigans nonhydrostatic | 2 | 3 | 0.3506 | 0.3504–0.3507 | 3.829e+08 | 56.6 |
 
 | Case | GPUs | State | s/step | Evidence / error |
 |---|---:|---|---:|---|
-| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1 | 1 | not_run |  | Allocation ended before this case produced evidence |
-| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2 | 1 | not_run |  | Allocation ended before this case produced evidence |
-| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3 | 1 | not_run |  | Allocation ended before this case produced evidence |
+| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1 | 1 | validated | 1.983635e-01 | [case files](cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1/) |
+| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2 | 1 | validated | 1.985405e-01 | [case files](cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2/) |
+| oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3 | 1 | validated | 1.984105e-01 | [case files](cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3/) |
 | oceananigans_nonhydrostatic_NCCL_2g_2x1_r1 | 2 | validated | 3.507307e-01 | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/) |
 | oceananigans_nonhydrostatic_NCCL_2g_2x1_r2 | 2 | validated | 3.504498e-01 | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/) |
 | oceananigans_nonhydrostatic_NCCL_2g_2x1_r3 | 2 | validated | 3.505576e-01 | [case files](cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/) |

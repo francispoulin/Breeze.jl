@@ -1,0 +1,22 @@
+{
+  "job_id": "5648886",
+  "gpus": 1,
+  "reserved_gpus_per_node": 4,
+  "started": "2026-11-24T05:17:51.889458+00:00",
+  "state": "validated",
+  "cases": [
+    {
+      "id": "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1",
+      "validated": true
+    },
+    {
+      "id": "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2",
+      "validated": true
+    },
+    {
+      "id": "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3",
+      "validated": true
+    }
+  ],
+  "finished": "2026-11-24T05:25:02.359188+00:00"
+}

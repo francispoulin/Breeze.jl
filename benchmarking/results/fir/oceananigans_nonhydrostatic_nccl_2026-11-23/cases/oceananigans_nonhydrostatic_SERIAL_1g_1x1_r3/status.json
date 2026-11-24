@@ -1,0 +1,38 @@
+{
+  "case": {
+    "id": "oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3",
+    "dynamics": "oceananigans_nonhydrostatic",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "NCCL",
+    "time_step": 10.0,
+    "float_type": "Float64",
+    "timed_steps": 100,
+    "repeat": 3
+  },
+  "state": "validated",
+  "started": "2026-11-24T05:23:37.039127+00:00",
+  "job_id": "5648886",
+  "measurement": {
+    "machine": "fc10417",
+    "dynamics": "oceananigans_nonhydrostatic",
+    "float": "Float64",
+    "Nx": "512",
+    "Ny": "512",
+    "Nz": "512",
+    "Rx": "1",
+    "Ry": "1",
+    "gpus": "1",
+    "steps": "100",
+    "seconds_per_step": "1.984105e-01",
+    "points_per_second": "6.764648e+08",
+    "max_abs_w": "1.354208e-05",
+    "communication": "SERIAL",
+    "fields_finite": "true",
+    "points_per_second_per_gpu": 676464800.0,
+    "max_final_device_memory_bytes": 20592066560,
+    "max_sampled_process_memory_mib": 20690.0
+  },
+  "finished": "2026-11-24T05:25:02.348630+00:00"
+}
