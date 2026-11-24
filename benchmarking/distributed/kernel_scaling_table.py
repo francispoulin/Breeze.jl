@@ -1,8 +1,10 @@
 """Compare GPU kernel time per time step between two NVTX/Nsight cases, such as 1 and 2 GPUs.
 
-Usage: python3 kernel_scaling_table.py analysis.json OUTPUT_PREFIX TITLE=BASE_CASE:SCALED_CASE ...
+Usage: python3 kernel_scaling_table.py ANALYSIS[,ANALYSIS...] OUTPUT_PREFIX TITLE=BASE_CASE:SCALED_CASE ...
 
-Reads the per-rank kernel totals that analyze_nvtx.py wrote to analysis.json. Time per step is
+Reads the per-rank kernel totals that analyze_nvtx.py wrote to analysis.json. Several
+comma-separated analysis.json files (case names must be unique) put comparisons from different
+campaigns in one table file. Time per step is
 the summed duration of all launches of a kernel divided by the captured steps. For a case with
 several ranks each kernel uses its slowest rank, as weak-scaling efficiency does. Columns:
 difference = scaled - base (ms and % of base) and weak-scaling efficiency = 100 × base / scaled.
@@ -40,7 +42,7 @@ def signed(value, digits=3, suffix=""):
 
 
 def main():
-    analysis = json.loads(Path(sys.argv[1]).read_text())
+    analysis = [record for path in sys.argv[1].split(",") for record in json.loads(Path(path).read_text())]
     prefix = Path(sys.argv[2])
     by_case = {}
     for record in analysis:
@@ -51,7 +53,7 @@ def main():
              "over the captured steps. Multi-rank cases use each kernel's slowest rank.",
              "Difference = scaled − base. Efficiency = 100 × base / scaled (weak scaling: 100% means",
              "the kernel takes as long with the same work per GPU). A dash marks a kernel that only",
-             "one case launches. Rows are sorted by the scaled case's time.", ""]
+             "one case launches. Rows are sorted by the scaled case's time, then the base case's.", ""]
     rows = []
     for argument in sys.argv[3:]:
         title, cases = argument.split("=", 1)
@@ -62,7 +64,7 @@ def main():
                   f"| Kernel | Launches/step {base_ranks}→{scaled_ranks} GPU | {base_ranks} GPU ms/step | "
                   f"{scaled_ranks} GPU ms/step | Difference ms | Difference % | Efficiency % |",
                   "|---|---|---|---|---|---|---|"]
-        names = sorted(set(base) | set(scaled), key=lambda n: -max(scaled.get(n, (0,))[0], 0.0))
+        names = sorted(set(base) | set(scaled), key=lambda n: (-scaled.get(n, (0.0,))[0], -base.get(n, (0.0,))[0], n))
         entries = [(name, base.get(name), scaled.get(name)) for name in names]
         entries.append(("**All kernels**", (base_total, base_launches), (scaled_total, scaled_launches)))
         for name, one, two in entries:
