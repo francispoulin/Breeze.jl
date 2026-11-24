@@ -13,7 +13,8 @@
         "ranges": 740,
         "gpu_uuid": "b52a0bc3-fd12-3de7-078f-8715ec9c123b"
       }
-    ]
+    ],
+    "state": "COMPLETE"
   },
   {
     "case": "compressible_explicit_SERIAL_1g_1x1",
@@ -29,7 +30,8 @@
         "ranges": 740,
         "gpu_uuid": "b52a0bc3-fd12-3de7-078f-8715ec9c123b"
       }
-    ]
+    ],
+    "state": "COMPLETE"
   },
   {
     "case": "anelastic_NCCL_4g_4x1",
@@ -75,7 +77,8 @@
         "ranges": 6740,
         "gpu_uuid": "26ed098b-d266-05d4-651a-8ad41117b450"
       }
-    ]
+    ],
+    "state": "COMPLETE"
   },
   {
     "case": "compressible_explicit_NCCL_4g_4x1",
@@ -121,7 +124,8 @@
         "ranges": 7040,
         "gpu_uuid": "bd50e177-5655-dfac-437d-3441389e0ac1"
       }
-    ]
+    ],
+    "state": "COMPLETE"
   },
   {
     "case": "anelastic_NCCL_8g_8x1",
@@ -207,7 +211,8 @@
         "ranges": 7221,
         "gpu_uuid": "af36ae9b-83af-99f7-7c6e-841070682729"
       }
-    ]
+    ],
+    "state": "COMPLETE"
   },
   {
     "case": "compressible_explicit_NCCL_8g_8x1",
@@ -293,6 +298,7 @@
         "ranges": 7040,
         "gpu_uuid": "af36ae9b-83af-99f7-7c6e-841070682729"
       }
-    ]
+    ],
+    "state": "COMPLETE"
   }
 ]

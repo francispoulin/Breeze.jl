@@ -1,6 +1,6 @@
 # Rorqual NVTX Nsight: anelastic and CE on 1, 4, and 8 GPUs (NCCL)
 
-Status: **INCOMPLETE**; 6/6 cases validated.
+Status: **COMPLETE**; 6/6 cases validated.
 
 Breeze AnelasticDynamics and CompressibleDynamics(ExplicitTimeStepping()), full dry CBL on the fixed
 12 km × 12 km × 3 km domain, Float32, WENO5, deterministic (sine) perturbation, 512³ cells per H100.
@@ -35,6 +35,43 @@ A failed attempt is kept in rejected_attempts/ (reports under the raw directory'
 excluded from the analysis; the retry runs the frozen `run_case` in a new allocation.
 
 - compressible_explicit_NCCL_4g_4x1: job 27565760; rejected attempt(s) compressible_explicit_NCCL_4g_4x1_job27556565. Reason: nsys exited 14 s after launch with "Failed to find session: profile-<pid>" on three ranks (rank 1 exit 1) immediately after the previous srun step on the same node; no model code ran
+
+## Trace summary per rank
+
+| Case | Rank | Trace s/step | Kernel ms/step | Launches/step | GPU active fraction | Halo kernel fraction | Solve kernel fraction |
+|---|---|---|---|---|---|---|---|
+| anelastic_SERIAL_1g_1x1 | 0 | 0.1479 | 147.5 | 239 | 0.997 | 0.036 | 0.140 |
+| compressible_explicit_SERIAL_1g_1x1 | 0 | 0.1361 | 135.8 | 231 | 0.997 | 0.046 | 0.000 |
+| anelastic_NCCL_4g_4x1 | 0 | 0.2505 | 249.0 | 473 | 0.993 | 0.063 | 0.447 |
+| anelastic_NCCL_4g_4x1 | 1 | 0.2506 | 249.0 | 473 | 0.993 | 0.063 | 0.447 |
+| anelastic_NCCL_4g_4x1 | 2 | 0.2512 | 249.7 | 473 | 0.993 | 0.065 | 0.446 |
+| anelastic_NCCL_4g_4x1 | 3 | 0.2501 | 249.0 | 473 | 0.995 | 0.062 | 0.447 |
+| compressible_explicit_NCCL_4g_4x1 | 0 | 0.1485 | 149.0 | 465 | 0.993 | 0.117 | 0.000 |
+| compressible_explicit_NCCL_4g_4x1 | 1 | 0.1487 | 149.5 | 465 | 0.995 | 0.124 | 0.000 |
+| compressible_explicit_NCCL_4g_4x1 | 2 | 0.1488 | 149.1 | 465 | 0.992 | 0.123 | 0.000 |
+| compressible_explicit_NCCL_4g_4x1 | 3 | 0.1500 | 150.2 | 465 | 0.992 | 0.127 | 0.000 |
+| anelastic_NCCL_8g_8x1 | 0 | 0.7803 | 778.6 | 473 | 0.997 | 0.047 | 0.798 |
+| anelastic_NCCL_8g_8x1 | 1 | 0.7797 | 777.9 | 473 | 0.997 | 0.045 | 0.799 |
+| anelastic_NCCL_8g_8x1 | 2 | 0.7803 | 778.3 | 473 | 0.997 | 0.047 | 0.798 |
+| anelastic_NCCL_8g_8x1 | 3 | 0.7800 | 778.0 | 473 | 0.997 | 0.040 | 0.804 |
+| anelastic_NCCL_8g_8x1 | 4 | 0.8191 | 817.3 | 473 | 0.997 | 0.093 | 0.760 |
+| anelastic_NCCL_8g_8x1 | 5 | 0.8191 | 817.3 | 473 | 0.997 | 0.091 | 0.761 |
+| anelastic_NCCL_8g_8x1 | 6 | 0.8186 | 817.2 | 473 | 0.998 | 0.091 | 0.761 |
+| anelastic_NCCL_8g_8x1 | 7 | 0.8200 | 813.5 | 473 | 0.992 | 0.088 | 0.763 |
+| compressible_explicit_NCCL_8g_8x1 | 0 | 0.1658 | 165.7 | 465 | 0.993 | 0.214 | 0.000 |
+| compressible_explicit_NCCL_8g_8x1 | 1 | 0.1662 | 165.9 | 465 | 0.992 | 0.219 | 0.000 |
+| compressible_explicit_NCCL_8g_8x1 | 2 | 0.1646 | 164.4 | 465 | 0.993 | 0.213 | 0.000 |
+| compressible_explicit_NCCL_8g_8x1 | 3 | 0.1652 | 165.0 | 465 | 0.993 | 0.213 | 0.000 |
+| compressible_explicit_NCCL_8g_8x1 | 4 | 0.1719 | 172.2 | 465 | 0.996 | 0.244 | 0.000 |
+| compressible_explicit_NCCL_8g_8x1 | 5 | 0.1716 | 171.9 | 465 | 0.996 | 0.243 | 0.000 |
+| compressible_explicit_NCCL_8g_8x1 | 6 | 0.1715 | 171.2 | 465 | 0.993 | 0.240 | 0.000 |
+| compressible_explicit_NCCL_8g_8x1 | 7 | 0.1724 | 172.3 | 465 | 0.993 | 0.244 | 0.000 |
+
+Fractions are of summed kernel time, attributed through CUDA launch correlation IDs to the
+enclosing `call/fill_halo_regions!` and `call/solve!` NVTX ranges. Per-phase totals: phases.csv.
+Per-kernel time per step: [kernels_per_step.md](kernels_per_step.md). Each multi-GPU case against
+the one-GPU case of the same dynamics (slowest rank, weak-scaling efficiency = 100 × T₁/Tₙ):
+[kernel_scaling.md](kernel_scaling.md).
 
 Finite-field checks on every rank establish a functional run, not field-by-field agreement with a
 serial solution. No plots are produced for Nsight runs.

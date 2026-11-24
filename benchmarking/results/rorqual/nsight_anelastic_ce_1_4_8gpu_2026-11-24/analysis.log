@@ -1,7 +1,26 @@
-Traceback (most recent call last):
-  File "/home/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_1_4_8gpu_2026-11-24/source/benchmarking/distributed/analyze_nvtx.py", line 168, in <module>
-    main()
-  File "/home/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_1_4_8gpu_2026-11-24/source/benchmarking/distributed/analyze_nvtx.py", line 131, in main
-    if case["state"] != "COMPLETE":
-       ~~~~^^^^^^^^^
-KeyError: 'state'
+anelastic_SERIAL_1g_1x1 0 kernels=2390 active=0.997 acoustic=0.000 halo=0.036 solve=0.140
+compressible_explicit_SERIAL_1g_1x1 0 kernels=2310 active=0.997 acoustic=0.000 halo=0.046 solve=0.000
+anelastic_NCCL_4g_4x1 0 kernels=4730 active=0.993 acoustic=0.000 halo=0.063 solve=0.447
+anelastic_NCCL_4g_4x1 1 kernels=4730 active=0.993 acoustic=0.000 halo=0.063 solve=0.447
+anelastic_NCCL_4g_4x1 2 kernels=4730 active=0.993 acoustic=0.000 halo=0.065 solve=0.446
+anelastic_NCCL_4g_4x1 3 kernels=4730 active=0.995 acoustic=0.000 halo=0.062 solve=0.447
+compressible_explicit_NCCL_4g_4x1 0 kernels=4650 active=0.993 acoustic=0.000 halo=0.117 solve=0.000
+compressible_explicit_NCCL_4g_4x1 1 kernels=4650 active=0.995 acoustic=0.000 halo=0.124 solve=0.000
+compressible_explicit_NCCL_4g_4x1 2 kernels=4650 active=0.992 acoustic=0.000 halo=0.123 solve=0.000
+compressible_explicit_NCCL_4g_4x1 3 kernels=4650 active=0.992 acoustic=0.000 halo=0.127 solve=0.000
+anelastic_NCCL_8g_8x1 0 kernels=4730 active=0.997 acoustic=0.000 halo=0.047 solve=0.798
+anelastic_NCCL_8g_8x1 1 kernels=4730 active=0.997 acoustic=0.000 halo=0.045 solve=0.799
+anelastic_NCCL_8g_8x1 2 kernels=4730 active=0.997 acoustic=0.000 halo=0.047 solve=0.798
+anelastic_NCCL_8g_8x1 3 kernels=4730 active=0.997 acoustic=0.000 halo=0.040 solve=0.804
+anelastic_NCCL_8g_8x1 4 kernels=4730 active=0.997 acoustic=0.000 halo=0.093 solve=0.760
+anelastic_NCCL_8g_8x1 5 kernels=4730 active=0.997 acoustic=0.000 halo=0.091 solve=0.761
+anelastic_NCCL_8g_8x1 6 kernels=4730 active=0.998 acoustic=0.000 halo=0.091 solve=0.761
+anelastic_NCCL_8g_8x1 7 kernels=4730 active=0.992 acoustic=0.000 halo=0.088 solve=0.763
+compressible_explicit_NCCL_8g_8x1 0 kernels=4650 active=0.993 acoustic=0.000 halo=0.214 solve=0.000
+compressible_explicit_NCCL_8g_8x1 1 kernels=4650 active=0.992 acoustic=0.000 halo=0.219 solve=0.000
+compressible_explicit_NCCL_8g_8x1 2 kernels=4650 active=0.993 acoustic=0.000 halo=0.213 solve=0.000
+compressible_explicit_NCCL_8g_8x1 3 kernels=4650 active=0.993 acoustic=0.000 halo=0.213 solve=0.000
+compressible_explicit_NCCL_8g_8x1 4 kernels=4650 active=0.996 acoustic=0.000 halo=0.244 solve=0.000
+compressible_explicit_NCCL_8g_8x1 5 kernels=4650 active=0.996 acoustic=0.000 halo=0.243 solve=0.000
+compressible_explicit_NCCL_8g_8x1 6 kernels=4650 active=0.993 acoustic=0.000 halo=0.240 solve=0.000
+compressible_explicit_NCCL_8g_8x1 7 kernels=4650 active=0.993 acoustic=0.000 halo=0.244 solve=0.000
