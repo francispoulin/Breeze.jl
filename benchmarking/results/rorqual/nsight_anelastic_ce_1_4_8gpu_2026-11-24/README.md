@@ -1,6 +1,6 @@
 # Rorqual NVTX Nsight: anelastic and CE on 1, 4, and 8 GPUs (NCCL)
 
-Status: **SUBMITTED**; 0/6 cases validated.
+Status: **INCOMPLETE**; 6/6 cases validated.
 
 Breeze AnelasticDynamics and CompressibleDynamics(ExplicitTimeStepping()), full dry CBL on the fixed
 12 km × 12 km × 3 km domain, Float32, WENO5, deterministic (sine) perturbation, 512³ cells per H100.
@@ -20,14 +20,21 @@ records CUDA, NVTX (Breeze host methods) and MPI for 10 steps
 
 | Case | State | Job | s/step (profiled) | Maximum absolute w | Note |
 |---|---|---|---|---|---|
-| anelastic_SERIAL_1g_1x1 | not_run |  |  |  |  |
-| compressible_explicit_SERIAL_1g_1x1 | not_run |  |  |  |  |
-| anelastic_NCCL_4g_4x1 | not_run |  |  |  |  |
-| compressible_explicit_NCCL_4g_4x1 | not_run |  |  |  |  |
-| anelastic_NCCL_8g_8x1 | not_run |  |  |  |  |
-| compressible_explicit_NCCL_8g_8x1 | not_run |  |  |  |  |
+| anelastic_SERIAL_1g_1x1 | validated | 27556564 | 5.133854e-01 | 6.429169e-05 |  |
+| compressible_explicit_SERIAL_1g_1x1 | validated | 27556564 | 4.227138e-01 | 2.102493e-03 |  |
+| anelastic_NCCL_4g_4x1 | validated | 27556565 | 1.330478e+00 | 3.400808e-05 |  |
+| compressible_explicit_NCCL_4g_4x1 | validated | 27565760 | 1.168097e+00 | 1.600049e-03 |  |
+| anelastic_NCCL_8g_8x1 | validated | 27556566 | 1.859660e+00 | 1.525665e-05 |  |
+| compressible_explicit_NCCL_8g_8x1 | validated | 27556566 | 1.188262e+00 | 1.065023e-03 |  |
 
 Profiled seconds per step include Nsight overhead; compare them only with other profiled runs.
+
+## Retried captures
+
+A failed attempt is kept in rejected_attempts/ (reports under the raw directory's rejected/) and
+excluded from the analysis; the retry runs the frozen `run_case` in a new allocation.
+
+- compressible_explicit_NCCL_4g_4x1: job 27565760; rejected attempt(s) compressible_explicit_NCCL_4g_4x1_job27556565. Reason: nsys exited 14 s after launch with "Failed to find session: profile-<pid>" on three ranks (rank 1 exit 1) immediately after the previous srun step on the same node; no model code ran
 
 Finite-field checks on every rank establish a functional run, not field-by-field agreement with a
 serial solution. No plots are produced for Nsight runs.

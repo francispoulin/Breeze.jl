@@ -1,0 +1,123 @@
+{
+  "case": {
+    "id": "compressible_explicit_NCCL_8g_8x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 8,
+    "size": "4096x512x512",
+    "partition": "8x1",
+    "backend": "NCCL",
+    "time_step": 0.00125,
+    "float_type": "Float32",
+    "timed_steps": 10
+  },
+  "state": "validated",
+  "started": "2026-11-24T23:15:53.376963+00:00",
+  "job_id": "27556566",
+  "measurement": {
+    "machine": "rg32001",
+    "dynamics": "compressible_explicit",
+    "float": "Float32",
+    "Nx": "4096",
+    "Ny": "512",
+    "Nz": "512",
+    "Rx": "8",
+    "Ry": "1",
+    "gpus": "8",
+    "steps": "10",
+    "seconds_per_step": "1.188262e+00",
+    "points_per_second": "9.036241e+08",
+    "max_abs_w": "1.065023e-03",
+    "communication": "NCCL",
+    "fields_finite": "true",
+    "points_per_second_per_gpu": 112953012.5,
+    "max_final_device_memory_bytes": 16632774656,
+    "max_sampled_process_memory_mib": 18100.0
+  },
+  "capture": {
+    "case": "compressible_explicit_NCCL_8g_8x1",
+    "steps": 10,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_0/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_0/profile.sqlite",
+        "bytes": 1187642,
+        "sha256": "abe51b0982386c46b7b54779b6a62db7d954fef39e236fe986a3d65461fa5059",
+        "kernels": 4650,
+        "ranges": 7040,
+        "gpu_uuid": "aa6472f0-deaf-00d0-7be8-8210c25f1412"
+      },
+      {
+        "rank": 1,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_1/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_1/profile.sqlite",
+        "bytes": 1172433,
+        "sha256": "134cc9db2a945cb515585ba369c846ab56d3ccaa85d3e09883884b6a476d608b",
+        "kernels": 4650,
+        "ranges": 7040,
+        "gpu_uuid": "f302e284-a374-b2ac-77d8-85c56ac86f7c"
+      },
+      {
+        "rank": 2,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_2/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_2/profile.sqlite",
+        "bytes": 1168223,
+        "sha256": "e4cf66a118d676b88e2c908e6bceba518b8b56d143ccacdd61417a19c3ddbfbd",
+        "kernels": 4650,
+        "ranges": 7040,
+        "gpu_uuid": "64882dcc-5752-7133-29c6-c30f253796ef"
+      },
+      {
+        "rank": 3,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_3/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_3/profile.sqlite",
+        "bytes": 1182782,
+        "sha256": "dab0b12bb87cdb161865c448d6733a8a1ef71275972f89e40a7c0ad39aa959cc",
+        "kernels": 4650,
+        "ranges": 7040,
+        "gpu_uuid": "bd50e177-5655-dfac-437d-3441389e0ac1"
+      },
+      {
+        "rank": 4,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_4/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_4/profile.sqlite",
+        "bytes": 1171027,
+        "sha256": "5eb2e816ff58e2ed279d907da04db76b3e1cb4fa0081948144f33aa78a096dd6",
+        "kernels": 4650,
+        "ranges": 7040,
+        "gpu_uuid": "5395473d-658b-5810-0f6d-56ae453fde3b"
+      },
+      {
+        "rank": 5,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_5/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_5/profile.sqlite",
+        "bytes": 1183356,
+        "sha256": "1e049acd0dfce890a57f37c2989ebb826ccfd1f62d07dc0bc4f63935de56fd0b",
+        "kernels": 4650,
+        "ranges": 7041,
+        "gpu_uuid": "c66d7e98-dc9c-ebeb-89d7-269ce1792e90"
+      },
+      {
+        "rank": 6,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_6/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_6/profile.sqlite",
+        "bytes": 1170036,
+        "sha256": "80eb75f0e2d6bbb47d65366180bc87be53c7bde9719bad1b195b8af23ea51c10",
+        "kernels": 4650,
+        "ranges": 7040,
+        "gpu_uuid": "1fea9aef-f7c4-7a12-99a5-7a011a28be44"
+      },
+      {
+        "rank": 7,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_7/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_7/profile.sqlite",
+        "bytes": 1161168,
+        "sha256": "0d82375c9826dbfed33105c8ab5cc5931dfa5dd1cd04fcfddedcd898e584e901",
+        "kernels": 4650,
+        "ranges": 7040,
+        "gpu_uuid": "af36ae9b-83af-99f7-7c6e-841070682729"
+      }
+    ]
+  },
+  "finished": "2026-11-24T23:18:40.009138+00:00"
+}

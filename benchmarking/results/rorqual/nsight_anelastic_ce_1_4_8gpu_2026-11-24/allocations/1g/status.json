@@ -1,0 +1,17 @@
+{
+  "job_id": "27556564",
+  "gpus": 1,
+  "started": "2026-11-24T22:03:14.084286+00:00",
+  "state": "validated",
+  "cases": [
+    {
+      "id": "anelastic_SERIAL_1g_1x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_explicit_SERIAL_1g_1x1",
+      "validated": true
+    }
+  ],
+  "finished": "2026-11-24T22:11:54.881226+00:00"
+}

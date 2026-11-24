@@ -1,0 +1,50 @@
+WARNING: GPU initialization took too long. Please run the NVIDIA persistence daemon.
+For more information, visit the following page:
+https://docs.nvidia.com/deploy/driver-persistence/index.html#persistence-daemon
+
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: NVTX host instrumentation enabled
+│   package = :Breeze
+└   NVTX.isactive() = true
+PLACEMENT rank=3 host=rg32001 gpu_uuid=bd50e177-5655-dfac-437d-3441389e0ac1 communicator=NCCLCommunicator threads=1 pool=none
+DEVICE rank=3 uuid=bd50e177-5655-dfac-437d-3441389e0ac1 visible=0,1,2,3
+PROFILE_START rank=3 steps=10
+WARNING: GPU initialization took too long. Please run the NVIDIA persistence daemon.
+For more information, visit the following page:
+https://docs.nvidia.com/deploy/driver-persistence/index.html#persistence-daemon
+
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/home/anditse/Breeze.jl/.runtime/tmp/rorqual_nsight/nsys-report-fd3c.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-rep
+[1/1] [===23%                      ] profile.nsys-rep
+[1/1] [===========53%              ] profile.nsys-rep
+[1/1] [=================74%        ] profile.nsys-rep
+[1/1] [===================82%      ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+PROFILE_END rank=3 steps=10
+VALIDATION rank=3 fields_finite=true gpu_used_bytes=16603414528
+Generated:
+    /scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_NCCL_8g_8x1/rank_3/profile.nsys-rep

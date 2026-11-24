@@ -1,0 +1,3 @@
+STARTING anelastic_NCCL_4g_4x1 2026-11-24T23:12:22.823328+00:00
+STARTING compressible_explicit_NCCL_4g_4x1 2026-11-24T23:15:42.298492+00:00
+FAILED compressible_explicit_NCCL_4g_4x1: srun failed with exit code 143

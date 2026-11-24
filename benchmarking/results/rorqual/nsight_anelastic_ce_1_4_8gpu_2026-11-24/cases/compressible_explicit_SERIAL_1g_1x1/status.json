@@ -1,0 +1,53 @@
+{
+  "case": {
+    "id": "compressible_explicit_SERIAL_1g_1x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "NCCL",
+    "time_step": 0.01,
+    "float_type": "Float32",
+    "timed_steps": 10
+  },
+  "state": "validated",
+  "started": "2026-11-24T22:10:16.531823+00:00",
+  "job_id": "27556564",
+  "measurement": {
+    "machine": "rg31903",
+    "dynamics": "compressible_explicit",
+    "float": "Float32",
+    "Nx": "512",
+    "Ny": "512",
+    "Nz": "512",
+    "Rx": "1",
+    "Ry": "1",
+    "gpus": "1",
+    "steps": "10",
+    "seconds_per_step": "4.227138e-01",
+    "points_per_second": "3.175144e+08",
+    "max_abs_w": "2.102493e-03",
+    "communication": "SERIAL",
+    "fields_finite": "true",
+    "points_per_second_per_gpu": 317514400.0,
+    "max_final_device_memory_bytes": 15489695744,
+    "max_sampled_process_memory_mib": 16936.0
+  },
+  "capture": {
+    "case": "compressible_explicit_SERIAL_1g_1x1",
+    "steps": 10,
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_SERIAL_1g_1x1/rank_0/profile.nsys-rep",
+        "sqlite": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/compressible_explicit_SERIAL_1g_1x1/rank_0/profile.sqlite",
+        "bytes": 557354,
+        "sha256": "dea80f7b349dbcb3471bb85a4d1106100f968ba803fcfbbc082dd4753860d1c6",
+        "kernels": 2310,
+        "ranges": 740,
+        "gpu_uuid": "b52a0bc3-fd12-3de7-078f-8715ec9c123b"
+      }
+    ]
+  },
+  "finished": "2026-11-24T22:11:54.878481+00:00"
+}

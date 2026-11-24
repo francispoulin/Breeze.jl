@@ -1,0 +1,7 @@
+{
+  "finished": "2026-11-24T23:23:27.229811+00:00",
+  "validated": 6,
+  "expected": 6,
+  "state": "incomplete",
+  "analysis_error": "analyze_nvtx.py failed; see analysis.log"
+}

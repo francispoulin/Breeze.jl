@@ -1,0 +1,400 @@
+Precompiling packages...
+    702.3 ms  ✓ Preferences
+   1093.9 ms  ✓ DocStringExtensions
+    527.9 ms  ✓ JLLWrappers
+   1172.8 ms  ✓ PkgVersion
+    422.7 ms  ✓ PrecompileTools
+    791.2 ms  ✓ MPIPreferences
+    623.3 ms  ✓ Xorg_libpciaccess_jll
+    651.4 ms  ✓ Libiconv_jll
+    995.5 ms  ✓ MPItrampoline_jll
+   1250.9 ms  ✓ OpenMPI_jll
+    991.9 ms  ✓ MicrosoftMPI_jll
+    676.1 ms  ✓ XML2_jll
+    662.9 ms  ✓ Hwloc_jll
+    573.5 ms  ✓ MPICH_jll
+    982.1 ms  ✓ MPIABI_jll
+   4621.7 ms  ✓ MPI
+  16 dependencies successfully precompiled in 12 seconds. 29 already precompiled.
+Precompiling packages...
+    377.6 ms  ✓ LLVMLoopInfo
+    521.6 ms  ✓ AbstractFFTs
+    407.1 ms  ✓ LaTeXStrings
+   1710.0 ms  ✓ GPUToolbox
+    446.5 ms  ✓ ExprTools
+    367.6 ms  ✓ IteratorInterfaceExtensions
+    534.4 ms  ✓ Statistics
+   1285.4 ms  ✓ CEnum
+    848.8 ms  ✓ RandomNumbers
+   1537.4 ms  ✓ OrderedCollections
+   2822.9 ms  ✓ MacroTools
+    372.2 ms  ✓ DataValueInterfaces
+    683.0 ms  ✓ Requires
+    377.5 ms  ✓ Reexport
+    436.0 ms  ✓ HashArrayMappedTries
+    472.5 ms  ✓ Adapt
+   1271.9 ms  ✓ CUDA_Runtime_Discovery
+    418.5 ms  ✓ DataAPI
+    458.1 ms  ✓ StaticArraysCore
+   1906.6 ms  ✓ Crayons
+   1503.3 ms  ✓ BFloat16s
+    430.7 ms  ✓ Scratch
+    620.7 ms  ✓ tree_sitter_spirv_jll
+    514.6 ms  ✓ MSVCRuntime_jll
+    614.0 ms  ✓ NVTX_jll
+   2186.4 ms  ✓ CUDA_Driver_jll
+    643.2 ms  ✓ LibTracyClient_jll
+    621.0 ms  ✓ tree_sitter_gcn_jll
+    601.1 ms  ✓ demumble_jll
+    688.4 ms  ✓ LLVMExtra_jll
+    706.4 ms  ✓ LMDB_jll
+    620.8 ms  ✓ NVPTX_LLVM_Backend_jll
+    616.9 ms  ✓ JuliaNVTXCallbacks_jll
+    617.3 ms  ✓ tree_sitter_llvm_jll
+    619.4 ms  ✓ tree_sitter_ptx_jll
+    370.0 ms  ✓ TableTraits
+    629.4 ms  ✓ Statistics → SparseArraysExt
+    841.4 ms  ✓ Random123
+    515.8 ms  ✓ ScopedValues
+   3171.8 ms  ✓ StringManipulation
+    664.7 ms  ✓ Adapt → AdaptSparseArraysExt
+    541.2 ms  ✓ GPUArraysCore
+   4255.0 ms  ✓ CUDA_Compiler_jll
+    883.6 ms  ✓ Tracy
+    978.2 ms  ✓ LMDB
+   6981.5 ms  ✓ StaticArrays
+   1002.0 ms  ✓ NVTX
+   1991.3 ms  ✓ Tables
+   4525.7 ms  ✓ CUDA_Runtime_jll
+    819.4 ms  ✓ CompilerCaching
+    556.4 ms  ✓ StaticArrays → StaticArraysStatisticsExt
+    549.6 ms  ✓ Adapt → AdaptStaticArraysExt
+  17540.5 ms  ✓ LLVM
+   2339.7 ms  ✓ UnsafeAtomics
+    538.4 ms  ✓ LLVM → BFloat16sExt
+  19278.7 ms  ✓ PrettyTables
+    644.3 ms  ✓ Atomix
+   3935.1 ms  ✓ KernelAbstractions
+   1031.8 ms  ✓ KernelAbstractions → SparseArraysExt
+    806.5 ms  ✓ KernelAbstractions → LinearAlgebraExt
+   4671.4 ms  ✓ GPUArrays
+  34667.0 ms  ✓ GPUCompiler
+    875.9 ms  ✓ UnsafeAtomics → UnsafeAtomicsGPUCompilerExt
+  47813.7 ms  ✓ CUDACore
+   3667.6 ms  ✓ Atomix → AtomixCUDACoreExt
+   5139.9 ms  ✓ cuRAND
+   6061.5 ms  ✓ NVML
+   4361.1 ms  ✓ cuFFT
+   6753.6 ms  ✓ CUPTI
+   7692.0 ms  ✓ cuSPARSE
+  11014.3 ms  ✓ cuBLAS
+  13357.4 ms  ✓ CUDATools
+   8616.8 ms  ✓ cuSOLVER
+Info Given CUDA was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+   5497.7 ms  ✓ CUDA
+  74 dependencies successfully precompiled in 170 seconds. 36 already precompiled.
+  10 dependencies had output during precompilation:
+┌ CUDATools
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuRAND
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuSPARSE
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ CUPTI
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuFFT
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuBLAS
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ CUDA
+│  [Output was shown above]
+└
+┌ Atomix → AtomixCUDACoreExt
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ cuSOLVER
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ NVML
+│  ┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│  │ This may cause errors.
+│  │
+│  │ If you're running under a profiler, this situation is expected. Otherwise,
+│  │ ensure that your library path environment variable (e.g., `PATH` on Windows
+│  │ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│  │
+│  │ In any other case, please file an issue.
+│  └ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+└
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+Precompiling packages...
+Info Given CUDAExt was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+   5296.3 ms  ✓ MPI → CUDAExt
+  1 dependency successfully precompiled in 6 seconds. 124 already precompiled.
+  1 dependency had output during precompilation:
+┌ MPI → CUDAExt
+│  [Output was shown above]
+└
+Precompiling packages...
+    465.3 ms  ✓ Glob
+    722.8 ms  ✓ ExpressionExplorer
+    421.3 ms  ✓ StatsAPI
+    481.6 ms  ✓ ChunkCodecCore
+    552.8 ms  ✓ SeawaterPolynomials
+    908.2 ms  ✓ OffsetArrays
+    382.9 ms  ✓ RealDot
+   1390.7 ms  ✓ ConstructionBase
+   3828.0 ms  ✓ TaylorSeries
+    650.8 ms  ✓ Zstd_jll
+    662.7 ms  ✓ FFTW_jll
+   6402.0 ms  ✓ Krylov
+    798.4 ms  ✓ MuladdMacro
+   1023.9 ms  ✓ IntelOpenMP_jll
+   1164.2 ms  ✓ oneTBB_jll
+   2978.5 ms  ✓ FileIO
+    623.5 ms  ✓ ReactantCore
+    487.3 ms  ✓ ChunkCodecLibZlib
+    415.4 ms  ✓ OffsetArrays → OffsetArraysAdaptExt
+   1597.8 ms  ✓ Distances
+    511.3 ms  ✓ Quaternions
+    404.4 ms  ✓ ConstructionBase → ConstructionBaseLinearAlgebraExt
+    574.9 ms  ✓ ConstructionBase → ConstructionBaseStaticArraysExt
+    886.1 ms  ✓ TaylorSeries → TaylorSeriesSAExt
+    557.1 ms  ✓ ChunkCodecLibZstd
+    587.4 ms  ✓ Distances → DistancesSparseArraysExt
+   1132.5 ms  ✓ MKL_jll
+   1641.2 ms  ✓ StructArrays
+   2391.2 ms  ✓ Rotations
+   1276.0 ms  ✓ CubedSphere
+   6092.3 ms  ✓ FFTW
+    441.2 ms  ✓ StructArrays → AdaptExt
+    876.0 ms  ✓ StructArrays → KernelAbstractionsExt
+    453.0 ms  ✓ StructArrays → LinearAlgebraExt
+    608.8 ms  ✓ StructArrays → SparseArraysExt
+   1554.3 ms  ✓ StructArrays → StaticArraysExt
+    438.7 ms  ✓ StructArrays → GPUArraysCoreExt
+  22976.2 ms  ✓ JLD2
+   1328.2 ms  ✓ TaylorSeries → TaylorSeriesJLD2Ext
+  27813.6 ms  ✓ Oceananigans
+  40 dependencies successfully precompiled in 70 seconds. 81 already precompiled.
+Precompiling packages...
+   2728.5 ms  ✓ GPUArrays → JLD2Ext
+  1 dependency successfully precompiled in 3 seconds. 64 already precompiled.
+Precompiling packages...
+Info Given OceananigansCUDAExt was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+   6926.2 ms  ✓ Oceananigans → OceananigansCUDAExt
+  1 dependency successfully precompiled in 8 seconds. 167 already precompiled.
+  1 dependency had output during precompilation:
+┌ Oceananigans → OceananigansCUDAExt
+│  [Output was shown above]
+└
+Precompiling packages...
+    648.7 ms  ✓ OpenSpecFun_jll
+   1988.5 ms  ✓ IrrationalConstants
+    540.7 ms  ✓ LogExpFunctions
+   2311.1 ms  ✓ SpecialFunctions
+  11400.0 ms  ✓ Breeze
+  5 dependencies successfully precompiled in 16 seconds. 122 already precompiled.
+Precompiling packages...
+Info Given SpecialFunctionsExt was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+   3378.7 ms  ✓ CUDACore → SpecialFunctionsExt
+  1 dependency successfully precompiled in 4 seconds. 92 already precompiled.
+  1 dependency had output during precompilation:
+┌ CUDACore → SpecialFunctionsExt
+│  [Output was shown above]
+└
+┌ Info: NVTX host instrumentation enabled
+│   package = :Breeze
+└   NVTX.isactive() = true
+Precompiling packages...
+   1996.3 ms  ✓ NCCL_jll
+Info Given NCCL was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+   5553.9 ms  ✓ NCCL
+  2 dependencies successfully precompiled in 8 seconds. 110 already precompiled.
+  1 dependency had output during precompilation:
+┌ NCCL
+│  [Output was shown above]
+└
+Precompiling packages...
+Info Given OceananigansNCCLExt was explicitly requested, output will be shown live [0K
+[0K┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/nsight-systems-2024.5.1/target-linux-x64/libcupti.so.12.6`.
+[0K│ This may cause errors.
+[0K│
+[0K│ If you're running under a profiler, this situation is expected. Otherwise,
+[0K│ ensure that your library path environment variable (e.g., `PATH` on Windows
+[0K│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+[0K│
+[0K│ In any other case, please file an issue.
+[0K└ @ CUDACore ~/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+   6832.6 ms  ✓ Oceananigans → OceananigansNCCLExt
+  1 dependency successfully precompiled in 7 seconds. 170 already precompiled.
+  1 dependency had output during precompilation:
+┌ Oceananigans → OceananigansNCCLExt
+│  [Output was shown above]
+└
+PLACEMENT rank=0 host=rg31903 gpu_uuid=b52a0bc3-fd12-3de7-078f-8715ec9c123b communicator=none threads=1 pool=none
+DEVICE rank=0 uuid=b52a0bc3-fd12-3de7-078f-8715ec9c123b visible=all
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "anelastic"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (512, 512, 512)
+│   partition = (1, 1)
+│   nranks = 1
+│   Δt = 0.01
+│   time_steps = 10
+│   communication_name = "SERIAL"
+│   communicator_type = "none"
+└   profile = true
+TIMING_START communication=SERIAL steps=10
+PROFILE_START rank=0 steps=10
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/home/anditse/Breeze.jl/.runtime/tmp/rorqual_nsight/nsys-report-8007.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [=15%                        ] profile.nsys-rep
+[1/1] [=====31%                    ] profile.nsys-rep
+[1/1] [==================78%       ] profile.nsys-rep
+[1/1] [===================81%      ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+PROFILE_END rank=0 steps=10
+TIMING_END communication=SERIAL elapsed_seconds=5.133853810
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=16506814464
+RESULT machine=rg31903 dynamics=anelastic float=Float32 size=512x512x512 partition=1x1 gpus=1 steps=10 seconds_per_step=5.1339e-01 points_per_second=2.6144e+08 points_per_second_per_gpu=2.6144e+08 max_abs_w=6.429169e-05 communication=SERIAL fields_finite=true
+Generated:
+    /scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw/anelastic_SERIAL_1g_1x1/rank_0/profile.nsys-rep
