@@ -50,3 +50,33 @@ To retain results after the interactive session ends, start `watch.py STUDY_DIR 
 only the study directory on `benchmark-results`, and pushes to `origin` after the allocation ends.
 It records incomplete studies as incomplete; its commit message states the validated case count.
 GitHub authentication must be available on the login node for the final push.
+
+## NVTX/Nsight study: anelastic and CE on 1, 4, and 8 GPUs
+
+`nsight.py` captures Nsight Systems reports (CUDA, NVTX, MPI) of anelastic and compressible explicit
+dynamics with NCCL halo exchange, using the weak-scaling grids above at 1, 4, and 8 GPUs (512³ cells
+per GPU; 4×1 and 8×1 partitions; Δt 0.01, 0.005, and 0.00125 s for both dynamics). Every launch takes
+10 warmup steps and captures 10 steps with Breeze's NVTX host ranges (`--nvtx=true --profile=true`).
+Eight GPUs span two nodes.
+
+`nsight_environment.sh` loads the same Alliance module stack as `../fir/environment.sh` (Julia 1.12.5,
+CUDA-aware OpenMPI 4.1.5, Nsight Systems from `cuda/12.6`) with a separate Julia environment under
+`.runtime/environments/rorqual_nsight`. Reports go to `/scratch/$USER/breeze_nsight/STUDY/raw`.
+
+```bash
+source benchmarking/distributed/rorqual/nsight_environment.sh
+julia --startup-file=no -e 'using Pkg; Pkg.Registry.add("General")'      # once, for a fresh depot
+julia --startup-file=no benchmarking/distributed/fir/setup.jl > "$BREEZE_FIR_ENV/setup.log" 2>&1
+study="$PWD/benchmarking/results/rorqual/STUDY_NAME"
+python3 benchmarking/distributed/rorqual/nsight.py prepare "$study"   # after committing the source
+python3 benchmarking/distributed/rorqual/nsight.py submit "$study"
+python3 benchmarking/distributed/rorqual/nsight.py finalize "$study" --publish   # after all jobs end
+```
+
+`submit` sends one allocation per GPU count; each runs both dynamics, validates every rank (placement,
+NCCL communicator, finite fields, H100 evidence), exports each report to SQLite, and requires CUDA kernels,
+NVTX ranges and the rank's own GPU in it. `finalize` runs on the login node, because compute nodes cannot
+push: it runs `analyze_nvtx.py`, `kernel_step_table.py`, and `kernel_scaling_table.py` (each multi-GPU case
+against the one-GPU case of the same dynamics), writes the README with the exact report paths, and commits
+and pushes the study. No plots are made for Nsight runs. Contract checks:
+`python3 -m unittest discover -s benchmarking/distributed/rorqual -p 'test_nsight.py'`.
