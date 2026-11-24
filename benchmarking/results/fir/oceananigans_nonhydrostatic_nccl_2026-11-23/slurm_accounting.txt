@@ -10,3 +10,7 @@ JobIDRaw|JobName|State|ExitCode|Elapsed|AllocTRES|NodeList
 5468405.1|bash|COMPLETED|0:0|00:02:39|cpu=16,gres/gpu:h100=4,gres/gpu=4,mem=256G,node=1|fc10408
 5468405.2|bash|COMPLETED|0:0|00:02:06|cpu=16,gres/gpu:h100=4,gres/gpu=4,mem=256G,node=1|fc10408
 5468405.3|bash|COMPLETED|0:0|00:02:05|cpu=16,gres/gpu:h100=4,gres/gpu=4,mem=256G,node=1|fc10408
+5641460|oceananigans_nonhydrostatic_nccl_1g_retry|FAILED|1:0|00:02:23|billing=12200,cpu=8,gres/gpu:h100=1,gres/gpu=1,mem=64G,node=1|fc10512
+5641460.batch|batch|FAILED|1:0|00:02:23|cpu=8,gres/gpu:h100=1,gres/gpu=1,mem=64G,node=1|fc10512
+5641460.extern|extern|COMPLETED|0:0|00:02:23|billing=12200,cpu=8,gres/gpu:h100=1,gres/gpu=1,mem=64G,node=1|fc10512
+5641460.0|julia|FAILED|1:0|00:02:15|cpu=8,gres/gpu:h100=1,gres/gpu=1,mem=64G,node=1|fc10512

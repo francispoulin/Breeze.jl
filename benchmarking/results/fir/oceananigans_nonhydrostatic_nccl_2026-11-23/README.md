@@ -29,6 +29,8 @@ An after-any CPU finalizer retains results and plots even if a GPU allocation fa
 
 Finalizer job: 5468406. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/).
 
+Recovery allocations: 1 GPUs: job 5641460. See [recovery notes](recovery.md).
+
 | Dynamics | GPUs | Repeats | Median s/step | Min–max s/step | Points/s/GPU | Weak efficiency (%) |
 |---|---:|---:|---:|---|---:|---:|
 | Oceananigans nonhydrostatic | 2 | 3 | 0.3506 | 0.3504–0.3507 | 3.829e+08 |  |
