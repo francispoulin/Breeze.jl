@@ -414,7 +414,8 @@ def finalize(study, publish):
         (study / "cases" / case_id).mkdir(exist_ok=True)
         write_json(study / "cases" / case_id / "status.json", state)
     states = case_states(study)
-    captures = [state["capture"] for state in states.values() if state["state"] == "validated"]
+    # analyze_nvtx.py reads only captures marked COMPLETE; only validated cases are listed.
+    captures = [dict(state["capture"], state="COMPLETE") for state in states.values() if state["state"] == "validated"]
     write_json(study / "captures.json", captures)
     validated = len(captures)
     analysis_error = None
