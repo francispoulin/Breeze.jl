@@ -5,6 +5,7 @@ explicit (CE) dynamics on 1, 4, and 8 H100 GPUs with NCCL halo exchange.
     submit STUDY      submit one Slurm allocation per GPU count
     run-size STUDY N  (inside an allocation) capture every case on N GPUs, export and check reports
     finalize STUDY    (login node, after the allocations end) analyze, write README, commit, push
+    retry STUDY CASE  move a failed case aside and capture it again in a new allocation
     report STUDY      rewrite README.md from the current state
 """
 import argparse
@@ -259,6 +260,60 @@ def run_size(study, count):
     return 0 if allocation["state"] == "validated" else 1
 
 
+def retry(study, case_ids):
+    """Move failed cases (all on one GPU count) aside and submit one allocation that captures them again.
+
+    The allocation calls `run_case` from the frozen source, so a retried capture uses the same code and
+    environment as the original cases. Rejected attempts stay in rejected_attempts/ and are not analyzed."""
+    check_sources(study)
+    config = read_json(study / "config.json")
+    plan = {case["id"]: case for case in read_json(study / "plan.json")}
+    states = case_states(study)
+    if not case_ids or any(name not in plan or states[name]["state"] != "failed" for name in case_ids):
+        raise RuntimeError("Retry only failed cases of this study")
+    counts = {plan[name]["gpus"] for name in case_ids}
+    if len(counts) != 1:
+        raise RuntimeError("Retry cases of one GPU count at a time")
+    count = counts.pop()
+    submission = read_json(study / "submission.json")
+    attempt = len(submission.setdefault("retry_jobs", [])) + 1
+    for name in case_ids:
+        label = f"{name}_job{states[name]['job_id']}"
+        (study / "rejected_attempts").mkdir(exist_ok=True)
+        (study / "cases" / name).rename(study / "rejected_attempts" / label)
+        raw = Path(config["raw"])
+        (raw / "rejected").mkdir(exist_ok=True)
+        (raw / name).rename(raw / "rejected" / label)
+    directory = study / "allocations" / f"{count}g_retry{attempt}"
+    directory.mkdir()
+    frozen = Path(config["source"]) / "benchmarking/distributed"
+    program = ("import json, sys; from pathlib import Path; sys.path.insert(0, sys.argv[1]); from rorqual import nsight; "
+               "study = Path(sys.argv[2]); plan = {c['id']: c for c in json.loads((study / 'plan.json').read_text())}; "
+               "sys.exit(0 if all([nsight.run_case(study, plan[name]) for name in sys.argv[3:]]) else 1)")
+    script = ("#!/usr/bin/env bash\nset -eo pipefail\n"
+              + "export BREEZE_RUNTIME_ROOT=" + shlex.quote(config["runtime_root"]) + "\n"
+              + "export BREEZE_FIR_ENV=" + shlex.quote(config["environment"]) + "\n"
+              + "source " + shlex.quote(str(frozen / "rorqual/nsight_environment.sh")) + "\n"
+              + "module -t list > " + shlex.quote(str(directory / "environment.log")) + " 2>&1\n"
+              + shlex.join(["python3", "-c", program, str(frozen), str(study), *case_ids]) + "\n")
+    (directory / "allocation.sh").write_text(script)
+    per_node = gpus_per_node(count)
+    command = ["sbatch", "--parsable", "--account=def-fpoulin_gpu", f"--job-name=breeze_nsight_{count}g_retry",
+               f"--nodes={nodes(count)}", f"--ntasks={count}", f"--ntasks-per-node={per_node}",
+               f"--gpus-per-node=h100:{per_node}", "--cpus-per-task=8", f"--mem={64 * per_node}G",
+               "--time=" + config["allocation_limit"], "--distribution=block:block",
+               "--chdir=" + config["repository"], "--output=" + str(directory / "slurm-%j.out"),
+               str(directory / "allocation.sh")]
+    (directory / "submission_command.sh").write_text(shlex.join(command) + "\n")
+    job = run_text(command).strip().split(";")[0]
+    submission["retry_jobs"].append(dict(gpus=count, job_id=job, cases=case_ids, command=command,
+                                         rejected=[f"{name}_job{states[name]['job_id']}" for name in case_ids],
+                                         submitted=timestamp()))
+    write_json(study / "submission.json", submission)
+    render_report(study)
+    print(f"Retry of {', '.join(case_ids)} on {count} GPUs: {job}")
+
+
 def case_states(study):
     states = {}
     for case in read_json(study / "plan.json"):
@@ -295,6 +350,14 @@ def render_report(study):
         lines.append(f"| {case['id']} | {state['state']} | {state.get('job_id', '')} | "
                      f"{measurement.get('seconds_per_step', '')} | {measurement.get('max_abs_w', '')} | {state.get('error', '')} |")
     lines += ["", "Profiled seconds per step include Nsight overhead; compare them only with other profiled runs."]
+    submission = read_json(study / "submission.json") if (study / "submission.json").exists() else {}
+    if submission.get("retry_jobs"):
+        lines += ["", "## Retried captures", "",
+                  "A failed attempt is kept in rejected_attempts/ (reports under the raw directory's rejected/) and",
+                  "excluded from the analysis; the retry runs the frozen `run_case` in a new allocation.", ""]
+        for item in submission["retry_jobs"]:
+            lines.append(f"- {', '.join(item['cases'])}: job {item['job_id']}; rejected attempt(s) "
+                         f"{', '.join(item['rejected'])}. Reason: {item.get('reason', 'see the rejected attempt')}")
     summary = study / "rank_summary.csv"
     if summary.exists():
         with summary.open() as stream:
@@ -334,7 +397,7 @@ def render_report(study):
 
 def finalize(study, publish):
     submission = read_json(study / "submission.json")
-    jobs = [item["job_id"] for item in submission["jobs"]]
+    jobs = [item["job_id"] for item in submission["jobs"] + submission.get("retry_jobs", [])]
     queued = run_text(["squeue", "--me", "--noheader", "--format=%i|%T"])
     active = [line.strip() for line in queued.splitlines() if line.split("|", 1)[0].strip() in jobs]
     if active:
@@ -407,6 +470,10 @@ def main():
     commands = parser.add_subparsers(dest="action", required=True)
     for name in ("prepare", "submit", "report"):
         commands.add_parser(name).add_argument("study", type=Path)
+    again = commands.add_parser("retry")
+    again.add_argument("study", type=Path)
+    again.add_argument("cases", nargs="+")
+    again.add_argument("--reason", required=True)
     worker = commands.add_parser("run-size")
     worker.add_argument("study", type=Path)
     worker.add_argument("count", type=int, choices=GPU_COUNTS)
@@ -419,6 +486,12 @@ def main():
         prepare(study)
     elif arguments.action == "submit":
         submit(study)
+    elif arguments.action == "retry":
+        retry(study, arguments.cases)
+        submission = read_json(study / "submission.json")
+        submission["retry_jobs"][-1]["reason"] = arguments.reason
+        write_json(study / "submission.json", submission)
+        render_report(study)
     elif arguments.action == "run-size":
         return run_size(study, arguments.count)
     elif arguments.action == "finalize":
