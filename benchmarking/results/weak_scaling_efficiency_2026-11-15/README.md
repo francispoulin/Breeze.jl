@@ -68,7 +68,12 @@ points remain the MPI suite, normalized to the suite's own one-GPU time, and eac
 
 <!-- fir-nonhydrostatic-nccl -->
 
-Status: **PENDING**; the figures still use the MPI suite at every GPU count.
+Status: **COMPLETE**; the Fir figures use these points at 1 and 2 GPUs.
+
+| GPUs | NCCL rerun median s/step (min–max) | Efficiency | MPI suite median s/step | Suite efficiency |
+|---:|---|---:|---:|---:|
+| 1 | 0.1984 (0.1984–0.1985) | 100.0% | 0.3011 | 100.0% |
+| 2 | 0.3506 (0.3504–0.3507) | 56.6% | 0.7519 | 40.0% |
 
 <!-- /fir-nonhydrostatic-nccl -->
 
