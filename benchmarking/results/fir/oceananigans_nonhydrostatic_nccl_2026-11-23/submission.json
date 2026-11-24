@@ -86,11 +86,35 @@
         "--output=/home/anditse/Breeze.jl/benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/slurm-%j.out",
         "/home/anditse/Breeze.jl/benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/allocation.sh"
       ],
-      "state": "submitted",
+      "state": "failed_gpu_context_out_of_memory",
       "reason": "5468404 could not see its allocated GPU on fc10612"
+    },
+    {
+      "gpus": 1,
+      "reserved_gpus_per_node": 4,
+      "job_id": "5648886",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin_gpu",
+        "--job-name=oceananigans_nonhydrostatic_nccl_1active_4reserved",
+        "--nodes=1",
+        "--ntasks=4",
+        "--ntasks-per-node=4",
+        "--gpus-per-node=h100:4",
+        "--cpus-per-task=8",
+        "--mem=256G",
+        "--time=01:30:00",
+        "--distribution=block:block",
+        "--chdir=/home/anditse/Breeze.jl",
+        "--output=/home/anditse/Breeze.jl/benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/slurm-%j.out",
+        "/home/anditse/Breeze.jl/benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/allocation_full_node.sh"
+      ],
+      "state": "submitted",
+      "reason": "1-GPU partial-node steps failed twice in the GPU preflight; reserve a full node as for two GPUs"
     }
   ],
-  "retry_finalizer_job_id": "5641461",
+  "retry_finalizer_job_id": "5648887",
   "retry_finalizer_command": [
     "sbatch",
     "--parsable",
@@ -101,7 +125,7 @@
     "--cpus-per-task=1",
     "--mem=4G",
     "--time=00:20:00",
-    "--dependency=afterany:5641460",
+    "--dependency=afterany:5648886",
     "--chdir=/home/anditse/Breeze.jl",
     "--output=/home/anditse/Breeze.jl/.runtime/studies/oceananigans_nonhydrostatic_nccl_2026-11-23/finalize-%j.out",
     "/home/anditse/Breeze.jl/benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/finalize.sh"

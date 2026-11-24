@@ -1,0 +1,14 @@
+Already up to date.
+[benchmark-results ff99339] Record Fir NCCL weak scaling: 3/6 cases validated
+ 12 files changed, 250 insertions(+), 72 deletions(-)
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/environment.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/gpu_preflight.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/preflight_command.sh
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/slurm-5641460.out
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3/status.json
+To https://github.com/francispoulin/Breeze.jl
+   5fc0c8e..ff99339  benchmark-results -> benchmark-results
+Final validation: 3/6 cases
