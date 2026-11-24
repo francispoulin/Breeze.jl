@@ -1,0 +1,157 @@
+[
+  {
+    "case": "anelastic_1g",
+    "state": "COMPLETE",
+    "source_commit": "c25dcb5035e9d8f4940e665f3bf2b9ad714895be",
+    "cuda_visible_devices": "1",
+    "started_utc": "2026-11-24T04:50:52.947068+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "1",
+      "bash",
+      "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/anelastic_nsight_1_2gpu_2026-11-23/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/raw/anelastic_1g",
+      "--dynamics=anelastic",
+      "--size=512x512x512",
+      "--partition=1x1",
+      "--float_type=Float32",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--comm=NCCL",
+      "--time_step=0.01",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/anelastic_nsight_1_2gpu_2026-11-23/logs/profiled_anelastic_1g.csv"
+    ],
+    "exit_code": 0,
+    "foreign_processes": [],
+    "finished_utc": "2026-11-24T04:53:07.775606+00:00",
+    "placements": [
+      [
+        "0",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "none"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true",
+        "16888496128"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "anelastic",
+      "float": "Float32",
+      "Nx": "512",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "1",
+      "Ry": "1",
+      "gpus": "1",
+      "steps": "10",
+      "seconds_per_step": "7.446410e-01",
+      "points_per_second": "1.802449e+08",
+      "max_abs_w": "6.429169e-05",
+      "communication": "SERIAL",
+      "fields_finite": "true"
+    }
+  },
+  {
+    "case": "anelastic_2g",
+    "state": "COMPLETE",
+    "source_commit": "c25dcb5035e9d8f4940e665f3bf2b9ad714895be",
+    "cuda_visible_devices": "0,1",
+    "started_utc": "2026-11-24T05:06:14.309458+00:00",
+    "command": [
+      "timeout",
+      "--foreground",
+      "--kill-after=30s",
+      "2400s",
+      "mpiexec",
+      "--bind-to",
+      "none",
+      "-n",
+      "2",
+      "bash",
+      "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/anelastic_nsight_1_2gpu_2026-11-23/profile_rank.sh",
+      "/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/environment",
+      "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+      "/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+      "/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/raw/anelastic_2g",
+      "--dynamics=anelastic",
+      "--size=1024x512x512",
+      "--partition=2x1",
+      "--float_type=Float32",
+      "--simplified=false",
+      "--random_perturbation=false",
+      "--comm=NCCL",
+      "--time_step=0.005",
+      "--warmup_steps=10",
+      "--time_steps=10",
+      "--nvtx=true",
+      "--profile=true",
+      "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/anelastic_nsight_1_2gpu_2026-11-23/logs/profiled_anelastic_2g.csv"
+    ],
+    "exit_code": 0,
+    "foreign_processes": [],
+    "finished_utc": "2026-11-24T05:09:34.469641+00:00",
+    "placements": [
+      [
+        "0",
+        "rondeau",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+        "NCCLCommunicator"
+      ],
+      [
+        "1",
+        "rondeau",
+        "27b6f362-d593-fda1-e6fa-43275dcca7da",
+        "NCCLCommunicator"
+      ]
+    ],
+    "rank_validation": [
+      [
+        "0",
+        "true",
+        "22295019520"
+      ],
+      [
+        "1",
+        "true",
+        "22295019520"
+      ]
+    ],
+    "measurement": {
+      "machine": "rondeau",
+      "dynamics": "anelastic",
+      "float": "Float32",
+      "Nx": "1024",
+      "Ny": "512",
+      "Nz": "512",
+      "Rx": "2",
+      "Ry": "1",
+      "gpus": "2",
+      "steps": "10",
+      "seconds_per_step": "9.525808e-01",
+      "points_per_second": "2.817981e+08",
+      "max_abs_w": "3.279216e-05",
+      "communication": "NCCL",
+      "fields_finite": "true"
+    }
+  }
+]
