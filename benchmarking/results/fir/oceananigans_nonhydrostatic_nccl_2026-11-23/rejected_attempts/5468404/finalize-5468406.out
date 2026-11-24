@@ -1,0 +1,52 @@
+Already up to date.
+[benchmark-results c25dcb5] Record Fir NCCL weak scaling: 3/6 cases validated
+ 48 files changed, 6549 insertions(+), 15 deletions(-)
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/environment.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/gpu_preflight.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/preflight_command.sh
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/slurm-5468404.out
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/1g/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/2g/environment.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/2g/gpu_placement.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/2g/gpu_preflight.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/2g/preflight_command.sh
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/2g/slurm-5468405.out
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/allocations/2g/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/command.sh
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/hardware_rank_0.txt
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/launcher.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/measurement.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/memory_rank_0.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/memory_rank_1.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/rank_0.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/rank_1.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r1/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/command.sh
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/hardware_rank_0.txt
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/launcher.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/measurement.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/memory_rank_0.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/memory_rank_1.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/rank_0.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/rank_1.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r2/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/command.sh
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/hardware_rank_0.txt
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/launcher.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/measurement.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/memory_rank_0.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/memory_rank_1.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/rank_0.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/rank_1.log
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_NCCL_2g_2x1_r3/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r1/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r2/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/cases/oceananigans_nonhydrostatic_SERIAL_1g_1x1_r3/status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/comparison.csv
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/final_status.json
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/slurm_accounting.txt
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/weak_scaling.png
+ create mode 100644 benchmarking/results/fir/oceananigans_nonhydrostatic_nccl_2026-11-23/weak_scaling.svg
+To https://github.com/francispoulin/Breeze.jl
+   2875216..c25dcb5  benchmark-results -> benchmark-results
+Final validation: 3/6 cases
