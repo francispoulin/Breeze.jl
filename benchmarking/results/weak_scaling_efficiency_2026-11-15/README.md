@@ -48,23 +48,35 @@ Fir, 1–16 H100s, from the Oceananigans `gpu_weak_scaling_512_x` baseline serie
 Float64 RectilinearGrid, periodic x/y, WENO5, one buoyancy tracer, Δt = 10 s, N×1 partitions.
 The hydrostatic model uses a split-explicit free surface; the nonhydrostatic model uses the
 distributed FFT pressure solver. Times are the median of five ten-step windows (slowest rank).
+The nonhydrostatic 1- and 2-GPU points come from the NCCL rerun described below.
+`plot_weak_efficiency.py` writes this table from the plotted values.
+
+<!-- fir-oceananigans-efficiency -->
 
 | GPUs | Hydrostatic | Nonhydrostatic |
 |---:|---:|---:|
-| 2 | 91.5% | 40.0% |
+| 2 | 91.5% | 56.6% (NCCL rerun) |
 | 4 | 89.8% | 29.0% |
 | 8 | 88.5% | 19.2% |
 | 16 | 88.6% | 14.4% |
 
+Nonhydrostatic at 2 GPUs is the NCCL rerun without Nsight or NVTX, normalized to its own
+one-GPU time (see below); 4–16 GPUs remain the MPI suite, normalized to the suite's one-GPU time
+(0.3011 s/step, 52% slower than the rerun's 0.1984 s/step),
+so those points are not on the same baseline.
+
+<!-- /fir-oceananigans-efficiency -->
+
 ### Fir nonhydrostatic rerun without profiling (NCCL)
 
-The suite's two-GPU nonhydrostatic point (40%) used MPI. The 1- and 2-GPU cases are rerun as a pure
+The suite's two-GPU nonhydrostatic point (40.0%) used MPI. The 1- and 2-GPU cases were rerun as a pure
 performance benchmark, with no Nsight capture and no NVTX instrumentation, using NCCL for halos and the
 FFT transposes: Breeze's driver (`--dynamics=oceananigans_nonhydrostatic --comm=NCCL --profile=false
 --nvtx=false`), the same Float64 workload, 10 warmup and 100 timed steps, three launches per case, median
 of the slowest rank. Study: [fir/oceananigans_nonhydrostatic_nccl_2026-11-23](../fir/oceananigans_nonhydrostatic_nccl_2026-11-23/README.md).
-Once it validates, the Fir figures take their nonhydrostatic 1- and 2-GPU points from it; the 4–16 GPU
-points remain the MPI suite, normalized to the suite's own one-GPU time, and each Fir figure's footer says so.
+The rerun validated all six cases on 23 November, giving **56.6%** at two GPUs. The Fir figures take their
+nonhydrostatic 1- and 2-GPU points from it; the 4–16 GPU points remain the MPI suite, normalized to the
+suite's own one-GPU time, and each Fir figure's footer says so.
 
 <!-- fir-nonhydrostatic-nccl -->
 

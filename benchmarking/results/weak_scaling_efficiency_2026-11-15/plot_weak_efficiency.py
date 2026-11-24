@@ -28,7 +28,6 @@ OCEANANIGANS_RESULTS = Path(os.environ.get("OCEANANIGANS_RESULTS", next(
 # Oceananigans nonhydrostatic 1- and 2-GPU cases. Once validated it replaces those two points of the
 # Fir suite series; the suite's 4-16 GPU points stay normalized to the suite's own 1-GPU time.
 FIR_NONHYDROSTATIC_NCCL = BREEZE_RESULTS / "fir/oceananigans_nonhydrostatic_nccl_2026-11-23"
-README_MARKERS = ("<!-- fir-nonhydrostatic-nccl -->", "<!-- /fir-nonhydrostatic-nccl -->")
 # Oceananigans series and halo/transpose backend per machine. Rondeau uses the NCCL rerun;
 # its earlier MPI series (gpu_weak_scaling_512_x, 1-2 GPUs only) stays recorded but is not plotted.
 OCEANANIGANS_SERIES = dict(fir=("gpu_weak_scaling_512_x", "MPI"),
@@ -131,13 +130,44 @@ def with_fir_nonhydrostatic_nccl(points):
     return [replaced.get(point["gpus"], dict(point, source="MPI suite")) for point in points]
 
 
-def update_readme(points):
-    """Rewrite the README block that tabulates the Fir nonhydrostatic rerun."""
+def replace_readme_block(name, body):
+    """Replace the README text between `<!-- name -->` and `<!-- /name -->`, if both markers exist."""
     path = HERE / "README.md"
     text = path.read_text()
-    start, end = README_MARKERS
-    if start not in text:
+    start, end = f"<!-- {name} -->", f"<!-- /{name} -->"
+    if start not in text or end not in text:
         return
+    pattern = re.compile(re.escape(start) + ".*?" + re.escape(end), re.DOTALL)
+    path.write_text(pattern.sub(lambda _: f"{start}\n\n{body}\n\n{end}", text))
+
+
+def update_fir_oceananigans_table(curves):
+    """Tabulate the plotted Fir Oceananigans efficiencies, so the README matches the figure."""
+    efficiencies = {label: {point["gpus"]: point for point in points} for label, points in curves}
+    lines = ["| GPUs | Hydrostatic | Nonhydrostatic |", "|---:|---:|---:|"]
+    rerun = False
+    for gpus in sorted(efficiencies["Hydrostatic"])[1:]:
+        cells = []
+        for label in ("Hydrostatic", "Nonhydrostatic"):
+            point = efficiencies[label][gpus]
+            marked = point.get("source") == "NCCL rerun"
+            rerun |= marked
+            cells.append(f"{point['efficiency_percent']:.1f}%" + (" (NCCL rerun)" if marked else ""))
+        lines.append(f"| {gpus} | {cells[0]} | {cells[1]} |")
+    if rerun:
+        nonhydrostatic = efficiencies["Nonhydrostatic"]
+        suite = next(point for point in nonhydrostatic.values() if point.get("source") == "MPI suite")
+        suite_baseline = suite["seconds_per_step"] * suite["efficiency_percent"] / 100
+        slower = 100 * (suite_baseline / nonhydrostatic[1]["seconds_per_step"] - 1)
+        lines += ["", "Nonhydrostatic at 2 GPUs is the NCCL rerun without Nsight or NVTX, normalized to its own",
+                  f"one-GPU time (see below); 4–16 GPUs remain the MPI suite, normalized to the suite's one-GPU time",
+                  f"({suite_baseline:.4f} s/step, {slower:.0f}% slower than the rerun's {nonhydrostatic[1]['seconds_per_step']:.4f} s/step),",
+                  "so those points are not on the same baseline."]
+    replace_readme_block("fir-oceananigans-efficiency", "\n".join(lines))
+
+
+def update_readme(points):
+    """Rewrite the README block that tabulates the Fir nonhydrostatic rerun."""
     suite = {int(row["ranks"]): float(row["median"]) for row in read_csv(
         OCEANANIGANS_RESULTS / "non_hydrostatic_models/fir/baseline" / OCEANANIGANS_SERIES["fir"][0] / "results.csv")}
     if points is None:
@@ -152,8 +182,7 @@ def update_readme(points):
                          f"{point['seconds_per_step_max']:.4f}) | {point['efficiency_percent']:.1f}% | "
                          f"{suite[gpus]:.4f} | {100 * suite[1] / suite[gpus]:.1f}% |")
         body = "\n".join(lines)
-    pattern = re.compile(re.escape(start) + ".*?" + re.escape(end), re.DOTALL)
-    path.write_text(pattern.sub(lambda _: f"{start}\n\n{body}\n\n{end}", text))
+    replace_readme_block("fir-nonhydrostatic-nccl", body)
 
 
 def oceananigans(machine, gpu_counts, partial=False):
@@ -385,6 +414,9 @@ def main():
         writer.writeheader()
         writer.writerows(rows)
     update_readme(fir_nonhydrostatic_nccl())
+    for stem, curves, *_ in figures:
+        if stem == "oceananigans_weak_efficiency_fir":
+            update_fir_oceananigans_table(curves)
     for stem, *_ in figures + comparisons:
         print(stem)
 
