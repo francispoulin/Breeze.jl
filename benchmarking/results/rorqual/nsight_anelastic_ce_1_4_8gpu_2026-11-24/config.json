@@ -1,0 +1,22 @@
+{
+  "repository": "/home/anditse/Breeze.jl",
+  "source": "/home/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_1_4_8gpu_2026-11-24/source",
+  "environment": "/home/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_1_4_8gpu_2026-11-24/environment",
+  "runtime": "/home/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_1_4_8gpu_2026-11-24",
+  "runtime_root": "/home/anditse/Breeze.jl/.runtime",
+  "raw": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_1_4_8gpu_2026-11-24/raw",
+  "machine": "rorqual",
+  "prepared": "2026-11-24T21:47:13.418167+00:00",
+  "warmup_steps": 10,
+  "captured_steps": 10,
+  "float_type": "Float32",
+  "backend": "NCCL",
+  "random_perturbation": false,
+  "simplified": false,
+  "nvtx": true,
+  "profile": true,
+  "nsight_trace": "cuda,nvtx,mpi",
+  "case_limit_seconds": 2400,
+  "allocation_limit": "01:30:00",
+  "nsys": "NVIDIA Nsight Systems version 2024.5.1.113-245134619542v0"
+}

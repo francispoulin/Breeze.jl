@@ -1,0 +1,68 @@
+[
+  {
+    "id": "anelastic_SERIAL_1g_1x1",
+    "dynamics": "anelastic",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "NCCL",
+    "time_step": 0.01,
+    "float_type": "Float32",
+    "timed_steps": 10
+  },
+  {
+    "id": "compressible_explicit_SERIAL_1g_1x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "NCCL",
+    "time_step": 0.01,
+    "float_type": "Float32",
+    "timed_steps": 10
+  },
+  {
+    "id": "anelastic_NCCL_4g_4x1",
+    "dynamics": "anelastic",
+    "gpus": 4,
+    "size": "1024x1024x512",
+    "partition": "4x1",
+    "backend": "NCCL",
+    "time_step": 0.005,
+    "float_type": "Float32",
+    "timed_steps": 10
+  },
+  {
+    "id": "compressible_explicit_NCCL_4g_4x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 4,
+    "size": "1024x1024x512",
+    "partition": "4x1",
+    "backend": "NCCL",
+    "time_step": 0.005,
+    "float_type": "Float32",
+    "timed_steps": 10
+  },
+  {
+    "id": "anelastic_NCCL_8g_8x1",
+    "dynamics": "anelastic",
+    "gpus": 8,
+    "size": "4096x512x512",
+    "partition": "8x1",
+    "backend": "NCCL",
+    "time_step": 0.00125,
+    "float_type": "Float32",
+    "timed_steps": 10
+  },
+  {
+    "id": "compressible_explicit_NCCL_8g_8x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 8,
+    "size": "4096x512x512",
+    "partition": "8x1",
+    "backend": "NCCL",
+    "time_step": 0.00125,
+    "float_type": "Float32",
+    "timed_steps": 10
+  }
+]
