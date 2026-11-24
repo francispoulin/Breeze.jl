@@ -1,0 +1,35 @@
+{
+  "case": {
+    "id": "compressible_explicit_NCCL_2g_2x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 2,
+    "size": "1024x512x512",
+    "partition": "2x1",
+    "backend": "NCCL",
+    "time_step": 0.005
+  },
+  "started": "2026-11-15T12:07:18.612361+00:00",
+  "job_id": "26313924",
+  "state": "validated",
+  "measurement": {
+    "machine": "rg32301",
+    "dynamics": "compressible_explicit",
+    "float": "Float32",
+    "Nx": "1024",
+    "Ny": "512",
+    "Nz": "512",
+    "Rx": "2",
+    "Ry": "1",
+    "gpus": "2",
+    "steps": "500",
+    "seconds_per_step": "1.448087e-01",
+    "points_per_second": "1.853725e+09",
+    "max_abs_w": "1.354949e-02",
+    "communication": "NCCL",
+    "fields_finite": "true",
+    "points_per_second_per_gpu": 926862500.0,
+    "max_final_device_memory_bytes": 16682975232,
+    "max_sampled_process_memory_mib": 18148.0
+  },
+  "finished": "2026-11-15T12:10:29.800224+00:00"
+}

@@ -1,0 +1,145 @@
+CCconfig
+gentoo/2023
+StdEnv/2023
+gcc/12.3
+flexiblas/3.3.1
+aocl-blas/5.1
+aocl-lapack/5.1
+gcccore/.12.3 <H>
+hwloc/2.9.1
+ucx/1.14.1
+libfabric/1.18.0
+pmix/4.2.4
+ucc/1.2.0
+openmpi/4.1.5
+cudacore/.12.6.2 <H>
+gdrcopy/2.3.1
+ucx-cuda/1.14.1
+nccl/2.26.2
+ucc-cuda/1.2.0
+cuda/12.6
+julia version 1.13.2
+mpiexec (OpenRTE) 4.1.5
+
+Report bugs to http://www.open-mpi.org/community/help/
+Sun Nov 15 07:51:17 2026
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 80GB HBM3          Off |   00000000:4E:00.0 Off |                    0 |
+| N/A   32C    P0             69W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA H100 80GB HBM3          Off |   00000000:5F:00.0 Off |                    0 |
+| N/A   31C    P0             69W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA H100 80GB HBM3          Off |   00000000:CB:00.0 Off |                    0 |
+| N/A   31C    P0             71W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA H100 80GB HBM3          Off |   00000000:DB:00.0 Off |                    0 |
+| N/A   32C    P0             70W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA_HOME=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2
+CUDA_PATH=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2
+CUDA_ROOT=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2
+CUDA_VISIBLE_DEVICES=0,1,2,3
+EBROOTAOCLMINBLAS=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/aocl-blascore/5.1
+EBROOTAOCLMINLAPACK=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/aocl-lapackcore/5.1
+EBROOTCUDA=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2
+EBROOTCUDACORE=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2
+EBROOTFLEXIBLAS=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/flexiblascore/3.3.1
+EBROOTGCC=/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/x86_64-pc-linux-gnu/gcc-bin
+EBROOTGCCCORE=/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/x86_64-pc-linux-gnu/gcc-bin
+EBROOTGDRCOPY=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/gdrcopy/2.3.1
+EBROOTGENTOO=/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr
+EBROOTHWLOC=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/hwloc/2.9.1
+EBROOTLIBFABRIC=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/libfabric/1.18.0
+EBROOTNCCL=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/CUDA/gcccore/cuda12.6/nccl/2.26.2
+EBROOTOPENMPI=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5
+EBROOTPMIX=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/pmix/4.2.4
+EBROOTUCC=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/ucc/1.2.0
+EBROOTUCCMINCUDA=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/CUDA/gcccore/cuda12.6/ucc-cuda/1.2.0
+EBROOTUCX=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcccore/ucx/1.14.1
+EBROOTUCXMINCUDA=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/CUDA/gcccore/cuda12.6/ucx-cuda/1.14.1
+JULIA_CUDA_MEMORY_POOL=none
+JULIA_DEPOT_PATH=/home/anditse/breeze_julia_depot:
+JULIA_NUM_PRECOMPILE_TASKS=2
+JULIA_NUM_THREADS=1
+LOADEDMODULES=CCconfig:gentoo/2023:StdEnv/2023:gcc/12.3:flexiblas/3.3.1:aocl-blas/5.1:aocl-lapack/5.1:gcccore/.12.3:hwloc/2.9.1:ucx/1.14.1:libfabric/1.18.0:pmix/4.2.4:ucc/1.2.0:openmpi/4.1.5:cudacore/.12.6.2:gdrcopy/2.3.1:ucx-cuda/1.14.1:nccl/2.26.2:ucc-cuda/1.2.0:cuda/12.6
+OCEAN_DATA_DIR=/home/anditse/ocean_data
+OCEAN_DEPOT=/home/anditse/breeze_julia_depot
+OCEAN_HPC_ROOT=/home/anditse/Oceananigans-DRAC
+OCEAN_JOB_LOGS=/home/anditse/Breeze.jl/logs
+OCEAN_JULIA_VERSION=1.13.2
+OCEAN_MACHINE=rorqual
+OCEAN_MPI_ROOT=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5
+OCEAN_RESULTS_ROOT=/scratch/anditse/results
+OCEAN_SOFTWARE_DIR=/home/anditse/software
+OMPI_MCA_btl=^openib,ofi
+OMPI_MCA_coll=^hcoll
+OMPI_MCA_mtl=^ofi
+OMPI_MCA_plm_slurm_args=--external-launcher
+OMPI_MCA_pml=^yalla
+OMP_NUM_THREADS=1
+OPAL_PREFIX=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5
+OPENBLAS_NUM_THREADS=1
+SLURMD_NODENAME=rg32101
+SLURM_CLUSTER_NAME=rorqual
+SLURM_CONF=/etc/slurm/slurm.conf
+SLURM_CPUS_ON_NODE=32
+SLURM_CPUS_PER_TASK=8
+SLURM_GPUS_ON_NODE=4
+SLURM_GPUS_PER_NODE=h100:4
+SLURM_GTIDS=0
+SLURM_JOBID=26313924
+SLURM_JOB_ACCOUNT=def-fpoulin_gpu
+SLURM_JOB_CPUS_PER_NODE=32(x4)
+SLURM_JOB_END_TIME=1794754495
+SLURM_JOB_GID=3165591
+SLURM_JOB_GPUS=0,1,2,3
+SLURM_JOB_ID=26313924
+SLURM_JOB_NAME=breeze_weak18
+SLURM_JOB_NODELIST=rg[32101,32103,32201,32301]
+SLURM_JOB_NUM_NODES=4
+SLURM_JOB_PARTITION=gpubase_bynode_b1
+SLURM_JOB_QOS=normal
+SLURM_JOB_START_TIME=1794743695
+SLURM_JOB_UID=3165591
+SLURM_JOB_USER=anditse
+SLURM_LOCALID=0
+SLURM_MPI_TYPE=pmix
+SLURM_NNODES=4
+SLURM_NODEID=0
+SLURM_NODELIST=rg[32101,32103,32201,32301]
+SLURM_NPROCS=16
+SLURM_NTASKS=16
+SLURM_NTASKS_PER_NODE=4
+SLURM_OOM_KILL_STEP=0
+SLURM_PRIO_PROCESS=0
+SLURM_PROCID=0
+SLURM_RESTART_COUNT=0
+SLURM_SCRIPT_CONTEXT=prolog_task
+SLURM_SUBMIT_DIR=/home/anditse/Breeze.jl
+SLURM_SUBMIT_HOST=rorqual3
+SLURM_TASKS_PER_NODE=4(x4)
+SLURM_TASK_PID=1150904
+SLURM_TMPDIR=/localscratch/anditse.26313924.0
+SLURM_TOPOLOGY_ADDR=ihpc207u18.ihpc321u25.rg32101
+SLURM_TOPOLOGY_ADDR_PATTERN=switch.switch.node
+SLURM_TRES_PER_TASK=cpu=8
+UCX_MODULE_DIR=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/CUDA/gcccore/cuda12.6/ucx-cuda/1.14.1/ucx

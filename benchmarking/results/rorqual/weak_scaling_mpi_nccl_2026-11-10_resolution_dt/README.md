@@ -1,11 +1,6 @@
 # Rorqual compressible MPI/NCCL weak scaling
 
-Submitted as Slurm job **26313924**, one four-node / 16-H100 allocation with a three-hour limit.
-See [submission command](submission_command.sh), [submission record](submission.json), and
-[live scheduler snapshot](scheduler_status.json). A login-node watcher will retain accounting,
-generate the final report/plots, and commit/push results when the allocation ends.
-
-**0/18 cases validated.** See [progress](progress.json) and [case plan](plan.json).
+**18/18 cases validated.** See [progress](progress.json) and [case plan](plan.json).
 
 Full dry CBL, Float32, WENO5, fixed 12 km × 12 km × 3 km domain; both dynamics use the same Δt per grid.
 10 warmup and 500 timed steps. Split-explicit uses 12 acoustic substeps. No Nsight runs.
@@ -35,21 +30,23 @@ snapshots and sampled per-process GPU memory (MiB, every five seconds; sampled m
 
 | Case | State | s/step | Points/s | Weak efficiency |
 |---|---|---|---|---|
-| compressible_explicit_SERIAL_1g_1x1 | pending |  |  |  |
-| compressible_explicit_MPI_2g_2x1 | pending |  |  |  |
-| compressible_explicit_NCCL_2g_2x1 | pending |  |  |  |
-| compressible_explicit_MPI_4g_4x1 | pending |  |  |  |
-| compressible_explicit_NCCL_4g_4x1 | pending |  |  |  |
-| compressible_explicit_MPI_8g_8x1 | pending |  |  |  |
-| compressible_explicit_NCCL_8g_8x1 | pending |  |  |  |
-| compressible_explicit_MPI_16g_16x1 | pending |  |  |  |
-| compressible_explicit_NCCL_16g_16x1 | pending |  |  |  |
-| compressible_splitexplicit_SERIAL_1g_1x1 | pending |  |  |  |
-| compressible_splitexplicit_MPI_2g_2x1 | pending |  |  |  |
-| compressible_splitexplicit_NCCL_2g_2x1 | pending |  |  |  |
-| compressible_splitexplicit_MPI_4g_4x1 | pending |  |  |  |
-| compressible_splitexplicit_NCCL_4g_4x1 | pending |  |  |  |
-| compressible_splitexplicit_MPI_8g_8x1 | pending |  |  |  |
-| compressible_splitexplicit_NCCL_8g_8x1 | pending |  |  |  |
-| compressible_splitexplicit_MPI_16g_16x1 | pending |  |  |  |
-| compressible_splitexplicit_NCCL_16g_16x1 | pending |  |  |  |
+| compressible_explicit_SERIAL_1g_1x1 | validated | 1.352631e-01 | 9.922714e+08 | 100.0 |
+| compressible_explicit_MPI_2g_2x1 | validated | 1.424234e-01 | 1.884771e+09 | 94.9725255821726 |
+| compressible_explicit_NCCL_2g_2x1 | validated | 1.448087e-01 | 1.853725e+09 | 93.40813086506542 |
+| compressible_explicit_MPI_4g_4x1 | validated | 1.476638e-01 | 3.635764e+09 | 91.602071733221 |
+| compressible_explicit_NCCL_4g_4x1 | validated | 1.469693e-01 | 3.652947e+09 | 92.03493518714453 |
+| compressible_explicit_MPI_8g_8x1 | validated | 1.750560e-01 | 6.133705e+09 | 77.26847408829175 |
+| compressible_explicit_NCCL_8g_8x1 | validated | 1.659975e-01 | 6.468421e+09 | 81.48502236479466 |
+| compressible_explicit_MPI_16g_16x1 | validated | 1.822617e-01 | 1.178242e+10 | 74.21367187950074 |
+| compressible_explicit_NCCL_16g_16x1 | validated | 1.766848e-01 | 1.215432e+10 | 76.55616102800015 |
+| compressible_splitexplicit_SERIAL_1g_1x1 | validated | 5.773748e-01 | 2.324620e+08 | 100.0 |
+| compressible_splitexplicit_MPI_2g_2x1 | validated | 6.199716e-01 | 4.329802e+08 | 93.12923366167095 |
+| compressible_splitexplicit_NCCL_2g_2x1 | validated | 6.359811e-01 | 4.220809e+08 | 90.7848991109956 |
+| compressible_splitexplicit_MPI_4g_4x1 | validated | 6.505168e-01 | 8.252991e+08 | 88.75632420254173 |
+| compressible_splitexplicit_NCCL_4g_4x1 | validated | 6.514045e-01 | 8.241744e+08 | 88.6353717237139 |
+| compressible_splitexplicit_MPI_8g_8x1 | validated | 7.068041e-01 | 1.519150e+09 | 81.68809433901133 |
+| compressible_splitexplicit_NCCL_8g_8x1 | validated | 7.258972e-01 | 1.479193e+09 | 79.53947198032999 |
+| compressible_splitexplicit_MPI_16g_16x1 | validated | 7.745832e-01 | 2.772438e+09 | 74.54006231996769 |
+| compressible_splitexplicit_NCCL_16g_16x1 | validated | 7.777252e-01 | 2.761237e+09 | 74.23892140823006 |
+
+![Weak scaling](weak_scaling.png)

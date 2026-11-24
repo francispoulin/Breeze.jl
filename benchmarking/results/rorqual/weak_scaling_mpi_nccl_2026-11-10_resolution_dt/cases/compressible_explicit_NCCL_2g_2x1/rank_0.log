@@ -1,0 +1,27 @@
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/breeze_julia_depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: MPI ranks run on CPU cores that are not attached to their GPU; bind each rank to its GPU's cores, e.g. with Slurm's --cpu-bind, or choose GPUs with the `devices` keyword (on 1 of 2 MPI ranks)
+└ @ Oceananigans.DistributedComputations ~/breeze_julia_depot/packages/Oceananigans/EhPjs/src/DistributedComputations/validate_distributed_configuration.jl:17
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "compressible_explicit"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (1024, 512, 512)
+│   partition = (2, 1)
+│   nranks = 2
+│   Δt = 0.005
+│   time_steps = 500
+│   communication_name = "NCCL"
+│   communicator_type = "NCCLCommunicator"
+└   profile = false
+PLACEMENT rank=0 host=rg32301 gpu_uuid=6d7cad95-ca7c-fb05-c025-0ff8fb4c06b6 communicator=NCCLCommunicator threads=1 pool=none
+TIMING_START communication=NCCL steps=500
+TIMING_END communication=NCCL elapsed_seconds=72.404348214
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=16682975232
+RESULT machine=rg32301 dynamics=compressible_explicit float=Float32 size=1024x512x512 partition=2x1 gpus=2 steps=500 seconds_per_step=1.4481e-01 points_per_second=1.8537e+09 points_per_second_per_gpu=9.2686e+08 max_abs_w=1.355e-02 communication=NCCL fields_finite=true

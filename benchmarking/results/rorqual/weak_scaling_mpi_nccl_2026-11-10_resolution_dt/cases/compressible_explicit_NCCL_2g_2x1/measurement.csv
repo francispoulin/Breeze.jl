@@ -1,0 +1,2 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite
+rg32301,compressible_explicit,Float32,1024,512,512,2,1,2,500,1.448087e-01,1.853725e+09,1.354949e-02,NCCL,true

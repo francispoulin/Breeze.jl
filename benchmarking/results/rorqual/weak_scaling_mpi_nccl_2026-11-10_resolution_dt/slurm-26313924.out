@@ -1,0 +1,22 @@
+oceananigans-hpc environment (rorqual): repo=/home/anditse/Oceananigans-DRAC, depot=/home/anditse/breeze_julia_depot:
+  ocean data: /home/anditse/ocean_data
+  results: /scratch/anditse/results
+Breeze environment: julia 1.13.2, project=/home/anditse/Breeze.jl/benchmarking/distributed
+Starting compressible_explicit_SERIAL_1g_1x1
+Starting compressible_explicit_MPI_2g_2x1
+Starting compressible_explicit_NCCL_2g_2x1
+Starting compressible_explicit_MPI_4g_4x1
+Starting compressible_explicit_NCCL_4g_4x1
+Starting compressible_explicit_MPI_8g_8x1
+Starting compressible_explicit_NCCL_8g_8x1
+Starting compressible_explicit_MPI_16g_16x1
+Starting compressible_explicit_NCCL_16g_16x1
+Starting compressible_splitexplicit_SERIAL_1g_1x1
+Starting compressible_splitexplicit_MPI_2g_2x1
+Starting compressible_splitexplicit_NCCL_2g_2x1
+Starting compressible_splitexplicit_MPI_4g_4x1
+Starting compressible_splitexplicit_NCCL_4g_4x1
+Starting compressible_splitexplicit_MPI_8g_8x1
+Starting compressible_splitexplicit_NCCL_8g_8x1
+Starting compressible_splitexplicit_MPI_16g_16x1
+Starting compressible_splitexplicit_NCCL_16g_16x1

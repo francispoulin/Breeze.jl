@@ -1,5 +1,80 @@
 {
   "job_id": "26313924",
-  "state": "queued",
-  "cases": []
+  "started": "2026-11-15T11:54:57.328164+00:00",
+  "state": "validated",
+  "cases": [
+    {
+      "id": "compressible_explicit_SERIAL_1g_1x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_explicit_MPI_2g_2x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_explicit_NCCL_2g_2x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_explicit_MPI_4g_4x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_explicit_NCCL_4g_4x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_explicit_MPI_8g_8x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_explicit_NCCL_8g_8x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_explicit_MPI_16g_16x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_explicit_NCCL_16g_16x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_SERIAL_1g_1x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_MPI_2g_2x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_NCCL_2g_2x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_MPI_4g_4x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_NCCL_4g_4x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_MPI_8g_8x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_NCCL_8g_8x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_MPI_16g_16x1",
+      "exit_code": 0
+    },
+    {
+      "id": "compressible_splitexplicit_NCCL_16g_16x1",
+      "exit_code": 0
+    }
+  ],
+  "finished": "2026-11-15T13:40:50.898459+00:00"
 }

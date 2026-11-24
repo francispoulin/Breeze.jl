@@ -1,0 +1,35 @@
+{
+  "case": {
+    "id": "compressible_splitexplicit_MPI_16g_16x1",
+    "dynamics": "compressible_splitexplicit",
+    "gpus": 16,
+    "size": "8192x512x512",
+    "partition": "16x1",
+    "backend": "MPI",
+    "time_step": 0.000625
+  },
+  "started": "2026-11-15T13:23:15.436267+00:00",
+  "job_id": "26313924",
+  "state": "validated",
+  "measurement": {
+    "machine": "rg32101",
+    "dynamics": "compressible_splitexplicit",
+    "float": "Float32",
+    "Nx": "8192",
+    "Ny": "512",
+    "Nz": "512",
+    "Rx": "16",
+    "Ry": "1",
+    "gpus": "16",
+    "steps": "500",
+    "seconds_per_step": "7.745832e-01",
+    "points_per_second": "2.772438e+09",
+    "max_abs_w": "1.768085e-02",
+    "communication": "MPI",
+    "fields_finite": "true",
+    "points_per_second_per_gpu": 173277375.0,
+    "max_final_device_memory_bytes": 26193559552,
+    "max_sampled_process_memory_mib": 27216.0
+  },
+  "finished": "2026-11-15T13:31:59.308580+00:00"
+}
