@@ -1,0 +1,64 @@
+{
+  "title": "Breeze anelastic: NVTX Nsight on 1 and 2 GPUs",
+  "commit_subject": "Record anelastic 1- and 2-GPU Nsight campaign",
+  "description": [
+    "512³ cells per A100: 512×512×512 on one GPU (no inter-rank communication) and",
+    "1024×512×512 with a 2×1 partition on two GPUs using NCCL for halo exchange and the",
+    "distributed pressure solve (MPI only launches ranks). Breeze AnelasticDynamics, full dry CBL",
+    "on the fixed 12 km × 12 km × 3 km domain, Float32, WENO5, deterministic (sine) perturbation.",
+    "Δt = 0.01 s at 512³ and 0.005 s at 1024×512×512, as in the compressible 1-vs-2-GPU campaign",
+    "and the 2026-11-17 anelastic NCCL capture. Breeze host NVTX ranges."
+  ],
+  "local_size": [
+    512,
+    512,
+    512
+  ],
+  "warmup_steps": 10,
+  "measured_steps": 10,
+  "nvtx": true,
+  "nsight_trace": [
+    "cuda",
+    "nvtx",
+    "mpi"
+  ],
+  "common_arguments": [
+    "--float_type=Float32",
+    "--simplified=false",
+    "--random_perturbation=false",
+    "--comm=NCCL"
+  ],
+  "cases": [
+    {
+      "name": "anelastic_1g",
+      "dynamics": "anelastic",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--time_step=0.01"
+      ]
+    },
+    {
+      "name": "anelastic_2g",
+      "dynamics": "anelastic",
+      "ranks": 2,
+      "size": "1024x512x512",
+      "partition": "2x1",
+      "arguments": [
+        "--time_step=0.005"
+      ]
+    }
+  ],
+  "comparisons": [
+    "Anelastic=anelastic_1g:anelastic_2g"
+  ],
+  "minimum_free_mib": 35000,
+  "poll_seconds": 30,
+  "julia": "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+  "runtime": "/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23",
+  "frozen_checkout": "/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/worktree",
+  "frozen_commit": "c25dcb5035e9d8f4940e665f3bf2b9ad714895be",
+  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git",
+  "publish_branch": "benchmark-results"
+}
