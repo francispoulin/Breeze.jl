@@ -9,93 +9,11 @@
         "rank": 0,
         "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_1g/rank_0/profile.nsys-rep",
         "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_1g/rank_0/profile.sqlite",
-        "bytes": 559870,
-        "sha256": "667ac55a6f08a49f389a7fac29b98ed5cd86909906fd29a5079f35b90b533531",
+        "bytes": 560832,
+        "sha256": "04971cce3b4a47ad72163e1f3e608c0af29c982b61bb7cc9f8ca2e17535f5d9f",
         "kernels": 2640,
         "ranges": 460,
         "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
-      }
-    ]
-  },
-  {
-    "case": "hydrostatic_1gd",
-    "state": "COMPLETE",
-    "steps": 10,
-    "source_commit": "b6b4c1f16018dac7de186300f8a70642ac8ba7ae",
-    "profiles": [
-      {
-        "rank": 0,
-        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_1gd/rank_0/profile.nsys-rep",
-        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_1gd/rank_0/profile.sqlite",
-        "bytes": 570618,
-        "sha256": "925c919c02a3973c8f461d2c6d418452f876ee6c3dd62566a7de0e7223fcb752",
-        "kernels": 2640,
-        "ranges": 460,
-        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
-      }
-    ]
-  },
-  {
-    "case": "nonhydrostatic_1g",
-    "state": "COMPLETE",
-    "steps": 10,
-    "source_commit": "b6b4c1f16018dac7de186300f8a70642ac8ba7ae",
-    "profiles": [
-      {
-        "rank": 0,
-        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_1g/rank_0/profile.nsys-rep",
-        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_1g/rank_0/profile.sqlite",
-        "bytes": 518440,
-        "sha256": "e74efe89c41434ea36b775083172839633fdc7af602572ecd2897fd67e75342d",
-        "kernels": 1710,
-        "ranges": 490,
-        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
-      }
-    ]
-  },
-  {
-    "case": "nonhydrostatic_1gd",
-    "state": "COMPLETE",
-    "steps": 10,
-    "source_commit": "b6b4c1f16018dac7de186300f8a70642ac8ba7ae",
-    "profiles": [
-      {
-        "rank": 0,
-        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_1gd/rank_0/profile.nsys-rep",
-        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_1gd/rank_0/profile.sqlite",
-        "bytes": 550979,
-        "sha256": "2b37f435d653119a1f422681464b54da581b8738e91b85b79790f459e3ccbd4e",
-        "kernels": 1860,
-        "ranges": 550,
-        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
-      }
-    ]
-  },
-  {
-    "case": "nonhydrostatic_2g",
-    "state": "COMPLETE",
-    "steps": 10,
-    "source_commit": "b6b4c1f16018dac7de186300f8a70642ac8ba7ae",
-    "profiles": [
-      {
-        "rank": 0,
-        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_2g/rank_0/profile.nsys-rep",
-        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_2g/rank_0/profile.sqlite",
-        "bytes": 846129,
-        "sha256": "ed4f4b3811da8746c03da07108398dcc66bb78772e8dd0aa8e41b312768fac54",
-        "kernels": 3270,
-        "ranges": 3310,
-        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
-      },
-      {
-        "rank": 1,
-        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_2g/rank_1/profile.nsys-rep",
-        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_2g/rank_1/profile.sqlite",
-        "bytes": 845340,
-        "sha256": "e053f2c6ae0680d41b00744b4863bc73931ff1934d899560fc7d44a5b5dc4025",
-        "kernels": 3270,
-        "ranges": 3310,
-        "gpu_uuid": "628b07c6-4d27-afb0-6c71-f0b5ec437cab"
       }
     ]
   }

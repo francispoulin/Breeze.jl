@@ -106,7 +106,9 @@ def supersede(results, runtime, name, runs, captures):
     """Move an earlier launch's reports, logs and records aside before it is captured again."""
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     archive = f"{name}_{stamp}"
-    old_run = next(run for run in runs if run["case"] == name)
+    old_run = next((run for run in runs if run["case"] == name), None)
+    if old_run is None:  # already superseded or never captured: nothing to move aside
+        return
     raw = runtime / "raw" / name
     if raw.exists():
         (runtime / "raw" / "superseded").mkdir(exist_ok=True)
@@ -327,11 +329,12 @@ def main():
                 runs[:] = json.loads((results / "runs.json").read_text())
                 captures[:] = json.loads((results / "captures.json").read_text())
                 for name in args.rerun:
-                    supersede(results, runtime, name, runs, captures)
-                    superseded_path = results / "superseded_runs.json"
-                    superseded = json.loads(superseded_path.read_text())
-                    superseded[-1]["reason"] = args.reason or "not recorded"
-                    write_json(superseded_path, superseded)
+                    if any(run["case"] == name for run in runs):
+                        supersede(results, runtime, name, runs, captures)
+                        superseded_path = results / "superseded_runs.json"
+                        superseded = json.loads(superseded_path.read_text())
+                        superseded[-1]["reason"] = args.reason or "not recorded"
+                        write_json(superseded_path, superseded)
                 selected = [case for case in plan["cases"] if case_name(case) in args.rerun]
             elif (results / "runs.json").exists():
                 raise RuntimeError("Captures exist; pass --rerun CASE to capture a case again")

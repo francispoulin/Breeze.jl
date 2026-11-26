@@ -8,7 +8,8 @@
     "NonhydrostaticModel (RungeKutta3) on the rectilinear_buoyancy workload, WENO5, Δt = 10 s.",
     "Per model: 512×512×512 on one GPU serial (`_1g`), the same on one rank with NCCLDistributed",
     "and a 1×1 partition (`_1gd`, --distributed=true), and 1024×512×512 on two GPUs with NCCL",
-    "(`_2g`). Oceananigans host NVTX ranges."
+    "(`_2g`). Oceananigans host NVTX ranges.",
+    "The serial nonhydrostatic_1g case was dropped on 2026-11-26 (not needed for the 1-vs-2-GPU tables)."
   ],
   "local_size": [
     512,
@@ -56,18 +57,6 @@
       "ranks": 2,
       "size": "1024x512x512",
       "partition": "2x1",
-      "arguments": [
-        "--float_type=Float32",
-        "--time_step=10",
-        "--comm=NCCL"
-      ]
-    },
-    {
-      "name": "nonhydrostatic_1g",
-      "dynamics": "oceananigans_nonhydrostatic",
-      "ranks": 1,
-      "size": "512x512x512",
-      "partition": "1x1",
       "arguments": [
         "--float_type=Float32",
         "--time_step=10",

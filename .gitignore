@@ -78,3 +78,4 @@ benchmark_results.md
 !benchmarking/results/**/*.json
 !benchmarking/results/**/Manifest.toml
 !benchmarking/queued_fork_migration/*.json
+__pycache__/
