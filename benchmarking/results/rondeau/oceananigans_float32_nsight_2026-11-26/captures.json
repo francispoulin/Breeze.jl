@@ -36,34 +36,6 @@
     ]
   },
   {
-    "case": "hydrostatic_2g",
-    "state": "COMPLETE",
-    "steps": 10,
-    "source_commit": "b6b4c1f16018dac7de186300f8a70642ac8ba7ae",
-    "profiles": [
-      {
-        "rank": 0,
-        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_2g/rank_0/profile.nsys-rep",
-        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_2g/rank_0/profile.sqlite",
-        "bytes": 878736,
-        "sha256": "2de29c9fe6b055b41ae76f619495e054744f0957bec5b7353c5559da8f8c73aa",
-        "kernels": 4050,
-        "ranges": 3460,
-        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
-      },
-      {
-        "rank": 1,
-        "report": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_2g/rank_1/profile.nsys-rep",
-        "sqlite": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_2g/rank_1/profile.sqlite",
-        "bytes": 876440,
-        "sha256": "6373e560c221aff55a1ed9d74d3346538798fb8a8982b967f811519fe02cd8d8",
-        "kernels": 4050,
-        "ranges": 3460,
-        "gpu_uuid": "628b07c6-4d27-afb0-6c71-f0b5ec437cab"
-      }
-    ]
-  },
-  {
     "case": "nonhydrostatic_1g",
     "state": "COMPLETE",
     "steps": 10,

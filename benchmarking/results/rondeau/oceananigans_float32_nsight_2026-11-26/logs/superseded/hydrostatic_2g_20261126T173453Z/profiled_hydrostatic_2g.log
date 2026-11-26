@@ -1,0 +1,85 @@
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: NVTX host instrumentation enabled
+│   package = :Oceananigans
+└   NVTX.isactive() = true
+┌ Info: NVTX host instrumentation enabled
+│   package = :Oceananigans
+└   NVTX.isactive() = true
+PLACEMENT rank=0 host=rondeau gpu_uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 communicator=NCCLCommunicator threads=1 pool=unset
+PLACEMENT rank=1 host=rondeau gpu_uuid=628b07c6-4d27-afb0-6c71-f0b5ec437cab communicator=NCCLCommunicator threads=1 pool=unset
+DEVICE rank=0 uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 visible=0,3
+DEVICE rank=1 uuid=628b07c6-4d27-afb0-6c71-f0b5ec437cab visible=0,3
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "oceananigans_hydrostatic"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (1024, 512, 512)
+│   partition = (2, 1)
+│   nranks = 2
+│   Δt = 10.0
+│   time_steps = 10
+│   communication_name = "NCCL"
+│   communicator_type = "NCCLCommunicator"
+└   profile = true
+TIMING_START communication=NCCL steps=10
+PROFILE_START rank=0 steps=10
+PROFILE_START rank=1 steps=10
+Capture range started in the application.
+Capture range started in the application.
+Capture range ended in the application.
+Capture range ended in the application.
+Generating '/tmp/nsys-report-81a4.qdstrm'
+Generating '/tmp/nsys-report-5492.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [6%                          ] profile.nsys-repProcessing events...
+
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [====26%                     ] profile.nsys-rep
+[1/1] [===========53%              ] profile.nsys-rep
+[1/1] [===================79%      ] profile.nsys-rep
+[1/1] [====================85%     ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [5%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_2g/rank_1/profile.nsys-rep
+PROFILE_END rank=1 steps=10
+
+[1/1] [====26%                     ] profile.nsys-rep
+[1/1] [============54%             ] profile.nsys-rep
+[1/1] [===================79%      ] profile.nsys-rep
+[1/1] [====================85%     ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_2g/rank_0/profile.nsys-rep
+PROFILE_END rank=0 steps=10
+TIMING_END communication=NCCL elapsed_seconds=6.542621767
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=9437380608
+VALIDATION rank=1 fields_finite=true gpu_used_bytes=9437380608
+RESULT machine=rondeau dynamics=oceananigans_hydrostatic float=Float32 size=1024x512x512 partition=2x1 gpus=2 steps=10 seconds_per_step=6.5426e-01 points_per_second=4.1029e+08 points_per_second_per_gpu=2.0514e+08 max_abs_w=1.633013e-05 communication=NCCL fields_finite=true
