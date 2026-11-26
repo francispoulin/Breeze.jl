@@ -25,15 +25,15 @@ efficiency = 100 × T₁/T₂ with the slower rank): [kernel_scaling_1_vs_2gpu.m
 | Case | State | Maximum absolute w | GPUs | Other users' processes on these GPUs |
 |------|-------|--------------------|------|---------------------------------------|
 | anelastic_1g | COMPLETE | 6.429169e-05 | 1 | none |
-| anelastic_2g | COMPLETE | 3.279216e-05 | 0,1 | none |
+| anelastic_2g | COMPLETE | 3.279216e-05 | 0,3 | none |
 
 ## Trace summary per rank
 
 | Case | Rank | Trace s/step | Kernel ms/step | Launches/step | GPU active fraction | Halo kernel fraction | Solve kernel fraction |
 |------|------|--------------|----------------|---------------|---------------------|----------------------|-----------------------|
 | anelastic_1g | 0 | 0.2959 | 295.6 | 239 | 0.999 | 0.044 | 0.142 |
-| anelastic_2g | 0 | 0.4767 | 471.1 | 473 | 0.994 | 0.058 | 0.433 |
-| anelastic_2g | 1 | 0.4744 | 469.0 | 473 | 0.994 | 0.054 | 0.437 |
+| anelastic_2g | 0 | 0.4813 | 469.3 | 473 | 0.981 | 0.055 | 0.435 |
+| anelastic_2g | 1 | 0.4802 | 468.4 | 473 | 0.982 | 0.053 | 0.435 |
 
 Trace seconds per step include profiling overhead. Fractions are of summed
 kernel time, attributed through CUDA launch correlation IDs to enclosing
@@ -59,3 +59,9 @@ Every 30 s it looks for GPUs with no compute processes and at least
 35000 MiB free, and sets CUDA_VISIBLE_DEVICES for one launch.
 Live state: `/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/status.json`. Controller log: `/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/logs/controller.log`.
 On completion it commits this directory to benchmark-results and pushes.
+
+## Superseded captures
+
+These launches were captured again; the tables above use only the newer capture.
+
+- `anelastic_2g` from 2026-11-24T05:06:14 UTC (superseded 2026-11-26T18:59:55 UTC): reports in `/u/ajtse/Breeze.jl/.runtime/anelastic_nsight_1_2gpu_2026-11-23/raw/superseded/anelastic_2g_20261126T185955Z`, logs in `logs/superseded/anelastic_2g_20261126T185955Z`. Reason: Launched without environment.sh (default CUDA memory pool, default GC threads, no GC NVTX ranges); recaptured with it.

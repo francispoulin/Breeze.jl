@@ -75,8 +75,8 @@
     "case": "anelastic_2g",
     "state": "COMPLETE",
     "source_commit": "c25dcb5035e9d8f4940e665f3bf2b9ad714895be",
-    "cuda_visible_devices": "0,1",
-    "started_utc": "2026-11-24T05:06:14.309458+00:00",
+    "cuda_visible_devices": "0,3",
+    "started_utc": "2026-11-26T18:59:55.851662+00:00",
     "command": [
       "timeout",
       "--foreground",
@@ -109,18 +109,18 @@
     ],
     "exit_code": 0,
     "foreign_processes": [],
-    "finished_utc": "2026-11-24T05:09:34.469641+00:00",
+    "finished_utc": "2026-11-26T19:03:13.225544+00:00",
     "placements": [
+      [
+        "1",
+        "rondeau",
+        "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+        "NCCLCommunicator"
+      ],
       [
         "0",
         "rondeau",
         "3cc138cf-9b95-c6e6-9b51-330b5d985885",
-        "NCCLCommunicator"
-      ],
-      [
-        "1",
-        "rondeau",
-        "27b6f362-d593-fda1-e6fa-43275dcca7da",
         "NCCLCommunicator"
       ]
     ],
@@ -128,12 +128,12 @@
       [
         "0",
         "true",
-        "22295019520"
+        "21804285952"
       ],
       [
         "1",
         "true",
-        "22295019520"
+        "21804285952"
       ]
     ],
     "measurement": {
@@ -147,8 +147,8 @@
       "Ry": "1",
       "gpus": "2",
       "steps": "10",
-      "seconds_per_step": "9.525808e-01",
-      "points_per_second": "2.817981e+08",
+      "seconds_per_step": "9.782211e-01",
+      "points_per_second": "2.744118e+08",
       "max_abs_w": "3.279216e-05",
       "communication": "NCCL",
       "fields_finite": "true"
