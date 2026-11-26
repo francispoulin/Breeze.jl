@@ -1,6 +1,6 @@
 """Compare GPU kernel time per time step between two NVTX/Nsight cases, such as 1 and 2 GPUs.
 
-Usage: python3 kernel_scaling_table.py ANALYSIS[,ANALYSIS...] OUTPUT_PREFIX TITLE=BASE_CASE:SCALED_CASE ...
+Usage: python3 kernel_scaling_table.py ANALYSIS[,ANALYSIS...] OUTPUT_PREFIX [--note=TEXT] TITLE=BASE_CASE:SCALED_CASE ...
 
 Reads the per-rank kernel totals that analyze_nvtx.py wrote to analysis.json. Several
 comma-separated analysis.json files (case names must be unique) put comparisons from different
@@ -8,7 +8,8 @@ campaigns in one table file. Time per step is
 the summed duration of all launches of a kernel divided by the captured steps. For a case with
 several ranks each kernel uses its slowest rank, as weak-scaling efficiency does. Columns:
 difference = scaled - base (ms and % of base) and weak-scaling efficiency = 100 × base / scaled.
-Writes OUTPUT_PREFIX.md and OUTPUT_PREFIX.csv.
+--note=TEXT is printed under the headings of the comparisons that follow it. When both cases use
+the same number of GPUs, the columns are labeled by case. Writes OUTPUT_PREFIX.md and OUTPUT_PREFIX.csv.
 """
 
 import csv
@@ -33,6 +34,10 @@ def per_step(records):
     return kernels, (total, launches), len(records)
 
 
+def gpus(count):
+    return f"{count} GPU" + ("s" if count > 1 else "")
+
+
 def number(value, digits=3):
     return "—" if value is None else f"{value:.{digits}f}"
 
@@ -55,14 +60,23 @@ def main():
              "the kernel takes as long with the same work per GPU). A dash marks a kernel that only",
              "one case launches. Rows are sorted by the scaled case's time, then the base case's.", ""]
     rows = []
+    note = None
     for argument in sys.argv[3:]:
+        if argument.startswith("--note="):  # text printed under the following comparisons' headings
+            note = argument.removeprefix("--note=")
+            continue
         title, cases = argument.split("=", 1)
         base_case, scaled_case = cases.split(":")
         base, (base_total, base_launches), base_ranks = per_step(by_case[base_case])
         scaled, (scaled_total, scaled_launches), scaled_ranks = per_step(by_case[scaled_case])
-        lines += [f"## {title}", "", f"Base `{base_case}` ({base_ranks} GPU), scaled `{scaled_case}` ({scaled_ranks} GPUs).", "",
-                  f"| Kernel | Launches/step {base_ranks}→{scaled_ranks} GPU | {base_ranks} GPU ms/step | "
-                  f"{scaled_ranks} GPU ms/step | Difference ms | Difference % | Efficiency % |",
+        if base_ranks == scaled_ranks:  # same GPU count: label the columns by case
+            base_label, scaled_label, launches_label = f"`{base_case}`", f"`{scaled_case}`", "base→compared"
+        else:
+            base_label, scaled_label, launches_label = f"{base_ranks} GPU", f"{scaled_ranks} GPU", f"{base_ranks}→{scaled_ranks} GPU"
+        lines += [f"## {title}", "", f"Base `{base_case}` ({gpus(base_ranks)}), compared `{scaled_case}` ({gpus(scaled_ranks)}).", "",
+                  *([note, ""] if note else []),
+                  f"| Kernel | Launches/step {launches_label} | {base_label} ms/step | "
+                  f"{scaled_label} ms/step | Difference ms | Difference % | Efficiency % |",
                   "|---|---|---|---|---|---|---|"]
         names = sorted(set(base) | set(scaled), key=lambda n: (-scaled.get(n, (0.0,))[0], -base.get(n, (0.0,))[0], n))
         entries = [(name, base.get(name), scaled.get(name)) for name in names]

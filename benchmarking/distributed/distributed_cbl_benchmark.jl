@@ -18,6 +18,8 @@
 #####   --size             global grid, NxNyxNz                                (default 256x256x128)
 #####   --partition        ranks in x and y, RxxRy; must multiply to #ranks    (default <#ranks>x1)
 #####   --comm             MPI | NCCL; one rank uses the serial GPU baseline (default MPI)
+#####   --distributed      true | false: build the --comm distributed architecture even on one
+#####                      rank (partition 1x1) instead of the serial GPU()     (default false)
 #####   --time_steps       timed steps                                         (default 100)
 #####   --warmup_steps     untimed steps (includes compilation)                (default 10)
 #####   --time_step        Δt in seconds                                       (default 0.05)
@@ -83,6 +85,7 @@ simplified    = option("simplified", "false") == "true"
 profile       = parse(Bool, option("profile", "false"))
 nvtx          = parse(Bool, option("nvtx", "false"))
 random_perturbation = option("random_perturbation", "true") == "true"
+distributed   = parse(Bool, option("distributed", "false"))
 results_file  = option("results_file", "")
 
 if nvtx
@@ -114,9 +117,13 @@ else
     error("Unknown --dynamics=$dynamics_name")
 end
 
-# One rank is the plain serial baseline, with no MPI machinery in the model.
-communication_name = nranks == 1 ? "SERIAL" : comm_name
-arch = if nranks == 1
+# One rank is the plain serial baseline, with no MPI machinery in the model, unless
+# --distributed=true. A 1x1 partition keeps Periodic local topologies, so Oceananigans adds no
+# halo-communication boundary conditions or solver transposes: the distributed code path runs
+# without inter-rank communication.
+serial = nranks == 1 && !distributed
+communication_name = serial ? "SERIAL" : comm_name
+arch = if serial
     GPU()
 elseif comm_name == "NCCL"
     NCCLDistributed(GPU(); partition = Partition(Rx, Ry))
@@ -124,13 +131,14 @@ else
     Distributed(GPU(); partition = Partition(Rx, Ry))
 end
 
-if nranks > 1 && comm_name == "NCCL"
+if !serial && comm_name == "NCCL"
     nccl_extension = Base.get_extension(Oceananigans, :OceananigansNCCLExt)
     isnothing(nccl_extension) && error("OceananigansNCCLExt did not load")
     arch.communicator isa nccl_extension.NCCLCommunicator || error("NCCL communicator was not selected")
-    isnothing(arch.communicator.nccl) && error("NCCL communicator was not initialized")
+    # OceananigansNCCLExt creates no NCCL communicator for a single rank (nothing to exchange).
+    nranks > 1 && isnothing(arch.communicator.nccl) && error("NCCL communicator was not initialized")
 end
-communicator_type = nranks == 1 ? "none" : string(nameof(typeof(arch.communicator)))
+communicator_type = serial ? "none" : string(nameof(typeof(arch.communicator)))
 @printf("PLACEMENT rank=%d host=%s gpu_uuid=%s communicator=%s threads=%d pool=%s\n",
         rank, gethostname(), string(CUDA.uuid(CUDA.device())), communicator_type,
         Threads.nthreads(), get(ENV, "JULIA_CUDA_MEMORY_POOL", "unset"))
