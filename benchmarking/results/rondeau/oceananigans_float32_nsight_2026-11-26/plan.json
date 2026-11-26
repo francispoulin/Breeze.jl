@@ -1,0 +1,118 @@
+{
+  "title": "Oceananigans hydrostatic and nonhydrostatic in Float32: NVTX Nsight on 1 and 2 GPUs",
+  "commit_subject": "Record Oceananigans Float32 1- and 2-GPU Nsight campaign",
+  "description": [
+    "Float32 repeat of the Oceananigans captures (2026-11-19 and 2026-11-25 ran Float64), so the",
+    "Oceananigans models use the same precision as the Breeze anelastic, CE and CSE captures.",
+    "HydrostaticFreeSurfaceModel (SplitRungeKutta3, SplitExplicitFreeSurface, 30 substeps) and",
+    "NonhydrostaticModel (RungeKutta3) on the rectilinear_buoyancy workload, WENO5, Δt = 10 s.",
+    "Per model: 512×512×512 on one GPU serial (`_1g`), the same on one rank with NCCLDistributed",
+    "and a 1×1 partition (`_1gd`, --distributed=true), and 1024×512×512 on two GPUs with NCCL",
+    "(`_2g`). Oceananigans host NVTX ranges."
+  ],
+  "local_size": [
+    512,
+    512,
+    512
+  ],
+  "warmup_steps": 10,
+  "measured_steps": 10,
+  "nvtx": true,
+  "nsight_trace": [
+    "cuda",
+    "nvtx",
+    "mpi"
+  ],
+  "common_arguments": [],
+  "cases": [
+    {
+      "name": "hydrostatic_1g",
+      "dynamics": "oceananigans_hydrostatic",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--float_type=Float32",
+        "--time_step=10",
+        "--comm=NCCL"
+      ]
+    },
+    {
+      "name": "hydrostatic_1gd",
+      "dynamics": "oceananigans_hydrostatic",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--float_type=Float32",
+        "--time_step=10",
+        "--comm=NCCL",
+        "--distributed=true"
+      ]
+    },
+    {
+      "name": "hydrostatic_2g",
+      "dynamics": "oceananigans_hydrostatic",
+      "ranks": 2,
+      "size": "1024x512x512",
+      "partition": "2x1",
+      "arguments": [
+        "--float_type=Float32",
+        "--time_step=10",
+        "--comm=NCCL"
+      ]
+    },
+    {
+      "name": "nonhydrostatic_1g",
+      "dynamics": "oceananigans_nonhydrostatic",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--float_type=Float32",
+        "--time_step=10",
+        "--comm=NCCL"
+      ]
+    },
+    {
+      "name": "nonhydrostatic_1gd",
+      "dynamics": "oceananigans_nonhydrostatic",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--float_type=Float32",
+        "--time_step=10",
+        "--comm=NCCL",
+        "--distributed=true"
+      ]
+    },
+    {
+      "name": "nonhydrostatic_2g",
+      "dynamics": "oceananigans_nonhydrostatic",
+      "ranks": 2,
+      "size": "1024x512x512",
+      "partition": "2x1",
+      "arguments": [
+        "--float_type=Float32",
+        "--time_step=10",
+        "--comm=NCCL"
+      ]
+    }
+  ],
+  "comparison_analyses": [],
+  "comparison_output": "kernel_scaling_1_vs_2gpu",
+  "comparison_title": "1-GPU (NCCL-distributed) vs 2-GPU per-kernel comparison",
+  "comparisons": [
+    "Hydrostatic=hydrostatic_1gd:hydrostatic_2g",
+    "Nonhydrostatic=nonhydrostatic_1gd:nonhydrostatic_2g"
+  ],
+  "minimum_free_mib": 35000,
+  "poll_seconds": 30,
+  "julia": "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+  "runtime": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26",
+  "frozen_checkout": "/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/worktree",
+  "frozen_commit": "b6b4c1f16018dac7de186300f8a70642ac8ba7ae",
+  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git",
+  "publish_branch": "benchmark-results"
+}
