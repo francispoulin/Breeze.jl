@@ -1,6 +1,6 @@
 # Breeze compressible explicit and split-explicit: NVTX Nsight on 1 and 2 GPUs
 
-Status: **COMPLETE**.
+Status: **FAILED**.
 
 512³ cells per A100: 512×512×512 on one GPU (no inter-rank communication) and
 1024×512×512 with a 2×1 partition on two GPUs using NCCL for halo exchange
@@ -25,7 +25,7 @@ efficiency = 100 × T₁/T₂ with the slower rank): [kernel_scaling_1_vs_2gpu.m
 | Case | State | Maximum absolute w | GPUs | Other users' processes on these GPUs |
 |------|-------|--------------------|------|---------------------------------------|
 | explicit_1g | COMPLETE | 2.102493e-03 | 0 | not monitored |
-| explicit_2g | COMPLETE | 1.610592e-03 | 0,1 | none |
+| explicit_2g | FAILED | 1.610592e-03 | 0,3 | none |
 | splitexplicit_1g | COMPLETE | 2.344239e-03 | 0 | not monitored |
 | splitexplicit_2g | COMPLETE | 1.746902e-03 | 0,1 | not monitored |
 
@@ -73,3 +73,8 @@ On completion it commits this directory to benchmark-results and pushes.
 These launches were captured again; the tables above use only the newer capture.
 
 - `explicit_2g` from 2026-11-20T21:29:35 UTC (superseded 2026-11-22T05:31:57 UTC): reports in `/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/superseded/explicit_2g_20261122T053157Z`, logs in `logs/superseded/explicit_2g_20261122T053157Z`. Reason: Rank 1 compute kernels ran about 2.2x slower than rank 0 and the 1-GPU case, consistent with another user's job sharing its GPU during the capture.
+- `explicit_2g` from 2026-11-22T07:56:02 UTC (superseded 2026-11-26T18:57:02 UTC): reports in `/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/superseded/explicit_2g_20261126T185702Z`, logs in `logs/superseded/explicit_2g_20261126T185702Z`. Reason: Launched without environment.sh (default CUDA memory pool, default GC threads, no GC NVTX ranges); recaptured with it.
+
+## Failure
+
+no such table: CUPTI_ACTIVITY_KIND_KERNEL
