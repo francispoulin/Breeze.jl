@@ -1,0 +1,110 @@
+{
+  "title": "One-GPU NCCL-distributed baselines: hydrostatic, nonhydrostatic, anelastic, CE",
+  "commit_subject": "Record one-GPU NCCL-distributed Nsight baselines",
+  "description": [
+    "One rank on one A100 at 512×512×512 with NCCLDistributed and a 1×1 partition",
+    "(--distributed=true) instead of the serial GPU(), so the 1-GPU baselines take the",
+    "distributed code path of the 2-GPU runs. A 1×1 partition keeps Periodic local topologies:",
+    "Oceananigans adds no halo-communication boundary conditions, buffers or solver transposes",
+    "and creates no NCCL communicator, so inter-rank communication kernels stay 2-GPU only.",
+    "Arguments match the serial 1-GPU cases: Oceananigans HydrostaticFreeSurfaceModel and",
+    "NonhydrostaticModel (rectilinear_buoyancy, Float64, Δt = 10 s) and Breeze anelastic and",
+    "compressible explicit (full dry CBL, Float32, Δt = 0.01 s, sine perturbation). NVTX ranges",
+    "use the Oceananigans domain for the Oceananigans models and the Breeze domain otherwise."
+  ],
+  "local_size": [
+    512,
+    512,
+    512
+  ],
+  "warmup_steps": 10,
+  "measured_steps": 10,
+  "nvtx": true,
+  "nsight_trace": [
+    "cuda",
+    "nvtx",
+    "mpi"
+  ],
+  "common_arguments": [],
+  "cases": [
+    {
+      "name": "hydrostatic_1gd",
+      "dynamics": "oceananigans_hydrostatic",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--float_type=Float64",
+        "--time_step=10",
+        "--comm=NCCL",
+        "--distributed=true"
+      ]
+    },
+    {
+      "name": "nonhydrostatic_1gd",
+      "dynamics": "oceananigans_nonhydrostatic",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--float_type=Float64",
+        "--time_step=10",
+        "--comm=NCCL",
+        "--distributed=true"
+      ]
+    },
+    {
+      "name": "anelastic_1gd",
+      "dynamics": "anelastic",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--float_type=Float32",
+        "--substeps=12",
+        "--simplified=false",
+        "--random_perturbation=false",
+        "--comm=NCCL",
+        "--distributed=true",
+        "--time_step=0.01"
+      ]
+    },
+    {
+      "name": "explicit_1gd",
+      "dynamics": "compressible_explicit",
+      "ranks": 1,
+      "size": "512x512x512",
+      "partition": "1x1",
+      "arguments": [
+        "--float_type=Float32",
+        "--substeps=12",
+        "--simplified=false",
+        "--random_perturbation=false",
+        "--comm=NCCL",
+        "--distributed=true",
+        "--time_step=0.01"
+      ]
+    }
+  ],
+  "comparison_analyses": [
+    "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/oceananigans_nsight_1_2gpu_2026-11-19/analysis.json",
+    "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/anelastic_nsight_1_2gpu_2026-11-23/analysis.json",
+    "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/analysis.json"
+  ],
+  "comparison_output": "kernel_scaling_serial_vs_distributed_1gpu",
+  "comparison_title": "Serial vs NCCL-distributed 1-GPU per-kernel comparison",
+  "comparisons": [
+    "Hydrostatic=hydrostatic_1g:hydrostatic_1gd",
+    "Nonhydrostatic=nonhydrostatic_1g:nonhydrostatic_1gd",
+    "Anelastic=anelastic_1g:anelastic_1gd",
+    "Compressible explicit (CE)=explicit_1g:explicit_1gd"
+  ],
+  "minimum_free_mib": 35000,
+  "poll_seconds": 30,
+  "julia": "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+  "runtime": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25",
+  "frozen_checkout": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/worktree",
+  "frozen_commit": "f069ccff22fa27581dee625965ec1fbcb08750cf",
+  "origin_push_url": "https://github.com/francispoulin/Breeze.jl.git",
+  "publish_branch": "benchmark-results"
+}
