@@ -74,6 +74,7 @@ These launches were captured again; the tables above use only the newer capture.
 
 - `explicit_2g` from 2026-11-20T21:29:35 UTC (superseded 2026-11-22T05:31:57 UTC): reports in `/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/superseded/explicit_2g_20261122T053157Z`, logs in `logs/superseded/explicit_2g_20261122T053157Z`. Reason: Rank 1 compute kernels ran about 2.2x slower than rank 0 and the 1-GPU case, consistent with another user's job sharing its GPU during the capture.
 - `explicit_2g` from 2026-11-22T07:56:02 UTC (superseded 2026-11-26T18:57:02 UTC): reports in `/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/superseded/explicit_2g_20261126T185702Z`, logs in `logs/superseded/explicit_2g_20261126T185702Z`. Reason: Launched without environment.sh (default CUDA memory pool, default GC threads, no GC NVTX ranges); recaptured with it.
+- `explicit_2g` from 2026-11-26T18:57:02 UTC (superseded 2026-11-26T19:09:37 UTC): reports in `/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/superseded/explicit_2g_20261126T190937Z`, logs in `logs/superseded/explicit_2g_20261126T190937Z`. Reason: Previous recapture's rank 0 Nsight report held no CUDA kernel activity (intermittent CUPTI failure).
 
 ## Failure
 
