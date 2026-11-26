@@ -1,4 +1,4 @@
-"""Prepare, submit, run, and retain Fir weak-scaling series (no Nsight or NVTX)."""
+"""Prepare, submit, run, and retain Fir or Trillium weak-scaling series (no Nsight or NVTX)."""
 import argparse
 import hashlib
 import json
@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import re
 import shlex
+import shutil
 import subprocess
 import sys
 import tarfile
@@ -34,6 +35,20 @@ SERIES = {
         time_step=lambda count: 10.0, timed_steps=100, repeats=3, node_gpus={2: 4},
         title="Fir NCCL weak scaling: Oceananigans nonhydrostatic, 1 and 2 GPUs",
         post_finalize=("benchmarking/results/weak_scaling_efficiency_2026-11-15",)),
+    "breeze_anelastic_ce_nccl": dict(
+        dynamics=("anelastic", "compressible_explicit"), gpu_counts=GPU_COUNTS, backend="NCCL", float_type="Float32",
+        time_step=lambda count: 0.01 / count, timed_steps=500, repeats=1, node_gpus={},
+        title="NCCL weak scaling: anelastic and CE", post_finalize=()),
+}
+
+# Scheduler policy per cluster. Trillium mounts /home read-only on compute nodes, allocates only
+# 1 GPU or whole 4-GPU nodes, rejects --mem, and has no CPU partition on the GPU login node, so its
+# runtime and live study go on $SCRATCH and publish_when_done.sh replaces the Slurm finalizer.
+MACHINES = {
+    "fir": dict(label="Fir", gpu_account="def-fpoulin_gpu", cpu_account="def-fpoulin",
+                memory_per_gpu_gib=64, cpus_per_task=8, node_gpus={}, slurm_finalizer=True),
+    "trillium": dict(label="Trillium", gpu_account="def-fpoulin", cpu_account=None,
+                     memory_per_gpu_gib=None, cpus_per_task=24, node_gpus={2: 4}, slurm_finalizer=False),
 }
 CASE_DEFAULTS = dict(float_type="Float32", timed_steps=500, repeat=1)
 
@@ -64,8 +79,18 @@ def study_series(study):
     return read_json(study / "config.json").get("series", "breeze_mpi_nx1")
 
 
+def study_machine(study):
+    return MACHINES[read_json(study / "config.json").get("machine", "fir")]
+
+
+def series_title(series, machine="fir"):
+    title, label = SERIES[series]["title"], MACHINES[machine]["label"]
+    return title if title.startswith(label) else f"{label} {title}"
+
+
 def reserved_gpus_per_node(study, count):
-    return SERIES[study_series(study)]["node_gpus"].get(count)
+    """A per-node reservation larger than the ranks' GPUs, if the series or the scheduler needs one."""
+    return SERIES[study_series(study)]["node_gpus"].get(count) or study_machine(study)["node_gpus"].get(count)
 
 
 def read_json(path):
@@ -95,12 +120,15 @@ def validate_preflight_placement(output, count, node_gpus=None):
     return placements
 
 
-def prepare(study, series):
+def prepare(study, series, machine="fir", publish_directory=None):
     if study.exists():
         raise RuntimeError("Use a fresh study directory")
+    if publish_directory is not None and publish_directory.exists():
+        raise RuntimeError("Publication directory already exists")
     if run_text(["git", "status", "--porcelain"], cwd=REPO).strip():
         raise RuntimeError("Commit the source before freezing the study")
-    runtime = REPO / ".runtime/studies" / study.name
+    runtime_root = Path(os.environ.get("BREEZE_RUNTIME_ROOT", REPO / ".runtime"))
+    runtime = runtime_root / "studies" / study.name
     if runtime.exists():
         raise RuntimeError("Runtime study already exists")
     source = runtime / "source"
@@ -112,7 +140,8 @@ def prepare(study, series):
     (study / "allocations").mkdir()
     (study / "provenance/source_commit.txt").write_text(run_text(["git", "rev-parse", "HEAD"], cwd=REPO))
     paths = ["src", "ext", "Project.toml", "AGENTS.md", "benchmarking/src",
-             "benchmarking/distributed/fir", "benchmarking/distributed/rorqual/run_case.py",
+             "benchmarking/distributed/fir", "benchmarking/distributed/trillium",
+             "benchmarking/distributed/rorqual/run_case.py",
              "benchmarking/distributed/rorqual/rank.sh", "benchmarking/distributed/distributed_cbl_benchmark.jl",
              "benchmarking/distributed/oceananigans_rectilinear_buoyancy.jl"]
     if (REPO / "Artifacts.toml").exists():
@@ -128,7 +157,9 @@ def prepare(study, series):
         (study / "provenance" / name).write_text(contents)
     (study / "provenance/setup.log").write_text((installed / "setup.log").read_text())
     config = dict(repository=str(REPO), source=str(source), environment=str(environment),
-                  runtime=str(runtime), runtime_root=str(REPO / ".runtime"), machine="fir",
+                  runtime=str(runtime), runtime_root=str(runtime_root), machine=machine,
+                  environment_script=f"benchmarking/distributed/{machine}/environment.sh",
+                  publish_directory=str(publish_directory or study),
                   prepared=timestamp(), series=series, warmup_steps=10,
                   timed_steps=SERIES[series]["timed_steps"], repeats=SERIES[series]["repeats"], substeps=12,
                   float_type=SERIES[series]["float_type"], backend=SERIES[series]["backend"],
@@ -150,7 +181,7 @@ def script_prefix(config):
     return ("#!/usr/bin/env bash\nset -eo pipefail\n"
             + "export BREEZE_RUNTIME_ROOT=" + shlex.quote(config["runtime_root"]) + "\n"
             + "export BREEZE_FIR_ENV=" + shlex.quote(config["environment"]) + "\n"
-            + "source " + shlex.quote(str(Path(config["source"]) / "benchmarking/distributed/fir/environment.sh")) + "\n")
+            + "source " + shlex.quote(str(Path(config["source"]) / config.get("environment_script", "benchmarking/distributed/fir/environment.sh"))) + "\n")
 
 
 def generate_scripts(study):
@@ -166,6 +197,12 @@ def generate_scripts(study):
         (directory / "allocation.sh").write_text(script_prefix(config) + shlex.join(command) + "\n")
     command = ["python3", str(worker), "finalize", str(study), "--publish"]
     (study / "finalize.sh").write_text(script_prefix(config) + shlex.join(command) + "\n")
+    if not study_machine(study)["slurm_finalizer"]:
+        # Login-node replacement for the Slurm finalizer: wait until the study's jobs leave the queue.
+        wait = ('jobs=$(python3 -c \'import json, sys; print(",".join(job["job_id"] for job in json.load(open(sys.argv[1]))["jobs"]))\' '
+                + shlex.quote(str(study / "submission.json")) + ")\n"
+                + 'while [[ -n "$(squeue --noheader --jobs="$jobs" 2>/dev/null)" ]]; do sleep 600; done\n')
+        (study / "publish_when_done.sh").write_text(script_prefix(config) + wait + shlex.join(command) + "\n")
 
 
 def submit(study):
@@ -175,23 +212,32 @@ def submit(study):
     submission = dict(submitted=timestamp(), jobs=[], state="submitting")
     write_json(study / "submission.json", submission)
     series = study_series(study)
+    machine = study_machine(study)
     prefix = "breeze_mpi_" if series == "breeze_mpi_nx1" else series + "_"
     for count in SERIES[series]["gpu_counts"]:
         directory = study / "allocations" / f"{count}g"
         nodes = max(1, count // 4)
         per_node = reserved_gpus_per_node(study, count) or min(4, count)
-        command = ["sbatch", "--parsable", "--account=def-fpoulin_gpu", "--job-name=" + prefix + str(count) + "g",
+        command = ["sbatch", "--parsable", "--account=" + machine["gpu_account"], "--job-name=" + prefix + str(count) + "g",
                    "--nodes=" + str(nodes), "--ntasks=" + str(nodes * per_node), "--ntasks-per-node=" + str(per_node),
-                   "--gpus-per-node=h100:" + str(per_node), "--cpus-per-task=8", "--mem=" + str(64 * per_node) + "G",
-                   "--time=03:00:00", "--distribution=block:block", "--chdir=" + config_path(study, "repository"),
-                   "--output=" + str(directory / "slurm-%j.out"), str(directory / "allocation.sh")]
+                   "--gpus-per-node=h100:" + str(per_node), "--cpus-per-task=" + str(machine["cpus_per_task"])]
+        if machine["memory_per_gpu_gib"]:
+            command.append("--mem=" + str(machine["memory_per_gpu_gib"] * per_node) + "G")
+        command += ["--time=03:00:00", "--distribution=block:block", "--chdir=" + config_path(study, "runtime"),
+                    "--output=" + str(directory / "slurm-%j.out"), str(directory / "allocation.sh")]
         (directory / "submission_command.sh").write_text(shlex.join(command) + "\n")
         job = run_text(command).strip().split(";")[0]
         submission["jobs"].append(dict(gpus=count, reserved_gpus_per_node=per_node, job_id=job, command=command))
         write_json(study / "submission.json", submission)
         print(f"Submitted {count} GPUs: {job}", flush=True)
+    if not machine["slurm_finalizer"]:
+        submission["state"] = "submitted"
+        write_json(study / "submission.json", submission)
+        render_report(study)
+        print(f"No Slurm finalizer on {machine['label']}: run publish_when_done.sh on the login node")
+        return
     dependency = "afterany:" + ":".join(item["job_id"] for item in submission["jobs"])
-    command = ["sbatch", "--parsable", "--account=def-fpoulin", "--job-name=breeze_finalize", "--nodes=1",
+    command = ["sbatch", "--parsable", "--account=" + machine["cpu_account"], "--job-name=breeze_finalize", "--nodes=1",
                "--ntasks=1", "--cpus-per-task=1", "--mem=4G", "--time=00:20:00", "--dependency=" + dependency,
                "--chdir=" + config_path(study, "repository"), "--output=" + str(Path(config_path(study, "runtime")) / "finalize-%j.out"),
                str(study / "finalize.sh")]
@@ -354,12 +400,17 @@ def finalize(study, publish):
                state="validated" if validated == len(plan) else "incomplete", source_error=source_error))
     render_report(study)
     if publish:
-        repository = Path(config_path(study, "repository"))
+        config = read_json(study / "config.json")
+        repository = Path(config["repository"])
         if run_text(["git", "branch", "--show-current"], cwd=repository).strip() != "benchmark-results":
             raise RuntimeError("Refusing publication from a different branch")
         # Pull before edits, as required by AGENTS.md. Generated results are scoped to this study.
         subprocess.run(["git", "pull", "--ff-only"], cwd=repository, check=True)
-        for path in study.rglob("*"):
+        published = Path(config.get("publish_directory", study))
+        if published != study:
+            # The live study is on scratch, where compute nodes can write; copy it into the checkout.
+            shutil.copytree(study, published, dirs_exist_ok=True)
+        for path in published.rglob("*"):
             if path.is_file() and path.suffix not in (".gz", ".png"):
                 try:
                     text = path.read_text()
@@ -368,11 +419,11 @@ def finalize(study, publish):
                 cleaned = "\n".join(line.rstrip() for line in text.splitlines()).rstrip() + "\n" if text else ""
                 if cleaned.encode() != path.read_bytes():
                     path.write_text(cleaned)
-        relative = str(study.relative_to(repository))
+        relative = str(published.relative_to(repository))
         subprocess.run(["git", "add", "--force", "--", relative], cwd=repository, check=True)
         subprocess.run(["git", "diff", "--cached", "--check", "--", relative], cwd=repository, check=True)
         if subprocess.run(["git", "diff", "--cached", "--quiet", "--", relative], cwd=repository).returncode:
-            title = SERIES[study_series(study)]["title"].split(":")[0]
+            title = series_title(study_series(study), config.get("machine", "fir")).split(":")[0]
             subprocess.run(["git", "commit", "-m", f"Record {title}: {validated}/{len(plan)} cases validated", "--", relative], cwd=repository, check=True)
             subprocess.run(["git", "push"], cwd=repository, check=True)
         if validated == len(plan):
@@ -402,6 +453,9 @@ def main():
     preparation = commands.add_parser("prepare")
     preparation.add_argument("study", type=Path)
     preparation.add_argument("--series", choices=sorted(SERIES), default="breeze_mpi_nx1")
+    preparation.add_argument("--machine", choices=sorted(MACHINES), default="fir")
+    preparation.add_argument("--publish-directory", type=Path,
+                             help="Checkout directory that receives a study kept outside it (default: the study itself)")
     worker = commands.add_parser("run-size")
     worker.add_argument("study", type=Path)
     worker.add_argument("count", type=int, choices=GPU_COUNTS)
@@ -412,7 +466,8 @@ def main():
     arguments = parser.parse_args()
     study = arguments.study.resolve()
     if arguments.action == "prepare":
-        prepare(study, arguments.series)
+        publish_directory = arguments.publish_directory.resolve() if arguments.publish_directory else None
+        prepare(study, arguments.series, arguments.machine, publish_directory)
     elif arguments.action == "submit":
         submit(study)
     elif arguments.action == "run-size":

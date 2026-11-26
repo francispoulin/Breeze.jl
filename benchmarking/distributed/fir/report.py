@@ -1,4 +1,4 @@
-"""Report validated Fir measurements without inventing pending results."""
+"""Report validated Fir or Trillium measurements without inventing pending results."""
 import csv
 import json
 from pathlib import Path
@@ -29,9 +29,15 @@ DESCRIPTIONS = {
         "Each launch takes 10 untimed warmup steps and 100 timed steps; every case is launched three times.",
         "**Pure performance benchmark: no Nsight capture and no NVTX instrumentation** (`--profile=false --nvtx=false`).",
         "One Julia/BLAS/OpenMP thread per rank; CUDA memory pool disabled."],
+    "breeze_anelastic_ce_nccl": [
+        "Full dry convective boundary layer, WENO5, Float32, deterministic smooth initial perturbations.",
+        "Fixed 12 km × 12 km × 3 km domain; N×1 partitions and 512³ cells per GPU.",
+        "Anelastic and CE halve Δt with each doubling of GPU count. CE is compressible explicit.",
+        "Multi-GPU runs exchange halos (and transpose the anelastic FFT pressure solve) with NCCL; MPI only launches ranks and times steps.",
+        "10 untimed warmup steps and 500 timed steps per case, one timed window.",
+        "**Pure performance benchmark: no Nsight capture and no NVTX instrumentation** (`--profile=false --nvtx=false`).",
+        "One Julia/BLAS/OpenMP thread per rank; CUDA memory pool disabled."],
 }
-TITLES = {"breeze_mpi_nx1": "Fir MPI weak scaling: anelastic, CE, CSE",
-          "oceananigans_nonhydrostatic_nccl": "Fir NCCL weak scaling: Oceananigans nonhydrostatic, 1 and 2 GPUs"}
 
 
 def read_json(path):
@@ -57,7 +63,9 @@ def median_rows(rows):
 def report(study):
     plan = read_json(study / "plan.json")
     config = read_json(study / "config.json") if (study / "config.json").exists() else {}
+    from study import MACHINES, series_title
     series = config.get("series", "breeze_mpi_nx1")
+    machine = MACHINES[config.get("machine", "fir")]
     repeated = config.get("repeats", 1) > 1
     statuses, rows = [], []
     for case in plan:
@@ -100,7 +108,7 @@ def report(study):
         axes[2].set_ylabel("Grid points / second / GPU")
         axes[1].axhline(100, color="gray", linewidth=0.8, linestyle="--")
         backend = "/".join(name for name in backends if name != "SERIAL")
-        figure.suptitle(f"Fir H100 · {backend} · 512³ cells per GPU · {'/'.join(float_types)} · no Nsight or NVTX")
+        figure.suptitle(f"{machine['label']} H100 · {backend} · 512³ cells per GPU · {'/'.join(float_types)} · no Nsight or NVTX")
         figure.savefig(study / "weak_scaling.png", dpi=180)
         figure.savefig(study / "weak_scaling.svg")
         plt.close(figure)
@@ -110,7 +118,7 @@ def report(study):
     final = read_json(study / "final_status.json") if (study / "final_status.json").exists() else None
     state = final["state"].upper() if final else ("SUBMITTED" if (study / "submission.json").exists() else "PREPARED")
     validated = sum(status["state"] == "validated" for _, status in statuses)
-    lines = ["# " + TITLES[series], "",
+    lines = ["# " + series_title(series, config.get("machine", "fir")), "",
              f"Status: **{state}; {validated}/{len(plan)} cases validated.** Pending, failed, and unrun cases are excluded from performance metrics.", "",
              *DESCRIPTIONS[series], "",
              "| GPUs | Global grid | Partition | Backend | Δt (s) |", "|---:|---|---|---|---:|"]
@@ -122,16 +130,18 @@ def report(study):
         lines += ["The initial series used five independent Slurm allocations. Additional recovery reservations are documented below.",
                   "Each runs anelastic, CE, and CSE sequentially on the same allocated GPUs, with eight CPU cores per rank and one Julia thread."]
     else:
-        lines += [f"One Slurm allocation per GPU count runs its cases sequentially, with eight CPU cores per rank and one Julia thread.",
-                  "The two-GPU allocation reserves all four H100s of one node so both ranks see every device (GPU peer copies);",
+        lines += [f"One Slurm allocation per GPU count runs its cases sequentially, with {machine['cpus_per_task']} CPU cores per rank and one Julia thread.",
+                  "The two-GPU allocation reserves all four H100s of one node so both ranks see every device (GPU peer copies)"
+                  + (f"; {machine['label']} allocates only 1 GPU or whole 4-GPU nodes;" if machine["node_gpus"] else ";"),
                   "only two ranks and two GPUs run the benchmark, and the unused GPUs are excluded from throughput and efficiency."]
     lines += ["Each allocation has a three-hour limit; each case has a 50-minute cap, including startup and compilation.",
-              "An after-any CPU finalizer retains results and plots even if a GPU allocation fails."]
+              "An after-any CPU finalizer retains results and plots even if a GPU allocation fails." if machine["slurm_finalizer"] else
+              "A login-node watcher (publish_when_done.sh) finalizes and publishes once every allocation has left the queue."]
     if (study / "submission.json").exists():
         submission = read_json(study / "submission.json")
         lines += ["", "| GPUs | Slurm job |", "|---:|---|"]
         lines += [f"| {item['gpus']} | {item['job_id']} |" for item in submission["jobs"]]
-        lines += ["", f"Finalizer job: {submission.get('finalizer_job_id', 'not yet submitted')}. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/)."]
+        lines += ["", f"Finalizer job: {submission.get('finalizer_job_id', 'not yet submitted' if machine['slurm_finalizer'] else 'none (login-node publication)')}. Exact submission commands are in [submission.json](submission.json) and [allocations/](allocations/)."]
         if submission.get("retry_jobs"):
             lines += ["", "Recovery allocations: " + ", ".join(f"{item['gpus']} GPUs: job {item['job_id']}" for item in submission["retry_jobs"]) + ". See [recovery notes](recovery.md)."]
             for item in submission["retry_jobs"]:
@@ -163,7 +173,7 @@ def report(study):
               "Weak efficiency is 100 × serial seconds/step ÷ distributed seconds/step, using a separate serial baseline for each dynamics"
               + (" and the median over repeats." if repeated else "."),
               "The fixed physical domain becomes finer in x as GPU count increases. These are step-throughput measurements at constant cells per GPU; simulated durations decrease with Δt.",
-              "Every accepted measurement requires the planned grid/dynamics/precision, distinct H100 GPU placement, the expected MPI communicator, positive finite timing, and finite prognostic and velocity fields on every rank.",
+              "Every accepted measurement requires the planned grid/dynamics/precision, distinct H100 GPU placement, the expected MPI or NCCL communicator, positive finite timing, and finite prognostic and velocity fields on every rank.",
               "Finite fields do not establish full numerical agreement with serial solutions."
               + (" The min–max range spans the repeated launches." if repeated else " One timed window supplies no repeat-to-repeat uncertainty estimate."), "",
               "[Source commit](provenance/source_commit.txt), [source archive](provenance/source.tar.gz), [frozen hashes](provenance/hashes.json),",

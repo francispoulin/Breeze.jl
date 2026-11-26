@@ -74,6 +74,10 @@ python3 -m unittest discover -s benchmarking/distributed/fir -p 'test_*.py' -v
 
 ## Other series
 
+`prepare --machine=trillium` runs a series on Trillium instead; see the
+[Trillium notes](../trillium/README.md). `breeze_anelastic_ce_nccl` is anelastic and CE on
+1–16 GPUs with NCCL, otherwise the workload above, without Nsight or NVTX.
+
 `prepare --series=NAME` selects a workload from `SERIES` in `study.py`; the default,
 `breeze_mpi_nx1`, is the series above. `oceananigans_nonhydrostatic_nccl` is a pure performance
 benchmark of Oceananigans' `NonhydrostaticModel` (`--dynamics=oceananigans_nonhydrostatic`,

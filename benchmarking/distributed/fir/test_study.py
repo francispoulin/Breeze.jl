@@ -7,7 +7,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from study import build_plan, case_command, check_sources, finalize, validate_measurement, validate_preflight_placement
+from study import (build_plan, case_command, check_sources, finalize, reserved_gpus_per_node, submit,
+                   validate_measurement, validate_preflight_placement)
 from report import report
 
 
@@ -109,6 +110,50 @@ class StudyTests(unittest.TestCase):
         readme = (self.directory / "README.md").read_text()
         self.assertIn("6/6 cases validated", readme)
         self.assertIn("no Nsight capture and no NVTX instrumentation", readme)
+
+    def test_breeze_anelastic_ce_nccl_series(self):
+        plan = build_plan("breeze_anelastic_ce_nccl")
+        self.assertEqual(len(plan), 10)
+        self.assertEqual({case["dynamics"] for case in plan}, {"anelastic", "compressible_explicit"})
+        self.assertEqual({case["backend"] for case in plan}, {"NCCL"})
+        self.assertIn("compressible_explicit_NCCL_16g_16x1", {case["id"] for case in plan})
+        for case in plan:
+            self.assertEqual((case["float_type"], case["timed_steps"], case["time_step"]), ("Float32", 500, 0.01 / case["gpus"]))
+        (self.directory / "config.json").write_text(json.dumps(dict(source="/source", environment="/environment")))
+        command = case_command(plan[-1], self.directory)
+        for argument in ("--dynamics=compressible_explicit", "--comm=NCCL", "--size=8192x512x512", "--ntasks=16",
+                         "--time_steps=500", "--profile=false", "--nvtx=false"):
+            self.assertIn(argument, command)
+
+    def test_trillium_submission_reserves_full_nodes_without_memory_requests(self):
+        plan = build_plan("breeze_anelastic_ce_nccl")
+        (self.directory / "plan.json").write_text(json.dumps(plan))
+        (self.directory / "config.json").write_text(json.dumps(dict(
+            series="breeze_anelastic_ce_nccl", machine="trillium", repository="/repository", runtime="/scratch/runtime")))
+        (self.directory / "provenance").mkdir()
+        (self.directory / "provenance/hashes.json").write_text("{}")
+        for count in (1, 2, 4, 8, 16):
+            (self.directory / "allocations" / f"{count}g").mkdir(parents=True)
+        self.assertEqual([reserved_gpus_per_node(self.directory, count) for count in (1, 2, 4)], [None, 4, None])
+        commands = []
+        with patch("study.run_text", side_effect=lambda command: commands.append(command) or "1\n"):
+            submit(self.directory)
+        self.assertEqual(len(commands), 5)
+        reservations = {}
+        for command in commands:
+            self.assertIn("--account=def-fpoulin", command)
+            self.assertIn("--chdir=/scratch/runtime", command)
+            self.assertFalse(any(argument.startswith("--mem") for argument in command))
+            nodes = next(argument for argument in command if argument.startswith("--nodes="))
+            reservations[nodes, next(argument for argument in command if argument.startswith("--ntasks="))] = next(
+                argument for argument in command if argument.startswith("--gpus-per-node="))
+        self.assertEqual(reservations[("--nodes=1", "--ntasks=4")], "--gpus-per-node=h100:4")
+        self.assertEqual(reservations[("--nodes=1", "--ntasks=1")], "--gpus-per-node=h100:1")
+        self.assertEqual(reservations[("--nodes=4", "--ntasks=16")], "--gpus-per-node=h100:4")
+        self.assertNotIn("finalizer_job_id", json.loads((self.directory / "submission.json").read_text()))
+        readme = (self.directory / "README.md").read_text()
+        self.assertTrue(readme.startswith("# Trillium NCCL weak scaling: anelastic and CE"))
+        self.assertIn("publish_when_done.sh", readme)
 
     def test_preflight_rejects_shared_or_missing_devices(self):
         output = "PREFLIGHT rank=0 host=node gpu_uuid=gpu0 devices=2\nPREFLIGHT rank=1 host=node gpu_uuid=gpu1 devices=2\n"

@@ -29,6 +29,8 @@ open(joinpath(environment, "LocalPreferences.toml"), "w") do io
 end
 
 Pkg.activate(environment)
+# A fresh depot (Trillium's scratch runtime) has no registry; Fir's home depot already has one.
+isempty(Pkg.Registry.reachable_registries()) && Pkg.Registry.add("General")
 Pkg.resolve()
 Pkg.instantiate()
 Pkg.precompile()

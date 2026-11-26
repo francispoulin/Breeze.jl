@@ -3,6 +3,7 @@
 The [Fir MPI weak-scaling runner](fir/README.md) runs all three dynamics at
 1, 2, 4, 8, and 16 H100 GPUs with N×1 partitions, frozen source/environment,
 per-rank validation, and automatic result retention.
+The same runner targets Trillium H100s; see the [Trillium notes](trillium/README.md).
 
 `distributed_cbl_benchmark.jl` times the convective boundary layer (CBL) case of
 [`../src/convective_boundary_layer.jl`](../src/convective_boundary_layer.jl) on several GPUs, one GPU per
