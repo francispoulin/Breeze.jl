@@ -63,3 +63,12 @@ Julia 1.12.5; Breeze 0.15.0, Oceananigans 0.117.2, CUDA 6.4.2, MPI 0.20.29.
 ![Weak scaling](weak_scaling.png)
 
 [Comparison CSV](comparison.csv) · [Vector SVG](weak_scaling.svg)
+
+### Efficiency against Fir MPI
+
+![Weak-scaling efficiency: Trillium NCCL vs Fir MPI](weak_scaling_efficiency.png)
+
+Solid lines are this study; dashed lines are the Fir MPI N×1 study
+([`../../fir/weak_scaling_mpi_2026-11-12_nx1`](../../fir/weak_scaling_mpi_2026-11-12_nx1/README.md)).
+Each curve is normalized to its own one-GPU baseline. Regenerate with `python3 plot_efficiency.py`.
+[Vector SVG](weak_scaling_efficiency.svg)
