@@ -43,6 +43,13 @@ def load_environment(results):
     os.environ.update(loaded)
     if os.environ.get("JULIA_CUDA_MEMORY_POOL") != "none":
         raise RuntimeError("environment.sh did not set JULIA_CUDA_MEMORY_POOL=none")
+    # Nsight's per-rank agents reject a session directory that is not world-writable and then
+    # record no CUDA or NVTX activity ("CheckDirectoryPermission"), which happened to ranks that
+    # found an existing 0775 directory. Create it with 0777 before any rank starts.
+    sessions = Path(os.environ["TMPDIR"]) / "nvidia" / "nsight_systems"
+    sessions.mkdir(parents=True, exist_ok=True)
+    for directory in (sessions.parent, sessions):
+        directory.chmod(0o777)
 
 
 def case_name(case):
