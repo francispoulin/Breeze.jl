@@ -1,0 +1,48 @@
+┌ Warning: CUDA runtime library `libcupti.so.12.6` was loaded from a system path, `/opt/uw/nsight/2024.5.1/target-linux-x64/libcupti.so.12.6`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Info: NVTX host instrumentation enabled
+│   package = :Oceananigans
+└   NVTX.isactive() = true
+PLACEMENT rank=0 host=rondeau gpu_uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 communicator=none threads=1 pool=unset
+DEVICE rank=0 uuid=3cc138cf-9b95-c6e6-9b51-330b5d985885 visible=0
+┌ Info: Distributed CBL benchmark
+│   dynamics_name = "oceananigans_nonhydrostatic"
+│   FT = Float32
+│   (Nx, Ny, Nz) = (512, 512, 512)
+│   partition = (1, 1)
+│   nranks = 1
+│   Δt = 10.0
+│   time_steps = 10
+│   communication_name = "SERIAL"
+│   communicator_type = "none"
+└   profile = true
+TIMING_START communication=SERIAL steps=10
+PROFILE_START rank=0 steps=10
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/tmp/nsys-report-bdc2.qdstrm'
+
+[1/1] [0%                          ] profile.nsys-repProcessing events...
+
+[1/1] [0%                          ] profile.nsys-rep
+[1/1] [14%                         ] profile.nsys-rep
+[1/1] [====25%                     ] profile.nsys-rep
+[1/1] [=========43%                ] profile.nsys-rep
+[1/1] [==============61%           ] profile.nsys-rep
+[1/1] [=====================88%    ] profile.nsys-rep
+[1/1] [======================90%   ] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_1g/rank_0/profile.nsys-rep
+PROFILE_END rank=0 steps=10
+TIMING_END communication=SERIAL elapsed_seconds=6.603727595
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=11050024960
+RESULT machine=rondeau dynamics=oceananigans_nonhydrostatic float=Float32 size=512x512x512 partition=1x1 gpus=1 steps=10 seconds_per_step=6.6037e-01 points_per_second=2.0325e+08 points_per_second_per_gpu=2.0325e+08 max_abs_w=3.872733e-06 communication=SERIAL fields_finite=true
