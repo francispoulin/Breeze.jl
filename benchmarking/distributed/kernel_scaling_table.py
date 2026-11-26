@@ -66,7 +66,7 @@ def main():
              "over the captured steps. Multi-rank cases use each kernel's slowest rank.",
              "Difference = scaled − base. Efficiency = 100 × base / scaled (weak scaling: 100% means",
              "the kernel takes as long with the same work per GPU). A dash marks a kernel that only",
-             "one case launches. Rows are sorted by the scaled case's time, then the base case's.", ""]
+             "one case launches. Rows are sorted by Difference ms, greatest first (a missing kernel counts as 0 ms).", ""]
     rows = []
     note = None
     for argument in sys.argv[3:]:
@@ -86,7 +86,9 @@ def main():
                   f"| Kernel | Launches/step {launches_label} | {base_label} ms/step | "
                   f"{scaled_label} ms/step | Difference ms | Difference % | Efficiency % |",
                   "|---|---|---|---|---|---|---|"]
-        names = sorted(set(base) | set(scaled), key=lambda n: (-scaled.get(n, (0.0,))[0], -base.get(n, (0.0,))[0], n))
+        # Greatest difference first; a kernel only one case launches counts as 0 ms in the other.
+        names = sorted(set(base) | set(scaled),
+                       key=lambda n: (base.get(n, (0.0,))[0] - scaled.get(n, (0.0,))[0], -scaled.get(n, (0.0,))[0], n))
         entries = [(name, base.get(name), scaled.get(name)) for name in names]
         entries.append(("**All kernels**", (base_total, base_launches), (scaled_total, scaled_launches)))
         for name, one, two in entries:

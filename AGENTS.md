@@ -120,6 +120,8 @@ remote and branch. For a new branch, set its upstream on the first push.
 - If you have questions about a task, ask the user and wait for their answers before executing the task.
 - Create plots when applicable, except for Nsight profiling runs.
 - For Nsight runs, record the exact path to each Nsight result file in the run's `README.md`.
+- Order kernel scaling tables (such as those from `benchmarking/distributed/kernel_scaling_table.py`)
+  by the `Difference ms` column, greatest first.
 - NCCL is the default for multi-GPU benchmarks and profiling, in Breeze and in Oceananigans.
   Pass `--comm=NCCL` explicitly, because `distributed_cbl_benchmark.jl` still defaults to MPI.
   MPI still launches the ranks; one-GPU baselines have no inter-rank communication.
