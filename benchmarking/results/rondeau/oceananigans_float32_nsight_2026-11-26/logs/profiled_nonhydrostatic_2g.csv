@@ -1,0 +1,2 @@
+machine,dynamics,float,Nx,Ny,Nz,Rx,Ry,gpus,steps,seconds_per_step,points_per_second,max_abs_w,communication,fields_finite
+rondeau,oceananigans_nonhydrostatic,Float32,1024,512,512,2,1,2,10,8.697731e-01,3.086270e+08,3.873211e-06,NCCL,true

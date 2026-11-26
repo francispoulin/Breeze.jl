@@ -1,6 +1,6 @@
 # Oceananigans hydrostatic and nonhydrostatic in Float32: NVTX Nsight on 1 and 2 GPUs
 
-Status: **RUNNING**.
+Status: **COMPLETE**.
 
 Float32 repeat of the Oceananigans captures (2026-11-19 and 2026-11-25 ran Float64), so the
 Oceananigans models use the same precision as the Breeze anelastic, CE and CSE captures.
@@ -9,6 +9,7 @@ NonhydrostaticModel (RungeKutta3) on the rectilinear_buoyancy workload, WENO5, �
 Per model: 512×512×512 on one GPU serial (`_1g`), the same on one rank with NCCLDistributed
 and a 1×1 partition (`_1gd`, --distributed=true), and 1024×512×512 on two GPUs with NCCL
 (`_2g`). Oceananigans host NVTX ranges.
+The serial nonhydrostatic_1g case was dropped on 2026-11-26 (not needed for the 1-vs-2-GPU tables).
 
 Each launch takes ten warmup steps, then Nsight records CUDA, NVTX and MPI for
 ten steps (cudaProfilerApi start/stop).
@@ -26,6 +27,10 @@ efficiency = 100 × T_base/T_compared with the slower rank): [kernel_scaling_1_v
 | Case | State | Maximum absolute w | GPUs | Other users' processes on these GPUs |
 |------|-------|--------------------|------|---------------------------------------|
 | hydrostatic_1g | COMPLETE | 1.633013e-05 | 0 | none |
+| hydrostatic_1gd | COMPLETE | 1.633013e-05 | 0 | none |
+| hydrostatic_2g | COMPLETE | 1.633013e-05 | 0,3 | none |
+| nonhydrostatic_1gd | COMPLETE | 3.873204e-06 | 0 | none |
+| nonhydrostatic_2g | COMPLETE | 3.873211e-06 | 0,3 | none |
 
 ## Trace summary per rank
 
@@ -33,12 +38,11 @@ efficiency = 100 × T_base/T_compared with the slower rank): [kernel_scaling_1_v
 |------|------|--------------|----------------|---------------|---------------------|----------------------|-----------------------|
 | hydrostatic_1g | 0 | 0.1192 | 114.0 | 264 | 0.997 | 0.007 | 0.000 |
 | hydrostatic_1gd | 0 | 0.1192 | 114.0 | 264 | 0.997 | 0.007 | 0.000 |
-| hydrostatic_2g | 0 | 0.1812 | 179.8 | 405 | 0.996 | 0.316 | 0.000 |
-| hydrostatic_2g | 1 | 0.1296 | 126.8 | 405 | 0.995 | 0.017 | 0.000 |
-| nonhydrostatic_1g | 0 | 0.2149 | 205.4 | 171 | 0.999 | 0.016 | 0.413 |
-| nonhydrostatic_1gd | 0 | 0.2946 | 285.0 | 186 | 0.999 | 0.011 | 0.577 |
-| nonhydrostatic_2g | 0 | 0.3873 | 376.3 | 327 | 0.999 | 0.035 | 0.631 |
-| nonhydrostatic_2g | 1 | 0.3847 | 375.0 | 327 | 0.998 | 0.029 | 0.635 |
+| hydrostatic_2g | 0 | 0.1259 | 124.0 | 405 | 0.997 | 0.023 | 0.000 |
+| hydrostatic_2g | 1 | 0.1282 | 125.7 | 405 | 0.997 | 0.036 | 0.000 |
+| nonhydrostatic_1gd | 0 | 0.2946 | 285.0 | 186 | 0.999 | 0.011 | 0.575 |
+| nonhydrostatic_2g | 0 | 0.3827 | 383.0 | 327 | 0.998 | 0.059 | 0.614 |
+| nonhydrostatic_2g | 1 | 0.3812 | 370.3 | 327 | 0.999 | 0.030 | 0.633 |
 
 Trace seconds per step include profiling overhead. Fractions are of summed
 kernel time, attributed through CUDA launch correlation IDs to enclosing
@@ -53,7 +57,6 @@ No plots are produced for Nsight runs.
 - `/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_1gd/rank_0/profile.nsys-rep`
 - `/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_2g/rank_0/profile.nsys-rep`
 - `/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/hydrostatic_2g/rank_1/profile.nsys-rep`
-- `/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_1g/rank_0/profile.nsys-rep`
 - `/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_1gd/rank_0/profile.nsys-rep`
 - `/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_2g/rank_0/profile.nsys-rep`
 - `/u/ajtse/Breeze.jl/.runtime/oceananigans_float32_nsight_2026-11-26/raw/nonhydrostatic_2g/rank_1/profile.nsys-rep`
