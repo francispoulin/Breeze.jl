@@ -1,4 +1,4 @@
-"""Contract checks for the Rorqual NVTX/Nsight study plan and launch command."""
+"""Contract checks for the NVTX/Nsight study plans (Rorqual 1/4/8, Trillium 4/8) and launch commands."""
 import json
 from pathlib import Path
 import sys
@@ -49,6 +49,30 @@ class CommandTests(unittest.TestCase):
                          "--output=/scratch/raw/anelastic_NCCL_8g_8x1/rank_%q{SLURM_PROCID}/profile"):
             self.assertIn(argument, command)
         self.assertLess(command.index("nsys"), command.index("julia"))
+
+
+class TrilliumTests(unittest.TestCase):
+    def test_trillium_series_compares_four_with_eight_gpus_on_the_nx1_grids(self):
+        plan = nsight.build_plan("trillium_4_8")
+        self.assertEqual({(case["id"], case["size"], case["time_step"]) for case in plan},
+                         {(f"{dynamics}_NCCL_{gpus}g_{gpus}x1", size, time_step)
+                          for dynamics in ("anelastic", "compressible_explicit")
+                          for gpus, size, time_step in ((4, "2048x512x512", 0.0025), (8, "4096x512x512", 0.00125))})
+        self.assertEqual(sorted(nsight.comparisons(plan)),
+                         ["Anelastic 4 vs 8 GPUs=anelastic_NCCL_4g_4x1:anelastic_NCCL_8g_8x1",
+                          "CE 4 vs 8 GPUs=compressible_explicit_NCCL_4g_4x1:compressible_explicit_NCCL_8g_8x1"])
+
+    def test_trillium_allocations_take_whole_nodes_without_memory_requests(self):
+        config = dict(machine="trillium", series="trillium_4_8", allocation_limit="01:30:00", runtime="/scratch/runtime")
+        command = nsight.allocation_command(config, 8, "breeze_nsight_8g", Path("/scratch/study/allocations/8g"))
+        for argument in ("--account=def-fpoulin", "--nodes=2", "--ntasks-per-node=4", "--gpus-per-node=h100:4",
+                         "--chdir=/scratch/runtime"):
+            self.assertIn(argument, command)
+        self.assertFalse(any(argument.startswith("--mem") for argument in command))
+        self.assertEqual(nsight.series_title(config), "Trillium NVTX Nsight: anelastic and CE on 4 and 8 GPUs (NCCL)")
+        rorqual = dict(config, machine="rorqual", series="rorqual_1_4_8")
+        self.assertIn("--mem=256G", nsight.allocation_command(rorqual, 8, "job", Path("/study")))
+        self.assertEqual(nsight.series_title(rorqual), "Rorqual NVTX Nsight: anelastic and CE on 1, 4, and 8 GPUs (NCCL)")
 
 
 if __name__ == "__main__":

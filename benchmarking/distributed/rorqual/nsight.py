@@ -1,10 +1,12 @@
-"""Prepare, submit, run, and finalize the Rorqual NVTX/Nsight study: anelastic and compressible
-explicit (CE) dynamics on 1, 4, and 8 H100 GPUs with NCCL halo exchange.
+"""Prepare, submit, run, and finalize an NVTX/Nsight study of anelastic and compressible explicit (CE)
+dynamics on H100 GPUs with NCCL halo exchange. A series (SERIES) fixes the machine and the GPU counts:
+`rorqual_1_4_8` (1, 4, and 8 GPUs on Rorqual) or `trillium_4_8` (4 and 8 GPUs on Trillium).
 
     prepare STUDY     freeze the source and Julia environment, write the plan and job scripts
     submit STUDY      submit one Slurm allocation per GPU count
     run-size STUDY N  (inside an allocation) capture every case on N GPUs, export and check reports
-    finalize STUDY    (login node, after the allocations end) analyze, write README, commit, push
+    finalize STUDY    (login node, after the allocations end) analyze, write README, commit, push;
+                      with --wait, first wait until the study's jobs have left the queue
     retry STUDY CASE  move a failed case aside and capture it again in a new allocation
     report STUDY      rewrite README.md from the current state
 """
@@ -15,10 +17,12 @@ import os
 from pathlib import Path
 import re
 import shlex
+import shutil
 import sqlite3
 import subprocess
 import sys
 import tarfile
+import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from fir.study import check_sources, read_json, run_text, validate_measurement
@@ -28,19 +32,38 @@ REPO = Path(__file__).resolve().parents[3]
 DYNAMICS = ("anelastic", "compressible_explicit")
 # 512³ cells per GPU on the fixed 12 km × 12 km × 3 km domain; Δt halves for every doubling of
 # spatial resolution and is the same for both dynamics on the same grid (AGENTS.md).
-GRIDS = ((1, "512x512x512", "1x1", 0.01),
-         (4, "1024x1024x512", "4x1", 0.005),
-         (8, "4096x512x512", "8x1", 0.00125))
-GPU_COUNTS = tuple(grid[0] for grid in GRIDS)
+# Each grid is (GPUs, global size, partition, Δt in seconds).
+SERIES = {
+    "rorqual_1_4_8": dict(machine="rorqual", grids=((1, "512x512x512", "1x1", 0.01),
+                                                    (4, "1024x1024x512", "4x1", 0.005),
+                                                    (8, "4096x512x512", "8x1", 0.00125))),
+    "trillium_4_8": dict(machine="trillium", grids=((4, "2048x512x512", "4x1", 0.0025),
+                                                    (8, "4096x512x512", "8x1", 0.00125))),
+}
+DEFAULT_SERIES = "rorqual_1_4_8"
+# Trillium allocates whole four-GPU nodes and rejects --mem; its compute nodes cannot write /home,
+# so a Trillium study runs on $SCRATCH and is copied into the checkout when it is published.
+MACHINES = {
+    "rorqual": dict(label="Rorqual", account="def-fpoulin_gpu", cpus_per_task=8, memory_per_gpu_gib=64,
+                    environment_script="benchmarking/distributed/rorqual/nsight_environment.sh"),
+    "trillium": dict(label="Trillium", account="def-fpoulin", cpus_per_task=24, memory_per_gpu_gib=None,
+                     environment_script="benchmarking/distributed/trillium/nsight_environment.sh"),
+}
+ALL_GPU_COUNTS = tuple(sorted({grid[0] for series in SERIES.values() for grid in series["grids"]}))
 WARMUP_STEPS = 10
 CAPTURED_STEPS = 10
 CASE_SECONDS = 2400
 TITLES = dict(anelastic="Anelastic", compressible_explicit="CE")
 
 
-def build_plan():
+def study_series(config):
+    """Series of a prepared study; studies prepared before series existed are Rorqual 1/4/8."""
+    return config.get("series", DEFAULT_SERIES)
+
+
+def build_plan(series=DEFAULT_SERIES):
     plan = []
-    for gpus, size, partition, time_step in GRIDS:
+    for gpus, size, partition, time_step in SERIES[series]["grids"]:
         for dynamics in DYNAMICS:
             backend = "SERIAL" if gpus == 1 else "NCCL"
             plan.append(dict(id=f"{dynamics}_{backend}_{gpus}g_{partition}", dynamics=dynamics, gpus=gpus,
@@ -50,15 +73,25 @@ def build_plan():
 
 
 def comparisons(plan):
-    """kernel_scaling_table.py arguments: each multi-GPU case against its dynamics' one-GPU case."""
+    """kernel_scaling_table.py arguments: each case against the smallest GPU count of its dynamics."""
     pairs = []
     for dynamics in DYNAMICS:
         cases = [case for case in plan if case["dynamics"] == dynamics]
-        base = next(case for case in cases if case["gpus"] == 1)
+        base = min(cases, key=lambda case: case["gpus"])
         for case in cases:
-            if case["gpus"] > 1:
-                pairs.append(f"{TITLES[dynamics]} 1 vs {case['gpus']} GPUs={base['id']}:{case['id']}")
+            if case["gpus"] > base["gpus"]:
+                pairs.append(f"{TITLES[dynamics]} {base['gpus']} vs {case['gpus']} GPUs={base['id']}:{case['id']}")
     return pairs
+
+
+def gpu_counts(config):
+    return tuple(grid[0] for grid in SERIES[study_series(config)]["grids"])
+
+
+def series_title(config):
+    counts = gpu_counts(config)
+    listed = ", ".join(map(str, counts[:-1])) + (", and " if len(counts) > 2 else " and ") + str(counts[-1])
+    return f"{MACHINES[config.get('machine', 'rorqual')]['label']} NVTX Nsight: anelastic and CE on {listed} GPUs (NCCL)"
 
 
 def nodes(count):
@@ -69,12 +102,37 @@ def gpus_per_node(count):
     return min(4, count)
 
 
-def prepare(study):
+def allocation_command(config, count, job_name, directory):
+    """sbatch command for one allocation of `count` GPUs on the study's machine."""
+    machine = MACHINES[config.get("machine", "rorqual")]
+    per_node = gpus_per_node(count)
+    memory = [f"--mem={machine['memory_per_gpu_gib'] * per_node}G"] if machine["memory_per_gpu_gib"] else []
+    return ["sbatch", "--parsable", "--account=" + machine["account"], "--job-name=" + job_name,
+            f"--nodes={nodes(count)}", f"--ntasks={count}", f"--ntasks-per-node={per_node}",
+            f"--gpus-per-node=h100:{per_node}", f"--cpus-per-task={machine['cpus_per_task']}", *memory,
+            "--time=" + config["allocation_limit"], "--distribution=block:block",
+            "--chdir=" + config["runtime"], "--output=" + str(directory / "slurm-%j.out"),
+            str(directory / "allocation.sh")]
+
+
+def script_prefix(config):
+    environment_script = config.get("environment_script", MACHINES["rorqual"]["environment_script"])
+    return ("#!/usr/bin/env bash\nset -eo pipefail\n"
+            + "export BREEZE_RUNTIME_ROOT=" + shlex.quote(config["runtime_root"]) + "\n"
+            + "export BREEZE_FIR_ENV=" + shlex.quote(config["environment"]) + "\n"
+            + "source " + shlex.quote(str(Path(config["source"]) / environment_script)) + "\n")
+
+
+def prepare(study, series=DEFAULT_SERIES, publish_directory=None):
     if study.exists():
         raise RuntimeError("Use a fresh study directory")
+    if publish_directory is not None and publish_directory.exists():
+        raise RuntimeError("Publication directory already exists")
     if run_text(["git", "status", "--porcelain", "--untracked-files=no"], cwd=REPO).strip():
         raise RuntimeError("Commit the source before freezing the study")
-    runtime = REPO / ".runtime/studies" / study.name
+    machine = SERIES[series]["machine"]
+    runtime_root = Path(os.environ.get("BREEZE_RUNTIME_ROOT", REPO / ".runtime"))
+    runtime = runtime_root / "studies" / study.name
     scratch = Path(os.environ["BREEZE_NSIGHT_SCRATCH"]) / study.name
     if runtime.exists() or scratch.exists():
         raise RuntimeError("Runtime or scratch directory for this study already exists")
@@ -87,7 +145,8 @@ def prepare(study):
         (study / name).mkdir(parents=True)
     (study / "provenance/source_commit.txt").write_text(run_text(["git", "rev-parse", "HEAD"], cwd=REPO))
     paths = ["src", "ext", "Project.toml", "AGENTS.md", "benchmarking/src", "benchmarking/distributed/fir",
-             "benchmarking/distributed/rorqual", "benchmarking/distributed/distributed_cbl_benchmark.jl",
+             "benchmarking/distributed/rorqual", "benchmarking/distributed/trillium",
+             "benchmarking/distributed/distributed_cbl_benchmark.jl",
              "benchmarking/distributed/oceananigans_rectilinear_buoyancy.jl",
              "benchmarking/distributed/nvtx_instrumentation.jl", "benchmarking/distributed/analyze_nvtx.py",
              "benchmarking/distributed/kernel_step_table.py", "benchmarking/distributed/kernel_scaling_table.py"]
@@ -105,12 +164,14 @@ def prepare(study):
         (study / "provenance" / name).write_text(contents)
     (study / "provenance/setup.log").write_text((installed / "setup.log").read_text())
     config = dict(repository=str(REPO), source=str(source), environment=str(environment), runtime=str(runtime),
-                  runtime_root=str(REPO / ".runtime"), raw=str(scratch / "raw"), machine="rorqual",
+                  runtime_root=str(runtime_root), raw=str(scratch / "raw"), series=series, machine=machine,
+                  environment_script=MACHINES[machine]["environment_script"],
+                  publish_directory=str(publish_directory or study), grids=SERIES[series]["grids"],
                   prepared=timestamp(), warmup_steps=WARMUP_STEPS, captured_steps=CAPTURED_STEPS,
                   float_type="Float32", backend="NCCL", random_perturbation=False, simplified=False,
                   nvtx=True, profile=True, nsight_trace="cuda,nvtx,mpi", case_limit_seconds=CASE_SECONDS,
                   allocation_limit="01:30:00", nsys=run_text(["nsys", "--version"]).strip())
-    plan = build_plan()
+    plan = build_plan(series)
     write_json(study / "config.json", config)
     write_json(study / "plan.json", plan)
     files = [path for path in source.rglob("*") if path.is_file()]
@@ -118,14 +179,10 @@ def prepare(study):
     write_json(study / "provenance/hashes.json",
                {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in files})
     worker = source / "benchmarking/distributed/rorqual/nsight.py"
-    prefix = ("#!/usr/bin/env bash\nset -eo pipefail\n"
-              + "export BREEZE_RUNTIME_ROOT=" + shlex.quote(config["runtime_root"]) + "\n"
-              + "export BREEZE_FIR_ENV=" + shlex.quote(str(environment)) + "\n"
-              + "source " + shlex.quote(str(source / "benchmarking/distributed/rorqual/nsight_environment.sh")) + "\n")
-    for count in GPU_COUNTS:
+    for count in gpu_counts(config):
         directory = study / "allocations" / f"{count}g"
         directory.mkdir()
-        (directory / "allocation.sh").write_text(prefix + shlex.join(["python3", str(worker), "run-size", str(study), str(count)]) + "\n")
+        (directory / "allocation.sh").write_text(script_prefix(config) + shlex.join(["python3", str(worker), "run-size", str(study), str(count)]) + "\n")
     render_report(study)
     print(f"Prepared {len(plan)} cases: {study}")
 
@@ -137,15 +194,9 @@ def submit(study):
     config = read_json(study / "config.json")
     submission = dict(submitted=timestamp(), jobs=[], state="submitting")
     write_json(study / "submission.json", submission)
-    for count in GPU_COUNTS:
+    for count in gpu_counts(config):
         directory = study / "allocations" / f"{count}g"
-        per_node = gpus_per_node(count)
-        command = ["sbatch", "--parsable", "--account=def-fpoulin_gpu", f"--job-name=breeze_nsight_{count}g",
-                   f"--nodes={nodes(count)}", f"--ntasks={count}", f"--ntasks-per-node={per_node}",
-                   f"--gpus-per-node=h100:{per_node}", "--cpus-per-task=8", f"--mem={64 * per_node}G",
-                   "--time=" + config["allocation_limit"], "--distribution=block:block",
-                   "--chdir=" + config["repository"], "--output=" + str(directory / "slurm-%j.out"),
-                   str(directory / "allocation.sh")]
+        command = allocation_command(config, count, f"breeze_nsight_{count}g", directory)
         (directory / "submission_command.sh").write_text(shlex.join(command) + "\n")
         job = run_text(command).strip().split(";")[0]
         submission["jobs"].append(dict(gpus=count, job_id=job, command=command))
@@ -290,20 +341,11 @@ def retry(study, case_ids):
     program = ("import json, sys; from pathlib import Path; sys.path.insert(0, sys.argv[1]); from rorqual import nsight; "
                "study = Path(sys.argv[2]); plan = {c['id']: c for c in json.loads((study / 'plan.json').read_text())}; "
                "sys.exit(0 if all([nsight.run_case(study, plan[name]) for name in sys.argv[3:]]) else 1)")
-    script = ("#!/usr/bin/env bash\nset -eo pipefail\n"
-              + "export BREEZE_RUNTIME_ROOT=" + shlex.quote(config["runtime_root"]) + "\n"
-              + "export BREEZE_FIR_ENV=" + shlex.quote(config["environment"]) + "\n"
-              + "source " + shlex.quote(str(frozen / "rorqual/nsight_environment.sh")) + "\n"
+    script = (script_prefix(config)
               + "module -t list > " + shlex.quote(str(directory / "environment.log")) + " 2>&1\n"
               + shlex.join(["python3", "-c", program, str(frozen), str(study), *case_ids]) + "\n")
     (directory / "allocation.sh").write_text(script)
-    per_node = gpus_per_node(count)
-    command = ["sbatch", "--parsable", "--account=def-fpoulin_gpu", f"--job-name=breeze_nsight_{count}g_retry",
-               f"--nodes={nodes(count)}", f"--ntasks={count}", f"--ntasks-per-node={per_node}",
-               f"--gpus-per-node=h100:{per_node}", "--cpus-per-task=8", f"--mem={64 * per_node}G",
-               "--time=" + config["allocation_limit"], "--distribution=block:block",
-               "--chdir=" + config["repository"], "--output=" + str(directory / "slurm-%j.out"),
-               str(directory / "allocation.sh")]
+    command = allocation_command(config, count, f"breeze_nsight_{count}g_retry", directory)
     (directory / "submission_command.sh").write_text(shlex.join(command) + "\n")
     job = run_text(command).strip().split(";")[0]
     submission["retry_jobs"].append(dict(gpus=count, job_id=job, cases=case_ids, command=command,
@@ -330,7 +372,9 @@ def render_report(study):
     validated = sum(state["state"] == "validated" for state in states.values())
     final = read_json(study / "final_status.json") if (study / "final_status.json").exists() else None
     status = final["state"].upper() if final else ("SUBMITTED" if (study / "submission.json").exists() else "PREPARED")
-    lines = ["# Rorqual NVTX Nsight: anelastic and CE on 1, 4, and 8 GPUs (NCCL)", "",
+    machine = MACHINES[config.get("machine", "rorqual")]
+    base_count = min(gpu_counts(config))
+    lines = [f"# {series_title(config)}", "",
              f"Status: **{status}**; {validated}/{len(plan)} cases validated.", "",
              "Breeze AnelasticDynamics and CompressibleDynamics(ExplicitTimeStepping()), full dry CBL on the fixed",
              "12 km × 12 km × 3 km domain, Float32, WENO5, deterministic (sine) perturbation, 512³ cells per H100.",
@@ -340,7 +384,7 @@ def render_report(study):
              f"records CUDA, NVTX (Breeze host methods) and MPI for {config['captured_steps']} steps",
              "(cudaProfilerApi start/stop). CPU sampling and context switches are off.", "",
              "| GPUs | Global grid | Partition | Nodes | Δt (s) |", "|---|---|---|---|---|"]
-    for gpus, size, partition, time_step in GRIDS:
+    for gpus, size, partition, time_step in SERIES[study_series(config)]["grids"]:
         lines.append(f"| {gpus} | {size.replace('x', '×')} | {partition.replace('x', '×')} | {nodes(gpus)} | {time_step} |")
     lines += ["", "## Cases", "", "| Case | State | Job | s/step (profiled) | Maximum absolute w | Note |",
               "|---|---|---|---|---|---|"]
@@ -373,12 +417,13 @@ def render_report(study):
                          f"{float(row['solve_kernel_fraction']):.3f} |")
         lines += ["", "Fractions are of summed kernel time, attributed through CUDA launch correlation IDs to the",
                   "enclosing `call/fill_halo_regions!` and `call/solve!` NVTX ranges. Per-phase totals: phases.csv.",
-                  "Per-kernel time per step: [kernels_per_step.md](kernels_per_step.md). Each multi-GPU case against",
-                  "the one-GPU case of the same dynamics (slowest rank, weak-scaling efficiency = 100 × T₁/Tₙ):",
+                  "Per-kernel time per step: [kernels_per_step.md](kernels_per_step.md). Each larger case against",
+                  f"the {base_count}-GPU case of the same dynamics (slowest rank, weak-scaling efficiency",
+                  f"= 100 × T{base_count}/Tₙ; rows sorted by Difference ms, greatest first):",
                   "[kernel_scaling.md](kernel_scaling.md)."]
     lines += ["", "Finite-field checks on every rank establish a functional run, not field-by-field agreement with a",
               "serial solution. No plots are produced for Nsight runs.", "", "## Exact Nsight result paths", "",
-              "On Rorqual; each report has a `profile.sqlite` export beside it. captures.json records sizes,",
+              f"On {machine['label']}; each report has a `profile.sqlite` export beside it. captures.json records sizes,",
               "SHA-256 hashes, kernel and NVTX range counts.", ""]
     for case in plan:
         for rank in range(case["gpus"]):
@@ -387,19 +432,23 @@ def render_report(study):
               f"Frozen source `{config['source']}` (commit in provenance/source_commit.txt) and Julia environment",
               f"`{config['environment']}`; hashes in provenance/hashes.json are checked before and after every case.",
               "Per-case `command.sh`, rank logs, Nsight export logs and `nsys stats` summaries are in cases/.", "",
-              "```bash", "source benchmarking/distributed/rorqual/nsight_environment.sh",
-              "python3 benchmarking/distributed/rorqual/nsight.py prepare ABSOLUTE_STUDY_DIR",
+              "```bash", "source " + config.get("environment_script", machine["environment_script"]),
+              f"python3 benchmarking/distributed/rorqual/nsight.py prepare ABSOLUTE_STUDY_DIR --series={study_series(config)}",
               "python3 benchmarking/distributed/rorqual/nsight.py submit ABSOLUTE_STUDY_DIR",
               "python3 benchmarking/distributed/rorqual/nsight.py finalize ABSOLUTE_STUDY_DIR --publish  # after the jobs end",
               "```"]
     (study / "README.md").write_text("\n".join(lines) + "\n")
 
 
-def finalize(study, publish):
+def finalize(study, publish, wait=False):
     submission = read_json(study / "submission.json")
     jobs = [item["job_id"] for item in submission["jobs"] + submission.get("retry_jobs", [])]
-    queued = run_text(["squeue", "--me", "--noheader", "--format=%i|%T"])
-    active = [line.strip() for line in queued.splitlines() if line.split("|", 1)[0].strip() in jobs]
+    while True:
+        queued = run_text(["squeue", "--me", "--noheader", "--format=%i|%T"])
+        active = [line.strip() for line in queued.splitlines() if line.split("|", 1)[0].strip() in jobs]
+        if not (active and wait):
+            break
+        time.sleep(300)
     if active:
         raise RuntimeError("Refusing to finalize queued/running allocations: " + ", ".join(active))
     (study / "slurm_accounting.txt").write_text(run_text(
@@ -438,7 +487,7 @@ def finalize(study, publish):
                analysis_error=analysis_error))
     render_report(study)
     if publish:
-        publish_study(study, f"Record Rorqual anelastic and CE NVTX Nsight on 1, 4, 8 GPUs: {validated}/{len(plan)} cases validated")
+        publish_study(study, f"Record {series_title(read_json(study / 'config.json'))}: {validated}/{len(plan)} cases validated")
     print(f"Final validation: {validated}/{len(plan)} cases; analysis error: {analysis_error}")
     return 0 if validated == len(plan) and not analysis_error else 1
 
@@ -447,6 +496,10 @@ def publish_study(study, message):
     repository = REPO
     if run_text(["git", "branch", "--show-current"], cwd=repository).strip() != "benchmark-results":
         raise RuntimeError("Refusing publication from a different branch")
+    published = Path(read_json(study / "config.json").get("publish_directory", study))
+    if published != study:  # a study run on scratch: copy it into the checkout
+        shutil.copytree(study, published, dirs_exist_ok=True, ignore=shutil.ignore_patterns("__pycache__"))
+        study = published
     for path in study.rglob("*"):
         if path.is_file() and path.suffix not in (".gz",) and "__pycache__" not in path.parts:
             try:
@@ -469,22 +522,29 @@ def publish_study(study, message):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     commands = parser.add_subparsers(dest="action", required=True)
-    for name in ("prepare", "submit", "report"):
+    for name in ("submit", "report"):
         commands.add_parser(name).add_argument("study", type=Path)
+    preparation = commands.add_parser("prepare")
+    preparation.add_argument("study", type=Path)
+    preparation.add_argument("--series", choices=sorted(SERIES), default=DEFAULT_SERIES)
+    preparation.add_argument("--publish-directory", type=Path,
+                             help="checkout directory to copy a study run outside it (Trillium: on $SCRATCH) into")
     again = commands.add_parser("retry")
     again.add_argument("study", type=Path)
     again.add_argument("cases", nargs="+")
     again.add_argument("--reason", required=True)
     worker = commands.add_parser("run-size")
     worker.add_argument("study", type=Path)
-    worker.add_argument("count", type=int, choices=GPU_COUNTS)
+    worker.add_argument("count", type=int, choices=ALL_GPU_COUNTS)
     finish = commands.add_parser("finalize")
     finish.add_argument("study", type=Path)
     finish.add_argument("--publish", action="store_true")
+    finish.add_argument("--wait", action="store_true", help="wait until the study's jobs have left the queue")
     arguments = parser.parse_args()
     study = arguments.study.resolve()
     if arguments.action == "prepare":
-        prepare(study)
+        publish_directory = arguments.publish_directory.resolve() if arguments.publish_directory else None
+        prepare(study, arguments.series, publish_directory)
     elif arguments.action == "submit":
         submit(study)
     elif arguments.action == "retry":
@@ -496,7 +556,7 @@ def main():
     elif arguments.action == "run-size":
         return run_size(study, arguments.count)
     elif arguments.action == "finalize":
-        return finalize(study, arguments.publish)
+        return finalize(study, arguments.publish, arguments.wait)
     else:
         render_report(study)
     return 0

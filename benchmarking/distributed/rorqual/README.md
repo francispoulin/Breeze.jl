@@ -78,5 +78,6 @@ NCCL communicator, finite fields, H100 evidence), exports each report to SQLite,
 NVTX ranges and the rank's own GPU in it. `finalize` runs on the login node, because compute nodes cannot
 push: it runs `analyze_nvtx.py`, `kernel_step_table.py`, and `kernel_scaling_table.py` (each multi-GPU case
 against the one-GPU case of the same dynamics), writes the README with the exact report paths, and commits
-and pushes the study. No plots are made for Nsight runs. Contract checks:
+and pushes the study. No plots are made for Nsight runs. `prepare --series=trillium_4_8` runs the same study on
+Trillium at 4 and 8 GPUs; see [../trillium/README.md](../trillium/README.md). Contract checks:
 `python3 -m unittest discover -s benchmarking/distributed/rorqual -p 'test_nsight.py'`.

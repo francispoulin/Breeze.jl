@@ -35,3 +35,24 @@ nohup bash "$study/publish_when_done.sh" > "$BREEZE_RUNTIME_ROOT/studies/$name/p
 
 If the watcher dies (for example, a login-node reboot), finalize by hand after all jobs end:
 `python3 benchmarking/distributed/fir/study.py finalize "$study" --publish`.
+
+## NVTX/Nsight: anelastic and CE on 4 and 8 GPUs
+
+The [Rorqual Nsight runner](../rorqual/README.md) (`rorqual/nsight.py`) captures Nsight Systems
+reports (CUDA, NVTX, MPI) on Trillium with `--series=trillium_4_8`: anelastic and CE with NCCL
+halo exchange at 4 GPUs (2048×512×512, 4×1, Δt = 0.0025 s, one node) and 8 GPUs
+(4096×512×512, 8×1, Δt = 0.00125 s, two nodes), 10 warmup and 10 captured steps. `finalize`
+builds per-kernel tables and 4-vs-8-GPU kernel scaling tables (rows sorted by Difference ms,
+greatest first). `nsight_environment.sh` reuses the Julia environment of `environment.sh`; reports
+go to `$SCRATCH/breeze_nsight/STUDY/raw`.
+
+```bash
+source benchmarking/distributed/trillium/nsight_environment.sh
+name=nsight_anelastic_ce_4_8gpu_$(date +%F)
+study="$SCRATCH/Breeze.jl/studies/$name"
+python3 benchmarking/distributed/rorqual/nsight.py prepare "$study" --series=trillium_4_8 \
+    --publish-directory="$BREEZE_ROOT/benchmarking/results/trillium/$name"
+python3 benchmarking/distributed/rorqual/nsight.py submit "$study"
+nohup python3 benchmarking/distributed/rorqual/nsight.py finalize "$study" --publish --wait \
+    > "$BREEZE_RUNTIME_ROOT/studies/$name/publish.log" 2>&1 &
+```
