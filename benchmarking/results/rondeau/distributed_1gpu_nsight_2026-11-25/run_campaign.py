@@ -32,6 +32,19 @@ def write_json(path, value):
     temporary.replace(path)
 
 
+def load_environment(results):
+    """Apply environment.sh to this controller, so launches, exports and analyses do not depend on
+    the shell that started it. CUDA_VISIBLE_DEVICES is set per launch."""
+    output = subprocess.check_output(["bash", "-c", 'CUDA_VISIBLE_DEVICES=none; source "$1"; env -0',
+                                      "bash", str(results / "environment.sh")])
+    loaded = dict(entry.split("=", 1) for entry in output.decode().split("\0") if "=" in entry)
+    loaded.pop("CUDA_VISIBLE_DEVICES")
+    os.environ.clear()
+    os.environ.update(loaded)
+    if os.environ.get("JULIA_CUDA_MEMORY_POOL") != "none":
+        raise RuntimeError("environment.sh did not set JULIA_CUDA_MEMORY_POOL=none")
+
+
 def case_name(case):
     return case["name"]
 
@@ -132,6 +145,9 @@ def command_for(checkout, results, runtime, plan, case):
 def validate_run(log, csv_path, case, plan):
     ranks = case["ranks"]
     placement = re.findall(r"PLACEMENT rank=(\d+) host=(\S+) gpu_uuid=(\S+) communicator=(\S+)", log)
+    pools = re.findall(r"PLACEMENT rank=\d+ .* pool=(\S+)", log)
+    if len(pools) != case["ranks"] or any(pool != "none" for pool in pools):
+        raise RuntimeError(f"Launch did not run with JULIA_CUDA_MEMORY_POOL=none: {pools}")
     validation = re.findall(r"VALIDATION rank=(\d+) fields_finite=(\S+) gpu_used_bytes=(\d+)", log)
     with csv_path.open() as stream:
         rows = list(csv.DictReader(stream))
@@ -263,6 +279,7 @@ def main():
     root = results.parents[3]
     plan = json.loads((results / "plan.json").read_text())
     runtime = Path(plan["runtime"])
+    load_environment(results)
     checkout = Path(plan["frozen_checkout"])
     runs, captures, child = [], [], None
 
