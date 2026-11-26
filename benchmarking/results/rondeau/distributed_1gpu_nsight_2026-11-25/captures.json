@@ -1,0 +1,74 @@
+[
+  {
+    "case": "hydrostatic_1gd",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "f069ccff22fa27581dee625965ec1fbcb08750cf",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/hydrostatic_1gd/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/hydrostatic_1gd/rank_0/profile.sqlite",
+        "bytes": 592424,
+        "sha256": "64271c096b7f05d4c231c9c03dd8de6a75138babb9f60a6955a5c49f26b332b6",
+        "kernels": 2790,
+        "ranges": 460,
+        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+      }
+    ]
+  },
+  {
+    "case": "nonhydrostatic_1gd",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "f069ccff22fa27581dee625965ec1fbcb08750cf",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/nonhydrostatic_1gd/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/nonhydrostatic_1gd/rank_0/profile.sqlite",
+        "bytes": 565286,
+        "sha256": "3ebc0ca78d7be4d75abcdf61935e56a817300e1a4b9589cbf6ec6d373911e792",
+        "kernels": 1860,
+        "ranges": 550,
+        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+      }
+    ]
+  },
+  {
+    "case": "anelastic_1gd",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "f069ccff22fa27581dee625965ec1fbcb08750cf",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/anelastic_1gd/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/anelastic_1gd/rank_0/profile.sqlite",
+        "bytes": 632208,
+        "sha256": "1ca22d076646056a5815eb67b09c10c3ae01d2ab503f99911c6575c903138ca9",
+        "kernels": 2690,
+        "ranges": 740,
+        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+      }
+    ]
+  },
+  {
+    "case": "explicit_1gd",
+    "state": "COMPLETE",
+    "steps": 10,
+    "source_commit": "f069ccff22fa27581dee625965ec1fbcb08750cf",
+    "profiles": [
+      {
+        "rank": 0,
+        "report": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/explicit_1gd/rank_0/profile.nsys-rep",
+        "sqlite": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/explicit_1gd/rank_0/profile.sqlite",
+        "bytes": 586325,
+        "sha256": "e4da1f788ce4760acb29a31a200fd2c407050c5cf88c24c489b02a93359ff440",
+        "kernels": 2490,
+        "ranges": 740,
+        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+      }
+    ]
+  }
+]
