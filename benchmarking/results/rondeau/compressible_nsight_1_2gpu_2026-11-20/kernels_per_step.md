@@ -110,21 +110,21 @@ step's wall time. NCCL kernels include time spent waiting for the peer rank.
 
 | Kernel | Launches/step | Rank 0 ms/step | Rank 1 ms/step |
 |---|---|---|---|
-| `gpu_compute_potential_temperature_tendency_` | 3 | 39.114 | 39.126 |
-| `gpu_compute_z_momentum_tendency_` | 3 | 34.126 | 34.138 |
-| `gpu_compute_y_momentum_tendency_` | 3 | 33.481 | 33.496 |
-| `gpu_compute_x_momentum_tendency_` | 3 | 33.089 | 33.096 |
-| `gpu_compute_scalar_tendency_` | 3 | 33.080 | 33.084 |
-| `gpu__ssp_rk3_substep_` | 18 | 30.270 | 30.246 |
-| `ncclDevKernel_SendRecv` | 63 | 17.082 | 16.087 |
-| `gpu_broadcast_kernel_cartesian` | 132 | 15.695 | 15.714 |
-| `gpu__compute_auxiliary_thermodynamic_variables_` | 3 | 13.001 | 12.984 |
-| `gpu__compute_temperature_and_pressure_` | 3 | 11.466 | 11.463 |
-| `gpu__compute_velocities_` | 3 | 9.098 | 9.103 |
-| `gpu__copy_from_buffer_` | 90 | 5.092 | 5.090 |
-| `gpu__compute_density_tendency_` | 3 | 5.033 | 5.035 |
-| `gpu__compute_total_density_` | 3 | 3.824 | 3.825 |
-| `gpu__fill_periodic_south_and_north_halo_` | 63 | 1.607 | 1.609 |
-| `gpu__fill_bottom_and_top_halo_` | 60 | 0.502 | 0.491 |
-| `gpu__compute_z_bcs_` | 9 | 0.055 | 0.055 |
-| **All kernels** | 465 | **285.617** | **284.642** |
+| `gpu_compute_potential_temperature_tendency_` | 3 | 39.059 | 39.078 |
+| `gpu_compute_z_momentum_tendency_` | 3 | 34.113 | 34.131 |
+| `gpu_compute_y_momentum_tendency_` | 3 | 33.472 | 33.487 |
+| `gpu_compute_x_momentum_tendency_` | 3 | 33.086 | 33.082 |
+| `gpu_compute_scalar_tendency_` | 3 | 33.065 | 33.073 |
+| `gpu__ssp_rk3_substep_` | 18 | 30.237 | 30.238 |
+| `ncclDevKernel_SendRecv` | 63 | 16.059 | 16.287 |
+| `gpu_broadcast_kernel_cartesian` | 132 | 15.683 | 15.682 |
+| `gpu__compute_auxiliary_thermodynamic_variables_` | 3 | 12.958 | 12.946 |
+| `gpu__compute_temperature_and_pressure_` | 3 | 11.466 | 11.461 |
+| `gpu__compute_velocities_` | 3 | 9.106 | 9.109 |
+| `gpu__copy_from_buffer_` | 90 | 5.098 | 5.086 |
+| `gpu__compute_density_tendency_` | 3 | 5.029 | 5.026 |
+| `gpu__compute_total_density_` | 3 | 3.832 | 3.829 |
+| `gpu__fill_periodic_south_and_north_halo_` | 63 | 1.601 | 1.624 |
+| `gpu__fill_bottom_and_top_halo_` | 60 | 0.492 | 0.493 |
+| `gpu__compute_z_bcs_` | 9 | 0.055 | 0.056 |
+| **All kernels** | 465 | **284.411** | **284.688** |

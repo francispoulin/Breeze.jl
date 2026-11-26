@@ -228,10 +228,10 @@
   },
   {
     "case": "explicit_2g",
-    "state": "FAILED",
+    "state": "COMPLETE",
     "source_commit": "4500870251b2c7f939cfedac68dba469cf6cab3b",
     "cuda_visible_devices": "0,3",
-    "started_utc": "2026-11-26T19:09:37.877895+00:00",
+    "started_utc": "2026-11-26T19:13:16.098262+00:00",
     "command": [
       "timeout",
       "--foreground",
@@ -265,7 +265,7 @@
     ],
     "exit_code": 0,
     "foreign_processes": [],
-    "finished_utc": "2026-11-26T19:12:29.588119+00:00",
+    "finished_utc": "2026-11-26T19:16:05.314223+00:00",
     "placements": [
       [
         "0",
@@ -282,12 +282,12 @@
     ],
     "rank_validation": [
       [
-        "0",
+        "1",
         "true",
         "16370565120"
       ],
       [
-        "1",
+        "0",
         "true",
         "16370565120"
       ]
@@ -303,12 +303,11 @@
       "Ry": "1",
       "gpus": "2",
       "steps": "10",
-      "seconds_per_step": "6.338555e-01",
-      "points_per_second": "4.234963e+08",
+      "seconds_per_step": "7.715672e-01",
+      "points_per_second": "3.479094e+08",
       "max_abs_w": "1.610592e-03",
       "communication": "NCCL",
       "fields_finite": "true"
-    },
-    "error": "no such table: CUPTI_ACTIVITY_KIND_KERNEL"
+    }
   }
 ]

@@ -12,25 +12,25 @@ Base `explicit_1g` (1 GPU), scaled `explicit_2g` (2 GPUs).
 
 | Kernel | Launches/step 1→2 GPU | 1 GPU ms/step | 2 GPU ms/step | Difference ms | Difference % | Efficiency % |
 |---|---|---|---|---|---|---|
-| `gpu_compute_potential_temperature_tendency_` | 3 → 3 | 39.153 | 39.126 | -0.027 | -0.1% | 100.1 |
-| `gpu_compute_z_momentum_tendency_` | 3 → 3 | 34.088 | 34.138 | +0.051 | +0.1% | 99.9 |
-| `gpu_compute_y_momentum_tendency_` | 3 → 3 | 33.462 | 33.496 | +0.034 | +0.1% | 99.9 |
-| `gpu_compute_x_momentum_tendency_` | 3 → 3 | 33.077 | 33.096 | +0.019 | +0.1% | 99.9 |
-| `gpu_compute_scalar_tendency_` | 3 → 3 | 33.056 | 33.084 | +0.029 | +0.1% | 99.9 |
-| `gpu__ssp_rk3_substep_` | 18 → 18 | 30.248 | 30.270 | +0.022 | +0.1% | 99.9 |
-| `ncclDevKernel_SendRecv` | 0 → 63 | — | 17.082 | — | — | — |
-| `gpu_broadcast_kernel_cartesian` | 6 → 132 | 11.367 | 15.714 | +4.346 | +38.2% | 72.3 |
-| `gpu__compute_auxiliary_thermodynamic_variables_` | 3 → 3 | 12.960 | 13.001 | +0.041 | +0.3% | 99.7 |
-| `gpu__compute_temperature_and_pressure_` | 3 → 3 | 11.464 | 11.466 | +0.001 | +0.0% | 100.0 |
-| `gpu__compute_velocities_` | 3 → 3 | 9.162 | 9.103 | -0.059 | -0.6% | 100.7 |
-| `gpu__copy_from_buffer_` | 0 → 90 | — | 5.092 | — | — | — |
-| `gpu__compute_density_tendency_` | 3 → 3 | 5.029 | 5.035 | +0.006 | +0.1% | 99.9 |
-| `gpu__compute_total_density_` | 3 → 3 | 3.812 | 3.825 | +0.012 | +0.3% | 99.7 |
-| `gpu__fill_periodic_south_and_north_halo_` | 57 → 63 | 1.741 | 1.609 | -0.132 | -7.6% | 108.2 |
-| `gpu__fill_bottom_and_top_halo_` | 54 → 60 | 0.459 | 0.502 | +0.043 | +9.3% | 91.5 |
-| `gpu__compute_z_bcs_` | 9 → 9 | 0.056 | 0.055 | -0.001 | -1.2% | 101.3 |
+| `gpu_compute_potential_temperature_tendency_` | 3 → 3 | 39.153 | 39.078 | -0.074 | -0.2% | 100.2 |
+| `gpu_compute_z_momentum_tendency_` | 3 → 3 | 34.088 | 34.131 | +0.043 | +0.1% | 99.9 |
+| `gpu_compute_y_momentum_tendency_` | 3 → 3 | 33.462 | 33.487 | +0.025 | +0.1% | 99.9 |
+| `gpu_compute_x_momentum_tendency_` | 3 → 3 | 33.077 | 33.086 | +0.009 | +0.0% | 100.0 |
+| `gpu_compute_scalar_tendency_` | 3 → 3 | 33.056 | 33.073 | +0.017 | +0.1% | 99.9 |
+| `gpu__ssp_rk3_substep_` | 18 → 18 | 30.248 | 30.238 | -0.010 | -0.0% | 100.0 |
+| `ncclDevKernel_SendRecv` | 0 → 63 | — | 16.287 | — | — | — |
+| `gpu_broadcast_kernel_cartesian` | 6 → 132 | 11.367 | 15.683 | +4.315 | +38.0% | 72.5 |
+| `gpu__compute_auxiliary_thermodynamic_variables_` | 3 → 3 | 12.960 | 12.958 | -0.002 | -0.0% | 100.0 |
+| `gpu__compute_temperature_and_pressure_` | 3 → 3 | 11.464 | 11.466 | +0.002 | +0.0% | 100.0 |
+| `gpu__compute_velocities_` | 3 → 3 | 9.162 | 9.109 | -0.053 | -0.6% | 100.6 |
+| `gpu__copy_from_buffer_` | 0 → 90 | — | 5.098 | — | — | — |
+| `gpu__compute_density_tendency_` | 3 → 3 | 5.029 | 5.029 | +0.000 | +0.0% | 100.0 |
+| `gpu__compute_total_density_` | 3 → 3 | 3.812 | 3.832 | +0.020 | +0.5% | 99.5 |
+| `gpu__fill_periodic_south_and_north_halo_` | 57 → 63 | 1.741 | 1.624 | -0.117 | -6.7% | 107.2 |
+| `gpu__fill_bottom_and_top_halo_` | 54 → 60 | 0.459 | 0.493 | +0.034 | +7.5% | 93.0 |
+| `gpu__compute_z_bcs_` | 9 → 9 | 0.056 | 0.056 | -0.000 | -0.2% | 100.2 |
 | `gpu__fill_periodic_west_and_east_halo_` | 57 → 0 | 12.902 | — | — | — | — |
-| **All kernels** | 231 → 465 | 272.035 | 285.617 | +13.582 | +5.0% | 95.2 |
+| **All kernels** | 231 → 465 | 272.035 | 284.688 | +12.652 | +4.7% | 95.6 |
 
 ## Compressible split-explicit (CSE)
 

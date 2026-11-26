@@ -325,5 +325,97 @@
     "reports": "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/superseded/explicit_2g_20261126T190937Z",
     "logs": "logs/superseded/explicit_2g_20261126T190937Z",
     "reason": "Previous recapture's rank 0 Nsight report held no CUDA kernel activity (intermittent CUPTI failure)."
+  },
+  {
+    "run": {
+      "case": "explicit_2g",
+      "state": "FAILED",
+      "source_commit": "4500870251b2c7f939cfedac68dba469cf6cab3b",
+      "cuda_visible_devices": "0,3",
+      "started_utc": "2026-11-26T19:09:37.877895+00:00",
+      "command": [
+        "timeout",
+        "--foreground",
+        "--kill-after=30s",
+        "2400s",
+        "mpiexec",
+        "--bind-to",
+        "none",
+        "-n",
+        "2",
+        "bash",
+        "/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/profile_rank.sh",
+        "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/environment",
+        "/u/ajtse/.local/opt/julia-1.12.7/bin/julia",
+        "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/worktree/benchmarking/distributed/distributed_cbl_benchmark.jl",
+        "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g",
+        "--dynamics=compressible_explicit",
+        "--size=1024x512x512",
+        "--partition=2x1",
+        "--float_type=Float32",
+        "--substeps=12",
+        "--simplified=false",
+        "--random_perturbation=false",
+        "--comm=NCCL",
+        "--time_step=0.005",
+        "--warmup_steps=10",
+        "--time_steps=10",
+        "--nvtx=true",
+        "--profile=true",
+        "--results_file=/u/ajtse/Breeze.jl/benchmarking/results/rondeau/compressible_nsight_1_2gpu_2026-11-20/logs/profiled_explicit_2g.csv"
+      ],
+      "exit_code": 0,
+      "foreign_processes": [],
+      "finished_utc": "2026-11-26T19:12:29.588119+00:00",
+      "placements": [
+        [
+          "0",
+          "rondeau",
+          "3cc138cf-9b95-c6e6-9b51-330b5d985885",
+          "NCCLCommunicator"
+        ],
+        [
+          "1",
+          "rondeau",
+          "628b07c6-4d27-afb0-6c71-f0b5ec437cab",
+          "NCCLCommunicator"
+        ]
+      ],
+      "rank_validation": [
+        [
+          "0",
+          "true",
+          "16370565120"
+        ],
+        [
+          "1",
+          "true",
+          "16370565120"
+        ]
+      ],
+      "measurement": {
+        "machine": "rondeau",
+        "dynamics": "compressible_explicit",
+        "float": "Float32",
+        "Nx": "1024",
+        "Ny": "512",
+        "Nz": "512",
+        "Rx": "2",
+        "Ry": "1",
+        "gpus": "2",
+        "steps": "10",
+        "seconds_per_step": "6.338555e-01",
+        "points_per_second": "4.234963e+08",
+        "max_abs_w": "1.610592e-03",
+        "communication": "NCCL",
+        "fields_finite": "true"
+      },
+      "error": "no such table: CUPTI_ACTIVITY_KIND_KERNEL"
+    },
+    "capture": null,
+    "superseded_utc": "2026-11-26T19:13:15.833273+00:00",
+    "reports": "/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/superseded/explicit_2g_20261126T191315Z",
+    "logs": "logs/superseded/explicit_2g_20261126T191315Z",
+    "reason": "Rank 0 Nsight agent rejected the 0775 session directory (CheckDirectoryPermission) and recorded no CUDA activity."
   }
 ]

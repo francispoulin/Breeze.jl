@@ -15,7 +15,7 @@ where Open MPI is disallowed from creating temporary files by setting
 the MCA parameter "orte_no_session_dir".
 
   Local host: rondeau
-  Filename:   /u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/tmp/mpi/ompi.rondeau.8193/pid.1820759/1/shared_mem_cuda_pool.rondeau
+  Filename:   /u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/tmp/mpi/ompi.rondeau.8193/pid.1822669/1/shared_mem_cuda_pool.rondeau
 
 You can set the MCA paramter shmem_mmap_enable_nfs_warning to 0 to
 disable this message.
@@ -38,8 +38,8 @@ disable this message.
 │
 │ In any other case, please file an issue.
 └ @ CUDACore ~/.julia/packages/CUDACore/6N8AA/src/initialization.jl:203
-[rondeau:1820759] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
-[rondeau:1820759] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[rondeau:1822669] 1 more process has sent help message help-opal-shmem-mmap.txt / mmap on nfs
+[rondeau:1822669] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
 ┌ Info: NVTX host instrumentation enabled
 │   package = :Breeze
 └   NVTX.isactive() = true
@@ -68,37 +68,51 @@ Capture range started in the application.
 Capture range started in the application.
 Capture range ended in the application.
 Capture range ended in the application.
-Generating '/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/tmp/nsys-report-86ff.qdstrm'
-Generating '/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/tmp/nsys-report-8c35.qdstrm'
+Generating '/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/tmp/nsys-report-c39a.qdstrm'
+Generating '/u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/tmp/nsys-report-32df.qdstrm'
 
+[1/1] [0%                          ] profile.nsys-rep
 [1/1] [0%                          ] profile.nsys-repProcessing events...
+Processing events...
 
+[1/1] [0%                          ] profile.nsys-rep
 [1/1] [0%                          ] profile.nsys-rep
 [1/1] [5%                          ] profile.nsys-rep
-[1/1] [===23%                      ] profile.nsys-rep
-[1/1] [========41%                 ] profile.nsys-rep
-[1/1] [================70%         ] profile.nsys-rep
-[1/1] [========================99% ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [9%                          ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [==18%                       ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [11%                         ] profile.nsys-rep
+[1/1] [10%                         ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [8%                          ] profile.nsys-rep
+[1/1] [13%                         ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [=17%                        ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [=====32%                    ] profile.nsys-rep
+[1/1] [=============58%            ] profile.nsys-rep
+[1/1] [=============58%            ] profile.nsys-rep
+[1/1] [==================77%       ] profile.nsys-rep
+[1/1] [==================77%       ] profile.nsys-rep
+[1/1] [====================84%     ] profile.nsys-rep
 [1/1] [========================100%] profile.nsys-rep
-[1/1] [0%                          ] profile.nsys-repProcessing events...
-
-[1/1] [========================100%] profile.nsys-rep
-Generated:
-    /u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g/rank_1/profile.nsys-rep
-
-[1/1] [0%                          ] profile.nsys-rep
-[1/1] [===22%                      ] profile.nsys-rep
-[1/1] [========41%                 ] profile.nsys-rep
-[1/1] [================70%         ] profile.nsys-rep
-[1/1] [========================99% ] profile.nsys-rep
+[1/1] [====================84%     ] profile.nsys-rep
 [1/1] [========================100%] profile.nsys-rep
 [1/1] [========================100%] profile.nsys-rep
 Generated:
     /u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g/rank_0/profile.nsys-rep
-PROFILE_END rank=1 steps=10
 PROFILE_END rank=0 steps=10
-TIMING_END communication=NCCL elapsed_seconds=6.338555136
-VALIDATION rank=0 fields_finite=true gpu_used_bytes=16370565120
+
+[1/1] [========================100%] profile.nsys-rep
+Generated:
+    /u/ajtse/Breeze.jl/.runtime/compressible_nsight_1_2gpu_2026-11-20/raw/explicit_2g/rank_1/profile.nsys-rep
+PROFILE_END rank=1 steps=10
+TIMING_END communication=NCCL elapsed_seconds=7.715672010
 VALIDATION rank=1 fields_finite=true gpu_used_bytes=16370565120
-RESULT machine=rondeau dynamics=compressible_explicit float=Float32 size=1024x512x512 partition=2x1 gpus=2 steps=10 seconds_per_step=6.3386e-01 points_per_second=4.2350e+08 points_per_second_per_gpu=2.1175e+08 max_abs_w=1.610592e-03 communication=NCCL fields_finite=true
-[rondeau:1820759] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237
+VALIDATION rank=0 fields_finite=true gpu_used_bytes=16370565120
+RESULT machine=rondeau dynamics=compressible_explicit float=Float32 size=1024x512x512 partition=2x1 gpus=2 steps=10 seconds_per_step=7.7157e-01 points_per_second=3.4791e+08 points_per_second_per_gpu=1.7395e+08 max_abs_w=1.610592e-03 communication=NCCL fields_finite=true
+[rondeau:1822669] PMIX ERROR: NO-PERMISSIONS in file dstore_base.c at line 237

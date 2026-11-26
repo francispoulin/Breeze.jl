@@ -1,23 +1,23 @@
 comparison,kernel,base_case,scaled_case,base_launches_per_step,scaled_launches_per_step,base_milliseconds_per_step,scaled_milliseconds_per_step,difference_milliseconds,difference_percent,efficiency_percent
-Compressible explicit (CE),gpu_compute_potential_temperature_tendency_,explicit_1g,explicit_2g,3.0,3.0,39.1525192,39.1256639,-0.026855300000001137,-0.06859149947112761,100.06863857970217
-Compressible explicit (CE),gpu_compute_z_momentum_tendency_,explicit_1g,explicit_2g,3.0,3.0,34.0875129,34.138319700000004,0.050806800000003705,0.14904812841304038,99.85117369441004
-Compressible explicit (CE),gpu_compute_y_momentum_tendency_,explicit_1g,explicit_2g,3.0,3.0,33.4616347,33.4958218,0.03418710000000402,0.10216805098288885,99.8979362255862
-Compressible explicit (CE),gpu_compute_x_momentum_tendency_,explicit_1g,explicit_2g,3.0,3.0,33.076814999999996,33.0959436,0.01912860000000194,0.057830840121704405,99.94220258460919
-Compressible explicit (CE),gpu_compute_scalar_tendency_,explicit_1g,explicit_2g,3.0,3.0,33.0557468,33.0844943,0.02874750000000148,0.0869667237407611,99.91310884265201
-Compressible explicit (CE),gpu__ssp_rk3_substep_,explicit_1g,explicit_2g,18.0,18.0,30.2480145,30.2704496,0.022435099999999153,0.074170488115837,99.92588448372435
-Compressible explicit (CE),ncclDevKernel_SendRecv,explicit_1g,explicit_2g,0,63.0,,17.0824809,,,
-Compressible explicit (CE),gpu_broadcast_kernel_cartesian,explicit_1g,explicit_2g,6.0,132.0,11.3674266,15.713763599999998,4.346336999999998,38.235012663288266,72.34057282114134
-Compressible explicit (CE),gpu__compute_auxiliary_thermodynamic_variables_,explicit_1g,explicit_2g,3.0,3.0,12.959852000000001,13.000949299999998,0.041097299999997006,0.3171124176417833,99.68389000640131
-Compressible explicit (CE),gpu__compute_temperature_and_pressure_,explicit_1g,explicit_2g,3.0,3.0,11.464155700000001,11.465612,0.0014562999999991888,0.012703072412032826,99.9872985410635
-Compressible explicit (CE),gpu__compute_velocities_,explicit_1g,explicit_2g,3.0,3.0,9.161956499999999,9.1025756,-0.05938089999999896,-0.6481246663853836,100.65235272530995
-Compressible explicit (CE),gpu__copy_from_buffer_,explicit_1g,explicit_2g,0,90.0,,5.091767,,,
-Compressible explicit (CE),gpu__compute_density_tendency_,explicit_1g,explicit_2g,3.0,3.0,5.028901899999999,5.0350022,0.006100300000000836,0.12130481209030616,99.87884215820202
-Compressible explicit (CE),gpu__compute_total_density_,explicit_1g,explicit_2g,3.0,3.0,3.8123399,3.8247495000000002,0.012409600000000243,0.3255113742612573,99.67554476443489
-Compressible explicit (CE),gpu__fill_periodic_south_and_north_halo_,explicit_1g,explicit_2g,57.0,63.0,1.7410263000000001,1.6087904000000002,-0.13223589999999996,-7.595284459516778,108.21958534809754
-Compressible explicit (CE),gpu__fill_bottom_and_top_halo_,explicit_1g,explicit_2g,54.0,60.0,0.45913519999999997,0.5019627,0.04282750000000002,9.327862468397113,91.46799154598538
-Compressible explicit (CE),gpu__compute_z_bcs_,explicit_1g,explicit_2g,9.0,9.0,0.0559678,0.0552768,-0.0006909999999999972,-1.234638488559488,101.25007236308903
+Compressible explicit (CE),gpu_compute_potential_temperature_tendency_,explicit_1g,explicit_2g,3.0,3.0,39.1525192,39.0782948,-0.07422439999999852,-0.18957758406513603,100.18993766329845
+Compressible explicit (CE),gpu_compute_z_momentum_tendency_,explicit_1g,explicit_2g,3.0,3.0,34.0875129,34.1307299,0.04321699999999851,0.12678249694185964,99.87337803754383
+Compressible explicit (CE),gpu_compute_y_momentum_tendency_,explicit_1g,explicit_2g,3.0,3.0,33.4616347,33.4870344,0.025399700000001246,0.07590693110997726,99.92415064380857
+Compressible explicit (CE),gpu_compute_x_momentum_tendency_,explicit_1g,explicit_2g,3.0,3.0,33.076814999999996,33.0855366,0.008721600000001217,0.026367714061953117,99.97363923666875
+Compressible explicit (CE),gpu_compute_scalar_tendency_,explicit_1g,explicit_2g,3.0,3.0,33.0557468,33.0730158,0.01726899999999887,0.05224205069237422,99.9477852273756
+Compressible explicit (CE),gpu__ssp_rk3_substep_,explicit_1g,explicit_2g,18.0,18.0,30.2480145,30.237721899999997,-0.010292600000003205,-0.03402735739895656,100.0340389399507
+Compressible explicit (CE),ncclDevKernel_SendRecv,explicit_1g,explicit_2g,0,63.0,,16.2867658,,,
+Compressible explicit (CE),gpu_broadcast_kernel_cartesian,explicit_1g,explicit_2g,6.0,132.0,11.3674266,15.682797200000001,4.315370600000001,37.96259920429133,72.48341258917763
+Compressible explicit (CE),gpu__compute_auxiliary_thermodynamic_variables_,explicit_1g,explicit_2g,3.0,3.0,12.959852000000001,12.957703,-0.0021490000000010667,-0.01658197948557643,100.01658472956203
+Compressible explicit (CE),gpu__compute_temperature_and_pressure_,explicit_1g,explicit_2g,3.0,3.0,11.464155700000001,11.465805499999998,0.00164979999999737,0.014390942021115169,99.98561112867301
+Compressible explicit (CE),gpu__compute_velocities_,explicit_1g,explicit_2g,3.0,3.0,9.161956499999999,9.1086986,-0.053257899999998415,-0.5812939627032547,100.58469274633808
+Compressible explicit (CE),gpu__copy_from_buffer_,explicit_1g,explicit_2g,0,90.0,,5.0977816,,,
+Compressible explicit (CE),gpu__compute_density_tendency_,explicit_1g,explicit_2g,3.0,3.0,5.028901899999999,5.0294003,0.0004984000000005651,0.009910712316749809,99.99009026980809
+Compressible explicit (CE),gpu__compute_total_density_,explicit_1g,explicit_2g,3.0,3.0,3.8123399,3.8320215999999996,0.01968169999999958,0.5162629911356954,99.48638859446932
+Compressible explicit (CE),gpu__fill_periodic_south_and_north_halo_,explicit_1g,explicit_2g,57.0,63.0,1.7410263000000001,1.6244463,-0.11658000000000013,-6.696050484705493,107.17659918952076
+Compressible explicit (CE),gpu__fill_bottom_and_top_halo_,explicit_1g,explicit_2g,54.0,60.0,0.45913519999999997,0.4934393,0.03430410000000006,7.471459387126071,93.04795949572723
+Compressible explicit (CE),gpu__compute_z_bcs_,explicit_1g,explicit_2g,9.0,9.0,0.0559678,0.055842800000000005,-0.00012499999999999317,-0.223342707771242,100.22384264399348
 Compressible explicit (CE),gpu__fill_periodic_west_and_east_halo_,explicit_1g,explicit_2g,57.0,0,12.9024441,,,,
-Compressible explicit (CE),All kernels,explicit_1g,explicit_2g,231.0,465.0,272.0354491,285.61713640000005,13.581687300000056,4.992616714083994,95.24479256700508
+Compressible explicit (CE),All kernels,explicit_1g,explicit_2g,231.0,465.0,272.0354491,284.68775229999994,12.652303199999949,4.650975908418823,95.5557261955312
 Compressible split-explicit (CSE),gpu__post_solve_recovery_,splitexplicit_1g,splitexplicit_2g,22.0,22.0,155.7880352,156.3543578,0.5663226000000066,0.3635212417134372,99.63779544876874
 Compressible split-explicit (CSE),gpu_solve_batched_tridiagonal_system_kernel_,splitexplicit_1g,splitexplicit_2g,22.0,22.0,149.6069087,149.5481131,-0.058795599999996284,-0.03930005673594691,100.03931550775279
 Compressible split-explicit (CSE),gpu__build_predictors_,splitexplicit_1g,splitexplicit_2g,22.0,22.0,104.1738463,104.11369640000001,-0.06014989999998477,-0.05773992430572737,100.05777328255533
