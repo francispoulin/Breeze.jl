@@ -1,0 +1,100 @@
+comparison,kernel,base_case,scaled_case,base_launches_per_step,scaled_launches_per_step,base_milliseconds_per_step,scaled_milliseconds_per_step,difference_milliseconds,difference_percent,efficiency_percent
+Hydrostatic (Oceananigans),gpu_compute_hydrostatic_free_surface_Gv_,hydrostatic_1gd,hydrostatic_2g,3.0,9.0,15.9540243,16.880915899999998,0.9268915999999976,5.809766755839764,94.50923394506101
+Hydrostatic (Oceananigans),gpu_compute_hydrostatic_free_surface_Gu_,hydrostatic_1gd,hydrostatic_2g,3.0,9.0,15.9053755,16.8528706,0.9474950999999994,5.9570747009399385,94.3778414817948
+Hydrostatic (Oceananigans),gpu_compute_hydrostatic_free_surface_Gc_,hydrostatic_1gd,hydrostatic_2g,3.0,9.0,14.9367221,16.031199400000002,1.0944773000000012,7.3274262764787,93.17282960125866
+Hydrostatic (Oceananigans),gpu__compute_w_from_continuity_,hydrostatic_1gd,hydrostatic_2g,6.0,6.0,10.312405199999999,10.4136729,0.10126770000000107,0.9819988454293969,99.0275505964855
+Hydrostatic (Oceananigans),gpu__compute_barotropic_mode_,hydrostatic_1gd,hydrostatic_2g,6.0,6.0,10.1291912,10.0336535,-0.0955376999999995,-0.9431917920554161,100.95217260592065
+Hydrostatic (Oceananigans),gpu__barotropic_split_explicit_corrector_,hydrostatic_1gd,hydrostatic_2g,3.0,3.0,9.0075147,8.996865,-0.010649700000000095,-0.11823128082155776,100.11837123264604
+Hydrostatic (Oceananigans),gpu__compute_split_explicit_transport_velocities_,hydrostatic_1gd,hydrostatic_2g,3.0,3.0,8.558043399999999,8.6116442,0.05360080000000167,0.6263207312082768,99.37757762913613
+Hydrostatic (Oceananigans),gpu__rk_substep_field_,hydrostatic_1gd,hydrostatic_2g,6.0,6.0,7.566565,7.5848919,0.018326899999999924,0.24220898122199339,99.75837625319353
+Hydrostatic (Oceananigans),gpu__update_hydrostatic_pressure_,hydrostatic_1gd,hydrostatic_2g,3.0,9.0,4.5051042,6.3369892,1.8318849999999998,40.66243351263662,71.09218680694612
+Hydrostatic (Oceananigans),ncclDevKernel_SendRecv,hydrostatic_1gd,hydrostatic_2g,0,30.0,,6.2080389,,,
+Hydrostatic (Oceananigans),gpu__compute_realized_barotropic_tendency_,hydrostatic_1gd,hydrostatic_2g,3.0,3.0,5.9575906,5.9242369,-0.033353699999999264,-0.5598521657396073,100.56300415670412
+Hydrostatic (Oceananigans),gpu_broadcast_kernel_cartesian,hydrostatic_1gd,hydrostatic_2g,14.0,74.0,3.8036651999999997,4.571138599999999,0.7674733999999996,20.177206973947122,83.21045439313524
+Hydrostatic (Oceananigans),gpu__rk_substep_tracer_field_,hydrostatic_1gd,hydrostatic_2g,3.0,3.0,3.7673645999999996,3.7656750000000003,-0.0016895999999992917,-0.044848327130304615,100.04486844987949
+Hydrostatic (Oceananigans),gpu__copy_from_buffer_,hydrostatic_1gd,hydrostatic_2g,0,60.0,,1.0361677,,,
+Hydrostatic (Oceananigans),gpu__cache_tracer_fields_,hydrostatic_1gd,hydrostatic_2g,1.0,1.0,0.8873262000000001,0.8873232,-3.000000000086267e-06,-0.0003380943783792552,100.00033809552147
+Hydrostatic (Oceananigans),gpu__split_explicit_free_surface_,hydrostatic_1gd,hydrostatic_2g,63.0,63.0,0.5506673999999999,0.6166976999999999,0.06603029999999999,11.990958607682241,89.29292261021891
+Hydrostatic (Oceananigans),gpu__split_explicit_barotropic_velocity_,hydrostatic_1gd,hydrostatic_2g,63.0,63.0,0.5419740999999999,0.6120648,0.07009070000000006,12.932481459907416,88.54848375531479
+Hydrostatic (Oceananigans),gpu__fill_periodic_south_and_north_halo_,hydrostatic_1gd,hydrostatic_2g,33.0,33.0,0.2723179,0.2814464,0.009128499999999984,3.352148353082917,96.75657603010734
+Hydrostatic (Oceananigans),gpu__fill_bottom_and_top_halo_,hydrostatic_1gd,hydrostatic_2g,12.0,12.0,0.0827873,0.0815796,-0.0012076999999999921,-1.4587986321573383,101.48039460845602
+Hydrostatic (Oceananigans),gpu__update_split_explicit_state_,hydrostatic_1gd,hydrostatic_2g,3.0,3.0,0.0186527,0.0192514,0.0005986999999999972,3.209722989165092,96.89009630468435
+Hydrostatic (Oceananigans),gpu__fill_periodic_west_and_east_halo_,hydrostatic_1gd,hydrostatic_2g,33.0,0,1.2275573,,,,
+Hydrostatic (Oceananigans),All kernels,hydrostatic_1gd,hydrostatic_2g,264.0,405.0,113.9848489,125.6692059,11.684356999999991,10.250798340971429,90.70229105346802
+Nonhydrostatic (Oceananigans),gpu_permutedims_kernel_,nonhydrostatic_1gd,nonhydrostatic_2g,12.0,12.0,74.06722500000001,73.3826448,-0.6845802000000134,-0.9242687301974839,100.93289115139662
+Nonhydrostatic (Oceananigans),ncclDevKernel_SendRecv,nonhydrostatic_1gd,nonhydrostatic_2g,0,30.0,,62.907438,,,
+Nonhydrostatic (Oceananigans),gpu_broadcast_kernel_cartesian,nonhydrostatic_1gd,nonhydrostatic_2g,9.0,57.0,28.0634707,29.4473839,1.3839131999999985,4.931368663534544,95.30038659902824
+Nonhydrostatic (Oceananigans),vector_fft,nonhydrostatic_1gd,nonhydrostatic_2g,12.0,12.0,18.927509800000003,18.9563177,0.028807899999996778,0.15220121560838804,99.84803008445044
+Nonhydrostatic (Oceananigans),gpu__rk3_substep_field_,nonhydrostatic_1gd,nonhydrostatic_2g,12.0,12.0,18.362817200000002,18.351076799999998,-0.011740400000004314,-0.06393572332683414,100.06397662724622
+Nonhydrostatic (Oceananigans),gpu_compute_Gu_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,9.0,16.458045700000003,17.646372,1.1883262999999964,7.22033661627271,93.2658888750617
+Nonhydrostatic (Oceananigans),gpu_compute_Gw_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,9.0,16.1205508,17.118322999999997,0.9977721999999964,6.18944236074115,94.17132040328953
+Nonhydrostatic (Oceananigans),gpu_compute_Gv_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,9.0,16.1853145,17.0687105,0.8833960000000012,5.458009481372766,94.82447136237971
+Nonhydrostatic (Oceananigans),gpu_compute_Gc_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,9.0,15.269860399999999,16.2314486,0.9615882000000013,6.297295291579754,94.07577090808763
+Nonhydrostatic (Oceananigans),scal_kernel_ref,nonhydrostatic_1gd,nonhydrostatic_2g,9.0,9.0,13.988087900000002,13.9962346,0.008146699999997509,0.05824026885045173,99.94179363069553
+Nonhydrostatic (Oceananigans),gpu__pack_buffer_x_to_y_,nonhydrostatic_1gd,nonhydrostatic_2g,0,3.0,,13.4302169,,,
+Nonhydrostatic (Oceananigans),gpu__make_pressure_correction_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,3.0,11.3287084,11.312258400000001,-0.016449999999998965,-0.14520631495819034,100.14541747030813
+Nonhydrostatic (Oceananigans),gpu__cache_field_tendencies_,nonhydrostatic_1gd,nonhydrostatic_2g,12.0,12.0,10.698761000000001,10.645955699999998,-0.05280530000000283,-0.49356462865188616,100.49601277224932
+Nonhydrostatic (Oceananigans),regular_fft,nonhydrostatic_1gd,nonhydrostatic_2g,6.0,6.0,10.5290722,10.4555209,-0.0735513000000001,-0.6985544272362393,100.70346853785162
+Nonhydrostatic (Oceananigans),gpu__update_hydrostatic_pressure_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,9.0,4.5688235,7.0578581,2.4890346,54.47867705986016,64.73385317848768
+Nonhydrostatic (Oceananigans),gpu__compute_source_term_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,3.0,6.0780018,6.0804811,0.002479300000000073,0.04079136666264352,99.95922526590864
+Nonhydrostatic (Oceananigans),gpu__spectral_poisson_solve_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,3.0,5.108618,5.0744154,-0.03420259999999953,-0.6695078786474058,100.67402049899187
+Nonhydrostatic (Oceananigans),gpu__unpack_buffer_y_from_x_,nonhydrostatic_1gd,nonhydrostatic_2g,0,3.0,,5.0251494999999995,,,
+Nonhydrostatic (Oceananigans),gpu__unpack_buffer_x_from_y_,nonhydrostatic_1gd,nonhydrostatic_2g,0,3.0,,4.9683997,,,
+Nonhydrostatic (Oceananigans),gpu__pack_buffer_y_to_x_,nonhydrostatic_1gd,nonhydrostatic_2g,0,3.0,,4.8471211,,,
+Nonhydrostatic (Oceananigans),gpu_unpermute_z_indices_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,3.0,4.8053912,4.81124,0.005848799999999876,0.12171329568339569,99.87843466549164
+Nonhydrostatic (Oceananigans),gpu_permute_z_indices_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,3.0,4.7822235,4.784804899999999,0.002581399999999512,0.05397907479647306,99.94605004688907
+Nonhydrostatic (Oceananigans),gpu__copy_real_component_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,3.0,3.7242702999999997,3.7265568,0.002286500000000302,0.06139457707998,99.93864309273374
+Nonhydrostatic (Oceananigans),gpu__divide_by_,nonhydrostatic_1gd,nonhydrostatic_2g,3.0,3.0,2.7016613,2.686562,-0.015099300000000149,-0.5588894507242691,100.56203058034768
+Nonhydrostatic (Oceananigans),gpu__copy_from_buffer_,nonhydrostatic_1gd,nonhydrostatic_2g,0,48.0,,2.3780002000000002,,,
+Nonhydrostatic (Oceananigans),gpu__fill_periodic_south_and_north_halo_,nonhydrostatic_1gd,nonhydrostatic_2g,27.0,27.0,0.4778968,0.48962220000000006,0.011725400000000052,2.4535422710509995,97.60521479622452
+Nonhydrostatic (Oceananigans),gpu__fill_bottom_and_top_halo_,nonhydrostatic_1gd,nonhydrostatic_2g,24.0,24.0,0.170919,0.1976652,0.026746200000000026,15.648465062397994,86.46893838672663
+Nonhydrostatic (Oceananigans),gpu__fill_periodic_west_and_east_halo_,nonhydrostatic_1gd,nonhydrostatic_2g,27.0,0,2.5772018,,,,
+Nonhydrostatic (Oceananigans),All kernels,nonhydrostatic_1gd,nonhydrostatic_2g,186.0,327.0,284.99443080000003,383.03018710000003,98.0357563,34.399183178705115,74.40521410538193
+Anelastic (Breeze),gpu_permutedims_kernel_,anelastic_1gd,anelastic_2g,12.0,12.0,73.38492629999999,73.3831106,-0.0018156999999945356,-0.0024742138359203285,100.00247427505478
+Anelastic (Breeze),ncclDevKernel_SendRecv,anelastic_1gd,anelastic_2g,0,60.0,,59.06184840000001,,,
+Anelastic (Breeze),gpu_compute_potential_temperature_tendency_,anelastic_1gd,anelastic_2g,3.0,3.0,36.9794781,37.0863916,0.10691349999999744,0.28911576229086217,99.71171770725735
+Anelastic (Breeze),gpu_compute_z_momentum_tendency_,anelastic_1gd,anelastic_2g,3.0,3.0,35.391994700000005,35.5029906,0.11099589999999182,0.3136186613409269,99.68736183030173
+Anelastic (Breeze),gpu_compute_y_momentum_tendency_,anelastic_1gd,anelastic_2g,3.0,3.0,32.8419363,32.868802800000005,0.026866500000004123,0.0818054689424756,99.91826139770444
+Anelastic (Breeze),gpu_compute_scalar_tendency_,anelastic_1gd,anelastic_2g,3.0,3.0,32.690677,32.7176047,0.026927700000001664,0.08237119102795475,99.9176966032602
+Anelastic (Breeze),gpu_compute_x_momentum_tendency_,anelastic_1gd,anelastic_2g,3.0,3.0,32.5758554,32.610796,0.03494059999999877,0.10725919418220024,99.89285572790067
+Anelastic (Breeze),gpu__ssp_rk3_substep_,anelastic_1gd,anelastic_2g,15.0,15.0,25.1910474,25.206689100000002,0.01564170000000331,0.0620922971229982,99.93794623348607
+Anelastic (Breeze),vector_fft,anelastic_1gd,anelastic_2g,12.0,12.0,18.940734499999998,18.9389164,-0.0018180999999977132,-0.009598888575296345,100.00959981005037
+Anelastic (Breeze),gpu_broadcast_kernel_cartesian,anelastic_1gd,anelastic_2g,11.0,119.0,15.1301572,18.7803847,3.6502274999999997,24.12550941638597,80.563616995556
+Anelastic (Breeze),gpu_solve_batched_tridiagonal_system_kernel_,anelastic_1gd,anelastic_2g,3.0,3.0,14.387829199999999,14.404408099999998,0.016578899999998953,0.11522864060687456,99.88490398296894
+Anelastic (Breeze),gpu__pack_buffer_x_to_y_,anelastic_1gd,anelastic_2g,0,3.0,,13.4102208,,,
+Anelastic (Breeze),gpu__pressure_correct_momentum_,anelastic_1gd,anelastic_2g,3.0,3.0,11.385419200000001,11.385226,-0.00019320000000178084,-0.0016969072162207326,100.00169693601165
+Anelastic (Breeze),scal_kernel_ref,anelastic_1gd,anelastic_2g,6.0,6.0,9.3346661,9.334405199999999,-0.0002609000000006745,-0.002794958032839273,100.00279503615292
+Anelastic (Breeze),gpu__compute_auxiliary_thermodynamic_variables_,anelastic_1gd,anelastic_2g,3.0,3.0,8.803457300000002,8.7023557,-0.10110160000000157,-1.1484306284986643,101.16177278297187
+Anelastic (Breeze),gpu__compute_velocities_,anelastic_1gd,anelastic_2g,3.0,3.0,8.0666637,8.0973929,0.03072919999999968,0.3809406359657671,99.6205050146449
+Anelastic (Breeze),gpu__compute_anelastic_source_term_,anelastic_1gd,anelastic_2g,3.0,3.0,6.120716,6.1006488,-0.02006719999999973,-0.32785706770253237,100.32893550600716
+Anelastic (Breeze),gpu__unpack_buffer_y_from_x_,anelastic_1gd,anelastic_2g,0,3.0,,5.0241215,,,
+Anelastic (Breeze),gpu__unpack_buffer_x_from_y_,anelastic_1gd,anelastic_2g,0,3.0,,4.9621409,,,
+Anelastic (Breeze),gpu__pack_buffer_y_to_x_,anelastic_1gd,anelastic_2g,0,3.0,,4.8271662,,,
+Anelastic (Breeze),gpu__copy_from_buffer_,anelastic_1gd,anelastic_2g,0,78.0,,4.4181331,,,
+Anelastic (Breeze),partial_mapreduce_grid,anelastic_1gd,anelastic_2g,6.0,6.0,4.2344148,4.2352372,0.000822400000000556,0.01942181006925812,99.98058196126534
+Anelastic (Breeze),gpu__copy_real_component_,anelastic_1gd,anelastic_2g,3.0,3.0,3.7286656000000002,3.7297076999999996,0.0010420999999993796,0.027948336262693538,99.97205947264985
+Anelastic (Breeze),gpu__broadcast_kernel_,anelastic_1gd,anelastic_2g,3.0,3.0,2.6795224,2.6852527999999998,0.00573039999999958,0.21385900711259515,99.78659737362533
+Anelastic (Breeze),gpu__fill_periodic_south_and_north_halo_,anelastic_1gd,anelastic_2g,54.0,54.0,1.5379380999999999,1.4941374,-0.043800699999999804,-2.8480144942114256,102.93150415751589
+Anelastic (Breeze),gpu__fill_bottom_and_top_halo_,anelastic_1gd,anelastic_2g,54.0,54.0,0.39760239999999997,0.504781,0.10717860000000007,26.956225616344387,78.76730701036686
+Anelastic (Breeze),gpu__compute_z_bcs_,anelastic_1gd,anelastic_2g,9.0,9.0,0.0547189,0.0549688,0.00024989999999999735,0.4566977771848435,99.54537846924075
+Anelastic (Breeze),gpu__fill_periodic_west_and_east_halo_,anelastic_1gd,anelastic_2g,54.0,0,10.6480312,,,,
+Anelastic (Breeze),All kernels,anelastic_1gd,anelastic_2g,269.0,473.0,384.50645180000004,469.3416142,84.83516239999994,22.06339113501448,81.92464511279215
+"Compressible explicit (CE, Breeze)",gpu_compute_potential_temperature_tendency_,explicit_1gd,explicit_2g,3.0,3.0,39.130384899999996,39.0782948,-0.05209009999999381,-0.13311931414197212,100.13329675787182
+"Compressible explicit (CE, Breeze)",gpu_compute_z_momentum_tendency_,explicit_1gd,explicit_2g,3.0,3.0,34.0907025,34.1307299,0.0400273999999996,0.11741441819803979,99.88272328157858
+"Compressible explicit (CE, Breeze)",gpu_compute_y_momentum_tendency_,explicit_1gd,explicit_2g,3.0,3.0,33.4585226,33.4870344,0.028511799999996867,0.08521535855261243,99.91485719619293
+"Compressible explicit (CE, Breeze)",gpu_compute_x_momentum_tendency_,explicit_1gd,explicit_2g,3.0,3.0,33.0700363,33.0855366,0.015500299999999356,0.04687113089137842,99.95315082784542
+"Compressible explicit (CE, Breeze)",gpu_compute_scalar_tendency_,explicit_1gd,explicit_2g,3.0,3.0,33.0557645,33.0730158,0.017251299999998082,0.052188476838882614,99.94783874532543
+"Compressible explicit (CE, Breeze)",gpu__ssp_rk3_substep_,explicit_1gd,explicit_2g,18.0,18.0,30.234861799999997,30.237721899999997,0.002860099999999477,0.009459609965868861,99.9905412847917
+"Compressible explicit (CE, Breeze)",ncclDevKernel_SendRecv,explicit_1gd,explicit_2g,0,63.0,,16.2867658,,,
+"Compressible explicit (CE, Breeze)",gpu_broadcast_kernel_cartesian,explicit_1gd,explicit_2g,6.0,132.0,11.3708044,15.682797200000001,4.3119928000000005,37.9216161699167,72.5049508387445
+"Compressible explicit (CE, Breeze)",gpu__compute_auxiliary_thermodynamic_variables_,explicit_1gd,explicit_2g,3.0,3.0,12.962534999999999,12.957703,-0.004831999999998615,-0.03727665923369631,100.03729055990863
+"Compressible explicit (CE, Breeze)",gpu__compute_temperature_and_pressure_,explicit_1gd,explicit_2g,3.0,3.0,11.4669483,11.465805499999998,-0.0011428000000019978,-0.009966034293553043,100.00996702761095
+"Compressible explicit (CE, Breeze)",gpu__compute_velocities_,explicit_1gd,explicit_2g,3.0,3.0,9.1589262,9.1086986,-0.050227599999999484,-0.5484005319313467,100.55142454708074
+"Compressible explicit (CE, Breeze)",gpu__copy_from_buffer_,explicit_1gd,explicit_2g,0,90.0,,5.0977816,,,
+"Compressible explicit (CE, Breeze)",gpu__compute_density_tendency_,explicit_1gd,explicit_2g,3.0,3.0,5.0292015,5.0294003,0.00019879999999972142,0.00395291379754264,99.99604724245157
+"Compressible explicit (CE, Breeze)",gpu__compute_total_density_,explicit_1gd,explicit_2g,3.0,3.0,3.8107358,3.8320215999999996,0.0212857999999998,0.5585745409062418,99.44452818324407
+"Compressible explicit (CE, Breeze)",gpu__fill_periodic_south_and_north_halo_,explicit_1gd,explicit_2g,63.0,63.0,1.7887602999999999,1.6244463,-0.16431399999999985,-9.185914960210145,110.1150773651305
+"Compressible explicit (CE, Breeze)",gpu__fill_bottom_and_top_halo_,explicit_1gd,explicit_2g,60.0,60.0,0.4743678,0.4934393,0.01907150000000002,4.020403577139937,96.13498560005252
+"Compressible explicit (CE, Breeze)",gpu__compute_z_bcs_,explicit_1gd,explicit_2g,9.0,9.0,0.0551002,0.055842800000000005,0.000742600000000003,1.3477265055299308,98.67019562056343
+"Compressible explicit (CE, Breeze)",gpu__fill_periodic_west_and_east_halo_,explicit_1gd,explicit_2g,63.0,0,12.4426395,,,,
+"Compressible explicit (CE, Breeze)",All kernels,explicit_1gd,explicit_2g,249.0,465.0,271.6002916,284.68775229999994,13.087460699999951,4.818647514294478,95.4028718853319

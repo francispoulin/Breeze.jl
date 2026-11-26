@@ -1,10 +1,10 @@
 """Compare GPU kernel time per time step between two NVTX/Nsight cases, such as 1 and 2 GPUs.
 
-Usage: python3 kernel_scaling_table.py ANALYSIS[,ANALYSIS...] OUTPUT_PREFIX [--note=TEXT] TITLE=BASE_CASE:SCALED_CASE ...
+Usage: python3 kernel_scaling_table.py ANALYSIS[@CASE+CASE][,...] OUTPUT_PREFIX [--note=TEXT] TITLE=BASE_CASE:SCALED_CASE ...
 
 Reads the per-rank kernel totals that analyze_nvtx.py wrote to analysis.json. Several
-comma-separated analysis.json files (case names must be unique) put comparisons from different
-campaigns in one table file. Time per step is
+comma-separated analysis.json files put comparisons from different campaigns in one table file;
+case names must be unique across them, and FILE@CASE+CASE keeps only the listed cases of a file. Time per step is
 the summed duration of all launches of a kernel divided by the captured steps. For a case with
 several ranks each kernel uses its slowest rank, as weak-scaling efficiency does. Columns:
 difference = scaled - base (ms and % of base) and weak-scaling efficiency = 100 × base / scaled.
@@ -47,7 +47,15 @@ def signed(value, digits=3, suffix=""):
 
 
 def main():
-    analysis = [record for path in sys.argv[1].split(",") for record in json.loads(Path(path).read_text())]
+    analysis = []
+    for source in sys.argv[1].split(","):
+        path, _, selection = source.partition("@")  # path@case+case keeps only those cases
+        records = json.loads(Path(path).read_text())
+        analysis += [r for r in records if not selection or r["case"] in selection.split("+")]
+    keys = [(record["case"], record["rank"]) for record in analysis]
+    duplicates = sorted({key[0] for key in keys if keys.count(key) > 1})
+    if duplicates:
+        raise RuntimeError(f"Cases appear in more than one analysis file: {duplicates}; select with path@case+case")
     prefix = Path(sys.argv[2])
     by_case = {}
     for record in analysis:
