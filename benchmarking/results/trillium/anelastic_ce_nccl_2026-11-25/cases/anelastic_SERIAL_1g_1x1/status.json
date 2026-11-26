@@ -1,0 +1,38 @@
+{
+  "case": {
+    "id": "anelastic_SERIAL_1g_1x1",
+    "dynamics": "anelastic",
+    "gpus": 1,
+    "size": "512x512x512",
+    "partition": "1x1",
+    "backend": "NCCL",
+    "time_step": 0.01,
+    "float_type": "Float32",
+    "timed_steps": 500,
+    "repeat": 1
+  },
+  "state": "validated",
+  "started": "2026-11-26T05:40:01.706960+00:00",
+  "job_id": "1413542",
+  "measurement": {
+    "machine": "trig0005",
+    "dynamics": "anelastic",
+    "float": "Float32",
+    "Nx": "512",
+    "Ny": "512",
+    "Nz": "512",
+    "Rx": "1",
+    "Ry": "1",
+    "gpus": "1",
+    "steps": "500",
+    "seconds_per_step": "1.468248e-01",
+    "points_per_second": "9.141354e+08",
+    "max_abs_w": "1.648191e-03",
+    "communication": "SERIAL",
+    "fields_finite": "true",
+    "points_per_second_per_gpu": 914135400.0,
+    "max_final_device_memory_bytes": 16475291648,
+    "max_sampled_process_memory_mib": 16244.0
+  },
+  "finished": "2026-11-26T05:42:52.520540+00:00"
+}

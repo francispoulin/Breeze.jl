@@ -1,0 +1,18 @@
+{
+  "job_id": "1413543",
+  "gpus": 2,
+  "reserved_gpus_per_node": 4,
+  "started": "2026-11-26T05:39:04.286730+00:00",
+  "state": "validated",
+  "cases": [
+    {
+      "id": "anelastic_NCCL_2g_2x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_explicit_NCCL_2g_2x1",
+      "validated": true
+    }
+  ],
+  "finished": "2026-11-26T05:47:03.436481+00:00"
+}

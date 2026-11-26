@@ -1,0 +1,60 @@
+CCconfig
+gentoo/2023
+StdEnv/2023
+mii/1.1.2
+gcc/12.3
+flexiblas/3.3.1
+aocl-blas/5.1
+aocl-lapack/5.1
+gcccore/.12.3 <H>
+hwloc/2.9.1
+ucx/1.14.1
+libfabric/1.18.0
+pmix/4.2.4
+ucc/1.2.0
+openmpi/4.1.5
+gdrcopy/2.3.1
+cudacore/.12.6.2 <H>
+ucx-cuda/1.14.1
+nccl/2.26.2
+ucc-cuda/1.2.0
+cuda/12.6
+julia/1.12.5
+python/3.11.5
+python/3.11
+ipykernel/2025a
+scipy-stack/2025a
+julia version 1.12.5
+mpiexec (OpenRTE) 4.1.5
+
+Report bugs to http://www.open-mpi.org/community/help/
+JobId=1413542 JobName=breeze_anelastic_ce_nccl_1g
+   UserId=anditse(3165591) GroupId=anditse(3165591) MCS_label=N/A
+   Priority=1654838 Nice=0 Account=def-fpoulin QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:13 TimeLimit=03:00:00 TimeMin=N/A
+   SubmitTime=2026-11-25T22:10:46 EligibleTime=2026-11-25T22:10:46
+   AccrueTime=2026-11-25T22:10:46
+   StartTime=2026-11-26T00:39:24 EndTime=2026-11-26T03:39:24 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-26T00:39:24 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=trig-login01:4055616
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=trig0005
+   BatchHost=trig0005
+   NumNodes=1 NumCPUs=24 NumTasks=1 CPUs/Task=24 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=24,mem=187.50G,node=1,billing=1,gres/gpu=1
+   AllocTRES=cpu=24,mem=187.50G,node=1,billing=1,gres/gpu=1
+   Socks/Node=* NtasksPerN:B:S:C=1:0:*:* CoreSpec=*
+   MinCPUsNode=24 MinMemoryNode=187.50G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh
+   SubmitLine=SBATCH --comment /opt/slurm/bin/sbatch --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_1g --nodes=1 --ntasks=1 --ntasks-per-node=1 --gpus-per-node=h100:1 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_1g --nodes=1 --ntasks=1 --ntasks-per-node=1 --gpus-per-node=h100:1 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh
+   WorkDir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25
+   Comment=/opt/slurm/bin/sbatch --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_1g --nodes=1 --ntasks=1 --ntasks-per-node=1 --gpus-per-node=h100:1 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh
+   StdErr=
+   StdIn=/dev/null
+   StdOut=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-1413542.out
+   TresPerNode=gres/gpu:h100:1
+   TresPerTask=cpu=24

@@ -1,0 +1,111 @@
+{
+  "submitted": "2026-11-26T03:10:46.077777+00:00",
+  "jobs": [
+    {
+      "gpus": 1,
+      "reserved_gpus_per_node": 1,
+      "job_id": "1413542",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin",
+        "--job-name=breeze_anelastic_ce_nccl_1g",
+        "--nodes=1",
+        "--ntasks=1",
+        "--ntasks-per-node=1",
+        "--gpus-per-node=h100:1",
+        "--cpus-per-task=24",
+        "--time=03:00:00",
+        "--distribution=block:block",
+        "--chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25",
+        "--output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-%j.out",
+        "/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh"
+      ]
+    },
+    {
+      "gpus": 2,
+      "reserved_gpus_per_node": 4,
+      "job_id": "1413543",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin",
+        "--job-name=breeze_anelastic_ce_nccl_2g",
+        "--nodes=1",
+        "--ntasks=4",
+        "--ntasks-per-node=4",
+        "--gpus-per-node=h100:4",
+        "--cpus-per-task=24",
+        "--time=03:00:00",
+        "--distribution=block:block",
+        "--chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25",
+        "--output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/slurm-%j.out",
+        "/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/allocation.sh"
+      ]
+    },
+    {
+      "gpus": 4,
+      "reserved_gpus_per_node": 4,
+      "job_id": "1413544",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin",
+        "--job-name=breeze_anelastic_ce_nccl_4g",
+        "--nodes=1",
+        "--ntasks=4",
+        "--ntasks-per-node=4",
+        "--gpus-per-node=h100:4",
+        "--cpus-per-task=24",
+        "--time=03:00:00",
+        "--distribution=block:block",
+        "--chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25",
+        "--output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/4g/slurm-%j.out",
+        "/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/4g/allocation.sh"
+      ]
+    },
+    {
+      "gpus": 8,
+      "reserved_gpus_per_node": 4,
+      "job_id": "1413545",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin",
+        "--job-name=breeze_anelastic_ce_nccl_8g",
+        "--nodes=2",
+        "--ntasks=8",
+        "--ntasks-per-node=4",
+        "--gpus-per-node=h100:4",
+        "--cpus-per-task=24",
+        "--time=03:00:00",
+        "--distribution=block:block",
+        "--chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25",
+        "--output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/8g/slurm-%j.out",
+        "/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/8g/allocation.sh"
+      ]
+    },
+    {
+      "gpus": 16,
+      "reserved_gpus_per_node": 4,
+      "job_id": "1413546",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin",
+        "--job-name=breeze_anelastic_ce_nccl_16g",
+        "--nodes=4",
+        "--ntasks=16",
+        "--ntasks-per-node=4",
+        "--gpus-per-node=h100:4",
+        "--cpus-per-task=24",
+        "--time=03:00:00",
+        "--distribution=block:block",
+        "--chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25",
+        "--output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/16g/slurm-%j.out",
+        "/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/16g/allocation.sh"
+      ]
+    }
+  ],
+  "state": "submitted"
+}

@@ -1,0 +1,17 @@
+{
+  "state": "validated",
+  "expected": 10,
+  "validated": 10,
+  "cases": {
+    "anelastic_SERIAL_1g_1x1": "validated",
+    "compressible_explicit_SERIAL_1g_1x1": "validated",
+    "anelastic_NCCL_2g_2x1": "validated",
+    "compressible_explicit_NCCL_2g_2x1": "validated",
+    "anelastic_NCCL_4g_4x1": "validated",
+    "compressible_explicit_NCCL_4g_4x1": "validated",
+    "anelastic_NCCL_8g_8x1": "validated",
+    "compressible_explicit_NCCL_8g_8x1": "validated",
+    "anelastic_NCCL_16g_16x1": "validated",
+    "compressible_explicit_NCCL_16g_16x1": "validated"
+  }
+}

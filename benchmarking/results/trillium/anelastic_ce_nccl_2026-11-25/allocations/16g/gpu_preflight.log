@@ -1,0 +1,282 @@
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+┌ Warning: CUDA runtime library `libcudart.so.12` was loaded from a system path, `/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/12.6.2/lib64/libcudart.so.12`.
+│ This may cause errors.
+│
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│
+│ In any other case, please file an issue.
+└ @ CUDACore /scratch/anditse/Breeze.jl/.runtime/depot/packages/CUDACore/6N8AA/src/initialization.jl:203
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+    Breeze Being precompiled by another process (pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another process (pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another process (pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+Precompiling packages...
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+    Breeze Being precompiled by another machine (hostname: trig0060, pid: 1902238, pidfile: /scratch/anditse/Breeze.jl/.runtime/depot/compiled/v1.12/Breeze/lYBuR_UKt66.ji.pidfile)
+  10800.5 ms  ✓ Breeze
+  1 dependency successfully precompiled in 12 seconds. 126 already precompiled.
+  10990.1 ms  ✓ Breeze
+  1 dependency successfully precompiled in 12 seconds. 126 already precompiled.
+  11252.0 ms  ✓ Breeze
+  1 dependency successfully precompiled in 13 seconds. 126 already precompiled.
+  20831.0 ms  ✓ Breeze
+  1 dependency successfully precompiled in 22 seconds. 126 already precompiled.
+  20959.0 ms  ✓ Breeze
+  1 dependency successfully precompiled in 22 seconds. 126 already precompiled.
+  20968.5 ms  ✓ Breeze
+  1 dependency successfully precompiled in 22 seconds. 126 already precompiled.
+  21268.5 ms  ✓ Breeze
+  1 dependency successfully precompiled in 23 seconds. 126 already precompiled.
+  30846.0 ms  ✓ Breeze
+  1 dependency successfully precompiled in 32 seconds. 126 already precompiled.
+  30962.2 ms  ✓ Breeze
+  1 dependency successfully precompiled in 32 seconds. 126 already precompiled.
+  30990.9 ms  ✓ Breeze
+  1 dependency successfully precompiled in 32 seconds. 126 already precompiled.
+  40868.6 ms  ✓ Breeze
+  1 dependency successfully precompiled in 42 seconds. 126 already precompiled.
+  40987.5 ms  ✓ Breeze
+  1 dependency successfully precompiled in 42 seconds. 126 already precompiled.
+  40979.1 ms  ✓ Breeze
+  1 dependency successfully precompiled in 42 seconds. 126 already precompiled.
+  51002.5 ms  ✓ Breeze
+  1 dependency successfully precompiled in 52 seconds. 126 already precompiled.
+  60991.1 ms  ✓ Breeze
+  1 dependency successfully precompiled in 62 seconds. 126 already precompiled.
+  70986.8 ms  ✓ Breeze
+  1 dependency successfully precompiled in 72 seconds. 126 already precompiled.
+PREFLIGHT rank=11 host=trig0048 gpu_uuid=3fd4f064-ecc6-fbce-5413-613759445550 devices=4
+PREFLIGHT rank=12 host=trig0060 gpu_uuid=c4f0942a-1352-0f6e-6dfd-6eec39068fc3 devices=4
+PREFLIGHT rank=13 host=trig0060 gpu_uuid=ce832801-8f01-3edc-6f3f-bd848cfbf198 devices=4
+PREFLIGHT rank=5 host=trig0033 gpu_uuid=ea259daa-d4f5-87c4-615b-f45a68e928e8 devices=4
+PREFLIGHT rank=7 host=trig0033 gpu_uuid=97f6dbd7-4b4a-6b01-7959-6121c61bbe2e devices=4
+PREFLIGHT rank=2 host=trig0018 gpu_uuid=1e26c255-7b7e-ce4b-b2d7-6fd00a386f6f devices=4
+PREFLIGHT rank=14 host=trig0060 gpu_uuid=305946dc-6ca8-2628-3ffa-f8398c672416 devices=4
+PREFLIGHT rank=1 host=trig0018 gpu_uuid=5cd86222-29c7-d57d-56e6-0b0b05ecb8cd devices=4
+PREFLIGHT rank=8 host=trig0048 gpu_uuid=d6270c84-fca0-0520-9347-1dba8a023705 devices=4
+PREFLIGHT rank=4 host=trig0033 gpu_uuid=47d586d4-c4e6-585e-732d-fa03fb3d31fe devices=4
+PREFLIGHT rank=9 host=trig0048 gpu_uuid=fe989487-d90d-2514-b620-0a2e5641d523 devices=4
+PREFLIGHT rank=15 host=trig0060 gpu_uuid=0daca513-8eae-12db-fff8-e82ef9326c62 devices=4
+PREFLIGHT rank=0 host=trig0018 gpu_uuid=dd1620fd-951f-1d34-a188-8f862f8f4c6a devices=4
+PREFLIGHT rank=10 host=trig0048 gpu_uuid=25d2ff95-d7b9-ac09-8e25-5889ee199ea1 devices=4
+PREFLIGHT rank=3 host=trig0018 gpu_uuid=f53553e6-17e6-f7ef-20ea-d424bf33148f devices=4
+PREFLIGHT rank=6 host=trig0033 gpu_uuid=d94b8e8f-f17e-bfa5-5998-d416bc24cf83 devices=4
+CUDA toolchain:
+- runtime 13.4.0, artifact installation
+- driver 595.91.7 for CUDA 13.2
+- compiler 13.5.37, artifact installation
+
+CUDA libraries:
+- cuBLAS: 13.8.0
+- cuSPARSE: 12.8.6
+- cuSOLVER: 12.3.5
+- cuFFT: 12.4.0
+- cuRAND: 10.4.4
+- CUPTI: 2026.3.1 (API 13.4.1)
+- NVML: 13.0.0+595.91.7
+
+Julia packages:
+- CUDACore: 6.4.2
+- GPUArrays: 11.5.16
+- GPUCompiler: 2.21.0
+- KernelAbstractions: 0.9.45
+- CUDA_Driver_jll: 13.5.0+0
+- CUDA_Compiler_jll: 0.6.4+0
+- CUDA_Runtime_jll: 0.25.0+3
+- NVPTX_LLVM_Backend_jll: 23.1.2+2
+
+Toolchain:
+- Julia: 1.12.5
+- LLVM: 18.1.7
+
+Environment:
+- JULIA_CUDA_MEMORY_POOL: none
+
+4 devices:
+  0: NVIDIA H100 80GB HBM3 (sm_90, 78.663 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  1: NVIDIA H100 80GB HBM3 (sm_90, 78.663 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  2: NVIDIA H100 80GB HBM3 (sm_90, 78.663 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+  3: NVIDIA H100 80GB HBM3 (sm_90, 78.663 GiB / 79.647 GiB available)
+     compiles to sm_90a / PTX 9.4 (LLVM: sm_90a / PTX 9.2)
+MPIPreferences:
+  binary:  system
+  abi:     OpenMPI
+  libmpi:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  mpiexec: mpiexec
+
+Package versions
+  MPI.jl:             0.20.29
+  MPIPreferences.jl:  0.1.12
+
+Library information:
+  libmpi:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  libmpi dlpath:  /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/lib/libmpi.so
+  MPI version:  3.1.0
+  Library version:
+    Open MPI v4.1.5, package: Open MPI ebuser@build-node2.computecanada.ca Distribution, ident: 4.1.5, repo rev: v4.1.5, Feb 23, 2023
+  MPI launcher: mpiexec
+  MPI launcher path: /cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v4/Compiler/gcc12/openmpi/4.1.5/bin/mpiexec
+Breeze path: /scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25/source/src/Breeze.jl

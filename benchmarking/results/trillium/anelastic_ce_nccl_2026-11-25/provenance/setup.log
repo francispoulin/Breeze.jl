@@ -1,0 +1,338 @@
+Precompiling packages...
+   1324.8 ms  ✓ Preferences
+    653.0 ms  ✓ JLLWrappers
+   1312.8 ms  ✓ CUDA_Driver_jll
+  3 dependencies successfully precompiled in 3 seconds. 4 already precompiled.
+Precompiling packages...
+   1344.7 ms  ✓ MSVCRuntime_jll
+   3054.7 ms  ✓ CUDA_Compiler_jll
+Info Given CUDA_Runtime_jll was explicitly requested, output will be shown live [0K
+[0K Downloading artifact: CUDA_Compiler
+  14928.9 ms  ✓ CUDA_Runtime_jll
+  3 dependencies successfully precompiled in 22 seconds. 31 already precompiled.
+  1 dependency had output during precompilation:
+┌ CUDA_Runtime_jll
+│  [Output was shown above]
+└
+  Activating project at `/scratch/anditse/Breeze.jl/.runtime/environments/trillium_weak512`
+       Added `General` registry to /scratch/anditse/Breeze.jl/.runtime/depot/registries
+   Installed GPUArraysCore ─────────────── v0.2.1
+   Installed MPIABI_jll ────────────────── v1.0.1+0
+   Installed RealDot ───────────────────── v0.1.0
+   Installed Crayons ───────────────────── v4.2.0
+   Installed Scratch ───────────────────── v1.3.0
+   Installed MPICH_jll ─────────────────── v5.0.3+0
+   Installed MuladdMacro ───────────────── v0.2.7
+   Installed JLD2 ──────────────────────── v0.6.7
+   Installed IrrationalConstants ───────── v0.2.7
+   Installed oneTBB_jll ────────────────── v2023.1.0+0
+   Installed XML2_jll ──────────────────── v2.15.4+0
+   Installed demumble_jll ──────────────── v1.3.0+0
+   Installed OffsetArrays ──────────────── v1.18.0
+   Installed Adapt ─────────────────────── v4.8.0
+   Installed LMDB ──────────────────────── v3.0.1
+   Installed Xorg_libpciaccess_jll ─────── v0.19.0+0
+   Installed cuFFT ─────────────────────── v6.4.2
+   Installed NVML ──────────────────────── v6.4.2
+   Installed CUPTI ─────────────────────── v6.4.2
+   Installed Zstd_jll ──────────────────── v1.5.7+1
+   Installed FFTW ──────────────────────── v1.10.0
+   Installed Preferences ───────────────── v1.6.1
+   Installed TableTraits ───────────────── v1.0.1
+   Installed tree_sitter_llvm_jll ──────── v1.1.0+0
+   Installed cuSOLVER ──────────────────── v6.4.2
+   Installed PrettyTables ──────────────── v3.5.1
+   Installed CUDA_Driver_jll ───────────── v13.5.0+0
+   Installed TaylorSeries ──────────────── v0.20.10
+   Installed MPI ───────────────────────── v0.20.29
+   Installed ChunkCodecLibZlib ─────────── v1.1.0
+   Installed Hwloc_jll ─────────────────── v2.15.0+0
+   Installed LLVMLoopInfo ──────────────── v1.0.0
+   Installed GPUCompiler ───────────────── v2.21.0
+   Installed SpecialFunctions ──────────── v2.9.1
+   Installed Tables ────────────────────── v1.14.0
+   Installed CUDACore ──────────────────── v6.4.2
+   Installed HashArrayMappedTries ──────── v0.2.0
+   Installed DataAPI ───────────────────── v1.16.0
+   Installed PkgVersion ────────────────── v0.3.3
+   Installed tree_sitter_gcn_jll ───────── v0.1.0+0
+   Installed MicrosoftMPI_jll ──────────── v10.1.5+0
+   Installed MKL_jll ───────────────────── v2025.2.0+0
+   Installed JLLWrappers ───────────────── v1.8.0
+   Installed OpenMPI_jll ───────────────── v4.1.11+0
+   Installed AbstractFFTs ──────────────── v1.5.0
+   Installed CUDATools ─────────────────── v6.4.2
+   Installed StaticArrays ──────────────── v1.9.24
+   Installed ChunkCodecLibZstd ─────────── v1.0.0
+   Installed Tracy ─────────────────────── v0.1.6
+   Installed CubedSphere ───────────────── v0.3.6
+   Installed StaticArraysCore ──────────── v1.4.4
+   Installed Libiconv_jll ──────────────── v1.18.0+0
+   Installed IteratorInterfaceExtensions ─ v1.0.0
+   Installed CUDA_Runtime_Discovery ────── v2.1.1
+   Installed ConstructionBase ──────────── v1.6.0
+   Installed CUDA_Compiler_jll ─────────── v0.6.4+0
+   Installed StructArrays ──────────────── v0.7.4
+   Installed PrecompileTools ───────────── v1.3.4
+   Installed NVTX ──────────────────────── v1.0.3
+   Installed DataValueInterfaces ───────── v1.0.0
+   Installed NVTX_jll ──────────────────── v3.2.2+0
+   Installed ChunkCodecCore ────────────── v1.0.2
+   Installed LMDB_jll ──────────────────── v1.0.3+0
+   Installed MSVCRuntime_jll ───────────── v14.51.36247+0
+   Installed LLVMExtra_jll ─────────────── v0.0.56+0
+   Installed OrderedCollections ────────── v2.0.3
+   Installed ReactantCore ──────────────── v0.1.26
+   Installed LaTeXStrings ──────────────── v1.4.1
+   Installed ScopedValues ──────────────── v1.6.2
+   Installed CEnum ─────────────────────── v0.5.0
+   Installed CompilerCaching ───────────── v0.5.3
+   Installed cuSPARSE ──────────────────── v6.4.2
+   Installed GPUToolbox ────────────────── v3.5.1
+   Installed Random123 ─────────────────── v1.7.1
+   Installed MPIPreferences ────────────── v0.1.12
+   Installed BFloat16s ─────────────────── v0.6.5
+   Installed FileIO ────────────────────── v1.20.0
+   Installed SeawaterPolynomials ───────── v0.3.11
+   Installed MPItrampoline_jll ─────────── v5.5.7+0
+   Installed GPUArrays ─────────────────── v11.5.16
+   Installed tree_sitter_spirv_jll ─────── v0.1.0+0
+   Installed JuliaNVTXCallbacks_jll ────── v0.2.1+0
+   Installed Reexport ──────────────────── v1.2.2
+   Installed LibTracyClient_jll ────────── v0.13.1+0
+   Installed CUDA_Runtime_jll ──────────── v0.25.0+3
+   Installed Statistics ────────────────── v1.11.5
+   Installed RandomNumbers ─────────────── v1.6.0
+   Installed IntelOpenMP_jll ───────────── v2025.2.0+0
+   Installed Requires ──────────────────── v1.3.1
+   Installed cuRAND ────────────────────── v6.4.2
+   Installed LogExpFunctions ───────────── v1.0.3
+   Installed NCCL_jll ──────────────────── v2.32.3+0
+   Installed Quaternions ───────────────── v0.7.7
+   Installed FFTW_jll ──────────────────── v3.3.12+0
+   Installed ExprTools ─────────────────── v0.1.11
+   Installed KernelAbstractions ────────── v0.9.45
+   Installed OpenSpecFun_jll ───────────── v0.5.6+0
+   Installed Krylov ────────────────────── v0.10.12
+   Installed StatsAPI ──────────────────── v1.8.0
+   Installed cuBLAS ────────────────────── v6.4.2
+   Installed MacroTools ────────────────── v0.5.16
+   Installed UnsafeAtomics ─────────────── v0.4.0
+   Installed NVPTX_LLVM_Backend_jll ────── v23.1.2+2
+   Installed Rotations ─────────────────── v1.7.1
+   Installed Glob ──────────────────────── v1.5.0
+   Installed Distances ─────────────────── v0.10.12
+   Installed tree_sitter_ptx_jll ───────── v0.1.0+0
+   Installed StringManipulation ────────── v0.6.1
+   Installed ExpressionExplorer ────────── v1.1.6
+   Installed Atomix ────────────────────── v1.5.0
+   Installed NCCL ──────────────────────── v0.1.3
+   Installed LLVM ──────────────────────── v10.4.3
+   Installed CUDA ──────────────────────── v6.4.2
+   Installed DocStringExtensions ───────── v0.10.2
+   Installed Oceananigans ──────────────── v0.117.2
+  Installing 21 artifacts
+   Installed artifact JuliaNVTXCallbacks 8.6 KiB
+   Installed artifact Xorg_libpciaccess  26.2 KiB
+   Installed artifact NVTX               13.7 KiB
+   Installed artifact tree_sitter_gcn    13.1 KiB
+   Installed artifact demumble           322.0 KiB
+   Installed artifact tree_sitter_spirv  6.2 KiB
+   Installed artifact FFTW               2.2 MiB
+   Installed artifact OpenSpecFun        194.9 KiB
+   Installed artifact XML2               2.2 MiB
+   Installed artifact tree_sitter_ptx    23.1 KiB
+   Installed artifact tree_sitter_llvm   139.5 KiB
+   Installed artifact Libiconv           1.9 MiB
+   Installed artifact LLVMExtra          5.1 MiB
+   Installed artifact LMDB               909.4 KiB
+   Installed artifact Zstd               646.0 KiB
+   Installed artifact LibTracyClient     502.2 KiB
+   Installed artifact OpenMPI            4.8 MiB
+   Installed artifact Hwloc              3.6 MiB
+   Installed artifact NVPTX_LLVM_Backend 11.0 MiB
+   Installed artifact CUDA_Driver        152.0 MiB
+   Installed artifact CUDA_Runtime       1.0 GiB
+     Project No packages added to or removed from `/scratch/anditse/Breeze.jl/.runtime/environments/trillium_weak512/Project.toml`
+    Updating `/scratch/anditse/Breeze.jl/.runtime/environments/trillium_weak512/Manifest.toml`
+  [3161d3a3] ~ Zstd_jll v1.5.7+1 ⇒ v1.5.7+1
+  [b27032c2] ↓ LibCURL v1.0.0 ⇒ v0.6.4
+  [37e2e46d] ↓ LinearAlgebra v1.13.0 ⇒ v1.12.0
+  [44cfe95a] ↓ Pkg v1.13.0 ⇒ v1.12.1
+  [ea8e919c] ↓ SHA v1.0.0 ⇒ v0.7.0
+  [2f01184e] ↓ SparseArrays v1.13.0 ⇒ v1.12.0
+  [e66e0078] ↓ CompilerSupportLibraries_jll v1.5.5+2 ⇒ v1.3.0+1
+  [deac9b47] ↓ LibCURL_jll v8.22.0+0 ⇒ v8.15.0+0
+  [e37daf67] ↓ LibGit2_jll v1.9.7+0 ⇒ v1.9.0+0
+  [29816b5a] ↓ LibSSH2_jll v1.11.104+0 ⇒ v1.11.3+1
+  [14a3606d] ↓ MozillaCACerts_jll v2026.8.13 ⇒ v2025.11.4
+  [4536629a] ↓ OpenBLAS_jll v0.3.30+0 ⇒ v0.3.29+0
+  [458c3c95] ↓ OpenSSL_jll v3.5.8+0 ⇒ v3.5.4+0
+  [efcefdf7] - PCRE2_jll v10.46.0+0
+  [bea87d4a] ↓ SuiteSparse_jll v7.10.1+0 ⇒ v7.8.3+2
+  [83775a58] ↓ Zlib_jll v1.3.2+0 ⇒ v1.3.1+2
+  [8e850ede] ↓ nghttp2_jll v1.70.0+0 ⇒ v1.64.0+1
+  [3f19e933] ↓ p7zip_jll v17.8.3+0 ⇒ v17.7.0+0
+  Installing 1 artifacts
+   Installed artifact NCCL               270.9 MiB
+Precompiling packages...
+   1501.0 ms  ✓ LLVMLoopInfo
+   1453.3 ms  ✓ ExpressionExplorer
+    626.4 ms  ✓ AbstractFFTs
+    536.9 ms  ✓ LaTeXStrings
+    552.9 ms  ✓ Glob
+   1793.3 ms  ✓ GPUToolbox
+    510.7 ms  ✓ ExprTools
+    453.4 ms  ✓ IteratorInterfaceExtensions
+    466.9 ms  ✓ StatsAPI
+    531.2 ms  ✓ ChunkCodecCore
+    912.2 ms  ✓ OffsetArrays
+   1289.2 ms  ✓ CEnum
+    555.1 ms  ✓ SeawaterPolynomials
+    529.2 ms  ✓ Statistics
+    836.1 ms  ✓ RandomNumbers
+   2547.6 ms  ✓ MacroTools
+   1540.8 ms  ✓ OrderedCollections
+    477.6 ms  ✓ DataValueInterfaces
+    814.1 ms  ✓ Requires
+    488.3 ms  ✓ RealDot
+    502.1 ms  ✓ Reexport
+   1061.1 ms  ✓ DocStringExtensions
+   2006.8 ms  ✓ IrrationalConstants
+   1359.1 ms  ✓ CUDA_Runtime_Discovery
+    514.5 ms  ✓ HashArrayMappedTries
+    533.2 ms  ✓ Adapt
+   1348.8 ms  ✓ ConstructionBase
+    547.7 ms  ✓ DataAPI
+    517.9 ms  ✓ StaticArraysCore
+   1872.7 ms  ✓ Crayons
+   1529.4 ms  ✓ BFloat16s
+    651.1 ms  ✓ Scratch
+   5926.3 ms  ✓ Krylov
+    746.4 ms  ✓ Preferences
+   3763.8 ms  ✓ TaylorSeries
+    460.0 ms  ✓ TableTraits
+    675.6 ms  ✓ ChunkCodecLibZlib
+   1918.2 ms  ✓ PkgVersion
+    937.3 ms  ✓ Statistics → SparseArraysExt
+   1802.5 ms  ✓ Distances
+   1055.9 ms  ✓ Random123
+    744.5 ms  ✓ ReactantCore
+    730.8 ms  ✓ Quaternions
+    715.9 ms  ✓ LogExpFunctions
+    554.5 ms  ✓ ScopedValues
+    788.8 ms  ✓ Adapt → AdaptSparseArraysExt
+    622.9 ms  ✓ GPUArraysCore
+    522.8 ms  ✓ OffsetArrays → OffsetArraysAdaptExt
+   4464.2 ms  ✓ FileIO
+    500.4 ms  ✓ ConstructionBase → ConstructionBaseLinearAlgebraExt
+    692.9 ms  ✓ JLLWrappers
+    940.1 ms  ✓ MPIPreferences
+    587.5 ms  ✓ PrecompileTools
+    694.6 ms  ✓ Distances → DistancesSparseArraysExt
+   1988.3 ms  ✓ Tables
+    752.1 ms  ✓ tree_sitter_spirv_jll
+   2150.9 ms  ✓ CUDA_Driver_jll
+    630.2 ms  ✓ MSVCRuntime_jll
+    731.9 ms  ✓ Xorg_libpciaccess_jll
+    713.3 ms  ✓ NVTX_jll
+    761.9 ms  ✓ LibTracyClient_jll
+    714.2 ms  ✓ tree_sitter_gcn_jll
+   1730.6 ms  ✓ IntelOpenMP_jll
+    735.1 ms  ✓ demumble_jll
+    814.5 ms  ✓ LLVMExtra_jll
+    785.1 ms  ✓ Zstd_jll
+   1941.2 ms  ✓ oneTBB_jll
+    832.9 ms  ✓ LMDB_jll
+    794.7 ms  ✓ NVPTX_LLVM_Backend_jll
+    730.2 ms  ✓ JuliaNVTXCallbacks_jll
+    749.6 ms  ✓ Libiconv_jll
+    678.9 ms  ✓ tree_sitter_llvm_jll
+    718.9 ms  ✓ FFTW_jll
+    821.6 ms  ✓ OpenSpecFun_jll
+    850.2 ms  ✓ tree_sitter_ptx_jll
+   2040.7 ms  ✓ MPItrampoline_jll
+   2262.5 ms  ✓ OpenMPI_jll
+   1048.3 ms  ✓ MuladdMacro
+   2062.5 ms  ✓ MicrosoftMPI_jll
+   3036.8 ms  ✓ StringManipulation
+   1976.3 ms  ✓ StructArrays
+   6392.2 ms  ✓ StaticArrays
+   1327.8 ms  ✓ Tracy
+   5256.7 ms  ✓ CUDA_Compiler_jll
+    890.7 ms  ✓ ChunkCodecLibZstd
+   7407.6 ms  ✓ MKL_jll
+   1112.5 ms  ✓ LMDB
+   1006.0 ms  ✓ NVTX
+    817.5 ms  ✓ XML2_jll
+  15536.0 ms  ✓ LLVM
+   2669.0 ms  ✓ SpecialFunctions
+    575.0 ms  ✓ StructArrays → AdaptExt
+    548.0 ms  ✓ StructArrays → LinearAlgebraExt
+    788.6 ms  ✓ StructArrays → SparseArraysExt
+    542.0 ms  ✓ StructArrays → GPUArraysCoreExt
+    698.3 ms  ✓ StaticArrays → StaticArraysStatisticsExt
+    683.1 ms  ✓ Adapt → AdaptStaticArraysExt
+    692.8 ms  ✓ ConstructionBase → ConstructionBaseStaticArraysExt
+   1171.8 ms  ✓ TaylorSeries → TaylorSeriesSAExt
+   2360.2 ms  ✓ Rotations
+   1638.9 ms  ✓ StructArrays → StaticArraysExt
+  15763.0 ms  ✓ PrettyTables
+   4902.2 ms  ✓ CUDA_Runtime_jll
+   4864.8 ms  ✓ FFTW
+   1018.4 ms  ✓ CompilerCaching
+    804.0 ms  ✓ Hwloc_jll
+   2416.7 ms  ✓ UnsafeAtomics
+    665.6 ms  ✓ LLVM → BFloat16sExt
+   1680.0 ms  ✓ CubedSphere
+   3964.2 ms  ✓ NCCL_jll
+  19595.9 ms  ✓ JLD2
+   1761.8 ms  ✓ MPIABI_jll
+    667.7 ms  ✓ MPICH_jll
+    788.4 ms  ✓ Atomix
+   2283.2 ms  ✓ TaylorSeries → TaylorSeriesJLD2Ext
+   4754.6 ms  ✓ MPI
+   3749.6 ms  ✓ KernelAbstractions
+   1134.9 ms  ✓ KernelAbstractions → SparseArraysExt
+   1119.7 ms  ✓ KernelAbstractions → LinearAlgebraExt
+   1183.1 ms  ✓ StructArrays → KernelAbstractionsExt
+  25729.5 ms  ✓ GPUCompiler
+   4346.4 ms  ✓ GPUArrays
+   1034.5 ms  ✓ UnsafeAtomics → UnsafeAtomicsGPUCompilerExt
+   2184.0 ms  ✓ GPUArrays → JLD2Ext
+  25500.3 ms  ✓ Oceananigans
+  11664.3 ms  ✓ Breeze
+  36689.7 ms  ✓ CUDACore
+   6533.4 ms  ✓ Atomix → AtomixCUDACoreExt
+   7114.4 ms  ✓ CUDACore → SpecialFunctionsExt
+   7644.2 ms  ✓ NVML
+   7780.2 ms  ✓ cuRAND
+   5550.7 ms  ✓ cuFFT
+   7539.6 ms  ✓ CUPTI
+   9210.8 ms  ✓ cuSPARSE
+  11788.7 ms  ✓ cuBLAS
+   9737.7 ms  ✓ cuSOLVER
+  13692.0 ms  ✓ CUDATools
+   6660.8 ms  ✓ CUDA
+   7450.9 ms  ✓ NCCL
+   7883.2 ms  ✓ MPI → CUDAExt
+   8245.0 ms  ✓ Oceananigans → OceananigansNCCLExt
+   8774.3 ms  ✓ Oceananigans → OceananigansCUDAExt
+  142 dependencies successfully precompiled in 231 seconds. 36 already precompiled.
+  1 dependency had output during precompilation:
+┌ MKL_jll
+│  Downloading artifact: IntelOpenMP
+│   Downloading artifact: oneTBB
+└
+Status `/scratch/anditse/Breeze.jl/.runtime/environments/trillium_weak512/Project.toml`
+  [660aa2fb] Breeze v0.15.0 `~/Breeze.jl`
+⌃ [052768ef] CUDA v6.4.2
+  [da04e1cc] MPI v0.20.29
+  [3da0fdf6] MPIPreferences v0.1.12
+⌅ [3fe64909] NCCL v0.1.3
+  [5da4648a] NVTX v1.0.3
+⌅ [9e8cae18] Oceananigans v0.117.2
+  [21216c6a] Preferences v1.6.1
+⌅ [fe0851c0] OpenMPI_jll v4.1.11+0
+  [de0858da] Printf v1.11.0
+Info Packages marked with ⌃ and ⌅ have new versions available. Those with ⌃ may be upgradable, but those with ⌅ are restricted by compatibility constraints from upgrading. To see why use `status --outdated`

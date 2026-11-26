@@ -1,0 +1,55 @@
+STARTING anelastic_SERIAL_1g_1x1
+STARTING compressible_explicit_SERIAL_1g_1x1
+
+scontrol show job 1413542
+JobId=1413542 JobName=breeze_anelastic_ce_nccl_1g
+   UserId=anditse(3165591) GroupId=anditse(3165591) MCS_label=N/A
+   Priority=1654838 Nice=0 Account=def-fpoulin QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:06:00 TimeLimit=03:00:00 TimeMin=N/A
+   SubmitTime=2026-11-25T22:10:46 EligibleTime=2026-11-25T22:10:46
+   AccrueTime=2026-11-25T22:10:46
+   StartTime=2026-11-26T00:39:24 EndTime=2026-11-26T00:45:24 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-26T00:39:24 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=trig-login01:4055616
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=trig0005
+   BatchHost=trig0005
+   NumNodes=1 NumCPUs=24 NumTasks=1 CPUs/Task=24 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=24,mem=187.50G,node=1,billing=1,gres/gpu=1
+   AllocTRES=cpu=24,mem=187.50G,node=1,billing=1,gres/gpu=1
+   Socks/Node=* NtasksPerN:B:S:C=1:0:*:* CoreSpec=*
+   MinCPUsNode=24 MinMemoryNode=187.50G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh
+   SubmitLine=SBATCH --comment /opt/slurm/bin/sbatch --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_1g --nodes=1 --ntasks=1 --ntasks-per-node=1 --gpus-per-node=h100:1 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_1g --nodes=1 --ntasks=1 --ntasks-per-node=1 --gpus-per-node=h100:1 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh
+   WorkDir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25
+   Comment=/opt/slurm/bin/sbatch --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_1g --nodes=1 --ntasks=1 --ntasks-per-node=1 --gpus-per-node=h100:1 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/allocation.sh
+   StdErr=
+   StdIn=/dev/null
+   StdOut=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/1g/slurm-1413542.out
+   TresPerNode=gres/gpu:h100:1
+   TresPerTask=cpu=24
+
+sacct -j 1413542
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- --------
+1413542      breeze_an+ def-fpoul+   00:06:00                        00:50.621  02:09.430      0:0
+1413542.bat+      batch def-fpoul+   00:06:00                         00:00:00   00:00:00      0:0
+1413542.ext+     extern def-fpoul+   00:06:00                         00:00:00   00:00:00      0:0
+1413542.0         julia def-fpoul+   00:00:24          0   2347676K  00:04.096  00:07.994      0:0
+1413542.1          bash def-fpoul+   00:02:51          0   2964076K  00:46.525  02:01.436      0:0
+1413542.2          bash def-fpoul+   00:02:32                         00:00:00   00:00:00      0:0
+
+
+kernel messages produced during job executions:
+[Nov26 00:41] overlayfs: failed to set xattr on upper
+[  +0.000005] overlayfs: ...falling back to uuid=null.
+[  +0.000003] overlayfs: try mounting with 'userxattr' option
+[  +0.000013] overlayfs: "xino" feature enabled using 2 upper inode bits.
+[  +0.011426] overlayfs: failed to set xattr on upper
+[  +0.000001] overlayfs: ...falling back to uuid=null.
+[  +0.000001] overlayfs: try mounting with 'userxattr' option
+[  +0.000010] overlayfs: "xino" feature enabled using 2 upper inode bits.

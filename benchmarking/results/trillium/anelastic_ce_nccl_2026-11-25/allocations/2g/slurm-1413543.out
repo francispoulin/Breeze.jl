@@ -1,0 +1,44 @@
+STARTING anelastic_NCCL_2g_2x1
+STARTING compressible_explicit_NCCL_2g_2x1
+
+scontrol show job 1413543
+JobId=1413543 JobName=breeze_anelastic_ce_nccl_2g
+   UserId=anditse(3165591) GroupId=anditse(3165591) MCS_label=N/A
+   Priority=1655042 Nice=0 Account=def-fpoulin QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:08:09 TimeLimit=03:00:00 TimeMin=N/A
+   SubmitTime=2026-11-25T22:10:46 EligibleTime=2026-11-25T22:10:46
+   AccrueTime=2026-11-25T22:10:46
+   StartTime=2026-11-26T00:38:54 EndTime=2026-11-26T00:47:03 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-26T00:38:54 Scheduler=Backfill
+   Partition=compute_full_node AllocNode:Sid=trig-login01:4055616
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=trig0047
+   BatchHost=trig0047
+   NumNodes=1 NumCPUs=96 NumTasks=4 CPUs/Task=24 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=96,mem=770000M,node=1,billing=4,gres/gpu=4
+   AllocTRES=cpu=96,mem=770000M,node=1,billing=4,gres/gpu=4
+   Socks/Node=* NtasksPerN:B:S:C=4:0:*:* CoreSpec=*
+   MinCPUsNode=96 MinMemoryNode=770000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/allocation.sh
+   SubmitLine=SBATCH --partition=compute_full_node --comment /opt/slurm/bin/sbatch --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_2g --nodes=1 --ntasks=4 --ntasks-per-node=4 --gpus-per-node=h100:4 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/allocation.sh --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_2g --nodes=1 --ntasks=4 --ntasks-per-node=4 --gpus-per-node=h100:4 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/allocation.sh
+   WorkDir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25
+   Comment=/opt/slurm/bin/sbatch --parsable --account=def-fpoulin --job-name=breeze_anelastic_ce_nccl_2g --nodes=1 --ntasks=4 --ntasks-per-node=4 --gpus-per-node=h100:4 --cpus-per-task=24 --time=03:00:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/anelastic_ce_nccl_2026-11-25 --output=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/allocation.sh
+   StdErr=
+   StdIn=/dev/null
+   StdOut=/scratch/anditse/Breeze.jl/studies/anelastic_ce_nccl_2026-11-25/allocations/2g/slurm-1413543.out
+   TresPerNode=gres/gpu:h100:4
+   TresPerTask=cpu=24
+
+sacct -j 1413543
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- --------
+1413543      breeze_an+ def-fpoul+   00:08:09                        02:11.866  13:06.040      0:0
+1413543.bat+      batch def-fpoul+   00:08:09          0     67420K  00:00.418  00:00.898      0:0
+1413543.ext+     extern def-fpoul+   00:08:09                         00:00:00   00:00:00      0:0
+1413543.0         julia def-fpoul+   00:00:28          0   1830548K  00:06.618   00:00:17      0:0
+1413543.1          bash def-fpoul+   00:04:23          0   4085452K  00:30.451  08:13.395      0:0
+1413543.2          bash def-fpoul+   00:03:07          0   3690240K  01:34.378  04:34.745      0:0
