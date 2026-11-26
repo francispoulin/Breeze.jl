@@ -145,8 +145,8 @@
     "case": "anelastic_1gd",
     "state": "COMPLETE",
     "source_commit": "f069ccff22fa27581dee625965ec1fbcb08750cf",
-    "cuda_visible_devices": "2",
-    "started_utc": "2026-11-26T03:12:01.850785+00:00",
+    "cuda_visible_devices": "0",
+    "started_utc": "2026-11-26T19:03:16.580013+00:00",
     "command": [
       "timeout",
       "--foreground",
@@ -181,12 +181,12 @@
     ],
     "exit_code": 0,
     "foreign_processes": [],
-    "finished_utc": "2026-11-26T03:14:45.094885+00:00",
+    "finished_utc": "2026-11-26T19:06:00.884941+00:00",
     "placements": [
       [
         "0",
         "rondeau",
-        "0d23b51f-58fb-31df-e839-8dd85117df68",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
         "NCCLCommunicator"
       ]
     ],
@@ -194,7 +194,7 @@
       [
         "0",
         "true",
-        "17962237952"
+        "17396006912"
       ]
     ],
     "measurement": {
@@ -208,8 +208,8 @@
       "Ry": "1",
       "gpus": "1",
       "steps": "10",
-      "seconds_per_step": "8.342721e-01",
-      "points_per_second": "1.608800e+08",
+      "seconds_per_step": "8.347280e-01",
+      "points_per_second": "1.607922e+08",
       "max_abs_w": "6.442626e-05",
       "communication": "NCCL",
       "fields_finite": "true"
@@ -219,8 +219,8 @@
     "case": "explicit_1gd",
     "state": "COMPLETE",
     "source_commit": "f069ccff22fa27581dee625965ec1fbcb08750cf",
-    "cuda_visible_devices": "2",
-    "started_utc": "2026-11-26T03:14:45.622003+00:00",
+    "cuda_visible_devices": "0",
+    "started_utc": "2026-11-26T19:06:01.421319+00:00",
     "command": [
       "timeout",
       "--foreground",
@@ -255,12 +255,12 @@
     ],
     "exit_code": 0,
     "foreign_processes": [],
-    "finished_utc": "2026-11-26T03:17:08.877929+00:00",
+    "finished_utc": "2026-11-26T19:08:27.803852+00:00",
     "placements": [
       [
         "0",
         "rondeau",
-        "0d23b51f-58fb-31df-e839-8dd85117df68",
+        "3cc138cf-9b95-c6e6-9b51-330b5d985885",
         "NCCLCommunicator"
       ]
     ],
@@ -268,7 +268,7 @@
       [
         "0",
         "true",
-        "17574264832"
+        "15363866624"
       ]
     ],
     "measurement": {
@@ -282,8 +282,8 @@
       "Ry": "1",
       "gpus": "1",
       "steps": "10",
-      "seconds_per_step": "7.312678e-01",
-      "points_per_second": "1.835411e+08",
+      "seconds_per_step": "7.354742e-01",
+      "points_per_second": "1.824914e+08",
       "max_abs_w": "2.102493e-03",
       "communication": "NCCL",
       "fields_finite": "true"

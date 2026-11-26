@@ -29,8 +29,8 @@ efficiency = 100 × T_base/T_compared with the slower rank): [kernel_scaling_ser
 |------|-------|--------------------|------|---------------------------------------|
 | hydrostatic_1gd | COMPLETE | 2.587143e-06 | 2 | none |
 | nonhydrostatic_1gd | COMPLETE | 2.523582e-06 | 2 | none |
-| anelastic_1gd | COMPLETE | 6.442626e-05 | 2 | none |
-| explicit_1gd | COMPLETE | 2.102493e-03 | 2 | none |
+| anelastic_1gd | COMPLETE | 6.442626e-05 | 0 | none |
+| explicit_1gd | COMPLETE | 2.102493e-03 | 0 | none |
 
 ## Trace summary per rank
 
@@ -38,8 +38,8 @@ efficiency = 100 × T_base/T_compared with the slower rank): [kernel_scaling_ser
 |------|------|--------------|----------------|---------------|---------------------|----------------------|-----------------------|
 | hydrostatic_1gd | 0 | 0.2371 | 227.1 | 279 | 0.999 | 0.005 | 0.000 |
 | nonhydrostatic_1gd | 0 | 0.5240 | 505.1 | 186 | 1.000 | 0.010 | 0.497 |
-| anelastic_1gd | 0 | 0.3874 | 386.4 | 269 | 0.997 | 0.033 | 0.348 |
-| explicit_1gd | 0 | 0.2722 | 271.9 | 249 | 0.999 | 0.054 | 0.000 |
+| anelastic_1gd | 0 | 0.3855 | 384.5 | 269 | 0.997 | 0.033 | 0.344 |
+| explicit_1gd | 0 | 0.2719 | 271.6 | 249 | 0.999 | 0.054 | 0.000 |
 
 Trace seconds per step include profiling overhead. Fractions are of summed
 kernel time, attributed through CUDA launch correlation IDs to enclosing
@@ -66,3 +66,10 @@ Every 30 s it looks for GPUs with no compute processes and at least
 35000 MiB free, and sets CUDA_VISIBLE_DEVICES for one launch.
 Live state: `/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/status.json`. Controller log: `/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/logs/controller.log`.
 On completion it commits this directory to benchmark-results and pushes.
+
+## Superseded captures
+
+These launches were captured again; the tables above use only the newer capture.
+
+- `anelastic_1gd` from 2026-11-26T03:12:01 UTC (superseded 2026-11-26T19:03:16 UTC): reports in `/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/superseded/anelastic_1gd_20261126T190316Z`, logs in `logs/superseded/anelastic_1gd_20261126T190316Z`. Reason: Launched without environment.sh (default CUDA memory pool, default GC threads, no GC NVTX ranges); recaptured with it.
+- `explicit_1gd` from 2026-11-26T03:14:45 UTC (superseded 2026-11-26T19:03:16 UTC): reports in `/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/superseded/explicit_1gd_20261126T190316Z`, logs in `logs/superseded/explicit_1gd_20261126T190316Z`. Reason: Launched without environment.sh (default CUDA memory pool, default GC threads, no GC NVTX ranges); recaptured with it.

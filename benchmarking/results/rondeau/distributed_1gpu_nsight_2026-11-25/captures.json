@@ -45,11 +45,11 @@
         "rank": 0,
         "report": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/anelastic_1gd/rank_0/profile.nsys-rep",
         "sqlite": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/anelastic_1gd/rank_0/profile.sqlite",
-        "bytes": 632208,
-        "sha256": "1ca22d076646056a5815eb67b09c10c3ae01d2ab503f99911c6575c903138ca9",
+        "bytes": 623833,
+        "sha256": "9dd9f864ab311be25d9d6f57cbd0b90f38254d393a277d6278b385e285d5f6db",
         "kernels": 2690,
         "ranges": 740,
-        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
       }
     ]
   },
@@ -63,11 +63,11 @@
         "rank": 0,
         "report": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/explicit_1gd/rank_0/profile.nsys-rep",
         "sqlite": "/u/ajtse/Breeze.jl/.runtime/distributed_1gpu_nsight_2026-11-25/raw/explicit_1gd/rank_0/profile.sqlite",
-        "bytes": 586325,
-        "sha256": "e4da1f788ce4760acb29a31a200fd2c407050c5cf88c24c489b02a93359ff440",
+        "bytes": 580804,
+        "sha256": "5dc5ba437a61d01c03add27bb86475fb6d2d4a8fcdd6bfad72cdcf4cf52f412f",
         "kernels": 2490,
         "ranges": 740,
-        "gpu_uuid": "0d23b51f-58fb-31df-e839-8dd85117df68"
+        "gpu_uuid": "3cc138cf-9b95-c6e6-9b51-330b5d985885"
       }
     ]
   }
