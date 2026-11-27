@@ -1,0 +1,76 @@
+{
+  "submitted": "2026-11-26T21:28:41.994398+00:00",
+  "jobs": [
+    {
+      "gpus": 4,
+      "job_id": "1418162",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin",
+        "--job-name=breeze_nsight_4g",
+        "--nodes=1",
+        "--ntasks=4",
+        "--ntasks-per-node=4",
+        "--gpus-per-node=h100:4",
+        "--cpus-per-task=24",
+        "--time=01:30:00",
+        "--distribution=block:block",
+        "--chdir=/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26",
+        "--output=/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/slurm-%j.out",
+        "/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/allocation.sh"
+      ]
+    },
+    {
+      "gpus": 8,
+      "job_id": "1418163",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin",
+        "--job-name=breeze_nsight_8g",
+        "--nodes=2",
+        "--ntasks=8",
+        "--ntasks-per-node=4",
+        "--gpus-per-node=h100:4",
+        "--cpus-per-task=24",
+        "--time=01:30:00",
+        "--distribution=block:block",
+        "--chdir=/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26",
+        "--output=/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/8g/slurm-%j.out",
+        "/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/8g/allocation.sh"
+      ]
+    }
+  ],
+  "state": "submitted",
+  "retry_jobs": [
+    {
+      "gpus": 4,
+      "job_id": "1421438",
+      "cases": [
+        "compressible_explicit_NCCL_4g_4x1"
+      ],
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=def-fpoulin",
+        "--job-name=breeze_nsight_4g_retry",
+        "--nodes=1",
+        "--ntasks=4",
+        "--ntasks-per-node=4",
+        "--gpus-per-node=h100:4",
+        "--cpus-per-task=24",
+        "--time=01:30:00",
+        "--distribution=block:block",
+        "--chdir=/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26",
+        "--output=/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g_retry1/slurm-%j.out",
+        "/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g_retry1/allocation.sh"
+      ],
+      "rejected": [
+        "compressible_explicit_NCCL_4g_4x1_job1418162"
+      ],
+      "submitted": "2026-11-27T06:43:39.446046+00:00",
+      "reason": "nsys exited 13 s after launch with \"Failed to find session: profile-<pid>\" on ranks 1-3 (rank exit 1) immediately after the previous srun step on the same node; no model code ran"
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+STARTING anelastic_NCCL_4g_4x1 2026-11-27T06:35:15.046863+00:00
+STARTING compressible_explicit_NCCL_4g_4x1 2026-11-27T06:39:00.592741+00:00
+FAILED compressible_explicit_NCCL_4g_4x1: srun failed with exit code 143
+
+scontrol show job 1418162
+JobId=1418162 JobName=breeze_nsight_4g
+   UserId=anditse(3165591) GroupId=anditse(3165591) MCS_label=N/A
+   Priority=1644808 Nice=0 Account=def-fpoulin QOS=normal
+   JobState=COMPLETING Reason=NonZeroExitCode Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=1:0
+   RunTime=00:04:09 TimeLimit=01:30:00 TimeMin=N/A
+   SubmitTime=2026-11-26T16:28:42 EligibleTime=2026-11-26T16:28:42
+   AccrueTime=2026-11-26T16:28:42
+   StartTime=2026-11-27T01:35:04 EndTime=2026-11-27T01:39:13 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-27T01:35:04 Scheduler=Backfill
+   Partition=compute_full_node AllocNode:Sid=trig-login01:2194168
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=trig0049
+   BatchHost=trig0049
+   NumNodes=1 NumCPUs=96 NumTasks=4 CPUs/Task=24 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=96,mem=770000M,node=1,billing=4,gres/gpu=4
+   AllocTRES=cpu=96,mem=770000M,node=1,billing=4,gres/gpu=4
+   Socks/Node=* NtasksPerN:B:S:C=4:0:*:* CoreSpec=*
+   MinCPUsNode=96 MinMemoryNode=770000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/allocation.sh
+   SubmitLine=SBATCH --partition=compute_full_node --comment /opt/slurm/bin/sbatch --parsable --account=def-fpoulin --job-name=breeze_nsight_4g --nodes=1 --ntasks=4 --ntasks-per-node=4 --gpus-per-node=h100:4 --cpus-per-task=24 --time=01:30:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26 --output=/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/allocation.sh --parsable --account=def-fpoulin --job-name=breeze_nsight_4g --nodes=1 --ntasks=4 --ntasks-per-node=4 --gpus-per-node=h100:4 --cpus-per-task=24 --time=01:30:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26 --output=/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/allocation.sh
+   WorkDir=/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26
+   Comment=/opt/slurm/bin/sbatch --parsable --account=def-fpoulin --job-name=breeze_nsight_4g --nodes=1 --ntasks=4 --ntasks-per-node=4 --gpus-per-node=h100:4 --cpus-per-task=24 --time=01:30:00 --distribution=block:block --chdir=/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26 --output=/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/slurm-%j.out /scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/allocation.sh
+   StdErr=
+   StdIn=/dev/null
+   StdOut=/scratch/anditse/Breeze.jl/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/allocations/4g/slurm-1418162.out
+   TresPerNode=gres/gpu:h100:4
+   TresPerTask=cpu=24
+
+sacct -j 1418162
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- --------
+1418162      breeze_ns+ def-fpoul+   00:04:09                        01:47.350  09:42.879      0:0
+1418162.bat+      batch def-fpoul+   00:04:09                         00:00:00   00:00:00      0:0
+1418162.ext+     extern def-fpoul+   00:04:09                         00:00:00   00:00:00      0:0
+1418162.0          bash def-fpoul+   00:03:43          0   4971640K  01:32.174  09:42.731      0:0
+1418162.1          bash def-fpoul+   00:00:13          0     61736K  00:15.176  00:00.147     0:15
+
+
+kernel messages produced during job executions:
+[Nov27 01:34] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000071] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.035615] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000350] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.027614] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000091] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.108152] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.024168] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.050019] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000066] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.006620] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000026] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.010867] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.001135] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.046313] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000033] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.008622] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000043] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.004767] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000031] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.034224] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000039] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.038578] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000883] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.009754] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000873] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.002182] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.001915] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.072348] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.001118] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.084560] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000038] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +2.842505] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000050] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.747971] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000046] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.407856] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000042] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.083386] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000030] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.032696] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000025] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000114] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000003] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.009077] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000059] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.014103] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000040] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.027399] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000034] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.004664] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000049] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.033588] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000022] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.018229] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000032] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.008087] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000028] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.045175] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000022] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.019829] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000031] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.009131] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000033] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +4.752663] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.026156] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.033440] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.025586] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +1.462397] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.001366] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.004423] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.011810] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.001102] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.006032] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.009158] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000018] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.004597] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.011206] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.002241] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.005029] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[Nov27 01:37] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000679] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000976] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000265] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.001393] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000669] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000024] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000051] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.027520] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000019] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000027] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000011] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.001410] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000018] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000030] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000010] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.043810] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000026] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000019] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000858] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000010] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000010] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000018] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000854] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.058998] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000854] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000022] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000020] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000025] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000010] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000012] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000010] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +1.582754] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000027] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.002971] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000035] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.012518] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000021] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.002574] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000021] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.017846] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000046] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000837] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000747] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.011591] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000066] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.005658] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000034] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.013277] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000020] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000062] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000018] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.041203] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000034] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.004028] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000021] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000027] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000006] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.002522] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000033] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.047237] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000020] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000019] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000010] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[Nov27 01:38] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000115] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000039] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000012] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.038356] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000018] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000023] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000011] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.037596] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000019] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000018] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000010] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.025700] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000045] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.027482] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000042] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.014290] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000982] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.008733] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.001376] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.000023] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000025] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.022974] NVRM: GPU1 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000035] NVRM: GPU1 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.040925] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000035] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.031738] NVRM: GPU2 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000035] NVRM: GPU2 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.064885] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000044] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +0.032954] NVRM: GPU3 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000074] NVRM: GPU3 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480
+[  +1.627643] NVRM: GPU0 refcntRequestReference_IMPL: Failed to enter state 1 (current state: 0, status: 0x00000056)
+[  +0.000027] NVRM: GPU0 gpuValidateRegOffset_IMPL: User does not have permission to access register offset 0x9480

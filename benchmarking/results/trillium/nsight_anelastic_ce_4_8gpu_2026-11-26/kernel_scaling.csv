@@ -1,0 +1,47 @@
+comparison,kernel,base_case,scaled_case,base_launches_per_step,scaled_launches_per_step,base_milliseconds_per_step,scaled_milliseconds_per_step,difference_milliseconds,difference_percent,efficiency_percent
+Anelastic 4 vs 8 GPUs,ncclDevKernel_SendRecv,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,60.0,60.0,27.705748200000006,207.51642970000003,179.81068150000002,649.0013559713215,13.351110675937003
+Anelastic 4 vs 8 GPUs,gpu__pack_buffer_x_to_y_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,5.9665691,6.4410482,0.47447909999999993,7.952293722702381,92.63351111081579
+Anelastic 4 vs 8 GPUs,gpu_permutedims_kernel_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,12.0,12.0,52.35718700000001,52.770130599999995,0.4129435999999842,0.7887047102052754,99.21746716313797
+Anelastic 4 vs 8 GPUs,gpu_compute_potential_temperature_tendency_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,18.1386769,18.1640956,0.02541869999999946,0.14013535904594818,99.86006074533103
+Anelastic 4 vs 8 GPUs,gpu_compute_x_momentum_tendency_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,14.4780417,14.500830500000001,0.02278880000000072,0.15740250285368856,99.8428448632649
+Anelastic 4 vs 8 GPUs,gpu__compute_auxiliary_thermodynamic_variables_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,5.7562706,5.7741228,0.017852200000000096,0.31013482931118797,99.69082403304618
+Anelastic 4 vs 8 GPUs,gpu_compute_z_momentum_tendency_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,16.379894,16.3950476,0.015153600000001433,0.09251341919551757,99.90757208902521
+Anelastic 4 vs 8 GPUs,gpu_compute_scalar_tendency_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,14.069048900000002,14.078660600000001,0.00961169999999889,0.06831805098068064,99.93172859071552
+Anelastic 4 vs 8 GPUs,gpu__unpack_buffer_x_from_y_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,3.0029684,3.0099611,0.006992700000000074,0.23285959319452293,99.76768138299195
+Anelastic 4 vs 8 GPUs,gpu_compute_y_momentum_tendency_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,14.5039413,14.510571500000001,0.006630200000001807,0.04571309179251716,99.95430779552686
+Anelastic 4 vs 8 GPUs,gpu__broadcast_kernel_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,1.855321,1.8599625000000004,0.004641500000000409,0.25017234214458894,99.75045195803678
+Anelastic 4 vs 8 GPUs,gpu__compute_anelastic_source_term_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,2.9530478,2.957586,0.00453820000000027,0.15367851478734174,99.84655729368478
+Anelastic 4 vs 8 GPUs,partial_mapreduce_grid,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,6.0,6.0,2.4214706999999995,2.4258099,0.004339200000000432,0.1791968822914286,99.82112365853564
+Anelastic 4 vs 8 GPUs,gpu__copy_real_component_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,1.9127547000000003,1.9164389,0.0036841999999996933,0.19261225707612653,99.80775802453186
+Anelastic 4 vs 8 GPUs,gpu__pack_buffer_y_to_x_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,2.4542516,2.4575506000000003,0.003299000000000163,0.13441979624257605,99.86576064802082
+Anelastic 4 vs 8 GPUs,gpu__ssp_rk3_substep_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,15.0,15.0,15.836507399999999,15.838254600000003,0.0017472000000040566,0.011032735664961435,99.98896848141332
+Anelastic 4 vs 8 GPUs,scal_kernel_ref,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,6.0,6.0,4.4995193,4.5008288,0.0013094999999996304,0.029103108858753654,99.9709053585864
+Anelastic 4 vs 8 GPUs,gpu__compute_z_bcs_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,9.0,9.0,0.031001,0.0319329,0.0009318999999999994,3.006032063481821,97.08169317537713
+Anelastic 4 vs 8 GPUs,vector_fft,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,12.0,12.0,8.589606,8.5898646,0.0002586000000004418,0.003010615387951925,99.99698947524737
+Anelastic 4 vs 8 GPUs,gpu_solve_batched_tridiagonal_system_kernel_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,7.2995824,7.297287299999999,-0.0022951000000013266,-0.03144152465490802,100.03145141345883
+Anelastic 4 vs 8 GPUs,gpu__pressure_correct_momentum_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,7.76722,7.761742100000001,-0.005477899999998925,-0.07052587669718284,100.07057565079364
+Anelastic 4 vs 8 GPUs,gpu__unpack_buffer_y_from_x_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,2.9107343,2.8988171,-0.011917200000000072,-0.40942246085463974,100.41110561959913
+Anelastic 4 vs 8 GPUs,gpu__fill_periodic_south_and_north_halo_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,54.0,54.0,0.8977264999999999,0.8767701999999999,-0.020956299999999928,-2.3343746675629973,102.39017019510926
+Anelastic 4 vs 8 GPUs,gpu__copy_from_buffer_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,78.0,78.0,2.0949386,2.0739174,-0.02102119999999985,-1.003427976361687,101.01359870937964
+Anelastic 4 vs 8 GPUs,gpu__compute_velocities_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,3.0,3.0,5.0916246,5.0550782000000005,-0.03654639999999976,-0.7177748335963291,100.72296408787503
+Anelastic 4 vs 8 GPUs,gpu__fill_bottom_and_top_halo_,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,54.0,54.0,0.250999,0.2140759,-0.036923100000000014,-14.710457013772967,117.24766776643237
+Anelastic 4 vs 8 GPUs,gpu_broadcast_kernel_cartesian,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,119.0,119.0,11.2519759,11.181081,-0.07089489999999898,-0.630066226857089,100.63406123254093
+Anelastic 4 vs 8 GPUs,All kernels,anelastic_NCCL_4g_4x1,anelastic_NCCL_8g_8x1,473.0,473.0,250.29931900000003,429.97878060000005,179.67946160000002,71.78583718000448,58.212016567591526
+CE 4 vs 8 GPUs,ncclDevKernel_SendRecv,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,63.0,63.0,8.9160468,69.60536579999999,60.68931899999998,680.6751956483672,12.809424528590009
+CE 4 vs 8 GPUs,gpu__ssp_rk3_substep_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,18.0,18.0,18.9353068,19.0160111,0.08070430000000073,0.4262106806740556,99.57559816527451
+CE 4 vs 8 GPUs,gpu__compute_velocities_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,5.3961092,5.4531054,0.056996200000000385,1.0562462301541338,98.95479372175714
+CE 4 vs 8 GPUs,gpu_compute_potential_temperature_tendency_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,18.8279575,18.843971200000002,0.016013700000002018,0.08505277324957855,99.91501950501812
+CE 4 vs 8 GPUs,gpu__compute_total_density_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,2.0276281000000003,2.0411751,0.013546999999999532,0.6681205493255656,99.3363136753922
+CE 4 vs 8 GPUs,gpu_compute_scalar_tendency_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,14.5114273,14.518198600000002,0.006771300000002256,0.04666184697078182,99.95335991615377
+CE 4 vs 8 GPUs,gpu__compute_density_tendency_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,2.4814119,2.4836764000000002,0.0022645000000003357,0.09125852906566362,99.90882467619372
+CE 4 vs 8 GPUs,gpu__compute_z_bcs_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,9.0,9.0,0.031750799999999996,0.031885000000000004,0.00013420000000000792,0.4226665154893985,99.57911243531439
+CE 4 vs 8 GPUs,gpu_compute_x_momentum_tendency_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,15.167223099999998,15.1589034,-0.00831969999999771,-0.0548531523875172,100.05488325758442
+CE 4 vs 8 GPUs,gpu_compute_y_momentum_tendency_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,15.2145379,15.205499699999999,-0.009038200000000884,-0.0594050247165304,100.0594403352624
+CE 4 vs 8 GPUs,gpu__compute_temperature_and_pressure_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,6.8083309,6.798661200000001,-0.009669699999999004,-0.14202746814199357,100.14222947306153
+CE 4 vs 8 GPUs,gpu_compute_z_momentum_tendency_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,15.500264300000001,15.4875598,-0.012704500000001673,-0.0819631185256736,100.08203035316126
+CE 4 vs 8 GPUs,gpu__compute_auxiliary_thermodynamic_variables_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,3.0,3.0,7.875435399999999,7.858567599999999,-0.01686779999999999,-0.2141824438049481,100.21464216964934
+CE 4 vs 8 GPUs,gpu__fill_periodic_south_and_north_halo_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,63.0,63.0,1.0421761,1.0224103999999998,-0.01976570000000022,-1.8965796663347219,101.93324520173115
+CE 4 vs 8 GPUs,gpu__copy_from_buffer_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,90.0,90.0,2.4292925999999997,2.4035774,-0.025715199999999605,-1.0585468378736924,101.06987193339393
+CE 4 vs 8 GPUs,gpu__fill_bottom_and_top_halo_,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,60.0,60.0,0.2924461,0.2656026,-0.026843499999999965,-9.17895639572556,110.10664052234426
+CE 4 vs 8 GPUs,gpu_broadcast_kernel_cartesian,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,132.0,132.0,9.5173091,9.437779299999999,-0.07952980000000132,-0.8356332568835168,100.84267492883629
+CE 4 vs 8 GPUs,All kernels,compressible_explicit_NCCL_4g_4x1,compressible_explicit_NCCL_8g_8x1,465.0,465.0,143.75480570000002,205.40804160000002,61.6532359,42.887773803307354,69.98499405390368

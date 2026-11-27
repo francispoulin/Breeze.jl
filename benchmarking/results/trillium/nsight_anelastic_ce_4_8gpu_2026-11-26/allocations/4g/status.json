@@ -1,0 +1,17 @@
+{
+  "job_id": "1418162",
+  "gpus": 4,
+  "started": "2026-11-27T06:35:14.135760+00:00",
+  "state": "failed",
+  "cases": [
+    {
+      "id": "anelastic_NCCL_4g_4x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_explicit_NCCL_4g_4x1",
+      "validated": false
+    }
+  ],
+  "finished": "2026-11-27T06:39:13.602782+00:00"
+}

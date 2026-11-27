@@ -1,0 +1,18 @@
+{
+  "case": {
+    "id": "compressible_explicit_NCCL_4g_4x1",
+    "dynamics": "compressible_explicit",
+    "gpus": 4,
+    "size": "2048x512x512",
+    "partition": "4x1",
+    "backend": "NCCL",
+    "time_step": 0.0025,
+    "float_type": "Float32",
+    "timed_steps": 10
+  },
+  "state": "failed",
+  "started": "2026-11-27T06:39:00.601263+00:00",
+  "job_id": "1418162",
+  "error": "srun failed with exit code 143",
+  "finished": "2026-11-27T06:39:13.588565+00:00"
+}

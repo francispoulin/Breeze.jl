@@ -1,0 +1,5 @@
+srun: error: trig0049: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=1418162.1
+[2026-11-27T01:39:12.089] error: *** STEP 1418162.1 ON trig0049 CANCELLED AT 2026-11-27T01:39:12 DUE TO TASK FAILURE ***
+srun: error: trig0049: task 0: Terminated
+srun: Force Terminated StepId=1418162.1

@@ -1,0 +1,26 @@
+CCconfig
+gentoo/2023
+StdEnv/2023
+mii/1.1.2
+gcc/12.3
+flexiblas/3.3.1
+aocl-blas/5.1
+aocl-lapack/5.1
+gcccore/.12.3 <H>
+hwloc/2.9.1
+ucx/1.14.1
+libfabric/1.18.0
+pmix/4.2.4
+ucc/1.2.0
+openmpi/4.1.5
+gdrcopy/2.3.1
+cudacore/.12.6.2 <H>
+ucx-cuda/1.14.1
+nccl/2.26.2
+ucc-cuda/1.2.0
+cuda/12.6
+julia/1.12.5
+python/3.11.5
+python/3.11
+ipykernel/2025a
+scipy-stack/2025a

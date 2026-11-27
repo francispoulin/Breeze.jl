@@ -1,0 +1,39 @@
+{
+  "repository": "/home/anditse/Breeze.jl",
+  "source": "/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/source",
+  "environment": "/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26/environment",
+  "runtime": "/scratch/anditse/Breeze.jl/.runtime/studies/nsight_anelastic_ce_4_8gpu_2026-11-26",
+  "runtime_root": "/scratch/anditse/Breeze.jl/.runtime",
+  "raw": "/scratch/anditse/breeze_nsight/nsight_anelastic_ce_4_8gpu_2026-11-26/raw",
+  "series": "trillium_4_8",
+  "machine": "trillium",
+  "environment_script": "benchmarking/distributed/trillium/nsight_environment.sh",
+  "publish_directory": "/home/anditse/Breeze.jl/benchmarking/results/trillium/nsight_anelastic_ce_4_8gpu_2026-11-26",
+  "grids": [
+    [
+      4,
+      "2048x512x512",
+      "4x1",
+      0.0025
+    ],
+    [
+      8,
+      "4096x512x512",
+      "8x1",
+      0.00125
+    ]
+  ],
+  "prepared": "2026-11-26T21:28:41.403693+00:00",
+  "warmup_steps": 10,
+  "captured_steps": 10,
+  "float_type": "Float32",
+  "backend": "NCCL",
+  "random_perturbation": false,
+  "simplified": false,
+  "nvtx": true,
+  "profile": true,
+  "nsight_trace": "cuda,nvtx,mpi",
+  "case_limit_seconds": 2400,
+  "allocation_limit": "01:30:00",
+  "nsys": "NVIDIA Nsight Systems version 2024.5.1.113-245134619542v0"
+}

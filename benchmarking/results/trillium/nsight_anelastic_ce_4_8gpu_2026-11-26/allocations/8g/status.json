@@ -1,0 +1,17 @@
+{
+  "job_id": "1418163",
+  "gpus": 8,
+  "started": "2026-11-27T06:35:13.778789+00:00",
+  "state": "validated",
+  "cases": [
+    {
+      "id": "anelastic_NCCL_8g_8x1",
+      "validated": true
+    },
+    {
+      "id": "compressible_explicit_NCCL_8g_8x1",
+      "validated": true
+    }
+  ],
+  "finished": "2026-11-27T06:41:44.141535+00:00"
+}
